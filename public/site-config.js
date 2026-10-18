@@ -1,2 +1,4 @@
-// Set only the verified Luma event URL. Do not fabricate an event slug.
-window.GLHC_CONFIG = Object.freeze({ lumaUrl: '' });
+/** Public configuration. Paste the exact Luma event URL here after it has been provided. */
+window.GLHC_CONFIG = Object.freeze({
+  lumaUrl: '',
+});

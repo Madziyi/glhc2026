@@ -1,11 +1,41 @@
-# Active Initiative — GLHC-001
+# Active Initiative
 
-Status: **partial / browser UAT pending**. Terra has prepared the full mobile-first implementation package locally and is establishing repo context. Codex Sol is the next build-and-verify agent.
+**Initiative:** GLHC-001 — cinematic opening implementation and browser UAT
+**Status:** PARTIAL — workspace baseline synced to the feature branch; tests, build and responsive browser UAT completed; pending review
+**Planning & initial implementation:** Terra
+**Next implementation and browser verification:** Codex Sol
 
-Goal: five-scene surface-to-underwater opening, challenge explanation, no-experience reassurance, $500 team prize/public display messaging, closing Luma registration link.
+## Goal
+Build a mobile-first, photorealistic surface-to-underwater scroll opening featuring the buoy, glider, five narrative stages, novice-friendly event messaging and a final Luma registration handoff.
 
-Source/asset bundle: `GLHC2026-initial-code.zip` provided in the coordinating ChatGPT thread. Import its complete contents into the repository before formal UAT. Until then, repo scaffolding alone is not a verified production build.
+## Scope
+- Above-water buoy with realistic background; glider descending below a moving waterline.
+- Scroll in both directions, no scroll hijacking, accessibility and fallback.
+- Clear prize and public-display invitation; no experience required.
+- End registration CTA reads validated `window.GLHC_CONFIG.lumaUrl` from `public/site-config.js`.
+- Responsive challenge, team and final CTA sections.
 
-Blocked: real Luma URL, browser UAT, npm install/build, production-quality glider and buoy segmentation, public asset rights approval.
+## Non-goals
+- Final GLB reconstruction and accurate submerged buoy structure.
+- Back-end registration, payment, email capture, sensor dashboard or sample-data playground.
+- A live deployment before Luma URL and rights review.
 
-Next: Sol imports full bundle, checks git remote and current context, runs npm install/test/build and browser UAT at 320/390/768/1440 widths, fixes defects, returns screenshots and verified results. No unrelated features.
+## Blockers / boundary
+- Real Luma registration URL not provided; CTA intentionally disabled.
+- The Luma registration URL has not been supplied, so the CTA remains disabled.
+- Provisional glider cutout quality is insufficient for final release; proper 3D glider/model must be assessed.
+- Need asset usage approval from RAEON.
+
+## Acceptance
+See `docs/SOL_UAT.md`. Implemented code and tests are not proof of a deployed website.
+
+## Verification
+- `npm install`: completed, 455 packages added; npm reported 3 dependency vulnerabilities (1 low, 1 high, 1 critical).
+- `npm test`: passed, 3/3.
+- `npm run build`: passed with `ASTRO_TELEMETRY_DISABLED=1`.
+- Browser UAT: 320×650, 390×844, 768×1024 and 1440×900; no horizontal overflow or page errors; scene reversal and reduced-motion fallback verified.
+- Screenshots: `uat/` contains the surface hero, waterline transition, underwater glider and registration ending at all four viewport sizes.
+- See `docs/SOL_UAT.md` for the exact run record. No deployment was performed or verified.
+
+## Next action
+Terra reviews the feature-branch handoff. Before production, replace the visibly water-fringed glider cutout with a verified asset, confirm photo rights and provide the real Luma registration URL.

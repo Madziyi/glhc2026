@@ -1,11 +1,29 @@
-# GLHC 2026 — Project Contract
+# GLHC 2026 — stable context
 
-Mobile-first, cinematic Great Lakes hackathon website. Surface buoy → waterline → underwater glider → beginner-friendly challenge → registration on an external Luma event page.
+## Purpose
+A mobile-first cinematic invitation to a Great Lakes water-quality data hackathon. Students use open hardware and real water-quality datasets to invent public-facing installations. The website must explain the challenge, emphasize no previous experience is required, communicate the $500 winning-team prize/public-display possibility, and convert visitors to an external Luma registration page.
 
-**Goals:** Students understand the event, the $500 winning-team prize, possible public displays, and that no previous experience is necessary. Photorealistic Great Lakes artwork, accurate RAEON equipment, reversible mobile scroll. Responsive tablet/desktop layout.
+## Primary users
+Interested students across all disciplines, including first-time hackathon participants, plus organizers reviewing the event.
 
-**Stack:** Astro / TypeScript, layered 2D assets, progressive enhancement; GSAP ScrollTrigger and Three.js only when adding visible value. No backend, database, authentication, or in-house registration.
+## Core principles
+- Make the event understandable from the first screen, without watching animations.
+- The opening uses a photorealistic Great Lakes surface-to-underwater scroll story.
+- Mobile is the primary layout, with tablet/desktop composed deliberately.
+- Prevent performance, motion or WebGL requirements from blocking basic content.
+- Show real RAEON hardware accurately; concept frames are not documentation of submerged equipment.
 
-**Boundaries:** Do not invent Luma URL, venue, event schedule or accurate underwater equipment geometry. Data-to-art playground deferred. Reduced-motion fallback, no scroll trapping, no false claims of live deployment. Production image rights must be checked.
+## Stack
+Astro + TypeScript shell, static build, CSS and progressively enhanced scroll animation; GSAP and Three.js reserved for later 3D glider pass. No backend, database, authentication, or user data collected on the site. Luma handles registration on their platform.
 
-**Source:** `src/pages/index.astro`, `public/styles.css`, `public/main.js`, `public/site-config.js`; full prepared asset and source bundle delivered separately for Sol import/UAT. GitHub main is the shared source of truth after review.
+## Source of truth
+`src/pages/index.astro`, `public/styles.css`, `public/main.js`, `public/site-config.js`. Public source photographs included for initial proof of concept; production asset rights/quality still require organizer confirmation. The registered event URL is blank until supplied.
+
+## Constraints
+- Mobile first, accessible navigation and prefers-reduced-motion mode.
+- Do not invent a Luma registration URL, event date, venue, eligibility restrictions, or equipment accuracy.
+- No water-quality data playground in the current scope.
+- Never store secrets. Any live/deployment claim must be verified externally.
+
+## Deliverables
+An opening demo, informative challenge/participation copy, closing Luma CTA, and a cross-runtime context system for planner (Terra) and local UAT/code agent (Sol).

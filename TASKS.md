@@ -1,7 +1,7 @@
 # Task board
 
 ## Active / next implementation
-- GLHC-002 `[ready]` — prototype faithful 3D yellow buoy and underwater sensor cage from approved references; waterline crossing and descending camera in isolated route. See `docs/GLHC-V2-SPEC.md`.
+- GLHC-002 `[implementation + browser UAT complete; visual review pending]` — isolated buoy/waterline/sensor camera and one horizontal science transition at `/prototype/glhc-002`; Luna high coded, parent reviewed and verified four viewports. Compressed GLB 76,776 B; six tests and build pass; 22 screenshots. See `docs/GLHC-002-UAT.md` for limitations. Existing `/` remains intact pending prototype review.
 
 ## Approved subsequent work
 - GLHC-003 `[planned]` — integrate people-first hero, floating $500 Prize corner badge, scientists/buoy scene, two science paragraphs with **one** horizontal transition.

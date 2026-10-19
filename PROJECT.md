@@ -13,7 +13,7 @@ People-first wide student photo over moving lake + attached upper-right **$500 P
 Astro + TypeScript static accessible shell; scroll-controlled Three.js canonical buoy and sensor assembly (GLB) + GSAP/ScrollTrigger or equivalent; lightweight 2D/photographic environment as appropriate. Horizontal panel movement consumes normal vertical scroll during a single pinned sensor pause. Must remain readable without WebGL and with reduced motion. No backend or customer data collection; registration handled by external verified Luma URL.
 
 ## Current state
-GLHC-001 initial glider-led opening has browser UAT and build verification (see LOG); it is now a superseded prototype. GLHC-002 is the new isolated 3D buoy/waterline feasibility build. Do not equate committed code or a draft PR with live deployment.
+GLHC-001 initial glider-led opening remains at `/` with its prior UAT evidence. GLHC-002 is developed separately at `/prototype/glhc-002`: a procedural, meshopt-compressed GLB with model source in `scripts/build-buoy.mjs`, a Three.js scene and one shared camera/prose timeline. The organizer reattached the approved full assembly reference during implementation. See `docs/GLHC-002-PLAN.md` and `docs/GLHC-002-UAT.md` for scope and verified results. Integration awaits visual review. Do not equate committed code or a draft PR with live deployment.
 
 ## Non-goals and controls
 No interactive data art, synthetic sensor telemetry, arbitrary water depths, forced scroll unlock, glider-led hero, secret keys, or unverified Luma URL. Need permission for production photos and NexSens drawings; avoid embedding copyrighted diagrams. Do not fabricate precise optional underwater apparatus beyond approved visual reference.

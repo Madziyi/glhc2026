@@ -1,0 +1,70 @@
+---
+import '../../styles/glhc002.css';
+---
+<html lang="en" class="static-motion">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#061b2b" />
+    <title>GLHC-002 | Buoy waterline prototype</title>
+    <meta name="description" content="A feasibility prototype for a scroll-driven Great Lakes buoy and sensor view." />
+  </head>
+  <body>
+    <a class="skip-link" href="#story-start">Skip prototype controls</a>
+    <header class="prototype-bar">
+      <a class="prototype-brand" href="#story-start">GLHC <span>002 / FEASIBILITY</span></a>
+      <nav aria-label="Prototype scene shortcuts">
+        <a href="#surface">Surface</a>
+        <a href="#crossing">Waterline</a>
+        <a href="#sensors">Sensors</a>
+        <label class="motion-toggle"><input id="reduce-motion" type="checkbox" /> <span>Reduce motion</span></label>
+      </nav>
+    </header>
+
+    <main id="story-start">
+      <section class="scroll-track" id="buoy-story" aria-label="Scroll through the buoy and its sensors">
+        <span class="scene-anchor" id="surface" style="top: 0" aria-hidden="true"></span>
+        <span class="scene-anchor" id="crossing" style="top: 98.6svh" aria-hidden="true"></span>
+        <span class="scene-anchor" id="sensors" style="top: 156.4svh" aria-hidden="true"></span>
+        <div class="sticky-stage" id="stage">
+          <div class="lake-backdrop" aria-hidden="true"></div>
+          <canvas id="buoy-canvas" aria-label="Three-dimensional yellow Great Lakes monitoring buoy and underwater sensor cage" role="img"></canvas>
+          <div class="water-glass" aria-hidden="true"></div>
+          <div class="fallback-illustration" aria-hidden="true">
+            <div class="fallback-tower"><span></span></div>
+            <div class="fallback-buoy"></div>
+            <div class="fallback-cage"><i></i><i></i><i></i></div>
+            <div class="fallback-sonde"></div><div class="fallback-ballast"></div>
+          </div>
+          <div class="stage-shade" aria-hidden="true"></div>
+          <div class="stage-topline"><span>GREAT LAKES / BUOY STUDY</span><span id="stage-label">Surface view</span></div>
+          <div class="science-copy" aria-label="Science notes">
+            <p class="eyebrow">WHY THE BUOY MATTERS</p>
+            <div class="panel-window" id="panel-window">
+              <div class="panel-track" id="panel-track">
+                <article class="science-panel" id="panel-one" aria-hidden="false">
+                  <h1>Signals from the lake.</h1>
+                  <p>Buoys equipped with scientific sensors collect measurements such as water temperature, dissolved oxygen, and indicators of algal activity. These observations help researchers understand how conditions in the Great Lakes change over time.</p>
+                </article>
+                <article class="science-panel" id="panel-two" aria-hidden="false">
+                  <h2>A shared freshwater future.</h2>
+                  <p>The Great Lakes support millions of people, provide drinking water, and sustain important ecosystems. Pollution, warming temperatures, and harmful algal blooms can threaten their health. Understanding these changes helps scientists and communities make informed decisions.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+          <p class="scroll-cue" id="scroll-cue">Scroll to descend <span aria-hidden="true">↓</span></p>
+          <output class="scene-readout" id="scene-readout" aria-label="Scene diagnostics" aria-live="off"
+            data-progress="0" data-phase="surface" data-camera-parked="false" data-draw-calls="0" data-triangles="0" data-frame-ms="0">
+            <span id="readout-progress">00%</span><span id="readout-phase">SURFACE</span><span id="readout-render">PREPARING</span>
+          </output>
+          <noscript><p class="no-script">This static buoy view keeps both science notes readable below.</p></noscript>
+        </div>
+      </section>
+      <footer class="prototype-footer"><span>GLHC-002 / isolated feasibility route</span><a href="#surface">Return to surface ↑</a></footer>
+    </main>
+    <script>
+      import '../../scripts/glhc002/bootstrap.js';
+    </script>
+  </body>
+</html>

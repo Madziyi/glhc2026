@@ -15,3 +15,11 @@
 - Limitations: online npm audit could not reach `registry.npmjs.org`; no Lighthouse/Core Web Vitals run or deployment verification. The glider image still has obvious lake-water fringe and requires an approved, verified replacement asset; RAEON usage approval and the real Luma URL remain outstanding.
 - Screenshots: `uat/{mobile-narrow,mobile,tablet,desktop}-{surface-hero,waterline-transition,underwater-glider,registration-ending}.png`.
 - Next: Terra reviews the branch handoff; GLHC-002 replaces the glider artwork when an accurate approved asset is available.
+
+### 2026-10-18 — GLHC v2 redesign approved by organizer
+- Direction: Changed from glider-led opening to people-first student image, 3D **specific** yellow buoy and underwater sonde/cage. The buoy is the only continuous 3D hero object.
+- Story: scene 3 contains just two science paragraphs with **one horizontal transition**, then vertical descent. Scene 4 includes single organizer-provided four-picture collage (pending) and a short team/equipment/inclusivity explanation. Final view is deeper open water, no buoy, Luma registration.
+- Asset authority: user-provided complete buoy image (`image(20261018-215310).png`), real-world equipment photos and `CB650_drawings.pdf` cross-reference; no assertion that all optional typical CB-650 modules are deployed.
+- Documentation: `docs/GLHC-V2-SPEC.md` captures explicit cinematic sequencing, constraints, technical milestone and UAT criteria.
+- Verification: requirements/design only. No new 3D asset, browser tests, npm audit or deployment verified in this change.
+- Next: GLHC-002 isolated buoy/waterline/sensor camera prototype; collage and real Luma link may arrive later.

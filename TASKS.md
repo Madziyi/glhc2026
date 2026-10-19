@@ -1,17 +1,20 @@
 # Task board
 
-## In progress
-- GLHC-001 `[partial]` — scroll opening and responsive UAT completed; mobile hero spacing and glider/text overlap corrected; final glider asset remains unresolved. Screenshots are in `uat/`.
+## Active / next implementation
+- GLHC-002 `[ready]` — prototype faithful 3D yellow buoy and underwater sensor cage from approved references; waterline crossing and descending camera in isolated route. See `docs/GLHC-V2-SPEC.md`.
 
-## Ready
-- GLHC-002 `[ready]` — replace the water-fringed glider photo cutout with a verified optimized 3D glider and assess GSAP/Three.js enhancement only when beneficial.
-- GLHC-003 `[ready]` — insert real Luma event URL, verify outbound navigation and final event copy with organizer.
+## Approved subsequent work
+- GLHC-003 `[planned]` — integrate people-first hero, floating $500 Prize corner badge, scientists/buoy scene, two science paragraphs with **one** horizontal transition.
+- GLHC-004 `[planned]` — display organizer's one four-picture collage and brief How it works; deep-water Luma CTA scene.
+- GLHC-005 `[planned]` — production refinement, image rights, security audit, Web Vitals, real deployment checks.
+
+## Prior baseline
+- GLHC-001 `[uat-complete, superseded visual direction]` — initial glider-led proof and 16 responsive screenshots on commit `48b5b18`; do not treat as approved v2 design.
 
 ## Blocked
-- Production launch `[blocked]` — registration URL, photo rights, final asset quality, deployment host not confirmed.
+- Real Luma event URL and verified link behavior.
+- Organizer's four-picture collage (not needed for 3D feasibility).
+- Asset rights clearance before public release.
 
-## Deferred
-- Additional interaction and the data-to-art playground `[deferred]` (explicitly excluded by organizer).
-
-## Done
-- `BOOTSTRAP` `[done]` — create and adapt shared context to GLHC 2026 project.
+## Explicitly excluded
+- Glider-led storyline, data-to-art playground/LED simulator, synthetic real-time telemetry, 'unlock registration' gating.

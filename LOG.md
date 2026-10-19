@@ -34,3 +34,9 @@
 - Limitations/decision: visual model details and water compositing need organizer review; refraction/reflection approximated, broad bands/seams remain, mobile prose can cover lower cage/ballast. Retain composite approach for refinement; profile actual mobile GPUs and bundle loading before integration.
 - Live state: local preview only; no deployment/infrastructure or Luma link changed.
 - Next action: organizer reviews isolated prototype and screenshots before integration. Detailed evidence and screenshot index: `docs/GLHC-002-UAT.md`.
+
+### 2026-10-18 — Organizer approves GLHC-002R visual refinement
+- Terra reviewed four supplied screenshot states and `docs/GLHC-002-UAT.md` on commit `1df0648`. Camera, compressed buoy geometry and tests show feasibility, but flat materials and waterline optics are visibly below requested photorealism. Mobile sensor/paragraph framing and midway desktop panel slide need refinement.
+- Decision: keep GLHC-002 isolated; aim for a reproducible PBR / Blender-led model/material pass (Blender availability to be checked, not presumed), more natural composite water, better responsive compositions. Do not jump to heavy full-simulation optics without justified visual/performance comparison.
+- New explicit acceptance spec: `docs/GLHC-002R-VISUAL-REFINEMENT.md`. Await fresh renders, screenshots, verified tests, physical-mobile caveats and organizer visual approval before site integration.
+- No source code, build or deployment was changed/verified in this planning commit. Next: Codex Sol implements GLHC-002R.

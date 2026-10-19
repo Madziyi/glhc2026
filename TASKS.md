@@ -1,20 +1,22 @@
 # Task board
 
-## Active / next implementation
-- GLHC-002 `[implementation + browser UAT complete; visual review pending]` — isolated buoy/waterline/sensor camera and one horizontal science transition at `/prototype/glhc-002`; Luna high coded, parent reviewed and verified four viewports. Compressed GLB 76,776 B; six tests and build pass; 22 screenshots. See `docs/GLHC-002-UAT.md` for limitations. Existing `/` remains intact pending prototype review.
+## Active
+- GLHC-002R `[approved; ready]` — photorealistic model materials/detail, natural waterline crossing and mobile/desktop sensor composition in isolated `/prototype/glhc-002`. See `docs/GLHC-002R-VISUAL-REFINEMENT.md`. Render review and browser UAT required before integration.
+
+## Completed technical feasibility
+- GLHC-002 `[technical feasibility verified; visual QA pending refinement]` — isolated camera/buoy/sensors + single horizontal science transition. Baseline `1df0648`; 6 passing tests and 22 screenshots. Retain UAT evidence.
 
 ## Approved subsequent work
-- GLHC-003 `[planned]` — integrate people-first hero, floating $500 Prize corner badge, scientists/buoy scene, two science paragraphs with **one** horizontal transition.
-- GLHC-004 `[planned]` — display organizer's one four-picture collage and brief How it works; deep-water Luma CTA scene.
-- GLHC-005 `[planned]` — production refinement, image rights, security audit, Web Vitals, real deployment checks.
+- GLHC-003 `[planned after GLHC-002R visual approval]` — people-first image hero, attached **$500 Prize** starburst, scientists/surface buoy, sensor science paragraphs.
+- GLHC-004 `[planned]` — one four-image collage (provided by organizer), short How it works, deep-water registration CTA.
+- GLHC-005 `[planned]` — launch polish, rights, dependency vulnerabilities, Lighthouse/real devices, verified deployment.
 
-## Prior baseline
-- GLHC-001 `[uat-complete, superseded visual direction]` — initial glider-led proof and 16 responsive screenshots on commit `48b5b18`; do not treat as approved v2 design.
+## Earlier baseline
+- GLHC-001 `[UAT complete; superseded visual direction]` — 16 responsive screenshots and original site; unchanged while prototyping v2.
 
 ## Blocked
-- Real Luma event URL and verified link behavior.
-- Organizer's four-picture collage (not needed for 3D feasibility).
-- Asset rights clearance before public release.
+- Actual Luma URL; organizer's collage; rights clearance (not blocking GLHC-002R feasibility).
+- Real iOS/Android performance until physical devices are available.
 
-## Explicitly excluded
-- Glider-led storyline, data-to-art playground/LED simulator, synthetic real-time telemetry, 'unlock registration' gating.
+## Out of scope
+- Glider-led opening, data-to-art simulator, invented telemetry or depths, scroll-gated registration, changing root site before visual approval.

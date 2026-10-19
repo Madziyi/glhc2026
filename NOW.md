@@ -1,7 +1,7 @@
 # Active Initiative
 
 **Initiative:** GLHC-002R — buoy material, waterline and framing visual-quality refinement.
-**Status:** APPROVED / AWAITING CODEX SOL IMPLEMENTATION.
+**Status:** IMPLEMENTATION PASS COMMITTED / AWAITING ORGANIZER VISUAL REVIEW.
 **Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol (delegate coding to Luna high if still part of local workflow).
 
 ## Verified baseline
@@ -10,8 +10,15 @@
 - Visual review by Terra of organizer's screenshots: structure and scroll feasibility accepted; **visual design not accepted for integration**. Flat materials, bright linear waterline/broad bands, mobile sonde/text competition and unpolished in-between horizontal copy need refinement.
 - No physical device performance, Lighthouse, GPU time, deploy or rights sign-off verified.
 
+## Implementation handoff (2026-10-19)
+- Updated the reproducible model builder with softened hull profiles, fasteners, panel rails/clamps, solar cell detail, revised material response and a generated neutral fine-finish texture; regenerated the GLB (181,648 B, 11,924 model triangles, 9 material batches). Blender is unavailable in the environment.
+- Refined water shader/light balance, camera pullback through the crossing, and the midpoint prose fade. Corrected a runtime regression where `smooth()` was used but not imported; production preview now renders the buoy and reports 10 calls / 44,692 triangles.
+- `npm test`: 6/6 passed. `npm run check`: 0 errors/warnings/hints. Production build passed; Vite still reports the deferred scene chunk at 603.61 kB minified / 155.10 kB gzip.
+- Browser preview confirmed at default in-app width (~375 CSS px) for surface and sensor paragraph A. Required exact 320×650, 390×844, 768×1024, 1440×900 viewport matrix and the three saved offline still renders were not completed in this pass; no physical-device check. This is not evidence of organizer visual approval.
+- `/` remains unchanged, and no deployment/integration occurred. Detailed record: `docs/GLHC-002-UAT.md`.
+
 ## Next action
-Sol carries out GLHC-002R exactly per `docs/GLHC-002R-VISUAL-REFINEMENT.md`: detailed model/material preview, composited water optics polish, sensor camera / panel mask correction; then tests and new browser UAT. **Keep existing `/` intact and don't merge or deploy.**
+Organizer reviews the committed isolated prototype and requests any further visual iteration. Keep `/` intact and do not integrate until visual approval. Before treating GLHC-002R as fully accepted, capture the three required labeled stills and exact responsive browser screenshot matrix.
 
 ## Pending unrelated inputs
 - Organizer four-photo communication-examples collage (later GLHC-004).

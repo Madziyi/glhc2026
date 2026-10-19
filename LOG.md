@@ -40,3 +40,10 @@
 - Decision: keep GLHC-002 isolated; aim for a reproducible PBR / Blender-led model/material pass (Blender availability to be checked, not presumed), more natural composite water, better responsive compositions. Do not jump to heavy full-simulation optics without justified visual/performance comparison.
 - New explicit acceptance spec: `docs/GLHC-002R-VISUAL-REFINEMENT.md`. Await fresh renders, screenshots, verified tests, physical-mobile caveats and organizer visual approval before site integration.
 - No source code, build or deployment was changed/verified in this planning commit. Next: Codex Sol implements GLHC-002R.
+
+### 2026-10-19 — GLHC-002R implementation pass
+- Changed: refined the procedural buoy mesh/materials and generated finish texture, water optics/light, crossing camera pullback and horizontal panel midpoint fade. Kept all work on the isolated prototype route; Blender was unavailable.
+- Debugging: production browser initially stayed at PREPARING because `scene.js` referenced `smooth()` without importing it. Added the missing import; the rebuilt preview rendered the buoy and reported 10 draw calls / 44,692 triangles including water.
+- Verification: `npm test` passed 6/6; `npm run check` reported 0 errors/warnings/hints; production build passed with the existing large lazy-scene chunk warning (603.61 kB / 155.10 kB gzip). Default in-app browser width confirmed surface and sensor paragraph A.
+- Limits: three saved still renders and requested exact viewport/state screenshot matrix were not produced; desktop/tablet and physical-mobile composition remain unverified. This is not organizer visual approval and must not be integrated yet.
+- Next: organizer reviews this isolated iteration; capture outstanding render/browser matrix if more visual iteration is requested.

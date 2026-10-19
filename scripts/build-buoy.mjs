@@ -4,6 +4,7 @@
  * hull diameter; see docs/GLHC-V2-SPEC.md for the approved visual authority.
  */
 import { mkdir, writeFile } from 'node:fs/promises';
+import { deflateSync } from 'node:zlib';
 import { MeshoptEncoder } from 'meshoptimizer/encoder';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 await MeshoptEncoder.ready;
@@ -11,15 +12,15 @@ await MeshoptDecoder.ready;
 
 const meshes = [];
 const materials = [
-  { name: 'Buoy safety yellow', pbrMetallicRoughness: { baseColorFactor: [1, 0.68, 0.035, 1], metallicFactor: 0.08, roughnessFactor: 0.33 } },
-  { name: 'Warm yellow edge', pbrMetallicRoughness: { baseColorFactor: [0.82, 0.43, 0.018, 1], metallicFactor: 0.12, roughnessFactor: 0.42 } },
-  { name: 'Solar frame charcoal', pbrMetallicRoughness: { baseColorFactor: [0.105, 0.13, 0.15, 1], metallicFactor: 0.45, roughnessFactor: 0.38 } },
-  { name: 'Blue black solar cells', pbrMetallicRoughness: { baseColorFactor: [0.022, 0.065, 0.105, 1], metallicFactor: 0.42, roughnessFactor: 0.25 } },
-  { name: 'Brushed marine aluminum', pbrMetallicRoughness: { baseColorFactor: [0.63, 0.71, 0.73, 1], metallicFactor: 0.78, roughnessFactor: 0.28 } },
-  { name: 'Sonde blue', pbrMetallicRoughness: { baseColorFactor: [0.035, 0.19, 0.62, 1], metallicFactor: 0.28, roughnessFactor: 0.3 } },
-  { name: 'Sonde black', pbrMetallicRoughness: { baseColorFactor: [0.035, 0.045, 0.05, 1], metallicFactor: 0.36, roughnessFactor: 0.33 } },
-  { name: 'Red ballast', pbrMetallicRoughness: { baseColorFactor: [0.52, 0.09, 0.07, 1], metallicFactor: 0.25, roughnessFactor: 0.42 } },
-  { name: 'Dark hardware', pbrMetallicRoughness: { baseColorFactor: [0.12, 0.15, 0.16, 1], metallicFactor: 0.75, roughnessFactor: 0.3 } },
+  { name: 'Rotomoulded safety-yellow polymer', pbrMetallicRoughness: { baseColorFactor: [0.96, 0.61, 0.035, 1], metallicFactor: 0, roughnessFactor: 0.48 } },
+  { name: 'Moulded warm-yellow edge', pbrMetallicRoughness: { baseColorFactor: [0.76, 0.37, 0.025, 1], metallicFactor: 0, roughnessFactor: 0.57 } },
+  { name: 'Powder-coated charcoal frame', pbrMetallicRoughness: { baseColorFactor: [0.075, 0.09, 0.09, 1], metallicFactor: 0.18, roughnessFactor: 0.56 } },
+  { name: 'Blue-black photovoltaic glass', pbrMetallicRoughness: { baseColorFactor: [0.018, 0.052, 0.083, 1], metallicFactor: 0.56, roughnessFactor: 0.22 } },
+  { name: 'Brushed marine stainless steel', pbrMetallicRoughness: { baseColorFactor: [0.54, 0.6, 0.59, 1], metallicFactor: 0.82, roughnessFactor: 0.34 } },
+  { name: 'Blue anodized sonde housing', pbrMetallicRoughness: { baseColorFactor: [0.025, 0.12, 0.34, 1], metallicFactor: 0.48, roughnessFactor: 0.36 } },
+  { name: 'Black acetal instrument housing', pbrMetallicRoughness: { baseColorFactor: [0.025, 0.031, 0.033, 1], metallicFactor: 0.05, roughnessFactor: 0.48 } },
+  { name: 'Red coated steel ballast', pbrMetallicRoughness: { baseColorFactor: [0.38, 0.055, 0.045, 1], metallicFactor: 0.36, roughnessFactor: 0.49 } },
+  { name: 'Marine fasteners and fittings', pbrMetallicRoughness: { baseColorFactor: [0.085, 0.105, 0.105, 1], metallicFactor: 0.78, roughnessFactor: 0.4 } },
 ];
 function geometry(name, positions, indices, material, color = null) {
   const normals = new Array(positions.length).fill(0);
@@ -33,6 +34,31 @@ function geometry(name, positions, indices, material, color = null) {
   for (let i = 0; i < normals.length; i += 3) { const l = Math.hypot(normals[i], normals[i + 1], normals[i + 2]) || 1; normals[i] /= l; normals[i + 1] /= l; normals[i + 2] /= l; }
   meshes.push({ name, positions, normals, indices, material, color });
 }
+function crc32(buffer) {
+  let c = 0xffffffff;
+  for (const byte of buffer) { c ^= byte; for (let k = 0; k < 8; k++) c = (c >>> 1) ^ (0xedb88320 & -(c & 1)); }
+  return (c ^ 0xffffffff) >>> 0;
+}
+function pngChunk(type, data) {
+  const name = Buffer.from(type), length = Buffer.alloc(4), crc = Buffer.alloc(4);
+  length.writeUInt32BE(data.length); crc.writeUInt32BE(crc32(Buffer.concat([name, data])));
+  return Buffer.concat([length, name, data, crc]);
+}
+function makeFineFinishTexture() {
+  // Neutral tileable albedo grain preserves each material's base color while
+  // avoiding the perfectly smooth look of untextured procedural geometry.
+  const size = 128, scanlines = Buffer.alloc(size * (1 + size * 4));
+  for (let y = 0; y < size; y++) {
+    const row = y * (1 + size * 4); scanlines[row] = 0;
+    for (let x = 0; x < size; x++) {
+      const grain = 246 + 3.1 * Math.sin(2 * Math.PI * (3 * x / size + 2 * y / size)) + 2.2 * Math.sin(2 * Math.PI * (7 * x / size - 5 * y / size)) + 1.4 * Math.cos(2 * Math.PI * (11 * x / size + 9 * y / size));
+      const value = Math.max(0, Math.min(255, Math.round(grain))), i = row + 1 + x * 4;
+      scanlines[i] = value; scanlines[i + 1] = value; scanlines[i + 2] = value; scanlines[i + 3] = 255;
+    }
+  }
+  const header = Buffer.alloc(13); header.writeUInt32BE(size, 0); header.writeUInt32BE(size, 4); header[8] = 8; header[9] = 6;
+  return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]), pngChunk('IHDR', header), pngChunk('IDAT', deflateSync(scanlines, { level: 9 })), pngChunk('IEND', Buffer.alloc(0))]);
+}
 function box(name, x, y, z, w, h, d, material) {
   const X = w / 2, Y = h / 2, Z = d / 2;
   const p = [-X,-Y,-Z, X,-Y,-Z, X,Y,-Z, -X,Y,-Z, -X,-Y,Z, X,-Y,Z, X,Y,Z, -X,Y,Z];
@@ -41,9 +67,16 @@ function box(name, x, y, z, w, h, d, material) {
 }
 function cyl(name, x, y, z, radius, height, material, sides = 20, topRadius = radius) {
   const p = [], idx = [];
-  for (let j = 0; j < 2; j++) { const r = j ? topRadius : radius, yy = j ? height / 2 : -height / 2; for (let i = 0; i < sides; i++) { const a = (i / sides) * Math.PI * 2; p.push(Math.cos(a) * r, yy, Math.sin(a) * r); } }
-  for (let i = 0; i < sides; i++) { const n = (i + 1) % sides; idx.push(i, n, sides + n, i, sides + n, sides + i, 2 * sides, n, i, 2 * sides + 1, sides + i, sides + n); }
-  p.push(0, -height / 2, 0, 0, height / 2, 0);
+  // Tiny moulded shoulders replace the old perfectly sharp cylinder silhouette.
+  const inset = Math.min(height * .12, radius * .09);
+  const rings = [
+    [radius * .965, -height / 2], [radius, -height / 2 + inset],
+    [radius, height / 2 - inset], [topRadius * .965, height / 2],
+  ];
+  for (const [r, yy] of rings) for (let i = 0; i < sides; i++) { const a = i / sides * Math.PI * 2; p.push(Math.cos(a) * r, yy, Math.sin(a) * r); }
+  for (let j = 0; j < rings.length - 1; j++) for (let i = 0; i < sides; i++) { const a = j * sides + i, b = j * sides + (i + 1) % sides, c = (j + 1) * sides + (i + 1) % sides, d = (j + 1) * sides + i; idx.push(a, b, d, b, c, d); }
+  const bottom = p.length / 3; p.push(0, -height / 2, 0); const top = p.length / 3; p.push(0, height / 2, 0);
+  for (let i = 0; i < sides; i++) { const n = (i + 1) % sides; idx.push(bottom, n, i, top, (rings.length - 1) * sides + i, (rings.length - 1) * sides + n); }
   geometry(name, p, idx, material, [x,y,z]);
 }
 function tube(name, from, to, radius, material, sides = 8) {
@@ -65,25 +98,34 @@ function torus(name, cx, cy, cz, major, minor, material, seg = 32, ring = 8) {
   geometry(name, p, idx, material, [cx,cy,cz]);
 }
 
-// Hull: broad cylindrical float with a lower shoulder that narrows toward the cage.
-cyl('thick yellow circular float',0,0,0,1.66,1.1,0,48,1.66);
-cyl('beveled underside shoulder',0,-0.68,0,1.43,0.27,0,48,1.66);
-cyl('yellow bottom boss',0,-0.73,0,0.82,0.28,1,32,0.77);
-torus('deck seam',0,-0.02,0,1.663,0.012,1,48,6);
+// Hull: softly shouldered rotomoulded annulus with a recessed lower boss.
+cyl('rounded yellow flotation hull',0,0,0,1.66,1.1,0,64,1.66);
+cyl('tapered underside shoulder',0,-0.62,0,1.47,0.33,0,64,1.66);
+cyl('recessed underside boss',0,-0.79,0,0.78,0.21,1,40,0.74);
+torus('fine mould split line',0,-0.28,0,1.664,0.009,1,64,8);
+// Subtle deck fasteners and molded service covers add scale cues without wear.
+for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; cyl('deck service fastener',Math.cos(a)*1.36,0.56,Math.sin(a)*1.36,.022,.012,8,10); }
+for (const x of [-0.74, 0.74]) for (const z of [-0.62, 0.62]) cyl('flush white deck fitting',x,0.565,z,.105,.045,4,20,.105);
 // Triangular mast legs and the solar tower; front face is toward negative Z.
 for (const sx of [-1,1]) for (const sz of [-1,1]) tube('tower support', [sx*0.48,0.49,sz*0.43],[sx*0.56,2.58,sz*0.5],0.035,2,8);
-box('square solar tower frame',0,1.52,0,1.24,2.08,1.18,2);
-box('front photovoltaic panel',0,1.53,-0.603,1.03,1.78,0.028,3);
-for(let i=1;i<6;i++) box('solar vertical cell seam',-0.515+i*1.03/6,1.53,-0.625,0.009,1.72,0.006,4);
-for(let i=1;i<9;i++) box('solar horizontal cell seam',0,0.64+i*1.78/9,-0.625,0.98,0.009,0.006,4);
+box('solar instrument tower housing',0,1.48,0,1.17,1.93,1.08,2);
+box('front solar glass',0,1.49,-0.55,0.94,1.65,0.022,3);
+box('left solar glass',-0.592,1.49,0,0.022,1.65,0.91,3);
+box('right solar glass',0.592,1.49,0,0.022,1.65,0.91,3);
+for(let i=1;i<6;i++) box('front photovoltaic busbar',-0.47+i*.94/6,1.49,-0.565,.007,1.59,.004,4);
+for(let i=1;i<9;i++) box('front photovoltaic cell gap',0,0.665+i*1.65/9,-0.565,.9,.008,.004,4);
+// Fine perimeter rails and restrained panel attachment points.
+for (const x of [-.51, .51]) tube('panel edge rail',[x,.66,-.57],[x,2.32,-.57],.018,2,8);
+for (const x of [-.48,.48]) for (const y of [.72,2.25]) cyl('panel clamp',x,y,-.584,.026,.018,4,10);
 // Top guard ring and small weather sensor.
 torus('upper circular guard rail',0,2.69,0,0.95,0.034,4,40,8);
 for(const x of [-0.68,0.68]) tube('guard ring brace',[x,2.56,0],[x*1.34,2.68,0],0.028,4,8);
-cyl('weather sensor base',0,2.76,0,0.25,0.2,2,16);
-cyl('compact weather instrument',0,2.96,0,0.16,0.24,4,18,0.13);
-box('weather vane',0,3.12,0,0.08,0.18,0.34,4);
-tube('weather sensor mast',[0,3.18,0],[0,3.36,0],0.015,8,8);
-cyl('weather sensor head',0,3.42,0,0.055,0.1,4,12,0.045);
+cyl('weather sensor foot',0,2.55,0,0.13,0.13,2,18);
+tube('slender weather mast',[0,2.61,0],[0,4.18,0],0.018,8,10);
+for (const y of [2.85,3.58,4.04]) cyl('weather mast collar',0,y,0,.032,.025,4,12);
+cyl('compact weather instrument',0,4.24,0,.11,.2,4,20,.085);
+box('small wind vane',0,4.36,0,.045,.07,.23,4);
+cyl('weather sensor cap',0,4.39,0,.031,.04,4,12,.024);
 // Under-hull fittings and the slim right-hand secondary probe visible in authority image.
 for(const x of [-0.54,0.54]) box('underdeck mounting plate',x,-0.65,0,0.33,0.11,0.34,8);
 tube('secondary probe mount',[1.25,-0.6,0.15],[1.42,-0.95,0.15],0.075,8,12);
@@ -116,7 +158,7 @@ tube('ballast shackle',[0.04,-4.75,0.02],[0.04,-4.94,0.02],0.025,4,8);
 tube('mooring line',[0.04,-4.93,0.02],[0.04,-5.58,0.02],0.012,8,8);
 
 // Merge all procedural parts sharing a material into one mesh each to keep draw calls low.
-const groups = materials.map((_, material) => ({ name: materials[material].name, material, positions: [], normals: [], indices: [] }));
+const groups = materials.map((_, material) => ({ name: materials[material].name, material, positions: [], normals: [], uvs: [], indices: [] }));
 function rotateVector(v, q) {
   const [qx,qy,qz,qw]=q, [x,y,z]=v;
   const ix=qw*x+qy*z-qz*y, iy=qw*y+qz*x-qx*z, iz=qw*z+qx*y-qy*x, iw=-qx*x-qy*y-qz*z;
@@ -124,7 +166,7 @@ function rotateVector(v, q) {
 }
 for(const m of meshes){
   const g=groups[m.material], offset=g.positions.length/3, [tx,ty,tz]=m.color;
-  for(let i=0;i<m.positions.length;i+=3){const v=m.rotation?rotateVector(m.positions.slice(i,i+3),m.rotation):m.positions.slice(i,i+3);g.positions.push(v[0]+tx,v[1]+ty,v[2]+tz);}
+  for(let i=0;i<m.positions.length;i+=3){const v=m.rotation?rotateVector(m.positions.slice(i,i+3),m.rotation):m.positions.slice(i,i+3);const x=v[0]+tx,y=v[1]+ty,z=v[2]+tz;g.positions.push(x,y,z);g.uvs.push(Math.atan2(z,x)/(Math.PI*2)+.5,Math.max(0,Math.min(1,(y+5.7)/10.2)));}
   for(let i=0;i<m.normals.length;i+=3){const v=m.rotation?rotateVector(m.normals.slice(i,i+3),m.rotation):m.normals.slice(i,i+3);g.normals.push(...v);}
   for(const index of m.indices)g.indices.push(index+offset);
 }
@@ -158,12 +200,13 @@ for(const m of exportMeshes) {
   for(let i=0;i<pos.length;i++){min[i%3]=Math.min(min[i%3],pos[i]);max[i%3]=Math.max(max[i%3],pos[i]);}
   const posId=addBuffer(pos,5126,'VEC3',pos.length/3,34962,min,max,'ATTRIBUTES',12);
   const normalId=addBuffer(m.normals,5126,'VEC3',m.normals.length/3,34962,null,null,'ATTRIBUTES',12);
+  const uvId=addBuffer(m.uvs,5126,'VEC2',m.uvs.length/2,34962,null,null,'ATTRIBUTES',8);
   const idxId=addBuffer(m.indices,5123,'SCALAR',m.indices.length,34963,null,null,'INDICES',2);
   const meshId=gltfMeshes.length;
-  gltfMeshes.push({name:m.name,primitives:[{attributes:{POSITION:posId,NORMAL:normalId},indices:idxId,material:m.material,mode:4}]});
+  gltfMeshes.push({name:m.name,primitives:[{attributes:{POSITION:posId,NORMAL:normalId,TEXCOORD_0:uvId},indices:idxId,material:m.material,mode:4}]});
   const node={name:m.name,mesh:meshId}; nodes.push(node); triangles+=m.indices.length/3;
 }
-const bin=Buffer.concat(chunks);
+const meshBin=Buffer.concat(chunks);
 for(const [i,s] of encodedStreams.entries()){
   const decoded=new Uint8Array(s.count*s.stride);
   MeshoptDecoder.decodeGltfBuffer(decoded,s.count,s.stride,s.compressed,s.mode);
@@ -171,8 +214,12 @@ for(const [i,s] of encodedStreams.entries()){
 }
 const normalZeroCount=exportMeshes.reduce((sum,m)=>{for(let i=0;i<m.normals.length;i+=3)if(Math.hypot(m.normals[i],m.normals[i+1],m.normals[i+2])<1e-5)sum++;return sum;},0);
 if(normalZeroCount)throw new Error(`Model contains ${normalZeroCount} zero-length normals`);
-const gltf={asset:{version:'2.0',generator:'GLHC-002 procedural buoy source'},extensionsUsed:['EXT_meshopt_compression'],extensionsRequired:['EXT_meshopt_compression'],scene:0,scenes:[{nodes:nodes.map((_,i)=>i)}],nodes,meshes:gltfMeshes,materials,accessors,bufferViews:views,buffers:[{byteLength:bin.length},{byteLength:fallbackOffset,extensions:{EXT_meshopt_compression:{fallback:true}}}]};
+const finishTexture=makeFineFinishTexture();
+const bin=meshBin;
+for(const material of materials)material.pbrMetallicRoughness.baseColorTexture={index:0};
+const gltf={asset:{version:'2.0',generator:'GLHC-002 procedural buoy source'},extensionsUsed:['EXT_meshopt_compression'],extensionsRequired:['EXT_meshopt_compression'],scene:0,scenes:[{nodes:nodes.map((_,i)=>i)}],nodes,meshes:gltfMeshes,materials,images:[{uri:'glhc002-finish.png'}],textures:[{source:0,sampler:0}],samplers:[{magFilter:9729,minFilter:9987,wrapS:10497,wrapT:10497}],accessors,bufferViews:views,buffers:[{byteLength:bin.length},{byteLength:fallbackOffset,extensions:{EXT_meshopt_compression:{fallback:true}}}]};
 for(const [i,view] of views.entries()){
+  if(!view.extensions)continue;
   const ext=view.extensions.EXT_meshopt_compression;
   if(view.byteOffset+view.byteLength>gltf.buffers[view.buffer].byteLength)throw new Error(`Fallback bufferView ${i} exceeds its placeholder buffer`);
   if(ext.byteOffset+ext.byteLength>bin.length)throw new Error(`Compressed bufferView ${i} exceeds the GLB binary chunk`);
@@ -184,5 +231,6 @@ const header=Buffer.alloc(12); header.writeUInt32LE(0x46546c67,0);header.writeUI
 const jh=Buffer.alloc(8);jh.writeUInt32LE(json.length+jsonPad.length,0);jh.writeUInt32LE(0x4e4f534a,4);
 const bh=Buffer.alloc(8);bh.writeUInt32LE(bin.length+binPad.length,0);bh.writeUInt32LE(0x004e4942,4);
 await mkdir('public/models',{recursive:true});
+await writeFile('public/models/glhc002-finish.png',finishTexture);
 await writeFile('public/models/glhc002-buoy.glb',Buffer.concat([header,jh,json,jsonPad,bh,bin,binPad]));
 console.log(JSON.stringify({path:'public/models/glhc002-buoy.glb',bytes:total,compressedBinaryBytes:bin.length,uncompressedGeometryBytes:fallbackOffset,sourceParts:meshes.length,renderMeshes:exportMeshes.length,triangles,materials:materials.length,zeroNormals:normalZeroCount,compression:'EXT_meshopt_compression (meshoptimizer)',roundTripStreams:encodedStreams.length},null,2));

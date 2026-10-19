@@ -1,7 +1,7 @@
 # Task board
 
 ## Active
-- GLHC-002R `[approved; ready]` — photorealistic model materials/detail, natural waterline crossing and mobile/desktop sensor composition in isolated `/prototype/glhc-002`. See `docs/GLHC-002R-VISUAL-REFINEMENT.md`. Render review and browser UAT required before integration.
+- GLHC-002R `[implementation committed; organizer visual review pending]` — material/model, waterline and sensor framing refinement in isolated `/prototype/glhc-002`. See `docs/GLHC-002R-VISUAL-REFINEMENT.md` and implementation notes in `docs/GLHC-002-UAT.md`. Three saved still renders and exact responsive screenshot matrix remain outstanding before full acceptance/integration.
 
 ## Completed technical feasibility
 - GLHC-002 `[technical feasibility verified; visual QA pending refinement]` — isolated camera/buoy/sensors + single horizontal science transition. Baseline `1df0648`; 6 passing tests and 22 screenshots. Retain UAT evidence.

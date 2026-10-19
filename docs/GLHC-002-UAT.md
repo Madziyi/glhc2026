@@ -1,5 +1,15 @@
 # GLHC-002 verification and review
 
+## GLHC-002R implementation addendum — 2026-10-19
+
+- Isolated route only; homepage source and public assets remain unchanged. No integration or deployment.
+- Model source and GLB were refined with softened buoy hull transitions, PV cell/grid and mounting detail, fasteners/fittings, revised PBR material values and a reproducible generated finish texture. Blender is not installed, so no Blender project or offline render was produced. The model remains procedural and should be judged against the approved reference; the procedural material pass does not establish photorealism.
+- Water shader and lighting were softened, camera pullback was eased across the waterline, and science-panel midpoint opacity was improved. A first production preview exposed `smooth is not defined` in the animation loop; importing `smooth` from the shared timeline helper fixed it. Production preview then rendered the buoy; surface readout showed 10 calls / 44,692 triangles including water.
+- Asset output: `public/models/glhc002-buoy.glb` is 181,648 bytes, with 11,924 model triangles across 9 material batches; `public/models/glhc002-finish.png` is a generated 5,435-byte texture. The lazy scene bundle is 603.61 kB minified / 155.10 kB gzip.
+- Verification: `npm test` 6/6 passed; `npm run check` 0 errors, warnings or hints; production Astro build passed. `git diff --check` was clean before context edits.
+- Browser review: production preview at `http://127.0.0.1:4331/prototype/glhc-002` confirmed the surface render and sensor paragraph A at the in-app browser's default ~375 CSS px width. Screenshot output was visually inspected in the working session. The requested saved image matrix at 320×650, 390×844, 768×1024 and 1440×900, crossing/midpoint/paragraph B captures, and the three labeled still renders were **not completed**. Desktop/tablet responsive composition and physical mobile remain unverified. The organizer must review visual quality before integration.
+- A runtime console error from the initial build was corrected and the rebuilt preview displayed the rendered model. Stale console entries from the earlier page load should not be treated as current post-fix errors.
+
 Run date: 2026-10-18 (America/New_York). Isolated route: `/prototype/glhc-002`. Coding: Luna high; implementation planning, review and browser UAT: parent Codex.
 
 ## Scope boundary

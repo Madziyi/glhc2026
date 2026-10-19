@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
-import { timelineAt, STORY } from './timeline.mjs';
+import { timelineAt, smooth, STORY } from './timeline.mjs';
 
 const stage = document.querySelector('#stage');
 const track = document.querySelector('#buoy-story');
@@ -20,11 +20,11 @@ function createWater() {
     uniforms: { uTime: { value: 0 }, uUnder: { value: 0 } },
       vertexShader: `
       uniform float uTime; varying vec3 vWorld; varying vec3 vNormal;
-      void main(){ vec3 p=position; float x=p.x, z=p.y; float a=x*.22+uTime*.7, b=z*.39-uTime*.5, c=(x+z)*.12+uTime*.31; float w=sin(a)*.045+sin(b)*.024+sin(c)*.018; float dx=cos(a)*.0099+cos(c)*.00216; float dz=cos(b)*.00936+cos(c)*.00216; p.z+=w; vec4 world=modelMatrix*vec4(p,1.); vWorld=world.xyz; vNormal=normalize(vec3(-dx,1.,-dz)); gl_Position=projectionMatrix*viewMatrix*world; }
+      void main(){ vec3 p=position; float x=p.x, z=p.y; float a=x*.22+uTime*.31, b=z*.39-uTime*.24, c=(x+z)*.12+uTime*.17; float w=sin(a+sin(z*.11)*.35)*.052+sin(b+sin(x*.08)*.22)*.027+sin(c)*.016; float dx=cos(a+sin(z*.11)*.35)*.0114+cos(c)*.0019; float dz=cos(b+sin(x*.08)*.22)*.0105+cos(c)*.0019; p.z+=w; vec4 world=modelMatrix*vec4(p,1.); vWorld=world.xyz; vNormal=normalize(vec3(-dx,1.,-dz)); gl_Position=projectionMatrix*viewMatrix*world; }
     `,
     fragmentShader: `
       uniform float uTime; uniform float uUnder; varying vec3 vWorld; varying vec3 vNormal;
-      void main(){ vec3 n=normalize(vNormal); vec3 viewDir=normalize(cameraPosition-vWorld); float fresnel=pow(1.-abs(dot(n,viewDir)),3.); float broad=sin(vWorld.x*.035+vWorld.z*.061+sin(vWorld.z*.019+vWorld.x*.014)*2.+uTime*.12)*.72; float fine=sin(vWorld.x*.12-vWorld.z*.08+uTime*.21)*.28; float glint=smoothstep(.78,.98,broad+fine+fresnel*.2); vec3 reflection=vec3(.62,.78,.73)+glint*.14; vec3 surface=mix(vec3(.12,.39,.47),reflection,fresnel*.58)+glint*.08; vec3 deep=vec3(.025,.14,.20)+glint*.018; vec3 col=mix(surface,deep,uUnder); float alpha=mix(.44,.65,fresnel)+glint*.1; gl_FragColor=vec4(col,alpha); }
+      void main(){ vec3 n=normalize(vNormal); vec3 viewDir=normalize(cameraPosition-vWorld); float fresnel=pow(1.-abs(dot(n,viewDir)),3.); float wave=sin(vWorld.x*.055+sin(vWorld.z*.031+vWorld.x*.02)*1.8+uTime*.16); float ripple=sin(vWorld.x*.21+vWorld.z*.14+sin(vWorld.z*.06)*.8-uTime*.25); float glint=smoothstep(.62,.96,wave*.52+ripple*.19+fresnel*.26); vec3 reflection=vec3(.55,.69,.66)+glint*.17; vec3 surface=mix(vec3(.17,.40,.45),reflection,fresnel*.48)+glint*.07; vec3 deep=vec3(.035,.15,.19)+glint*.022; vec3 col=mix(surface,deep,uUnder); float alpha=mix(.28,.46,fresnel)+glint*.055; gl_FragColor=vec4(col,alpha); }
     `,
   });
   const mesh = new THREE.Mesh(geo, mat);
@@ -48,10 +48,10 @@ function startRenderer() {
     scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x0a3140, 0.035);
     camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / Math.max(canvas.clientHeight, 1), 0.1, 180);
-    scene.add(new THREE.HemisphereLight(0xc6eeee, 0x163648, 2.0));
-    const sun = new THREE.DirectionalLight(0xfff4d8, 3.2); sun.position.set(-5, 9, 8); scene.add(sun);
-    const fill = new THREE.DirectionalLight(0x63b9c8, 1.2); fill.position.set(6, -3, -6); scene.add(fill);
-    const rim = new THREE.PointLight(0x9ee3da, 16, 14); rim.position.set(-1, -1.4, 3); scene.add(rim);
+    scene.add(new THREE.HemisphereLight(0xd7e1d7, 0x18303a, 1.35));
+    const sun = new THREE.DirectionalLight(0xfff0d6, 2.15); sun.position.set(-5, 9, 8); scene.add(sun);
+    const fill = new THREE.DirectionalLight(0x79a6a5, 0.62); fill.position.set(6, -3, -6); scene.add(fill);
+    const rim = new THREE.PointLight(0xa8c9bb, 4.5, 14); rim.position.set(-1, -1.4, 3); scene.add(rim);
     water = createWater();
     const loader = new GLTFLoader();
     loader.setMeshoptDecoder(MeshoptDecoder);
@@ -109,7 +109,9 @@ function frame(now) {
   stage.dataset.panelVisible = String(panelVisible);
   stage.dataset.phase = phase[0];
   document.querySelector('#stage-label').textContent = phase[1];
-  document.querySelector('#panel-track').style.transform = `translateX(${-t.panel * 50}%)`;
+  const panelTrack = document.querySelector('#panel-track');
+  panelTrack.style.transform = `translateX(${-t.panel * 50}%)`;
+  panelTrack.style.setProperty('--panel-progress', String(t.panel));
   document.querySelector('#panel-one').setAttribute('aria-hidden', String(t.panelIndex !== 0));
   document.querySelector('#panel-two').setAttribute('aria-hidden', String(t.panelIndex !== 1));
   const percentage = String(Math.round(p * 100)).padStart(2, '0');
@@ -124,7 +126,8 @@ function frame(now) {
     const bob = p < STORY.sensorPark ? Math.sin(time * 0.72) * 0.025 : Math.sin(time * 0.72) * 0.008;
     if (buoy) buoy.position.y += (bob - buoy.position.y) * 0.16;
     const targetX = innerWidth > 760 ? -1.4 : 0;
-    const desired = new THREE.Vector3(targetX + t.cameraX, t.cameraY, t.cameraZ);
+    const sensorPullback = 1.25 * smooth(STORY.crossStart, STORY.sensorPark, p);
+    const desired = new THREE.Vector3(targetX + t.cameraX, t.cameraY, t.cameraZ - sensorPullback);
     const targetY = t.targetY - (innerWidth < 760 ? t.waterMix * 1.25 : 0);
     const target = new THREE.Vector3(targetX, targetY, 0);
     if (cameraInitialized) camera.position.lerp(desired, 0.095);
@@ -134,7 +137,8 @@ function frame(now) {
     scene.background = null;
     water.material.uniforms.uTime.value = time;
     water.material.uniforms.uUnder.value = t.waterMix;
-    renderer.render(scene, camera);
+    try { renderer.render(scene, camera); }
+    catch { activateFallback(); return; }
     const waterline = new THREE.Vector3(0, 0, 0).project(camera);
     const waterlineTop = clamp((1 - waterline.y) * 50, -5, 105);
     document.querySelector('.water-glass').style.top = `${waterlineTop}%`;

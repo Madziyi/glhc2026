@@ -25,7 +25,23 @@ const surfaceHeightAt = (x, z, time) =>
   + Math.sin(x * 0.55 + z * -0.43 + time * 0.48) * 0.0144
   + Math.sin(x * 0.85 + z * 0.7 - time * 0.31) * 0.0072
   + Math.sin(x * 0.22 - z * 0.19 + time * 0.16) * 0.006
-  + Math.sin(x * -0.31 - z * 0.12 - time * 0.21) * 0.004;
+  + Math.sin(x * -0.31 - z * 0.12 - time * 0.21) * 0.004
+  + Math.sin(x * 0.34 - z * 0.17 + time * 0.82) * 0.012
+  + Math.sin(x * -0.28 - z * 0.43 - time * 0.67) * 0.008;
+
+function sampleBuoySurface(time) {
+  // The hull follows an area sample instead of a single point, so lift and
+  // attitude respond to the slope under the flotation ring as it crosses waves.
+  const radius = 1.18, step = 0.16;
+  const heightAt = (x, z) => surfaceHeightAt(x, -z, time);
+  const center = heightAt(0, 0);
+  const north = heightAt(0, -radius), south = heightAt(0, radius);
+  const east = heightAt(radius, 0), west = heightAt(-radius, 0);
+  const lift = center * 0.4 + (north + south + east + west) * 0.15;
+  const slopeX = (heightAt(step, 0) - heightAt(-step, 0)) / (2 * step);
+  const slopeZ = (heightAt(0, step) - heightAt(0, -step)) / (2 * step);
+  return { lift, slopeX, slopeZ };
+}
 
 function createWater() {
   const geo = new THREE.PlaneGeometry(120, 120, 128, 128);
@@ -44,9 +60,11 @@ function createWater() {
         float f=x*-.31-z*.12-uTime*.21;
         float g=x*.045+z*.035+uTime*.24;
         float h=x*-.028+z*.061-uTime*.19;
-        float base=sin(g)*.16+sin(h)*.09+sin(a)*.081+sin(b)*.0432+sin(c)*.0144+sin(d)*.0072+sin(e)*.006+sin(f)*.004;
-        float baseDx=cos(g)*.045*.16-cos(h)*.028*.09+cos(a)*.16*.081-cos(b)*.09*.0432+cos(c)*.55*.0144+cos(d)*.85*.0072+cos(e)*.22*.006-cos(f)*.31*.004;
-        float baseDz=cos(g)*.035*.16+cos(h)*.061*.09+cos(a)*.11*.081+cos(b)*.21*.0432-cos(c)*.43*.0144+cos(d)*.7*.0072-cos(e)*.19*.006-cos(f)*.12*.004;
+        float i=x*.34-z*.17+uTime*.82;
+        float j=x*-.28-z*.43-uTime*.67;
+        float base=sin(g)*.16+sin(h)*.09+sin(a)*.081+sin(b)*.0432+sin(c)*.0144+sin(d)*.0072+sin(e)*.006+sin(f)*.004+sin(i)*.012+sin(j)*.008;
+        float baseDx=cos(g)*.045*.16-cos(h)*.028*.09+cos(a)*.16*.081-cos(b)*.09*.0432+cos(c)*.55*.0144+cos(d)*.85*.0072+cos(e)*.22*.006-cos(f)*.31*.004+cos(i)*.34*.012-cos(j)*.28*.008;
+        float baseDz=cos(g)*.035*.16+cos(h)*.061*.09+cos(a)*.11*.081+cos(b)*.21*.0432-cos(c)*.43*.0144+cos(d)*.7*.0072-cos(e)*.19*.006-cos(f)*.12*.004-cos(i)*.17*.012-cos(j)*.43*.008;
         float edge=max(abs(x),abs(z));
         float edgeT=clamp((edge-42.)/18.,0.,1.);
         float edgeFade=1.-edgeT*edgeT*(3.-2.*edgeT);
@@ -91,21 +109,23 @@ function createWater() {
         float angle=atan(vWorld.z,vWorld.x);
         float uneven=sin(angle*3.+uTime*.29)*.11+sin(angle*5.-uTime*.21)*.055;
         float ringRadius=radius*(1.+uneven);
-        float ringA=cos(ringRadius*5.1-uTime*2.3+bobPhase*.15);
-        float ringB=cos(ringRadius*8.2-uTime*1.7+sin(angle*2.+uTime*.25)*.12);
-        float ringFade=smoothstep(.28,.72,radius)*exp(-max(radius-.72,0.)*1.12)*vRippleFade;
-        vec2 ringNormal=normalize(vWorld.xz+vec2(.0001))*(ringA*.038+ringB*.014)*ringFade;
+        float ringA=cos(ringRadius*5.4-uTime*2.55+bobPhase*.28+sin(angle*2.3+uTime*.31)*.12);
+        float ringB=cos(ringRadius*8.1-uTime*1.82+sin(angle*2.+uTime*.25)*.17);
+        float ringFade=smoothstep(.3,.62,radius)*exp(-max(radius-.64,0.)*.83)*vRippleFade;
+        vec2 ringNormal=normalize(vWorld.xz+vec2(.0001))*(ringA*.074+ringB*.027)*ringFade;
+        float contact=smoothstep(.22,.62,radius)*(1.-smoothstep(.82,1.42,radius))*vRippleFade;
         vec3 n=normalize(vec3(vNormal.x*2.8+rippleNormal.x+ringNormal.x,vNormal.y,vNormal.z*2.8+rippleNormal.y+ringNormal.y));
         vec3 viewDir=normalize(cameraPosition-vWorld);
         float facing=max(dot(n,viewDir),0.);
         float fresnel=pow(1.-facing,5.);
         vec3 reflected=reflect(-normalize(uSunDirection),n);
-        float sunGlint=pow(max(dot(reflected,viewDir),0.),38.);
+        float sunGlint=pow(max(dot(reflected,viewDir),0.),34.);
+        float contactHighlight=pow(max(dot(reflected,viewDir),0.),28.)*contact;
         float broadA=sin(vWorld.x*.11+vWorld.z*.17+sin(vWorld.z*.07-uTime*.12)*.7+uTime*.18);
         float broadB=sin(vWorld.x*-.15+vWorld.z*.23+sin(vWorld.x*.06+uTime*.09)*.5-uTime*.15);
         float fineA=sin(vWorld.x*.43-vWorld.z*.31+sin(vWorld.x*.11+vWorld.z*.09)*.4-uTime*.28);
         float fineB=sin(vWorld.x*.22+vWorld.z*.39+sin(vWorld.z*.13-vWorld.x*.04)*.35+uTime*.24);
-        float shimmer=smoothstep(.28,.9,(broadA+broadB)*.19+(fineA+fineB)*.13+fresnel*.30+sunGlint*.16);
+        float shimmer=smoothstep(.26,.9,(broadA+broadB)*.19+(fineA+fineB)*.13+fresnel*.30+sunGlint*.16+contactHighlight*.22);
         // Soft animated interference suggests underwater caustics while keeping
         // the lake dark and avoiding the reference demo's costly ray tracing.
         float causticA=sin(vWorld.x*1.6+sin(vWorld.z*1.3+uTime*.45)*.8+uTime*.32);
@@ -115,7 +135,7 @@ function createWater() {
         vec3 lakeTransmission=vec3(.19,.33,.36)+vec3(.025,.055,.055)*shimmer;
         vec3 underwaterHaze=vec3(.045,.17,.21);
         vec3 underside=underwaterHaze+vec3(.09,.12,.12)*fresnel+vec3(.025,.04,.035)*caustic;
-        vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.16;
+        vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.16+contactHighlight*.055;
         vec3 col=mix(surface,underside,uUnder);
         float underwaterDistance=distance(cameraPosition,vWorld);
         float horizonHaze=smoothstep(2.,26.,underwaterDistance)*uUnder*.98;
@@ -275,9 +295,17 @@ function frame(now) {
 
   if (renderer && camera && !staticMode) {
     const time = now * 0.001;
-    const waveLift = surfaceHeightAt(0, 0, time);
-    const bob = waveLift + Math.sin(time * 0.72) * (p < STORY.sensorPark ? 0.012 : 0.004);
-    if (buoy) buoy.position.y += (bob - buoy.position.y) * 0.14;
+    const delta = Math.min(Math.max(elapsed, 0), 50) * 0.001;
+    const buoyDamping = 1 - Math.exp(-5.2 * delta);
+    const rotationDamping = 1 - Math.exp(-3.8 * delta);
+    if (buoy) {
+      const { lift, slopeX, slopeZ } = sampleBuoySurface(time);
+      buoy.position.y += (lift - buoy.position.y) * buoyDamping;
+      // Follow the changing wave plane gently; the amplitude comes from the
+      // existing overlapping lake waves, while damping removes mechanical snap.
+      buoy.rotation.z += (Math.atan(slopeX) * 0.72 - buoy.rotation.z) * rotationDamping;
+      buoy.rotation.x += (-Math.atan(slopeZ) * 0.72 - buoy.rotation.x) * rotationDamping;
+    }
     const targetX = innerWidth > 760 ? -1.4 : 0;
     const sensorProgress = smooth(STORY.crossStart, STORY.sensorPark, p);
     const sensorPullback = (innerWidth < 760 ? 3.1 : 4.0) * sensorProgress;

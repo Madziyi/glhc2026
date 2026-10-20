@@ -1,7 +1,8 @@
 # Task board
 
 ## Active
-- GLHC-002R4 `[implemented; automated checks pass; visual approval pending]` — finalize Version A with analytic buoy ripples, softer underwater compositing, lazy progressive loading, retry/fallback, and dev timing instrumentation. Responsive visual capture and physical-device checks remain outstanding; see the latest `docs/GLHC-002-UAT.md` addendum.
+- GLHC-002R5 `[implemented; automated checks pass; organizer visual approval pending]` — refine the Version A hybrid buoy's wave-following bob/pitch/roll and analytic hull ripples. Motion recording/export and physical-device performance remain outstanding; see the latest `docs/GLHC-002-UAT.md` addendum.
+- GLHC-002R4 `[implemented; superseded by R5 motion refinement]` — hybrid water, underwater blending, progressive loading/fallback and dev timing instrumentation. See `docs/GLHC-002-UAT.md`.
 - GLHC-002R2 `[implemented; superseded by GLHC-002R3 comparison]` — refined lake image and shader effects remain Version A baseline; see `docs/GLHC-002-UAT.md`.
 - GLHC-002R3 `[implemented; superseded by GLHC-002R4 finalization]` — A/B comparison and visual/performance evidence in `docs/GLHC-002R3-COMPARISON.md`.
 - GLHC-002R `[implementation committed; visual review pending]` — prior isolated material/model refinement; do not integrate without organizer approval.

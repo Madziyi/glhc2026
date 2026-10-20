@@ -1,8 +1,16 @@
 # Active Initiative
 
-**Initiative:** GLHC-002R4 — hybrid water finalization and progressive loading.
-**Status:** IMPLEMENTATION AND AUTOMATED CHECKS COMPLETE / VISUAL UAT AND ORGANIZER APPROVAL PENDING.
+**Initiative:** GLHC-002R5 — final water and buoy motion refinement.
+**Status:** IMPLEMENTATION AND AUTOMATED CHECKS COMPLETE / ORGANIZER VISUAL APPROVAL PENDING.
 **Implementation and verification:** Codex.
+
+## GLHC-002R5 implementation handoff (2026-10-20)
+- Refined only the isolated GLHC-002 scene. Buoy lift now area-samples the existing analytic water height at the hull center and four nearby points; surface gradients produce subtle pitch/roll, damped with elapsed-time exponential smoothing. Two low-amplitude, faster wave components are shared between the height sampler and water mesh. Buoy geometry/model are unchanged.
+- Enhanced the existing single-pass analytic ring normals with uneven moving phases tied to the shared wave bob and subtle local reflected highlights. No simulation, framebuffer, dependency, or additional draw pass was added. Underwater compositing/loading/fallback behavior is unchanged.
+- Verification: `npm test` 6/6 passed; `npm run check` 0 errors/warnings/hints; telemetry-disabled build passed. Scene chunk 612.19 kB minified / 158.02 kB gzip; compared with R4 (611.34 / 157.68), +0.85 / +0.34 kB. Existing Vite >500 kB warning remains. GLB unchanged at 181,648 B. Renderer reports 11 draw calls / 48,304 triangles.
+- Browser viewport override worked for 320×650, 390×844, 768×1024, 1440×900 surface screenshots; crossing anchor was reviewed at desktop. Ten seconds of fixed surface animation were observed in the local browser; frame interval readouts at seconds 5 and 10 were 12.4 and 12.5 ms. This is local browser evidence only, not a physical device or representative mobile network measure. Browser console error/warning logs were empty.
+- The browser tool cannot record/export a continuous video or persist its screenshots into repository files. Thus R5 before/after recordings, saved screenshot artifacts, full sensor view, scroll reversal, and complete per-viewport state matrix were not produced in this pass. Existing R4 fallback/reduced-motion/accessibility evidence remains relevant; this pass did not retest those paths. Mobile 10-second readiness remains unverified.
+- Remote feature head was confirmed at baseline `533947e05d40dd7c882e106437802434bb0b074c`; `origin/main` is an ancestor. Preserve untracked user file `desktop-surface.jpg`. No homepage edits, merge, or deployment.
 
 ## GLHC-002R4 implementation handoff (2026-10-20)
 - Changed only `/prototype/glhc-002`: removed the experimental GPU heightfield from the runtime bundle and kept Version A's single-pass hybrid water. Analytic, buoy-centered uneven ring normals now expand and fade, with phase modulation tied to the shared gentle buoy bob. The underwater shader uses a fuller, lower-contrast surface response to soften the submerged edge.
@@ -13,7 +21,7 @@
 - Local development sample: dynamic module 201.3 ms, model download/decode 148.1 ms, shader init 8.9 ms, first frame/navigation-to-ready 613.6 ms, 11 draws / 48,304 triangles. This is not cold-cache/mobile evidence; 10-second target remains **unmeasured on target hardware**. The Vite chunk warning remains.
 
 ## Next action
-Review the isolated R4 prototype in a working browser and capture the requested viewport/state matrix before organizer visual approval or integration.
+Organizer reviews the isolated R5 prototype; capture the fixed-camera before/after motion recording and remaining sensor/reverse-scroll states if the review environment supports video export.
 
 ## Verified baseline
 - `feat/glhc-001-opening` previously at `1df064817cb0c376f87297262c736522a80e539b`: isolated `/prototype/glhc-002` created while root `/` remains the superseded GLHC-001 site.

@@ -1,7 +1,7 @@
 # GLHC-002R3 — Advanced Water Rendering Comparison
 
-**Status:** comparison prototype ready for organizer visual review; no production integration or deployment.  
-**Route:** `/prototype/glhc-002?compare=1` (`water=a` or `water=b`)  
+**Status:** comparison prototype ready for organizer visual review; no production integration or deployment.
+**Route:** `/prototype/glhc-002?compare=1` (`water=a` or `water=b`)
 **Working branch:** `feat/glhc-001-opening`
 
 ## Scope and controls

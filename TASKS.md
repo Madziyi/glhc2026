@@ -1,7 +1,8 @@
 # Task board
 
 ## Active
-- GLHC-002R2 `[implementation committed; organizer visual review pending]` — refined lake image, water transition and reference-inspired shader effects (localized ripples, layered shimmer, subtle caustics) with the buoy geometry preserved. See `docs/GLHC-002-UAT.md` and `docs/GLHC-002R-VISUAL-REFINEMENT.md`. Do not integrate before approval.
+- GLHC-002R3 `[comparison implemented; organizer visual review pending]` — compare refined hybrid water against a scoped GPU heightfield variant in the isolated prototype. See `docs/GLHC-002R3-COMPARISON.md`; do not integrate before approval.
+- GLHC-002R2 `[implemented; superseded by GLHC-002R3 comparison]` — refined lake image and shader effects remain Version A baseline; see `docs/GLHC-002-UAT.md`.
 - GLHC-002R `[implementation committed; visual review pending]` — prior isolated material/model refinement; do not integrate without organizer approval.
 
 ## Completed technical feasibility

@@ -17,6 +17,11 @@ import '../../styles/glhc002.css';
         <a href="#surface">Surface</a>
         <a href="#crossing">Waterline</a>
         <a href="#sensors">Sensors</a>
+        <div class="water-compare" id="water-compare" hidden aria-label="Development water rendering comparison">
+          <span>WATER COMPARISON</span>
+          <button type="button" data-water-mode="a" aria-pressed="true">A · HYBRID</button>
+          <button type="button" data-water-mode="b" aria-pressed="false">B · GPU</button>
+        </div>
         <label class="motion-toggle"><input id="reduce-motion" type="checkbox" /> <span>Reduce motion</span></label>
       </nav>
     </header>

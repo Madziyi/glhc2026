@@ -1,8 +1,8 @@
 # Active Initiative
 
-**Initiative:** GLHC-002R2 — cinematic water and environment refinement.
-**Status:** IMPLEMENTATION COMPLETE / ORGANIZER VISUAL REVIEW PENDING.
-**Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol (delegate coding to Luna high if still part of local workflow).
+**Initiative:** GLHC-002R3 — advanced water rendering comparison.
+**Status:** COMPARISON PROTOTYPE IMPLEMENTED / ORGANIZER VISUAL REVIEW PENDING.
+**Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol.
 
 ## Verified baseline
 - `feat/glhc-001-opening` previously at `1df064817cb0c376f87297262c736522a80e539b`: isolated `/prototype/glhc-002` created while root `/` remains the superseded GLHC-001 site.
@@ -18,7 +18,14 @@
 - `/` remains unchanged, and no deployment/integration occurred. Detailed record: `docs/GLHC-002-UAT.md`.
 
 ## Next action
-Review the refreshed isolated prototype and the captured browser states for visual quality. Keep `/` intact; do not merge or integrate until the organizer approves.
+Review the GLHC-002R3 A/B comparison at `/prototype/glhc-002?compare=1`, then decide whether either water approach merits another mobile-focused refinement. Keep `/` intact; do not merge or integrate until the organizer approves.
+
+## GLHC-002R3 handoff (2026-10-19)
+- Added a query-gated A/B selector to the isolated prototype. A is the refined hybrid; B adds a 128×128 half-float GPU ripple heightfield and surface-normal sampling. Shared buoy GLB, broad waves/bob, camera, lighting and timeline are unchanged.
+- Reviewed surface, crossing, sensor pause and fully descended states in the in-app browser at 1280×720. Verified reverse scroll to 0%. The remaining underwater surface boundary is still too straight for visual approval.
+- Tests: 6/6 pass; Astro check: 0/0/0; production build passes. Scene bundle: 615.71 kB minified / 159.07 kB gzip (+7.25 / +2.32 kB from R2). Desktop intervals varied around 11–22 ms; B activation produced one 55.6 ms interval. Warm local scene-ready sample: 553.9 ms. None is mobile/GPU-time evidence.
+- The browser could not set viewport dimensions or export screenshots as files. The requested responsive matrix, motion capture, physical iOS/Android, GPU timing, and memory measurement remain unverified. Blender unavailable. See `docs/GLHC-002R3-COMPARISON.md` and `docs/GLHC-002-UAT.md`.
+- No homepage changes, merge, push, or deployment. Local comparison commit only.
 
 ## GLHC-002R2 implementation handoff (2026-10-19)
 - Replaced the banded lake background with a generated, photographic calm-lake image optimized to WebP (237,222 bytes), with a subtle defocus to keep distant wavelets from forming parallel bands at screen scale. Removed the hard viewport-gradient seam from the underwater atmosphere.

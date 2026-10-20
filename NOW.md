@@ -1,7 +1,7 @@
 # Active Initiative
 
-**Initiative:** GLHC-002R — buoy material, waterline and framing visual-quality refinement.
-**Status:** IMPLEMENTATION PASS COMMITTED / AWAITING ORGANIZER VISUAL REVIEW.
+**Initiative:** GLHC-002R2 — cinematic water and environment refinement.
+**Status:** IMPLEMENTATION COMPLETE / ORGANIZER VISUAL REVIEW PENDING.
 **Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol (delegate coding to Luna high if still part of local workflow).
 
 ## Verified baseline
@@ -18,7 +18,23 @@
 - `/` remains unchanged, and no deployment/integration occurred. Detailed record: `docs/GLHC-002-UAT.md`.
 
 ## Next action
-Organizer reviews the committed isolated prototype and requests any further visual iteration. Keep `/` intact and do not integrate until visual approval. Before treating GLHC-002R as fully accepted, capture the three required labeled stills and exact responsive browser screenshot matrix.
+Review the refreshed isolated prototype and the captured browser states for visual quality. Keep `/` intact; do not merge or integrate until the organizer approves.
+
+## GLHC-002R2 implementation handoff (2026-10-19)
+- Replaced the banded lake background with a generated, photographic calm-lake image optimized to WebP (237,222 bytes), with a subtle defocus to keep distant wavelets from forming parallel bands at screen scale. Removed the hard viewport-gradient seam from the underwater atmosphere.
+- Increased synchronized small wave displacement and bobbing, and faded fine ripple normals at the near/far mesh join to soften the water transition. Buoy geometry and model assets are unchanged.
+- Blender is unavailable. Production browser review was performed at 320×650, 390×844, 768×1024, and 1440×900, including surface, crossing, sensor pause, prose transition, paragraph B, reverse scrolling, and reduced-motion fallback. The screenshot provider displayed captures during the session; it did not export them as repository files. Latest production bundle console filter is clean; stale errors are from earlier bundle hashes.
+- `npm test`: 6/6 passed. `npm run check`: 0 errors, warnings, hints. Production build passed; Vite reports a 607.18 kB minified / 156.25 kB gzip scene-chunk warning. The renderer reports 11 draw calls / 48,304 triangles after the GLB loads.
+- Residual visual limit: at some underwater angles the projected surface horizon remains a straight, sharp line. This composite still approximates reflection/refraction; visual approval remains pending. No integration or deployment.
+- Detailed record: `docs/GLHC-002-UAT.md`.
+
+## GLHC-002R2 reference-inspired water addendum (2026-10-19)
+- Used the linked ThreeJS Water demo as an effect reference: animated buoy-centered ripple normals, layered cross-directional surface shimmer, and restrained procedural caustic light below the surface. The water shader remains one pass; buoy geometry and the GLB remain unchanged.
+- This does not port the demo's GPU heightfield, raytraced optics, or pool renderer. The buoy still bobs in sync with the shared analytic lake waves. This is a visual prototype, not a measured water-physics simulation.
+- No five-second loading target appears in the repository requirements found during this pass. The approved refinement gate does require recording bundle size and load regressions. Physical mobile GPU performance remains unverified; see `docs/GLHC-002-UAT.md` for the latest build size and limitations.
+- Current in-app browser screenshots were reviewed at the default 1440×900 viewport for surface, crossing, and underwater sensor states. The browser did not export these captures as repository files. The underwater horizon still has a sharp projected edge, and the current effect is not approved for integration.
+- `npm test`: 6/6 passed. `npm run check`: 0 errors, warnings, hints. Production build passed; scene chunk is 608.46 kB minified / 156.75 kB gzip and triggers Vite's 500 kB warning. Full multi-pass effects remain a separately profiled option; do not infer five-second compliance from bundle size or desktop frame intervals.
+- Blender remains unavailable. No deployment or homepage integration.
 
 ## Pending unrelated inputs
 - Organizer four-photo communication-examples collage (later GLHC-004).

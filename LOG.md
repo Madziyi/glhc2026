@@ -1,5 +1,11 @@
 # Project Log (append-only)
 
+### 2026-10-19 — GLHC-002R2 water/environment refinement begins
+- Scope: prioritize natural lake waves/reflections and buoy interaction, physical-feeling reversible waterline crossing, underwater depth/light, and responsive sensor composition. The approved buoy geometry is provisionally frozen; no site narrative or homepage work.
+- Sync: fetched `origin/main` (`c9841d7`) and `origin/feat/glhc-001-opening` (`6a9b51b`); working branch starts at user-specified commit `115b67d`. Main is an ancestor. Preserved untracked `desktop-surface.jpg`.
+- Baseline: reviewed shared workflow/project state, prior GLHC-002R spec/UAT and current Three.js scene, CSS composite, camera and timeline. No deployment/live state changes.
+- Next: implement environment and composition changes in the isolated route, then six-scene state capture, reverse-scroll/runtime checks, tests/check/build and commit. Do not merge or integrate.
+
 ### 2026-10-18 — GLHC-001 kickoff / first implementation
 - Changed: Authored Astro single-page structure, responsive cinematic CSS, reversible scroll controller, provisional photograph cutouts, challenge and registration ending, source contract tests; adapted Terra/Sol context workflow.
 - Decisions: Photorealistic hybrid. Start with 2D image masks and prepare 3D only when authentic glider model is available. Luma URL is required before CTA activates. No data-to-art widget.
@@ -47,3 +53,18 @@
 - Verification: `npm test` passed 6/6; `npm run check` reported 0 errors/warnings/hints; production build passed with the existing large lazy-scene chunk warning (603.61 kB / 155.10 kB gzip). Default in-app browser width confirmed surface and sensor paragraph A.
 - Limits: three saved still renders and requested exact viewport/state screenshot matrix were not produced; desktop/tablet and physical-mobile composition remain unverified. This is not organizer visual approval and must not be integrated yet.
 - Next: organizer reviews this isolated iteration; capture outstanding render/browser matrix if more visual iteration is requested.
+
+### 2026-10-19 — GLHC-002R2 environment refinement
+- Changed only the isolated prototype environment and scene shader: replaced the visibly banded lake backdrop with a generated 237,222-byte WebP and subtle defocus, removed the viewport-wide blue gradient seam, increased synchronized calm-water displacement/bobbing, and faded ripple normals at the near/far water mesh join. The approved buoy geometry/GLB remains untouched; Blender was unavailable.
+- Browser-reviewed production output at 320×650, 390×844, 768×1024, and 1440×900, covering surface, crossing, sensor pause, both prose paragraphs/transition, reverse scroll, and reduced-motion fallback. Latest bundle console filter had no errors. Visual captures were inspected in the browser session, but could not be exported into repository screenshot files.
+- Verification: `npm test` 6/6; `npm run check` 0 errors/warnings/hints; `npm run build` passed; `git diff --check` clean. Build retains Vite's 607.18 kB minified / 156.25 kB gzip warning. Renderer readout after model load: 11 calls / 48,304 triangles.
+- Limit: the projected horizon still appears straight at some underwater angles; the shader/photo composite is not physically accurate refraction or reflection. No deployment or homepage integration; visual approval pending.
+- Next: organizer reviews the isolated prototype before integration.
+
+### 2026-10-19 — GLHC-002R2 ThreeJS Water inspiration pass
+- Reference reviewed: the demo emphasizes heightfield interaction, raytraced reflection/refraction, and caustics. Adapted only its visual cues to the calm lake: buoy-centered moving ripple normals, less directional surface shimmer, and low-intensity procedural underwater caustics in the existing water shader. No new render pass, dependencies or buoy geometry changes.
+- Clarified performance scope: no five-second loading requirement was found in the project docs. The approved refinement spec asks us to record bundle size/loading regressions and verify on physical mobile where available. Current bundle remains deferred, but full heightfield/optical passes require measured mobile GPU and startup testing before integration.
+- Browser review: surface, crossing and sensor-side underwater states checked in the in-app browser at 1440×900; renderer reported 11 calls / 48,304 triangles. Existing stale shader errors in the console refer only to old `scene.D95RGkDq.js` and `scene.DPjCA_iT.js` bundles; current bundle filter was empty. Browser capture bytes were displayed for visual review but not exported as files. The viewport override did not change the in-app browser dimensions, so this pass did not repeat narrow/mobile captures.
+- Verification after final shader/CSS change: `npm test` 6/6, Astro check 0 errors/warnings/hints, production build passed (scene chunk 608.46 kB / 156.75 kB gzip, Vite warning), `git diff --check` passed with only line-ending conversion notices.
+- Limit: the projected surface horizon remains sharp at underwater angles. Current ripples modify normals/shimmer, while the buoy's vertical bob remains synchronized to the analytic shared waves; the water is not a heightfield or physics simulation. Keep isolated pending organizer visual approval; no deployment or site integration.
+- Next: organizer reviews the updated isolated prototype and decides whether the next pass should profile a full heightfield-water port.

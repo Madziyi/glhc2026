@@ -8,31 +8,143 @@ const track = document.querySelector('#buoy-story');
 const canvas = document.querySelector('#buoy-canvas');
 const motionToggle = document.querySelector('#reduce-motion');
 const readout = document.querySelector('#scene-readout');
-let renderer, scene, camera, buoy, water, frameId, staticMode = false, failed = false, cameraInitialized = false;
+let renderer, scene, camera, buoy, water, sun, fill, frameId, staticMode = false, failed = false, cameraInitialized = false;
 let renderStats = { ms: 0, calls: 0, triangles: 0 };
 let lastFrame = performance.now(), reportAt = 0;
 const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
+const surfaceHeightAt = (x, z, time) =>
+  Math.sin(x * 0.16 + z * 0.11 + time * 0.34) * 0.081
+  + Math.sin(x * -0.09 + z * 0.21 - time * 0.23) * 0.0432
+  + Math.sin(x * 0.55 + z * -0.43 + time * 0.48) * 0.0144
+  + Math.sin(x * 0.85 + z * 0.7 - time * 0.31) * 0.0072
+  + Math.sin(x * 0.22 - z * 0.19 + time * 0.16) * 0.006
+  + Math.sin(x * -0.31 - z * 0.12 - time * 0.21) * 0.004;
 
 function createWater() {
   const geo = new THREE.PlaneGeometry(120, 120, 128, 128);
   const mat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, side: THREE.DoubleSide,
-    uniforms: { uTime: { value: 0 }, uUnder: { value: 0 } },
+    transparent: true, depthWrite: true, side: THREE.DoubleSide,
+    uniforms: { uTime: { value: 0 }, uUnder: { value: 0 }, uWaveIntensity: { value: 1 }, uFar: { value: 0 }, uSunDirection: { value: new THREE.Vector3(-5, 9, 8).normalize() } },
       vertexShader: `
-      uniform float uTime; varying vec3 vWorld; varying vec3 vNormal;
-      void main(){ vec3 p=position; float x=p.x, z=p.y; float a=x*.22+uTime*.31, b=z*.39-uTime*.24, c=(x+z)*.12+uTime*.17; float w=sin(a+sin(z*.11)*.35)*.052+sin(b+sin(x*.08)*.22)*.027+sin(c)*.016; float dx=cos(a+sin(z*.11)*.35)*.0114+cos(c)*.0019; float dz=cos(b+sin(x*.08)*.22)*.0105+cos(c)*.0019; p.z+=w; vec4 world=modelMatrix*vec4(p,1.); vWorld=world.xyz; vNormal=normalize(vec3(-dx,1.,-dz)); gl_Position=projectionMatrix*viewMatrix*world; }
+      uniform float uTime; uniform float uWaveIntensity; uniform float uFar; varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
+      void main(){
+        vec3 p=position; float x=p.x, z=p.y;
+        float a=x*.16+z*.11+uTime*.34;
+        float b=x*-.09+z*.21-uTime*.23;
+        float c=x*.55-z*.43+uTime*.48;
+        float d=x*.85+z*.7-uTime*.31;
+        float e=x*.22-z*.19+uTime*.16;
+        float f=x*-.31-z*.12-uTime*.21;
+        float base=sin(a)*.081+sin(b)*.0432+sin(c)*.0144+sin(d)*.0072+sin(e)*.006+sin(f)*.004;
+        float baseDx=cos(a)*.16*.081-cos(b)*.09*.0432+cos(c)*.55*.0144+cos(d)*.85*.0072+cos(e)*.22*.006-cos(f)*.31*.004;
+        float baseDz=cos(a)*.11*.081+cos(b)*.21*.0432-cos(c)*.43*.0144+cos(d)*.7*.0072-cos(e)*.19*.006-cos(f)*.12*.004;
+        float edge=max(abs(x),abs(z));
+        float edgeT=clamp((edge-42.)/18.,0.,1.);
+        float edgeFade=1.-edgeT*edgeT*(3.-2.*edgeT);
+        float edgeSlope=edgeT>0.&&edgeT<1.?-6.*edgeT*(1.-edgeT)/18.:0.;
+        float edgeDx=abs(x)>=abs(z)?sign(x)*edgeSlope:0.;
+        float edgeDz=abs(z)>abs(x)?sign(z)*edgeSlope:0.;
+        float farA=x*.0011+z*.0007+uTime*.08;
+        float farB=x*-.0008+z*.0013-uTime*.06;
+        float farC=(x+z)*.0022+uTime*.04;
+        float farBase=sin(farA)*.05+sin(farB)*.028+sin(farC)*.012;
+        float farDx=cos(farA)*.0011*.05-cos(farB)*.0008*.028+cos(farC)*.0022*.012;
+        float farDz=cos(farA)*.0007*.05+cos(farB)*.0013*.028+cos(farC)*.0022*.012;
+        float farT=clamp((edge-60.)/120.,0.,1.);
+        float farFade=farT*farT*(3.-2.*farT);
+        float farSlope=farT>0.&&farT<1.?6.*farT*(1.-farT)/120.:0.;
+        float farDxEdge=abs(x)>=abs(z)?sign(x)*farSlope:0.;
+        float farDzEdge=abs(z)>abs(x)?sign(z)*farSlope:0.;
+        float w=mix(base*uWaveIntensity*edgeFade,farBase*farFade,uFar);
+        float dx=mix(uWaveIntensity*(baseDx*edgeFade+base*edgeDx),(farDx*farFade+farBase*farDxEdge),uFar);
+        float dz=mix(uWaveIntensity*(baseDz*edgeFade+base*edgeDz),(farDz*farFade+farBase*farDzEdge),uFar);
+        p.z+=w;
+        vec4 world=modelMatrix*vec4(p,1.);
+        vWorld=world.xyz;
+        vNormal=normalize(mat3(modelMatrix)*vec3(-dx,-dz,1.));
+        vWave=w;
+        vRippleFade=mix(edgeFade,farFade,uFar);
+        gl_Position=projectionMatrix*viewMatrix*world;
+      }
     `,
     fragmentShader: `
-      uniform float uTime; uniform float uUnder; varying vec3 vWorld; varying vec3 vNormal;
-      void main(){ vec3 n=normalize(vNormal); vec3 viewDir=normalize(cameraPosition-vWorld); float fresnel=pow(1.-abs(dot(n,viewDir)),3.); float wave=sin(vWorld.x*.055+sin(vWorld.z*.031+vWorld.x*.02)*1.8+uTime*.16); float ripple=sin(vWorld.x*.21+vWorld.z*.14+sin(vWorld.z*.06)*.8-uTime*.25); float glint=smoothstep(.62,.96,wave*.52+ripple*.19+fresnel*.26); vec3 reflection=vec3(.55,.69,.66)+glint*.17; vec3 surface=mix(vec3(.17,.40,.45),reflection,fresnel*.48)+glint*.07; vec3 deep=vec3(.035,.15,.19)+glint*.022; vec3 col=mix(surface,deep,uUnder); float alpha=mix(.28,.46,fresnel)+glint*.055; gl_FragColor=vec4(col,alpha); }
+      uniform float uTime; uniform float uUnder; uniform float uWaveIntensity; uniform vec3 uSunDirection;
+      varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
+      void main(){
+        float radius=length(vWorld.xz);
+        vec2 rippleNormal=vec2(
+          cos(vWorld.x*.72+vWorld.z*.48+uTime*.58)*.024+cos(vWorld.x*.31-vWorld.z*.69-uTime*.27)*.017,
+          sin(vWorld.x*.51-vWorld.z*.62+uTime*.43)*.023+sin(vWorld.x*.82+vWorld.z*.37-uTime*.32)*.014
+        )*uWaveIntensity*vRippleFade;
+        // A small, buoy-centered ring field borrows the reference's interactive
+        // ripples without a heightfield simulation or extra render pass.
+        float ringFade=smoothstep(.45,1.05,radius)*exp(-max(radius-1.05,0.)*.42)*vRippleFade;
+        vec2 ringNormal=normalize(vWorld.xz+vec2(.0001))*cos(radius*2.7-uTime*1.8)*.075*ringFade;
+        vec3 n=normalize(vec3(vNormal.x*2.8+rippleNormal.x+ringNormal.x,vNormal.y,vNormal.z*2.8+rippleNormal.y+ringNormal.y));
+        vec3 viewDir=normalize(cameraPosition-vWorld);
+        float facing=max(dot(n,viewDir),0.);
+        float fresnel=pow(1.-facing,5.);
+        vec3 reflected=reflect(-normalize(uSunDirection),n);
+        float sunGlint=pow(max(dot(reflected,viewDir),0.),38.);
+        float broadA=sin(vWorld.x*.11+vWorld.z*.17+sin(vWorld.z*.07-uTime*.12)*.7+uTime*.18);
+        float broadB=sin(vWorld.x*-.15+vWorld.z*.23+sin(vWorld.x*.06+uTime*.09)*.5-uTime*.15);
+        float fineA=sin(vWorld.x*.43-vWorld.z*.31+sin(vWorld.x*.11+vWorld.z*.09)*.4-uTime*.28);
+        float fineB=sin(vWorld.x*.22+vWorld.z*.39+sin(vWorld.z*.13-vWorld.x*.04)*.35+uTime*.24);
+        float shimmer=smoothstep(.28,.9,(broadA+broadB)*.19+(fineA+fineB)*.13+fresnel*.30+sunGlint*.16);
+        // Soft animated interference suggests underwater caustics while keeping
+        // the lake dark and avoiding the reference demo's costly ray tracing.
+        float causticA=sin(vWorld.x*1.6+sin(vWorld.z*1.3+uTime*.45)*.8+uTime*.32);
+        float causticB=sin(vWorld.z*1.9-sin(vWorld.x*1.1-uTime*.38)*.6-uTime*.27);
+        float caustic=pow(max(causticA*causticB,0.),7.)*uUnder;
+        vec3 horizonReflection=vec3(.32,.43,.40)+vec3(.25,.29,.24)*fresnel;
+        vec3 lakeTransmission=vec3(.19,.33,.36)+vec3(.025,.055,.055)*shimmer;
+        vec3 underside=vec3(.15,.27,.29)+vec3(.14,.18,.16)*fresnel+vec3(.025,.04,.035)*caustic;
+        vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.16;
+        vec3 col=mix(surface,underside,uUnder);
+        float alpha=mix(.86,.76,uUnder)+fresnel*.12+sunGlint*.06;
+        gl_FragColor=vec4(col,clamp(alpha,.58,.96));
+      }
     `,
   });
   const mesh = new THREE.Mesh(geo, mat);
   mesh.rotation.x = -Math.PI / 2;
-  mesh.position.y = 0.015;
+  mesh.position.y = 0;
   mesh.renderOrder = 2;
   scene.add(mesh);
-  return mesh;
+
+  // A single flat low-poly annulus continues the lake to the horizon. The
+  // detailed grid tapers to its plane edge so the join does not form a seam.
+  const half = 2500, edge = 60;
+  const tiles = [
+    [-half, half, edge, half], [-half, half, -half, -edge],
+    [-half, -edge, -edge, edge], [edge, half, -edge, edge],
+  ];
+  const positions = [], indices = [];
+  for (const [x0, x1, z0, z1] of tiles) {
+    const sx = Math.max(1, Math.ceil((x1 - x0) / 120));
+    const sz = Math.max(1, Math.ceil((z1 - z0) / 120));
+    const start = positions.length / 3;
+    for (let row = 0; row <= sz; row++) for (let col = 0; col <= sx; col++) {
+      positions.push(x0 + (x1 - x0) * col / sx, z0 + (z1 - z0) * row / sz, 0);
+    }
+    for (let row = 0; row < sz; row++) for (let col = 0; col < sx; col++) {
+      const a = start + row * (sx + 1) + col, b = a + 1, d = a + sx + 1, c = d + 1;
+      indices.push(a,b,c, a,c,d);
+    }
+  }
+  const farGeo = new THREE.BufferGeometry();
+  farGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  farGeo.setIndex(indices);
+  const farMat = mat.clone();
+  farMat.uniforms = THREE.UniformsUtils.clone(mat.uniforms);
+  farMat.uniforms.uWaveIntensity.value = 0;
+  farMat.uniforms.uFar.value = 1;
+  const farMesh = new THREE.Mesh(farGeo, farMat);
+  farMesh.rotation.x = -Math.PI / 2;
+  farMesh.position.y = 0;
+  farMesh.renderOrder = 1;
+  scene.add(farMesh);
+  return [farMesh, mesh];
 }
 
 function startRenderer() {
@@ -46,11 +158,11 @@ function startRenderer() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a3140, 0.035);
+    scene.fog = new THREE.FogExp2(0x8ba09b, 0.006);
     camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / Math.max(canvas.clientHeight, 1), 0.1, 180);
     scene.add(new THREE.HemisphereLight(0xd7e1d7, 0x18303a, 1.35));
-    const sun = new THREE.DirectionalLight(0xfff0d6, 2.15); sun.position.set(-5, 9, 8); scene.add(sun);
-    const fill = new THREE.DirectionalLight(0x79a6a5, 0.62); fill.position.set(6, -3, -6); scene.add(fill);
+    sun = new THREE.DirectionalLight(0xfff0d6, 2.15); sun.position.set(-5, 9, 8); scene.add(sun);
+    fill = new THREE.DirectionalLight(0x79a6a5, 0.62); fill.position.set(6, -3, -6); scene.add(fill);
     const rim = new THREE.PointLight(0xa8c9bb, 4.5, 14); rim.position.set(-1, -1.4, 3); scene.add(rim);
     water = createWater();
     const loader = new GLTFLoader();
@@ -105,6 +217,7 @@ function frame(now) {
   const t = timelineAt(p), phase = phaseFor(p);
   const panelVisible = p >= STORY.sensorPark;
   stage.style.setProperty('--underwater', String(t.waterMix));
+  stage.style.setProperty('--surface-image-opacity', String((1 - t.waterMix) ** 7));
   stage.dataset.underwater = String(t.waterMix > 0.86);
   stage.dataset.panelVisible = String(panelVisible);
   stage.dataset.phase = phase[0];
@@ -123,25 +236,29 @@ function frame(now) {
 
   if (renderer && camera && !staticMode) {
     const time = now * 0.001;
-    const bob = p < STORY.sensorPark ? Math.sin(time * 0.72) * 0.025 : Math.sin(time * 0.72) * 0.008;
-    if (buoy) buoy.position.y += (bob - buoy.position.y) * 0.16;
+    const waveLift = surfaceHeightAt(0, 0, time);
+    const bob = waveLift + Math.sin(time * 0.72) * (p < STORY.sensorPark ? 0.012 : 0.004);
+    if (buoy) buoy.position.y += (bob - buoy.position.y) * 0.14;
     const targetX = innerWidth > 760 ? -1.4 : 0;
-    const sensorPullback = 1.25 * smooth(STORY.crossStart, STORY.sensorPark, p);
+    const sensorProgress = smooth(STORY.crossStart, STORY.sensorPark, p);
+    const sensorPullback = (innerWidth < 760 ? 3.1 : 4.0) * sensorProgress;
     const desired = new THREE.Vector3(targetX + t.cameraX, t.cameraY, t.cameraZ - sensorPullback);
-    const targetY = t.targetY - (innerWidth < 760 ? t.waterMix * 1.25 : 0);
+    const targetY = t.targetY + 0.55 * sensorProgress - (innerWidth < 760 ? t.waterMix * 0.3 : 0);
     const target = new THREE.Vector3(targetX, targetY, 0);
     if (cameraInitialized) camera.position.lerp(desired, 0.095);
     else { camera.position.copy(desired); cameraInitialized = true; }
     camera.lookAt(target);
-    scene.fog.color.set(new THREE.Color(0x315a60).lerp(new THREE.Color(0x0a2634), t.waterMix));
+    scene.fog.color.copy(new THREE.Color(0x91a49e).lerp(new THREE.Color(0x17414a), t.waterMix));
+    scene.fog.density = THREE.MathUtils.lerp(0.006, 0.024, t.waterMix);
+    sun.intensity = THREE.MathUtils.lerp(2.15, 1.45, t.waterMix);
+    fill.intensity = THREE.MathUtils.lerp(0.62, 0.82, t.waterMix);
     scene.background = null;
-    water.material.uniforms.uTime.value = time;
-    water.material.uniforms.uUnder.value = t.waterMix;
+    for (const surface of water) {
+      surface.material.uniforms.uTime.value = time;
+      surface.material.uniforms.uUnder.value = t.waterMix;
+    }
     try { renderer.render(scene, camera); }
     catch { activateFallback(); return; }
-    const waterline = new THREE.Vector3(0, 0, 0).project(camera);
-    const waterlineTop = clamp((1 - waterline.y) * 50, -5, 105);
-    document.querySelector('.water-glass').style.top = `${waterlineTop}%`;
     renderStats = { ms: elapsed, calls: renderer.info.render.calls, triangles: renderer.info.render.triangles };
     readout.dataset.drawCalls = String(renderStats.calls);
     readout.dataset.triangles = String(renderStats.triangles);

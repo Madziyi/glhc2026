@@ -1,5 +1,28 @@
 # GLHC-002 verification and review
 
+## GLHC-002R2 — cinematic water and environment refinement (2026-10-19)
+
+- Isolated route `/prototype/glhc-002` only. Replaced the banded lake background with `public/assets/lake-surface-r2b.webp` (generated photographic lake horizon, 237,222 bytes) with subtle defocus to soften repetitive distant wavelets at screen scale. Removed the full-screen vertical underwater color gradient that created a false 42%-height seam; the blue-green atmosphere now uses soft radial light/haze.
+- Increased overlapping wave displacement to about 0.15 scene units peak sum and synchronized buoy bob to the same surface function. Fine ripple normals fade across the near/far water-mesh join. Existing buoy model source and GLB were not modified.
+- Blender was not installed. The background asset is a generated photographic plate; the water remains a real-time shader/photo composite without full reflection/refraction or caustics.
+
+### Browser review
+
+- Production preview: `http://127.0.0.1:4332/prototype/glhc-002` (the earlier 4331 preview was not reachable from the in-app browser). Browser captures were displayed and visually reviewed during this session at **320×650**, **390×844**, **768×1024**, and **1440×900**.
+- Checked surface at 0%, approach/crossing at 34–41%, sensor pause and reading composition around 49–60%, horizontal prose transition around 67%, paragraph B at 76%, and below-surface descent near 97%. Reverse scrolling returned to the surface. Reduced-motion mode exposed both prose paragraphs in a static reading layout.
+- Renderer reports 11 calls / 48,304 triangles after the model loads. The current scene bundle produced no browser errors when filtered by its current asset hash; captured console errors were from previous bundle hashes.
+- The in-app screenshot provider showed these captures in the working session but did not provide a filesystem export. No screenshot files were added for R2; the existing baseline screenshots below remain untouched. Physical-device mobile checks were not run.
+
+### Verification and remaining visual review
+
+- `npm test`: **6/6 passed**.
+- `npm run check`: **0 errors, 0 warnings, 0 hints**.
+- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. Vite warns that the deferred scene chunk is **607.18 kB minified / 156.25 kB gzip**.
+- `git diff --check`: **passed** before this documentation update.
+- The false viewport-gradient seam and old repeated background image were removed. A straight projected water horizon remains visible at some underwater camera angles; the current composite still does not model physically accurate reflection, refraction, or caustics. Organizer visual approval is still required before site integration.
+
+## Prior GLHC-002R baseline
+
 ## GLHC-002R implementation addendum — 2026-10-19
 
 - Isolated route only; homepage source and public assets remain unchanged. No integration or deployment.
@@ -81,3 +104,12 @@ Live state: local preview only; no hosting/deployment verified.
 Known issues: visual/optical fidelity, bundle size and physical-device performance require the follow-up review above.
 Next action: organizer reviews this isolated prototype against the approved assembly image before integration.
 Commit: see the feature-branch handoff commit containing this document (SHA returned in the chat).
+
+## GLHC-002R2 reference-inspired shader addendum — 2026-10-19
+
+- The linked ThreeJS Water demo was reviewed visually and through its project README. Its key cues are interactive ripples, changing reflections/refractions, and caustic light. This isolated prototype now uses a small animated ripple-normal field centered at the buoy, multi-directional surface shimmer to reduce repeated bands, and subtle procedural underwater caustic highlights. These additions stay in the existing water shader pass; no new dependency, water mesh, or buoy geometry was added.
+- The buoy's vertical movement remains synchronized with the shared analytic wave-height function. The new ripple normals affect highlights but do not implement wave-height physics or cause local buoy displacement. The linked demo uses a GPU heightfield with ping-pong render targets and additional optical passes; a closer port remains a separate profile-and-review decision. Its repository documents mobile Safari float-target and stripe artifacts.
+- No explicit five-second loading target was found in `PROJECT.md`, `NOW.md`, or the active refinement specification. The approved gate asks for bundle/loading regression evidence and physical mobile checks when available. The current scene chunk is **608.46 kB minified / 156.75 kB gzip** (Vite's >500 kB warning); the scene stays deferred from the page bootstrap. This does not prove a five-second page-load target or mobile frame-rate acceptance.
+- Final browser review used the existing in-app preview at **1440×900** for the surface, crossing, and underwater sensor state; the browser renderer reported up to **11 calls / 48,304 triangles**. Current bundle console filtering returned no errors or warnings; old shader errors refer to earlier bundle hashes only. The provider displayed the browser screenshots in-session but could not export them into repository files. Attempted responsive viewport override remained at 1440×900, so mobile was not recaptured for this shader iteration; prior viewport evidence above remains from the earlier pass.
+- `npm test`: **6/6 passed**. `npm run check`: **0 errors, 0 warnings, 0 hints**. `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. `git diff --check`: **passed** (Git reports expected CRLF conversion notices for edited LF files).
+- Blender is unavailable. At some underwater camera angles, the projected surface edge remains a sharp, straight horizon. The current effect is a lightweight visual adaptation, not the demo's heightfield, buoyancy physics, raytraced reflection/refraction, or differential-area caustics. Keep the prototype isolated until organizer visual review; no integration or deployment occurred.

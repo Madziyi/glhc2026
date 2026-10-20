@@ -1,7 +1,7 @@
 # Active Initiative
 
 **Initiative:** GLHC-002R3 — advanced water rendering comparison.
-**Status:** COMPARISON PROTOTYPE IMPLEMENTED / ORGANIZER VISUAL REVIEW PENDING.
+**Status:** DESKTOP COMPARISON IMPLEMENTED / RESPONSIVE MATRIX INCOMPLETE / ORGANIZER REVIEW PENDING.
 **Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol.
 
 ## Verified baseline
@@ -18,7 +18,7 @@
 - `/` remains unchanged, and no deployment/integration occurred. Detailed record: `docs/GLHC-002-UAT.md`.
 
 ## Next action
-Review the GLHC-002R3 A/B comparison at `/prototype/glhc-002?compare=1`, then decide whether either water approach merits another mobile-focused refinement. Keep `/` intact; do not merge or integrate until the organizer approves.
+Review the visible desktop A/B comparison at `/prototype/glhc-002?compare=1`; complete the four-size viewport matrix before any visual approval. Keep `/` intact; do not merge or integrate until the organizer approves.
 
 ## GLHC-002R3 handoff (2026-10-19)
 - Added a query-gated A/B selector to the isolated prototype. A is the refined hybrid; B adds a 128×128 half-float GPU ripple heightfield and surface-normal sampling. Shared buoy GLB, broad waves/bob, camera, lighting and timeline are unchanged.

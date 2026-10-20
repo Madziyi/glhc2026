@@ -35,6 +35,7 @@ Review the refreshed isolated prototype and the captured browser states for visu
 - Current in-app browser screenshots were reviewed at the default 1440×900 viewport for surface, crossing, and underwater sensor states. The browser did not export these captures as repository files. The underwater horizon still has a sharp projected edge, and the current effect is not approved for integration.
 - `npm test`: 6/6 passed. `npm run check`: 0 errors, warnings, hints. Production build passed; scene chunk is 608.46 kB minified / 156.75 kB gzip and triggers Vite's 500 kB warning. Full multi-pass effects remain a separately profiled option; do not infer five-second compliance from bundle size or desktop frame intervals.
 - Blender remains unavailable. No deployment or homepage integration.
+- Implementation commit: `9da3a7a242660572344dd74f73ea38c0735a7db6` on `feat/glhc-001-opening`.
 
 ## Pending unrelated inputs
 - Organizer four-photo communication-examples collage (later GLHC-004).

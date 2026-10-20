@@ -68,3 +68,4 @@
 - Verification after final shader/CSS change: `npm test` 6/6, Astro check 0 errors/warnings/hints, production build passed (scene chunk 608.46 kB / 156.75 kB gzip, Vite warning), `git diff --check` passed with only line-ending conversion notices.
 - Limit: the projected surface horizon remains sharp at underwater angles. Current ripples modify normals/shimmer, while the buoy's vertical bob remains synchronized to the analytic shared waves; the water is not a heightfield or physics simulation. Keep isolated pending organizer visual approval; no deployment or site integration.
 - Next: organizer reviews the updated isolated prototype and decides whether the next pass should profile a full heightfield-water port.
+- Implementation commit: `9da3a7a242660572344dd74f73ea38c0735a7db6` (`Refine GLHC-002 water environment`).

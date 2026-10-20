@@ -18,7 +18,9 @@ const timings = { sceneImportMs: null, modelMs: null, rendererShaderMs: null, fi
 let lastFrame = performance.now(), reportAt = 0;
 const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
 const surfaceHeightAt = (x, z, time) =>
-  Math.sin(x * 0.16 + z * 0.11 + time * 0.34) * 0.081
+  Math.sin(x * 0.045 + z * 0.035 + time * 0.24) * 0.16
+  + Math.sin(x * -0.028 + z * 0.061 - time * 0.19) * 0.09
+  + Math.sin(x * 0.16 + z * 0.11 + time * 0.34) * 0.081
   + Math.sin(x * -0.09 + z * 0.21 - time * 0.23) * 0.0432
   + Math.sin(x * 0.55 + z * -0.43 + time * 0.48) * 0.0144
   + Math.sin(x * 0.85 + z * 0.7 - time * 0.31) * 0.0072
@@ -40,9 +42,11 @@ function createWater() {
         float d=x*.85+z*.7-uTime*.31;
         float e=x*.22-z*.19+uTime*.16;
         float f=x*-.31-z*.12-uTime*.21;
-        float base=sin(a)*.081+sin(b)*.0432+sin(c)*.0144+sin(d)*.0072+sin(e)*.006+sin(f)*.004;
-        float baseDx=cos(a)*.16*.081-cos(b)*.09*.0432+cos(c)*.55*.0144+cos(d)*.85*.0072+cos(e)*.22*.006-cos(f)*.31*.004;
-        float baseDz=cos(a)*.11*.081+cos(b)*.21*.0432-cos(c)*.43*.0144+cos(d)*.7*.0072-cos(e)*.19*.006-cos(f)*.12*.004;
+        float g=x*.045+z*.035+uTime*.24;
+        float h=x*-.028+z*.061-uTime*.19;
+        float base=sin(g)*.16+sin(h)*.09+sin(a)*.081+sin(b)*.0432+sin(c)*.0144+sin(d)*.0072+sin(e)*.006+sin(f)*.004;
+        float baseDx=cos(g)*.045*.16-cos(h)*.028*.09+cos(a)*.16*.081-cos(b)*.09*.0432+cos(c)*.55*.0144+cos(d)*.85*.0072+cos(e)*.22*.006-cos(f)*.31*.004;
+        float baseDz=cos(g)*.035*.16+cos(h)*.061*.09+cos(a)*.11*.081+cos(b)*.21*.0432-cos(c)*.43*.0144+cos(d)*.7*.0072-cos(e)*.19*.006-cos(f)*.12*.004;
         float edge=max(abs(x),abs(z));
         float edgeT=clamp((edge-42.)/18.,0.,1.);
         float edgeFade=1.-edgeT*edgeT*(3.-2.*edgeT);
@@ -109,14 +113,22 @@ function createWater() {
         float caustic=pow(max(causticA*causticB,0.),7.)*uUnder;
         vec3 horizonReflection=vec3(.32,.43,.40)+vec3(.25,.29,.24)*fresnel;
         vec3 lakeTransmission=vec3(.19,.33,.36)+vec3(.025,.055,.055)*shimmer;
-        vec3 underside=vec3(.15,.27,.29)+vec3(.14,.18,.16)*fresnel+vec3(.025,.04,.035)*caustic;
+        vec3 underwaterHaze=vec3(.045,.17,.21);
+        vec3 underside=underwaterHaze+vec3(.09,.12,.12)*fresnel+vec3(.025,.04,.035)*caustic;
         vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.16;
         vec3 col=mix(surface,underside,uUnder);
+        float underwaterDistance=distance(cameraPosition,vWorld);
+        float horizonHaze=smoothstep(2.,26.,underwaterDistance)*uUnder*.98;
+        col=mix(col,underwaterHaze,horizonHaze);
         // Keep the surface legible overhead while using more body and lower
         // color contrast below the lake plane to dissolve the photo-horizon edge.
         float underwaterAlpha=.77+fresnel*.16;
         float alpha=mix(.78+fresnel*.08,underwaterAlpha,uUnder)+sunGlint*.035;
-        gl_FragColor=vec4(col,clamp(alpha,.58,.96));
+        // Let the distant underwater surface dissolve into the CSS lake haze;
+        // this removes the hard projected edge while preserving near overhead waves.
+        alpha*=1.-horizonHaze*.72;
+        col+=vec3(.006,.009,.01)*shimmer*horizonHaze;
+        gl_FragColor=vec4(col,clamp(alpha,.04,.96));
       }
     `,
   });
@@ -128,7 +140,7 @@ function createWater() {
 
   // A single flat low-poly annulus continues the lake to the horizon. The
   // detailed grid tapers to its plane edge so the join does not form a seam.
-  const half = 2500, edge = 60;
+  const half = 2500, edge = 58;
   const tiles = [
     [-half, half, edge, half], [-half, half, -half, -edge],
     [-half, -edge, -edge, edge], [edge, half, -edge, edge],
@@ -155,7 +167,8 @@ function createWater() {
   farMat.uniforms.uFar.value = 1;
   const farMesh = new THREE.Mesh(farGeo, farMat);
   farMesh.rotation.x = -Math.PI / 2;
-  farMesh.position.y = 0;
+  // Slight overlap avoids a sub-pixel crack between two coplanar water meshes.
+  farMesh.position.y = 0.006;
   farMesh.renderOrder = 1;
   scene.add(farMesh);
   return [farMesh, mesh];
@@ -188,6 +201,7 @@ function startRenderer() {
     const modelStarted = performance.now();
     loader.load('/models/glhc002-buoy.glb', gltf => {
       timings.modelMs = performance.now() - modelStarted;
+      readout.dataset.modelLoadMs = timings.modelMs.toFixed(1);
       buoy = gltf.scene;
       buoy.traverse(o => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; if (o.material) { o.material.side = THREE.DoubleSide; o.material.needsUpdate = true; } } });
       scene.add(buoy);
@@ -290,12 +304,14 @@ function frame(now) {
         shaderCompiled = true;
       }
       renderer.render(scene, camera);
-      if (!ready) {
+      if (!ready && buoy) {
         timings.rendererShaderMs = shaderCompiledAt === null ? null : shaderCompiledAt - compileStarted;
         timings.firstFrameMs = performance.now();
         timings.readyMs = performance.now();
         ready = true;
         readout.dataset.sceneReadyMs = timings.readyMs.toFixed(1);
+        readout.dataset.rendererShaderMs = timings.rendererShaderMs?.toFixed(1) ?? '';
+        readout.dataset.firstFrameMs = timings.firstFrameMs.toFixed(1);
         document.querySelector('#scene-loading').hidden = true;
         document.querySelector('#scene-retry').hidden = true;
         document.documentElement.classList.remove('scene-pending');

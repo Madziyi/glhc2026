@@ -9,7 +9,7 @@ let fallbackTimer;
 function loadScene() {
   if (!scenePromise) {
     fallbackTimer = setTimeout(() => {
-      if (!document.documentElement.classList.contains('scene-ready')) {
+      if (!document.documentElement.classList.contains('scene-ready') && !document.querySelector('#stage').classList.contains('webgl-failed')) {
         document.documentElement.classList.add('scene-timeout');
         document.querySelector('#scene-loading').hidden = false;
         document.querySelector('#loading-label').textContent = 'The 3D view is taking longer. Keep reading while it loads.';
@@ -26,6 +26,7 @@ function loadScene() {
       });
       return module;
     }).catch(error => {
+      clearTimeout(fallbackTimer);
       document.documentElement.classList.add('scene-timeout');
       document.querySelector('#scene-loading').hidden = false;
       document.querySelector('#loading-label').textContent = 'The 3D view could not start. The full story remains readable.';

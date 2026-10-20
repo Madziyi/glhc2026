@@ -14,14 +14,16 @@
 
 - `npm test`: **6/6 passed**.
 - `npm run check`: **0 errors, 0 warnings, 0 hints**.
-- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. The lazy scene bundle is **610.44 kB minified / 157.41 kB gzip**. Vite still reports the >500 kB minified chunk warning. Compared to R3: **−5.27 kB minified / −1.66 kB gzip**.
+- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. The lazy scene bundle is **611.34 kB minified / 157.68 kB gzip**. Vite still reports the >500 kB minified chunk warning. Compared to R3: **−4.37 kB minified / −1.39 kB gzip**.
 - GLB remains **181,648 bytes**. R3's prior renderer report was **11 draws / 48,304 triangles**; the R4 preview could not be opened, so no new live renderer count or R4 FPS is claimed.
 - `git diff --check`: **passed**.
 
 ### UAT and performance boundary
 
-- The available in-app browser timed out connecting to the local Astro preview. R4 did not produce before/after screenshots or complete the requested 320×650, 390×844, 768×1024, 1440×900 states, forward/reverse scroll, reduced-motion, keyboard, static/loading fallback, console error or sensor-legibility browser checks. The screenshot files from earlier passes are not R4 evidence.
-- No physical Android/iOS device or throttled mobile network run was available. Cold and warm R4 page readiness, scene resource timings, sustained frame rate, GPU time and memory are **unmeasured**. The 10-second target is a policy and instrumentation target, not a claimed result. The scene transfer size alone does not prove it.
+- Follow-up browser review: `http://localhost:4322/prototype/glhc-002` rendered in the in-app browser at **454×~748 CSS px**. Surface, waterline crossing, sensor-side storytelling and fully submerged states were inspected; scroll returned from 100% to 0%. The horizon contrast is reduced through distance haze/fade, and the responsive science card is more compact. At the sensor pause the sonde and cage remain visible beneath the copy. This viewport is narrower than the requested 320/390 cases, but is not an exact requested size.
+- Forced `?fallback=1` showed the static buoy and both paragraphs; first Tab focused “Skip prototype controls.” Reduced-motion mode showed both paragraphs in the static reading view. The fallback's 1–2 px overflow was fixed; browser reports document width = viewport client width (**454 px**). Console error/warning list was empty. No saved image files were exported; the captures were inspected in-session only. The requested four-size matrix remains incomplete because viewport override was unavailable.
+- Development local-preview sample: scene module **201.3 ms**, model download/decode **148.1 ms**, shader initialization **8.9 ms**, first usable frame / navigation-to-ready **613.6 ms**; **11 draws / 48,304 triangles**. Browser cache state was not reliably classified for this sample; treat it as a local preview only, not cold-cache, mobile, or 10-second acceptance evidence. Frame-rate, GPU-time, and memory remain unmeasured.
+- No physical Android/iOS device or throttled mobile network run was available. The 10-second target is a policy and instrumentation target, not a claimed result. The scene transfer size alone does not prove it.
 - No homepage/root changes, merge, deployment, or GLB/model edits.
 
 ## GLHC-002R2 — cinematic water and environment refinement (2026-10-19)

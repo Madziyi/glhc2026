@@ -1,7 +1,7 @@
 ---
 import '../../styles/glhc002.css';
 ---
-<html lang="en" class="static-motion">
+<html lang="en" class:list={["static-motion", { "dev-mode": import.meta.env.DEV }]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,11 +17,6 @@ import '../../styles/glhc002.css';
         <a href="#surface">Surface</a>
         <a href="#crossing">Waterline</a>
         <a href="#sensors">Sensors</a>
-        <div class="water-compare" id="water-compare" hidden aria-label="Development water rendering comparison">
-          <span>WATER COMPARISON</span>
-          <button type="button" data-water-mode="a" aria-pressed="true">A · HYBRID</button>
-          <button type="button" data-water-mode="b" aria-pressed="false">B · GPU</button>
-        </div>
         <label class="motion-toggle"><input id="reduce-motion" type="checkbox" /> <span>Reduce motion</span></label>
       </nav>
     </header>
@@ -34,6 +29,7 @@ import '../../styles/glhc002.css';
         <div class="sticky-stage" id="stage">
           <div class="lake-backdrop" aria-hidden="true"></div>
           <canvas id="buoy-canvas" aria-label="Three-dimensional yellow Great Lakes monitoring buoy and underwater sensor cage" role="img"></canvas>
+          <div class="scene-loading" id="scene-loading" role="status" aria-live="polite" hidden><span class="loading-dot" aria-hidden="true"></span><span id="loading-label">Preparing the 3D scene…</span><button id="scene-retry" type="button" hidden>Retry 3D</button></div>
           <div class="water-glass" aria-hidden="true"></div>
           <div class="fallback-illustration" aria-hidden="true">
             <div class="fallback-tower"><span></span></div>

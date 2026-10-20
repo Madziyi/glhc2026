@@ -1,5 +1,29 @@
 # GLHC-002 verification and review
 
+## GLHC-002R4 — hybrid water finalization and progressive loading (2026-10-20)
+
+### Implementation
+
+- Kept the route isolated and selected the lightweight hybrid renderer as its only runtime water path. Removed the GPUComputationRenderer import, half-float heightfield setup, compute loop, and A/B controls from the page. The previous R3 comparison record remains in `docs/GLHC-002R3-COMPARISON.md` as historical evidence.
+- Replaced uniform buoy rings with analytic expanding wave normals. Their radius is angularly perturbed, the field combines two frequencies, fades with distance, and is lightly modulated by the shared buoy bob. Existing wave geometry, materials, model and camera timeline remain unchanged.
+- Increased underwater water-surface body/opacity while lowering the transition contrast to soften the photographic horizon edge. This remains a shader/photo composite, not physical refraction.
+- Kept the HTML route and prose available immediately. Bootstrap dynamically imports the scene and has a navigation-relative 10-second timeout. The status chip is restrained; the static buoy and full reading content remain available on timeout/failure. A retry is exposed on failure. Late readiness fades the canvas over the fallback at the visitor's current scroll progress.
+- `scene-ready` now requires GLB load/decode, shader compilation, and a successful first rendered frame. Development console instrumentation reports navigation timestamp, dynamic scene JS duration, model load/decode duration and transfer size, renderer/shader compile, first usable frame, navigation-to-interactive time, cache/network classification, outcome and errors. Production hides the technical renderer readout. This instrumentation has not produced a mobile performance result.
+
+### Verification
+
+- `npm test`: **6/6 passed**.
+- `npm run check`: **0 errors, 0 warnings, 0 hints**.
+- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. The lazy scene bundle is **610.35 kB minified / 157.39 kB gzip**. Vite still reports the >500 kB minified chunk warning. Compared to R3: **−5.36 kB minified / −1.68 kB gzip**.
+- GLB remains **181,648 bytes**. R3's prior renderer report was **11 draws / 48,304 triangles**; the R4 preview could not be opened, so no new live renderer count or R4 FPS is claimed.
+- `git diff --check`: **passed**.
+
+### UAT and performance boundary
+
+- The available in-app browser timed out connecting to the local Astro preview. R4 did not produce before/after screenshots or complete the requested 320×650, 390×844, 768×1024, 1440×900 states, forward/reverse scroll, reduced-motion, keyboard, static/loading fallback, console error or sensor-legibility browser checks. The screenshot files from earlier passes are not R4 evidence.
+- No physical Android/iOS device or throttled mobile network run was available. Cold and warm R4 page readiness, scene resource timings, sustained frame rate, GPU time and memory are **unmeasured**. The 10-second target is a policy and instrumentation target, not a claimed result. The scene transfer size alone does not prove it.
+- No homepage/root changes, merge, deployment, or GLB/model edits.
+
 ## GLHC-002R2 — cinematic water and environment refinement (2026-10-19)
 
 - Isolated route `/prototype/glhc-002` only. Replaced the banded lake background with `public/assets/lake-surface-r2b.webp` (generated photographic lake horizon, 237,222 bytes) with subtle defocus to soften repetitive distant wavelets at screen scale. Removed the full-screen vertical underwater color gradient that created a false 42%-height seam; the blue-green atmosphere now uses soft radial light/haze.

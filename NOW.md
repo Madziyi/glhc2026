@@ -1,8 +1,18 @@
 # Active Initiative
 
-**Initiative:** GLHC-002R3 — advanced water rendering comparison.
-**Status:** DESKTOP COMPARISON IMPLEMENTED / RESPONSIVE MATRIX INCOMPLETE / ORGANIZER REVIEW PENDING.
-**Planning / review:** Terra. **Implementation, tests and browser UAT:** Codex Sol.
+**Initiative:** GLHC-002R4 — hybrid water finalization and progressive loading.
+**Status:** IMPLEMENTATION AND AUTOMATED CHECKS COMPLETE / VISUAL UAT AND ORGANIZER APPROVAL PENDING.
+**Implementation and verification:** Codex.
+
+## GLHC-002R4 implementation handoff (2026-10-20)
+- Changed only `/prototype/glhc-002`: removed the experimental GPU heightfield from the runtime bundle and kept Version A's single-pass hybrid water. Analytic, buoy-centered uneven ring normals now expand and fade, with phase modulation tied to the shared gentle buoy bob. The underwater shader uses a fuller, lower-contrast surface response to soften the submerged edge.
+- The route's HTML stays immediate; its Three.js scene remains dynamically imported. A restrained status chip shows only during initialization/timeout/failure; the CSS buoy and complete prose remain available, retry is offered after initialization failure, and late success fades in at the current scroll progress. Readiness now requires GLB load/decode, shader compile, and a successful render. Dev-only timing logs report module load, model load/decode, renderer/shader initialization, first frame, navigation-to-ready, cache/network classification and errors.
+- Verification: `npm test` 6/6 passed; `npm run check` 0 errors/warnings/hints; telemetry-disabled production build passed; `git diff --check` passed. The build's lazy scene JS is 610.35 kB minified / 157.39 kB gzip, down 5.36 / 1.68 kB from R3. Vite's >500 kB warning remains. GLB unchanged at 181,648 B. Existing R3 renderer evidence is 11 scene draws / 48,304 triangles; this pass did not get a live browser readout.
+- Remote sync confirmed `origin/feat/glhc-001-opening` at `6a9b51b`; it was an ancestor of local `262015e`. The six pre-existing commits were safely pushed before implementation. No merge, homepage integration or deployment.
+- Browser preview connection timed out in the available in-app browser. Therefore no R4 before/after screenshots, responsive matrix, reduced-motion/keyboard/WebGL runtime UAT, frame-rate sample, or physical mobile run is claimed. The 10-second mobile target is instrumented but **not measured or demonstrated**. Existing screenshot files are from prior iterations and are not R4 evidence.
+
+## Next action
+Review the isolated R4 prototype in a working browser and capture the requested viewport/state matrix before organizer visual approval or integration.
 
 ## Verified baseline
 - `feat/glhc-001-opening` previously at `1df064817cb0c376f87297262c736522a80e539b`: isolated `/prototype/glhc-002` created while root `/` remains the superseded GLHC-001 site.
@@ -17,8 +27,8 @@
 - Browser preview confirmed at default in-app width (~375 CSS px) for surface and sensor paragraph A. Required exact 320×650, 390×844, 768×1024, 1440×900 viewport matrix and the three saved offline still renders were not completed in this pass; no physical-device check. This is not evidence of organizer visual approval.
 - `/` remains unchanged, and no deployment/integration occurred. Detailed record: `docs/GLHC-002-UAT.md`.
 
-## Next action
-Review the visible desktop A/B comparison at `/prototype/glhc-002?compare=1`; complete the four-size viewport matrix before any visual approval. Keep `/` intact; do not merge or integrate until the organizer approves.
+## Prior status at R3 start
+The water comparison notes below document the previous decision point; R4 supersedes the comparison UI and keeps Version A as the route's runtime renderer. Keep `/` intact and do not integrate until the organizer approves.
 
 ## GLHC-002R3 handoff (2026-10-19)
 - Added a query-gated A/B selector to the isolated prototype. A is the refined hybrid; B adds a 128×128 half-float GPU ripple heightfield and surface-normal sampling. Shared buoy GLB, broad waves/bob, camera, lighting and timeline are unchanged.

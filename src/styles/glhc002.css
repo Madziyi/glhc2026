@@ -34,3 +34,11 @@
 @media(max-width:700px){.water-compare{position:fixed;z-index:24;left:50%;top:68px;transform:translateX(-50%);white-space:nowrap}.water-compare>span{font-size:.43rem}.water-compare button{font-size:.5rem;padding:.34rem .42rem}}
 .sticky-stage[data-underwater="true"] .stage-shade{background:linear-gradient(90deg,rgba(0,20,32,.015) 25%,rgba(1,19,32,.13) 62%,rgba(1,20,36,.28)),linear-gradient(0deg,rgba(2,18,32,.3),transparent 38%,rgba(2,18,32,.015))}
 @media(max-width:760px){html:not(.static-motion) .sticky-stage[data-panel-visible="true"] .science-copy{top:8.5rem;bottom:auto;max-height:none;overflow:visible}}
+
+/* Initial HTML remains readable while the deferred scene prepares. */
+.scene-loading{position:absolute;z-index:8;left:1rem;top:clamp(4.8rem,10vh,7rem);display:flex;align-items:center;gap:.65rem;max-width:min(92vw,25rem);padding:.65rem .85rem;border:1px solid rgba(207,231,221,.22);border-radius:999px;background:rgba(4,25,37,.74);color:#e1eceb;font:500 .68rem/1.35 ui-monospace,Consolas,monospace;backdrop-filter:blur(8px)}
+.scene-loading[hidden]{display:none}.loading-dot{width:.48rem;height:.48rem;flex:none;border-radius:50%;background:#e6bf43;box-shadow:0 0 0 4px rgba(230,191,67,.12);animation:loading-pulse 1.5s ease-in-out infinite}.scene-loading button{border:1px solid rgba(225,236,235,.42);border-radius:999px;padding:.35rem .6rem;background:transparent;color:inherit;font:inherit;cursor:pointer}.scene-loading button:focus-visible{outline:2px solid #e6bf43;outline-offset:2px}@keyframes loading-pulse{50%{opacity:.45;transform:scale(.84)}}
+/* Diagnostics are available only in the dev server; hide the old scene counter in builds. */
+.scene-readout{display:none}.dev-mode .scene-readout{display:flex}
+.scene-timeout .scene-loading{border-color:rgba(230,191,67,.45);border-radius:.75rem}.scene-timeout #buoy-canvas{opacity:0;transition:opacity .55s ease}.scene-ready #buoy-canvas{opacity:1;transition:opacity .55s ease}.scene-timeout .fallback-illustration{display:block;opacity:1}
+@media(prefers-reduced-motion:reduce){.loading-dot{animation:none}}

@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
-import { GPUComputationRenderer } from 'three/addons/misc/GPUComputationRenderer.js';
 import { timelineAt, smooth, STORY } from './timeline.mjs';
 
 const stage = document.querySelector('#stage');
@@ -11,8 +10,11 @@ const motionToggle = document.querySelector('#reduce-motion');
 const readout = document.querySelector('#scene-readout');
 let renderer, scene, camera, buoy, water, sun, fill, frameId, staticMode = false, failed = false, cameraInitialized = false;
 let renderStats = { ms: 0, calls: 0, triangles: 0 };
-let gpuRipple, rippleVariable, waterMode = 'a', lastRippleImpulse = 0, gpuRippleAttempted = false;
-const sceneStartedAt = performance.now();
+let ready = false, shaderCompiled = false;
+let shaderCompiledAt = null;
+let onReadyCallback = () => {};
+const navigationStart = performance.timeOrigin;
+const timings = { sceneImportMs: null, modelMs: null, rendererShaderMs: null, firstFrameMs: null, readyMs: null, fallback: null };
 let lastFrame = performance.now(), reportAt = 0;
 const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
 const surfaceHeightAt = (x, z, time) =>
@@ -27,9 +29,9 @@ function createWater() {
   const geo = new THREE.PlaneGeometry(120, 120, 128, 128);
   const mat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: true, side: THREE.DoubleSide,
-    uniforms: { uTime: { value: 0 }, uUnder: { value: 0 }, uWaveIntensity: { value: 1 }, uFar: { value: 0 }, uAdvanced: { value: 0 }, uRippleField: { value: null }, uSunDirection: { value: new THREE.Vector3(-5, 9, 8).normalize() } },
+    uniforms: { uTime: { value: 0 }, uUnder: { value: 0 }, uWaveIntensity: { value: 1 }, uFar: { value: 0 }, uSunDirection: { value: new THREE.Vector3(-5, 9, 8).normalize() } },
       vertexShader: `
-      uniform float uTime; uniform float uWaveIntensity; uniform float uFar; uniform float uAdvanced; uniform sampler2D uRippleField; varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
+      uniform float uTime; uniform float uWaveIntensity; uniform float uFar; varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
       void main(){
         vec3 p=position; float x=p.x, z=p.y;
         float a=x*.16+z*.11+uTime*.34;
@@ -61,19 +63,10 @@ function createWater() {
         float w=mix(base*uWaveIntensity*edgeFade,farBase*farFade,uFar);
         float dx=mix(uWaveIntensity*(baseDx*edgeFade+base*edgeDx),(farDx*farFade+farBase*farDxEdge),uFar);
         float dz=mix(uWaveIntensity*(baseDz*edgeFade+base*edgeDz),(farDz*farFade+farBase*farDzEdge),uFar);
-        vec2 rippleUv=clamp(vec2(x,z)/32.+.5,vec2(.002),vec2(.998));
-        vec2 ripplePx=vec2(1./128.);
-        float gpuRipple=texture2D(uRippleField,rippleUv).r;
-        float rippleLeft=texture2D(uRippleField,clamp(rippleUv-vec2(ripplePx.x,0.),vec2(.002),vec2(.998))).r;
-        float rippleRight=texture2D(uRippleField,clamp(rippleUv+vec2(ripplePx.x,0.),vec2(.002),vec2(.998))).r;
-        float rippleDown=texture2D(uRippleField,clamp(rippleUv-vec2(0.,ripplePx.y),vec2(.002),vec2(.998))).r;
-        float rippleUp=texture2D(uRippleField,clamp(rippleUv+vec2(0.,ripplePx.y),vec2(.002),vec2(.998))).r;
-        float rippleSlopeX=(rippleRight-rippleLeft)*2.5;
-        float rippleSlopeZ=(rippleUp-rippleDown)*2.5;
-        p.z+=w+gpuRipple*uAdvanced*(1.-uFar);
+        p.z+=w;
         vec4 world=modelMatrix*vec4(p,1.);
         vWorld=world.xyz;
-        vNormal=normalize(mat3(modelMatrix)*vec3(-dx-rippleSlopeX*uAdvanced*(1.-uFar),-dz-rippleSlopeZ*uAdvanced*(1.-uFar),1.));
+        vNormal=normalize(mat3(modelMatrix)*vec3(-dx,-dz,1.));
         vWave=w;
         vRippleFade=mix(edgeFade,farFade,uFar);
         gl_Position=projectionMatrix*viewMatrix*world;
@@ -90,8 +83,14 @@ function createWater() {
         )*uWaveIntensity*vRippleFade;
         // A small, buoy-centered ring field borrows the reference's interactive
         // ripples without a heightfield simulation or extra render pass.
-        float ringFade=smoothstep(.45,1.05,radius)*exp(-max(radius-1.05,0.)*.42)*vRippleFade;
-        vec2 ringNormal=normalize(vWorld.xz+vec2(.0001))*cos(radius*2.7-uTime*1.8)*.075*ringFade;
+        float bobPhase=sin(uTime*.72);
+        float angle=atan(vWorld.z,vWorld.x);
+        float uneven=sin(angle*3.+uTime*.29)*.11+sin(angle*5.-uTime*.21)*.055;
+        float ringRadius=radius*(1.+uneven);
+        float ringA=cos(ringRadius*5.1-uTime*2.3+bobPhase*.15);
+        float ringB=cos(ringRadius*8.2-uTime*1.7+sin(angle*2.+uTime*.25)*.12);
+        float ringFade=smoothstep(.28,.72,radius)*exp(-max(radius-.72,0.)*1.12)*vRippleFade;
+        vec2 ringNormal=normalize(vWorld.xz+vec2(.0001))*(ringA*.038+ringB*.014)*ringFade;
         vec3 n=normalize(vec3(vNormal.x*2.8+rippleNormal.x+ringNormal.x,vNormal.y,vNormal.z*2.8+rippleNormal.y+ringNormal.y));
         vec3 viewDir=normalize(cameraPosition-vWorld);
         float facing=max(dot(n,viewDir),0.);
@@ -113,7 +112,10 @@ function createWater() {
         vec3 underside=vec3(.15,.27,.29)+vec3(.14,.18,.16)*fresnel+vec3(.025,.04,.035)*caustic;
         vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.16;
         vec3 col=mix(surface,underside,uUnder);
-        float alpha=mix(.78+fresnel*.08,.62+fresnel*.17,uUnder)+sunGlint*.04;
+        // Keep the surface legible overhead while using more body and lower
+        // color contrast below the lake plane to dissolve the photo-horizon edge.
+        float underwaterAlpha=.77+fresnel*.16;
+        float alpha=mix(.78+fresnel*.08,underwaterAlpha,uUnder)+sunGlint*.035;
         gl_FragColor=vec4(col,clamp(alpha,.58,.96));
       }
     `,
@@ -159,63 +161,13 @@ function createWater() {
   return [farMesh, mesh];
 }
 
-// Version B uses a compact half-float GPU wave equation for local buoy wakes.
-// The broad Great Lakes swell and buoy bob stay shared with Version A so the
-// comparison changes only the local water simulation.
-function createGpuRippleField() {
-  gpuRippleAttempted = true;
-  const gl = renderer.getContext();
-  if (!renderer.capabilities.isWebGL2 || !gl.getExtension('EXT_color_buffer_float')) return false;
-  const compute = new GPUComputationRenderer(128, 128, renderer);
-  compute.setDataType(THREE.HalfFloatType);
-  const initial = compute.createTexture();
-  initial.image.data.fill(0);
-  const variable = compute.addVariable('textureRipple', `
-    uniform float uImpulse;
-    void main(){
-      vec2 uv=gl_FragCoord.xy/resolution.xy;
-      vec2 px=1./resolution.xy;
-      vec4 state=texture2D(textureRipple,uv);
-      float left=texture2D(textureRipple,uv-vec2(px.x,0.)).r;
-      float right=texture2D(textureRipple,uv+vec2(px.x,0.)).r;
-      float down=texture2D(textureRipple,uv-vec2(0.,px.y)).r;
-      float up=texture2D(textureRipple,uv+vec2(0.,px.y)).r;
-      float lap=left+right+down+up-4.*state.r;
-      float velocity=(state.g+lap*.19)*.992;
-      float centerImpulse=exp(-dot((uv-.5)*32.,(uv-.5)*32.)*5.5)*.16*uImpulse;
-      float height=clamp(state.r+velocity+centerImpulse,-.18,.18);
-      gl_FragColor=vec4(height,velocity,0.,1.);
-    }
-  `, initial);
-  compute.setVariableDependencies(variable, [variable]);
-  variable.material.uniforms.uImpulse = { value: 0 };
-  const error = compute.init();
-  if (error) { compute.dispose(); return false; }
-  gpuRipple = compute;
-  rippleVariable = variable;
-  return true;
-}
-
-function setWaterMode(mode) {
-  if (mode === 'b' && !gpuRipple && !gpuRippleAttempted && !createGpuRippleField()) {
-    const advanced = document.querySelector('[data-water-mode="b"]');
-    advanced.disabled = true;
-    advanced.title = 'Version B requires a WebGL2 half-float render target';
-  }
-  waterMode = mode === 'b' && gpuRipple ? 'b' : 'a';
-  const buttons = document.querySelectorAll('[data-water-mode]');
-  for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.waterMode === waterMode));
-  for (const surface of water ?? []) surface.material.uniforms.uAdvanced.value = waterMode === 'b' ? 1 : 0;
-  const params = new URLSearchParams(location.search);
-  if (params.has('compare')) {
-    params.set('water', waterMode);
-    history.replaceState(null, '', `${location.pathname}?${params}${location.hash}`);
-  }
-}
-
 function startRenderer() {
   if (renderer || staticMode || failed) return;
   try {
+    const loading = document.querySelector('#scene-loading');
+    loading.hidden = false;
+    document.querySelector('#loading-label').textContent = 'Preparing the 3D scene…';
+    document.querySelector('#scene-retry').hidden = true;
     renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth < 700 ? 1.35 : 1.7));
     renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
@@ -231,31 +183,23 @@ function startRenderer() {
     fill = new THREE.DirectionalLight(0x79a6a5, 0.62); fill.position.set(6, -3, -6); scene.add(fill);
     const rim = new THREE.PointLight(0xa8c9bb, 4.5, 14); rim.position.set(-1, -1.4, 3); scene.add(rim);
     water = createWater();
-    if (new URLSearchParams(location.search).has('compare')) {
-      document.querySelector('#water-compare').hidden = false;
-      const gl = renderer.getContext();
-      const advanced = document.querySelector('[data-water-mode="b"]');
-      if (!renderer.capabilities.isWebGL2 || !gl.getExtension('EXT_color_buffer_float')) {
-        advanced.disabled = true;
-        advanced.title = 'Version B requires a WebGL2 half-float render target';
-      }
-      for (const button of document.querySelectorAll('[data-water-mode]')) button.addEventListener('click', () => setWaterMode(button.dataset.waterMode));
-      setWaterMode(new URLSearchParams(location.search).get('water') ?? 'a');
-    }
     const loader = new GLTFLoader();
     loader.setMeshoptDecoder(MeshoptDecoder);
+    const modelStarted = performance.now();
     loader.load('/models/glhc002-buoy.glb', gltf => {
+      timings.modelMs = performance.now() - modelStarted;
       buoy = gltf.scene;
       buoy.traverse(o => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; if (o.material) { o.material.side = THREE.DoubleSide; o.material.needsUpdate = true; } } });
       scene.add(buoy);
-      readout.dataset.sceneReadyMs = (performance.now() - sceneStartedAt).toFixed(1);
-    }, undefined, () => activateFallback());
+    }, undefined, error => activateFallback(error?.message ?? 'Buoy model failed to load'));
     frameId = requestAnimationFrame(frame);
   } catch { activateFallback(); }
 }
 
-function activateFallback() {
+function activateFallback(reason = 'WebGL initialization failed') {
   failed = true;
+  timings.fallback = reason;
+  reportTimings('fallback');
   cancelAnimationFrame(frameId);
   if (renderer) renderer.dispose();
   renderer = null;
@@ -272,6 +216,9 @@ function activateFallback() {
   readout.dataset.phase = 'fallback';
   document.querySelector('#readout-render').textContent = 'STATIC FALLBACK';
   document.querySelector('#readout-phase').textContent = 'FALLBACK';
+  document.querySelector('#scene-loading').hidden = false;
+  document.querySelector('#loading-label').textContent = 'The 3D view is unavailable. The full story remains readable.';
+  document.querySelector('#scene-retry').hidden = false;
 }
 
 function resize() {
@@ -335,15 +282,27 @@ function frame(now) {
       surface.material.uniforms.uTime.value = time;
       surface.material.uniforms.uUnder.value = t.waterMix;
     }
-    if (waterMode === 'b' && gpuRipple) {
-      const impulse = time - lastRippleImpulse > 2.35;
-      if (impulse) lastRippleImpulse = time;
-      rippleVariable.material.uniforms.uImpulse.value = impulse ? 1 : 0;
-      gpuRipple.compute();
-      const texture = gpuRipple.getCurrentRenderTarget(rippleVariable).texture;
-      water[1].material.uniforms.uRippleField.value = texture;
+    try {
+      const compileStarted = performance.now();
+      if (!ready && buoy && !shaderCompiled) {
+        renderer.compile(scene, camera);
+        shaderCompiledAt = performance.now();
+        shaderCompiled = true;
+      }
+      renderer.render(scene, camera);
+      if (!ready) {
+        timings.rendererShaderMs = shaderCompiledAt === null ? null : shaderCompiledAt - compileStarted;
+        timings.firstFrameMs = performance.now();
+        timings.readyMs = performance.now();
+        ready = true;
+        readout.dataset.sceneReadyMs = timings.readyMs.toFixed(1);
+        document.querySelector('#scene-loading').hidden = true;
+        document.querySelector('#scene-retry').hidden = true;
+        document.documentElement.classList.remove('scene-pending');
+        onReadyCallback();
+        reportTimings('ready');
+      }
     }
-    try { renderer.render(scene, camera); }
     catch { activateFallback(); return; }
     renderStats = { ms: elapsed, calls: renderer.info.render.calls, triangles: renderer.info.render.triangles };
     readout.dataset.drawCalls = String(renderStats.calls);
@@ -381,7 +340,40 @@ staticMode = motionToggle.checked;
 setStatic(staticMode);
 motionToggle.addEventListener('change', () => setStatic(motionToggle.checked));
 canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); activateFallback(); }, { once: true });
+/* Restart is exposed to the lightweight bootstrap for its visible retry button. */
+export function retryScene() {
+  failed = false;
+  ready = false;
+  shaderCompiled = false;
+  staticMode = false;
+  document.documentElement.classList.remove('static-motion');
+  stage.classList.remove('webgl-failed');
+  startRenderer();
+}
 window.addEventListener('resize', resize, { passive: true });
 window.addEventListener('scroll', () => {}, { passive: true });
-if (new URLSearchParams(location.search).has('fallback')) activateFallback();
+function reportTimings(outcome) {
+  if (!import.meta.env.DEV) return;
+  const resources = performance.getEntriesByType('resource');
+  const modelResource = resources.find(item => item.name.includes('glhc002-buoy.glb'));
+  console.info('[GLHC scene timing]', {
+    cache: modelResource ? (modelResource.transferSize === 0 ? 'warm-cache' : 'cold/network') : 'resource-timing-unavailable',
+    navigationStartEpochMs: navigationStart,
+    sceneModuleMs: Number(document.documentElement.dataset.sceneModuleMs) || null,
+    modelDownloadAndDecodeMs: timings.modelMs,
+    modelTransferBytes: modelResource?.transferSize ?? null,
+    rendererAndShaderInitMs: timings.rendererShaderMs,
+    firstUsableFrameMs: timings.firstFrameMs,
+    interactiveReadyMs: timings.readyMs,
+    outcome,
+    error: timings.fallback,
+  });
+}
+
+if (new URLSearchParams(location.search).has('fallback')) activateFallback('Forced fallback preview');
 else if (!staticMode) startRenderer();
+
+export function onSceneReady(callback) {
+  onReadyCallback = callback;
+  if (ready) callback();
+}

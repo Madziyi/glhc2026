@@ -14,7 +14,7 @@
 
 - `npm test`: **6/6 passed**.
 - `npm run check`: **0 errors, 0 warnings, 0 hints**.
-- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. The lazy scene bundle is **610.35 kB minified / 157.39 kB gzip**. Vite still reports the >500 kB minified chunk warning. Compared to R3: **−5.36 kB minified / −1.68 kB gzip**.
+- `ASTRO_TELEMETRY_DISABLED=1 npm run build`: **passed**. The lazy scene bundle is **610.44 kB minified / 157.41 kB gzip**. Vite still reports the >500 kB minified chunk warning. Compared to R3: **−5.27 kB minified / −1.66 kB gzip**.
 - GLB remains **181,648 bytes**. R3's prior renderer report was **11 draws / 48,304 triangles**; the R4 preview could not be opened, so no new live renderer count or R4 FPS is claimed.
 - `git diff --check`: **passed**.
 

@@ -193,7 +193,7 @@ function startRenderer() {
       scene.add(buoy);
     }, undefined, error => activateFallback(error?.message ?? 'Buoy model failed to load'));
     frameId = requestAnimationFrame(frame);
-  } catch { activateFallback(); }
+  } catch (error) { activateFallback(error?.message ?? 'Renderer initialization failed'); }
 }
 
 function activateFallback(reason = 'WebGL initialization failed') {
@@ -303,7 +303,7 @@ function frame(now) {
         reportTimings('ready');
       }
     }
-    catch { activateFallback(); return; }
+    catch (error) { activateFallback(error?.message ?? 'Scene rendering failed'); return; }
     renderStats = { ms: elapsed, calls: renderer.info.render.calls, triangles: renderer.info.render.triangles };
     readout.dataset.drawCalls = String(renderStats.calls);
     readout.dataset.triangles = String(renderStats.triangles);

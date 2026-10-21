@@ -19,4 +19,6 @@ GLHC-001 initial glider-led opening remains at `/` with its prior UAT evidence. 
 No interactive data art, synthetic sensor telemetry, arbitrary water depths, forced scroll unlock, glider-led hero, secret keys, or unverified Luma URL. Need permission for production photos and NexSens drawings; avoid embedding copyrighted diagrams. Do not fabricate precise optional underwater apparatus beyond approved visual reference.
 
 ## Agent coordination
+The isolated GLHC-002R6 renderer uses procedural sunny daylight sky/horizon, a continuous nonuniform water grid and synchronized CPU/GPU 1.25× waves. The approved buoy geometry is frozen. This is the final standalone water milestone; retain the candidate for organizer review and physical-device performance acceptance before integration. See `docs/GLHC-002R6-UAT.md` and `docs/GLHC-003-PLANNING-HANDOFF.md`.
+
 Follow `AGENTS.md`, `NOW.md`, `TASKS.md`, `LOG.md`, `LIVE-STATE.md` before edits; one writer at a time.

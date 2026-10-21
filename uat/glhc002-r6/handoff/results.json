@@ -1,0 +1,45 @@
+[
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "errors": [
+      "[.WebGL-0x12d40014e900]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x12d40014e900]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x12d40014e900]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x12d40014e900]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ],
+    "stats": {
+      "progress": "0.0000",
+      "phase": "surface",
+      "cameraParked": "false",
+      "drawCalls": "11",
+      "triangles": "44916",
+      "frameMs": "466.70",
+      "motionSpeed": "1.25",
+      "modelLoadMs": "882.9",
+      "sceneReadyMs": "1320.6",
+      "rendererShaderMs": "59.8",
+      "firstFrameMs": "1320.6"
+    }
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "errors": [],
+    "stats": {
+      "progress": "0.0000",
+      "phase": "surface",
+      "cameraParked": "false",
+      "drawCalls": "11",
+      "triangles": "44916",
+      "frameMs": "616.50",
+      "motionSpeed": "1.25",
+      "modelLoadMs": "860.4",
+      "sceneReadyMs": "1470.7",
+      "rendererShaderMs": "77.0",
+      "firstFrameMs": "1470.7"
+    }
+  }
+]

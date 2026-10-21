@@ -1,5 +1,7 @@
 # GLHC-002 verification and review
 
+Latest: [GLHC-002R6 procedural lake, sunny sky and comparison evidence](GLHC-002R6-UAT.md). Earlier results below remain historical evidence.
+
 ## GLHC-002R5 — final water and buoy-motion refinement (2026-10-20)
 
 - **Implementation:** Version A remains the runtime water renderer. `surfaceHeightAt()` now includes two low-amplitude shorter wave components, mirrored in the vertex shader. Buoy lift area-samples the analytic wave surface at the hull center and four points; finite-difference gradients add gentle pitch and roll. Position and rotations use elapsed-time exponential damping. The model and geometry are unchanged.

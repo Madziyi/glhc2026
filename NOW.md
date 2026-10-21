@@ -1,8 +1,17 @@
 # Active Initiative
 
-**Initiative:** GLHC-002R5 — final water and buoy motion refinement.
-**Status:** IMPLEMENTATION AND AUTOMATED CHECKS COMPLETE / ORGANIZER VISUAL APPROVAL PENDING.
+**Initiative:** GLHC-002R6 — final procedural water and buoy refinement.
+**Status:** IMPLEMENTED / ORGANIZER VISUAL REVIEW AND PHYSICAL-DEVICE PERFORMANCE ACCEPTANCE PENDING.
 **Implementation and verification:** Codex.
+
+## GLHC-002R6 handoff (2026-10-20)
+- Prototype now uses a procedural sunny sky/horizon with soft clouds, atmospheric blending and one continuous nonuniform water grid. The organizer's reference guides blue daylight and glints; no plants or photographic backdrop. Shared CPU/GPU wave coefficients run on one 1.25× elapsed-time clock, with unchanged base amplitudes, area-sampled lift and exponentially damped pitch/roll. Hull ripples displace geometry and normals and decay offshore. Dev `?compare=1` exposes 1.0×/1.25× speed comparison.
+- Checks: 9/9 tests; Astro check 0/0/0; telemetry-disabled build passed; diff check passed. Final scene 616.71 kB minified / 159.52 kB gzip (+4.52 / +1.50 vs R5); existing Vite warning remains. Prototype avoids the 237,222-byte lake photograph. GLB unchanged at 181,648 B; renderer 11 draws / 44,916 triangles (R5: 11 / 48,304).
+- Saved production UAT at 320×650, 390×844, 768×1024 and 1440×900 covers surface/crossing/underwater/sensors/paragraph B/descent/reverse, keyboard skip link, reduced motion, fallback and no overflow. Initial emulated OS reduced motion and actual no-JavaScript contexts passed. Full matrix precedes the final sunny polish; sunny surface captures/recordings are separate. R5/R6 mobile and desktop videos contain at least 15 seconds fixed surface animation. Files/scripts/raw JSON: `uat/glhc002-r6/`; details: `docs/GLHC-002R6-UAT.md`.
+- No application errors in the matrix; four Chromium ReadPixels driver warnings in the narrow capture. SwiftShader software-rendering intervals are slow and host-sensitive. Separate recording-free samples: mobile median/p95 R5 283.3/433.3 ms vs R6 66.6/83.4; desktop R5 116.7/133.4 vs R6 133.4/150.0 (about 14% median regression). Full-matrix local readiness 654.9–6,124.1 ms. Physical-mobile GPU performance and the 10-second mobile target remain unverified. Retain the isolated R6 candidate for organizer judgment; do not begin another water engine experiment.
+- Organizer approved the upper silver/blue finish and requested original yellow/underwater materials; those are preserved with a surface-only environment response. Final requested-finish artifacts: `uat/glhc002-r6/handoff/`.
+- Latest requested-finish local ready samples: mobile 1,320.6 ms, desktop 1,470.7 ms, narrow still run 1,907.8 ms. Capture frame samples were slow (466.7/616.5 ms mobile/desktop) on SwiftShader, with no physical-GPU claim. Final stills and both videos exported; optional dev selector interaction hit the bounded capture deadline and remains unexercised.
+- Approved geometry, homepage, main-site photos, prose and timeline remain unchanged. GLHC-003 planning handoff: `docs/GLHC-003-PLANNING-HANDOFF.md`. No integration, merge, deployment or infrastructure change. User file `desktop-surface.jpg` preserved.
 
 ## GLHC-002R5 implementation handoff (2026-10-20)
 - Refined only the isolated GLHC-002 scene. Buoy lift now area-samples the existing analytic water height at the hull center and four nearby points; surface gradients produce subtle pitch/roll, damped with elapsed-time exponential smoothing. Two low-amplitude, faster wave components are shared between the height sampler and water mesh. Buoy geometry/model are unchanged.
@@ -21,7 +30,7 @@
 - Local development sample: dynamic module 201.3 ms, model download/decode 148.1 ms, shader init 8.9 ms, first frame/navigation-to-ready 613.6 ms, 11 draws / 48,304 triangles. This is not cold-cache/mobile evidence; 10-second target remains **unmeasured on target hardware**. The Vite chunk warning remains.
 
 ## Next action
-Organizer reviews the isolated R5 prototype; capture the fixed-camera before/after motion recording and remaining sensor/reverse-scroll states if the review environment supports video export.
+Organizer reviews the isolated R6 sunny prototype and saved R5/R6 evidence, then confirms the retained visual version before detailed GLHC-003 integration planning.
 
 ## Verified baseline
 - `feat/glhc-001-opening` previously at `1df064817cb0c376f87297262c736522a80e539b`: isolated `/prototype/glhc-002` created while root `/` remains the superseded GLHC-001 site.

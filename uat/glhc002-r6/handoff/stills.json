@@ -1,0 +1,125 @@
+{
+  "results": [
+    {
+      "name": "narrow",
+      "state": "surface",
+      "width": 320,
+      "height": 650,
+      "overflow": false,
+      "stats": {
+        "progress": "0.0000",
+        "phase": "surface",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "316.70",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    },
+    {
+      "name": "narrow",
+      "state": "crossing",
+      "width": 320,
+      "height": 650,
+      "overflow": false,
+      "stats": {
+        "progress": "0.3348",
+        "phase": "crossing",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "500.00",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    },
+    {
+      "name": "narrow",
+      "state": "sensors",
+      "width": 320,
+      "height": 650,
+      "overflow": false,
+      "stats": {
+        "progress": "0.4602",
+        "phase": "sensors",
+        "cameraParked": "true",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "283.30",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    },
+    {
+      "name": "tablet",
+      "state": "surface",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "stats": {
+        "progress": "0.0000",
+        "phase": "surface",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "600.00",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    },
+    {
+      "name": "tablet",
+      "state": "crossing",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "stats": {
+        "progress": "0.3349",
+        "phase": "crossing",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "416.60",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    },
+    {
+      "name": "tablet",
+      "state": "sensors",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "stats": {
+        "progress": "0.4601",
+        "phase": "sensors",
+        "cameraParked": "true",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "450.00",
+        "motionSpeed": "1.25",
+        "modelLoadMs": "1009.1",
+        "sceneReadyMs": "1907.8",
+        "rendererShaderMs": "46.3",
+        "firstFrameMs": "1907.8"
+      }
+    }
+  ],
+  "errors": []
+}

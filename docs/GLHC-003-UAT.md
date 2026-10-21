@@ -142,3 +142,15 @@ Organizer's latest markup supersedes the earlier invitation wording/composition:
 - The organizer-updated higher-resolution `team-lab.webp` is preserved. Google Sans is confirmed loaded for body/controls at320/390/768/1440 widths. Latest hero and science stills are in `font-review/`; the earlier complete recordings and `final/` matrix predate these last typography/hero changes. The 3D scene and science timeline remain unchanged.
 
 Current page has two registration CTAs (header and ending), both from the same central configuration. Earlier three-CTA navigation evidence describes the preceding hero version. No merge or deployment authorized.
+
+## Surface-photo placement follow-up — 2026-10-21
+
+The researcher photograph is twice its previous normal-story size (mobile244px
+wide/256px image-height cap; desktop clamp320–520px/520px cap). It aligns to the
+section's right edge after22svh of additional flow spacing. It remains a static
+normal-flow figure: no fixed/sticky positioning, parallax or scroll handler.
+Browser measurements at all four sizes verify that scrolling160px moves its
+viewport top upward160px, with no horizontal overflow or page exceptions.
+Evidence: `uat/glhc003/surface-photo/`; reproduction script `surface-photo.mjs`.
+Production build passed; existing deferred-scene chunk warning unchanged. The
+static reading layout and approved buoy/renderer/timeline are unchanged.

@@ -30,3 +30,8 @@ No main merge or production deployment. Physical iOS/Android, representative mob
 
 ## One next action
 Organizer reviews the draft PR and latest hero/complete-story evidence, then requests revisions or approves merge and real-device/launch checks.
+
+Latest surface editorial refinement: researcher photo is doubled in size and
+placed lower-right using section-owned normal flow. It enters that position as
+the section arrives, then moves upward with native scroll. Four-size before/after
+scroll evidence: `uat/glhc003/surface-photo/`. No scene/camera changes.

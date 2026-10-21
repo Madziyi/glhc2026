@@ -1,5 +1,9 @@
 # GLHC-003 — Full Website Storytelling Integration
 
+Implementation update (2026-10-21): the complete homepage is implemented on the
+feature branch. This document remains the original planning contract. Current
+verification, evidence and release boundaries: [GLHC-003-UAT.md](GLHC-003-UAT.md).
+
 Status: **APPROVED FOR IMPLEMENTATION**, after organizer accepted R6 and PR #1 merged into `main` (`1524431`). New work is on `feat/glhc-003-storytelling`.
 
 Follow the detailed implementation and acceptance contract in **`docs/GLHC-003-BUILD-SPEC.md`**.

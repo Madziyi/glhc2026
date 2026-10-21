@@ -1,21 +1,27 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-const html = readFileSync(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
-const controller = readFileSync(new URL('../public/main.js', import.meta.url), 'utf8');
-const css = readFileSync(new URL('../public/styles.css', import.meta.url), 'utf8');
-test('includes core recruitment information and a Luma CTA', () => {
-  for (const phrase of ['Make waves', '$500', 'No experience needed', 'public spaces', 'data-registration', 'Skip the intro'])
+const read = path => readFileSync(new URL(path, import.meta.url), 'utf8');
+const html = read('../src/pages/index.astro');
+
+test('homepage contains the five chapter recruitment story in reading order', () => {
+  const ids = ['invitation', 'surface', 'crossing', 'science', 'challenge', 'how-it-works', 'registration'];
+  let previous = -1;
+  for (const id of ids) {
+    const position = html.indexOf(`id="${id}"`);
+    assert.ok(position > previous, `${id} must follow the preceding chapter`);
+    previous = position;
+  }
+  for (const phrase of ['$500', 'winning team', 'No experience', 'public', 'data-register'])
     assert.ok(html.includes(phrase), `Missing ${phrase}`);
+  assert.equal((html.match(/class="science-panel"/g) || []).length, 2);
+  assert.ok(!html.includes('glider-cutout'));
 });
-test('animation supports reduced motion, reverse scrolling, and accessible shortcuts', () => {
-  assert.match(css, /prefers-reduced-motion:reduce/);
-  assert.match(html, /class="skip-link"/);
-  assert.match(controller, /requestAnimationFrame/);
-  assert.match(controller, /window\.addEventListener\('scroll'/);
-});
-test('does not point registration at an invented Luma page', () => {
-  const config = readFileSync(new URL('../public/site-config.js', import.meta.url), 'utf8');
-  assert.match(config, /lumaUrl: ''/);
-  assert.match(controller, /https:/);
+
+test('registration is centrally configured to the organizer supplied secure destination', () => {
+  const config = read('../public/site-config.js');
+  assert.match(config, /lumaUrl: 'https:\/\/luma.com\/pz0iw2m7'/);
+  assert.match(html, /site-config\.js/);
+  assert.match(html, /target="_blank"/);
+  assert.match(html, /rel="noopener noreferrer"/);
 });

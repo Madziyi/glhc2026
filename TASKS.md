@@ -1,22 +1,20 @@
 # GLHC 2026 Task Board
 
-## Active
-- GLHC-003 `[approved; ready to implement]` — replace glider-led main page with complete approved student-first website using R6 3D buoy renderer. Four narrative content chapters plus deep-water registration ending. Full contract: `docs/GLHC-003-BUILD-SPEC.md`.
-- GLHC-003A `[next coding slice]` — photo hero, animated **$500 Prize** anchored to picture top-right, no-experience/public-display copy, continuous entrance into surface buoy via reused R6 scene.
-- GLHC-003B `[pending A]` — science/students: camera at underwater sensors, two paragraphs, exactly one horizontal prose transition.
-- GLHC-003C `[pending B; inputs supplied]` — import the organizer-supplied single collage image (optimized WebPs provided in handoff ZIP), then How it works, deep-water no-buoy ending. Set every registration CTA to the supplied `https://luma.com/pz0iw2m7`, opening securely in a new tab. Verify actual navigation in browser.
-- GLHC-003D `[pending C]` — complete UAT, accessibility, fallback, startup timing, physical-device tests if available; present screenshots/video for organizer sign-off.
+## Active — GLHC-003
+- GLHC-003A `[implemented]` — people-first hero, attached $500 Prize starburst, explicit winning-team/no-experience/public-display copy, immediate registration and progressive moving lake.
+- GLHC-003B `[implemented]` — approved R6 scene integrated into one continuous camera descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
+- GLHC-003C `[implemented]` — supplied single responsive collage, five editorial participation steps, deep-water buoy-free ending; all registration links use configured Luma destination.
+- GLHC-003D `[local verification complete; organizer/device acceptance pending]` — four-size production browser journey, screenshot/video evidence, keyboard, motion/fallback/retry, resize/refresh, actual secure CTA navigation, tests/check/build and performance observations. Physical devices remain external acceptance.
 
 ## Accepted baseline
-- GLHC-002R6 `[organizer visually accepted / merged via PR #1]` — procedural sunny lake, yellow buoy, blue solar panels and silver metalwork, 1.25× floating motion, geometric ripples, waterline and camera. Model stays unchanged. UAT `docs/GLHC-002R6-UAT.md`. Physical mobile performance not approved yet.
-- GLHC-001 `[merged; superseded home page]` — existing `/` will be replaced during GLHC-003, not yet replaced.
+- GLHC-002R6 `[organizer visually accepted / merged via PR #1]` — frozen buoy geometry and procedural lake. Source hash and prototype regression are checked during integration. No further water-engine iteration.
+- GLHC-001 `[superseded]` — prior glider-led opening evidence remains historical; it no longer defines root-page design.
 
-## Deferred / launch checks
-- External Luma CTA browser navigation test (URL now organizer-supplied and configured).
-- Import the supplied collage WebP files into GitHub from the handoff ZIP (not yet in repo).
-- Public photography rights clearance.
-- Production deployment and real-device 10-second 3D readiness testing; security/dependency audit and Lighthouse.
-- Any new water-engine work: deferred unless specifically requested.
+## Organizer review / launch checks
+- Approve GLHC-003 visual composition and complete mobile/desktop journey before merge.
+- Physical iOS/Android, representative mobile network, 10-second readiness and release performance acceptance.
+- Public publication rights for supplied photography and inspiration examples.
+- Security/dependency audit, Lighthouse and deployment approval.
 
 ## Excluded
-Glider-led core story, invented scientific telemetry, multi-card interactive art simulator, fabricated event schedule/location, registration gating.
+Glider-led core story, fake scientific telemetry, data-art simulator, fabricated schedule/location, custom registration backend and registration gating.

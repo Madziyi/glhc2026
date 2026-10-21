@@ -1,0 +1,338 @@
+[
+  {
+    "name": "narrow",
+    "font": {
+      "family": "\"Google Sans\", Aptos, \"Segoe UI\", Arial, sans-serif",
+      "loaded": true,
+      "faces": [
+        {
+          "family": "Google Sans",
+          "status": "loaded"
+        }
+      ],
+      "heroButtonBottom": 53,
+      "viewportHeight": 650
+    },
+    "states": [
+      {
+        "state": "hero",
+        "overflow": false,
+        "panelBottom": 2764.40625,
+        "readout": {
+          "progress": "0.0000",
+          "phase": "invitation",
+          "cameraParked": "false",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "262.40",
+          "modelLoadMs": "79.5",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "5.300",
+          "targetY": "2.500",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1258.0",
+          "rendererShaderMs": "68.5",
+          "firstFrameMs": "1258.0"
+        }
+      },
+      {
+        "state": "science-one",
+        "overflow": false,
+        "panelBottom": 586.90625,
+        "readout": {
+          "progress": "0.3726",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "254.50",
+          "modelLoadMs": "79.5",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.435",
+          "targetY": "-2.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1258.0",
+          "rendererShaderMs": "68.5",
+          "firstFrameMs": "1258.0"
+        }
+      },
+      {
+        "state": "science-two",
+        "overflow": false,
+        "panelBottom": 586.90625,
+        "readout": {
+          "progress": "0.5394",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "251.00",
+          "modelLoadMs": "79.5",
+          "panelProgress": "1.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.450",
+          "targetY": "-2.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1258.0",
+          "rendererShaderMs": "68.5",
+          "firstFrameMs": "1258.0"
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "font": {
+      "family": "\"Google Sans\", Aptos, \"Segoe UI\", Arial, sans-serif",
+      "loaded": true,
+      "faces": [
+        {
+          "family": "Google Sans",
+          "status": "loaded"
+        }
+      ],
+      "heroButtonBottom": 53,
+      "viewportHeight": 844
+    },
+    "states": [
+      {
+        "state": "hero",
+        "overflow": false,
+        "panelBottom": 3573.28125,
+        "readout": {
+          "progress": "0.0000",
+          "phase": "invitation",
+          "cameraParked": "false",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "250.60",
+          "modelLoadMs": "38.3",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "5.300",
+          "targetY": "2.500",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1044.5",
+          "rendererShaderMs": "41.8",
+          "firstFrameMs": "1044.5"
+        }
+      },
+      {
+        "state": "science-one",
+        "overflow": false,
+        "panelBottom": 745.890625,
+        "readout": {
+          "progress": "0.4049",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "252.90",
+          "modelLoadMs": "38.3",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.435",
+          "targetY": "-2.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1044.5",
+          "rendererShaderMs": "41.8",
+          "firstFrameMs": "1044.5"
+        }
+      },
+      {
+        "state": "science-two",
+        "overflow": false,
+        "panelBottom": 745.890625,
+        "readout": {
+          "progress": "0.5861",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "256.70",
+          "modelLoadMs": "38.3",
+          "panelProgress": "1.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.450",
+          "targetY": "-2.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "1044.5",
+          "rendererShaderMs": "41.8",
+          "firstFrameMs": "1044.5"
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "font": {
+      "family": "\"Google Sans\", Aptos, \"Segoe UI\", Arial, sans-serif",
+      "loaded": true,
+      "faces": [
+        {
+          "family": "Google Sans",
+          "status": "loaded"
+        }
+      ],
+      "heroButtonBottom": 61.1875,
+      "viewportHeight": 1024
+    },
+    "states": [
+      {
+        "state": "hero",
+        "overflow": false,
+        "panelBottom": 3929.859375,
+        "readout": {
+          "progress": "0.0000",
+          "phase": "invitation",
+          "cameraParked": "false",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "259.50",
+          "modelLoadMs": "43.8",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "5.300",
+          "targetY": "1.100",
+          "buoyVisible": "true",
+          "sceneReadyMs": "912.7",
+          "rendererShaderMs": "39.2",
+          "firstFrameMs": "912.7"
+        }
+      },
+      {
+        "state": "science-one",
+        "overflow": false,
+        "panelBottom": 653.078125,
+        "readout": {
+          "progress": "0.4011",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "264.90",
+          "modelLoadMs": "43.8",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.437",
+          "targetY": "-0.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "912.7",
+          "rendererShaderMs": "39.2",
+          "firstFrameMs": "912.7"
+        }
+      },
+      {
+        "state": "science-two",
+        "overflow": false,
+        "panelBottom": 653.078125,
+        "readout": {
+          "progress": "0.5888",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "250.70",
+          "modelLoadMs": "43.8",
+          "panelProgress": "1.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.450",
+          "targetY": "-0.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "912.7",
+          "rendererShaderMs": "39.2",
+          "firstFrameMs": "912.7"
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "font": {
+      "family": "\"Google Sans\", Aptos, \"Segoe UI\", Arial, sans-serif",
+      "loaded": true,
+      "faces": [
+        {
+          "family": "Google Sans",
+          "status": "loaded"
+        }
+      ],
+      "heroButtonBottom": 61.1875,
+      "viewportHeight": 900
+    },
+    "states": [
+      {
+        "state": "hero",
+        "overflow": false,
+        "panelBottom": 3486.359375,
+        "readout": {
+          "progress": "0.0000",
+          "phase": "invitation",
+          "cameraParked": "false",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "250.60",
+          "modelLoadMs": "42.2",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "5.300",
+          "targetY": "1.100",
+          "buoyVisible": "true",
+          "sceneReadyMs": "939.7",
+          "rendererShaderMs": "42.0",
+          "firstFrameMs": "939.7"
+        }
+      },
+      {
+        "state": "science-one",
+        "overflow": false,
+        "panelBottom": 606.359375,
+        "readout": {
+          "progress": "0.4000",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "250.30",
+          "modelLoadMs": "42.2",
+          "panelProgress": "0.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.434",
+          "targetY": "-0.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "939.7",
+          "rendererShaderMs": "42.0",
+          "firstFrameMs": "939.7"
+        }
+      },
+      {
+        "state": "science-two",
+        "overflow": false,
+        "panelBottom": 606.359375,
+        "readout": {
+          "progress": "0.5871",
+          "phase": "sensors",
+          "cameraParked": "true",
+          "drawCalls": "11",
+          "triangles": "44916",
+          "frameMs": "253.20",
+          "modelLoadMs": "42.2",
+          "panelProgress": "1.0000",
+          "motionSpeed": "1.25",
+          "cameraY": "-1.450",
+          "targetY": "-0.800",
+          "buoyVisible": "true",
+          "sceneReadyMs": "939.7",
+          "rendererShaderMs": "42.0",
+          "firstFrameMs": "939.7"
+        }
+      }
+    ],
+    "errors": []
+  }
+]

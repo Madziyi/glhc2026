@@ -1,24 +1,42 @@
 # GLHC 2026 — stable context
 
 ## Purpose
-A mobile-first photorealistic recruitment story for the Great Lakes Data Hackathon Challenge. Students use open hardware and real Great Lakes data to create public-facing water-quality communication. Immediately explain $500 prize **for the winning team**, possible public displays, and **no experience required**.
+A mobile-first recruitment story for the Great Lakes Data Hackathon Challenge. Students use provided open hardware and real Great Lakes water-quality data to create public-facing experiences. The first screen explains the **$500 prize for the winning team**, possible public displays and **no experience needed**.
 
-## Approved narrative (v2)
-People-first wide student photo over moving lake + attached upper-right **$500 Prize** starburst → scientists & specific buoy at water surface → camera descends through waterline and pauses by the underwater cage/sonde → *two paragraphs with exactly one horizontally animated transition* about measurements and why Great Lakes matter → further descent to challenge, organizer's one four-image collage, short How it works (teams, supplied equipment, all levels welcome) → open deeper water, no buoy visible, external Luma registration CTA.
-
-## Canonical source
-`docs/GLHC-V2-SPEC.md` is the detailed, approved scene/asset/implementation contract. User-approved full buoy reference: `image(20261018-215310).png`; mechanical reference: `CB650_drawings.pdf` (manufacturer drawings of typical configurations). Use authorized source photos for people/researchers. Glider photos may appear only as supporting scientific context, not as central 3D object.
+## Approved narrative
+Student/group photograph over moving lake, attached upper-right prize starburst → researchers and monitoring buoy at the surface → camera descends through the waterline beside the same instrument cage/sonde → two exact science paragraphs with one horizontal transition while camera is parked → supplied single communication collage and How It Works → deeper open water, no buoy, external Luma registration.
 
 ## Architecture
-Astro + TypeScript static accessible shell; scroll-controlled Three.js canonical buoy and sensor assembly (GLB) + GSAP/ScrollTrigger or equivalent; lightweight 2D/photographic environment as appropriate. Horizontal panel movement consumes normal vertical scroll during a single pinned sensor pause. Must remain readable without WebGL and with reduced motion. No backend or customer data collection; registration handled by external verified Luma URL.
+Astro static HTML and responsive CSS deliver the complete content and registration independently of JavaScript. A lightweight bootstrap progressively imports one Three.js R6 renderer. `src/scripts/glhc003/timeline.mjs` maps actual chapter layout to a deterministic native-scroll camera/prose timeline, with reading holds on both science panels. The shared scene detects the integrated homepage; `/prototype/glhc-002` retains its isolated camera/timeline behavior.
 
-## Current state
-GLHC-001 initial glider-led opening remains at `/` with its prior UAT evidence. GLHC-002 is developed separately at `/prototype/glhc-002`: a procedural, meshopt-compressed GLB with model source in `scripts/build-buoy.mjs`, a Three.js scene and one shared camera/prose timeline. The organizer reattached the approved full assembly reference during implementation. See `docs/GLHC-002-PLAN.md` and `docs/GLHC-002-UAT.md` for scope and verified results. Integration awaits visual review. Do not equate committed code or a draft PR with live deployment.
+R6 model and water are frozen: original yellow and underwater materials, silver upper framework, reflective dark-blue solar glass, one procedural sky/water grid and shared 1.25× CPU/GPU wave clock. GLB is 181,648 bytes. No water-engine research or geometry redesign is part of GLHC-003.
 
-## Non-goals and controls
-No interactive data art, synthetic sensor telemetry, arbitrary water depths, forced scroll unlock, glider-led hero, secret keys, or unverified Luma URL. Need permission for production photos and NexSens drawings; avoid embedding copyrighted diagrams. Do not fabricate precise optional underwater apparatus beyond approved visual reference.
+## Content and registration
+- Hero: supplied `team-lab.webp`, full 638:480 composition, no removed background or cropped faces.
+- Research support: supplied `team-water.webp`; glider is not the protagonist.
+- Inspiration: supplied square `glhc-communication-collage-{640,1080}.webp`, one complete image depicting three visual regions. Describe as inspiration, not prior entrants' work.
+- Official organizer-supplied registration destination: `https://luma.com/pz0iw2m7`. `public/site-config.js` is the single configuration. Astro reads it at build time for real no-JS links; runtime reads the same configuration. All CTAs use HTTPS, `_blank`, `noopener noreferrer`.
+- Do not invent event dates, venue, fees or registration availability. Current event details belong on Luma.
 
-## Agent coordination
-The isolated GLHC-002R6 renderer uses procedural sunny daylight sky/horizon, a continuous nonuniform water grid and synchronized CPU/GPU 1.25× waves. The approved buoy geometry is frozen. This is the final standalone water milestone; retain the candidate for organizer review and physical-device performance acceptance before integration. See `docs/GLHC-002R6-UAT.md` and `docs/GLHC-003-PLANNING-HANDOFF.md`.
+## Progressive enhancement
+The full story remains readable without JavaScript, with OS/user reduced motion, when WebGL fails and after the 10-second readiness timeout. Static views present both science paragraphs in order. Native scroll is never intercepted. Retry starts a fresh bounded initialization. The homepage's controls/copy are DOM content, not a rendered canvas interface.
 
-Follow `AGENTS.md`, `NOW.md`, `TASKS.md`, `LOG.md`, `LIVE-STATE.md` before edits; one writer at a time.
+## Current initiative and acceptance
+GLHC-003 replaces the superseded glider-led root homepage on `feat/glhc-003-storytelling`. The organizer approved R6 visually after PR #1 merged as `1524431`; its physical-device performance acceptance remains open. GLHC-003 is for organizer UAT, not a production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
+
+## Release controls
+No custom registration backend, fabricated scientific telemetry, interactive data-art simulator, forced animation unlock, additional horizontal chapters or glider-led opening. Image publication rights and representative physical iOS/Android/network readiness must be checked before launch. Do not merge or deploy GLHC-003 without organizer approval.
+
+Follow `AGENTS.md` and `AGENT-WORKFLOW.md`; the active implementation agent owns durable context until its handoff is published.
+
+Typography follow-up: body and controls use locally hosted Google Sans with
+preload, `font-display:swap` and included OFL license; heading typography remains
+separate. See `uat/glhc003/font-review/` for the final font-loaded review.
+
+Latest hero direction (2026-10-21) uses the event name as the main heading,
+yellow italic Challenge, the organizer's art/science/technology and solo/team
+invitation, a header-only yellow registration shortcut, spinning prize shape and
+centered supplied animated scroll SVG. Manual motion preference is in the footer;
+OS reduced motion remains automatic. This supersedes older invitation copy and
+visible winning-team caption placement; the prize qualification remains accessible
+and appears visibly in registration.

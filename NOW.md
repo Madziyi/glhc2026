@@ -1,21 +1,32 @@
 # Active Initiative — GLHC-003
 
-**Status:** GLHC-003 FULL WEBSITE INTEGRATION — READY FOR IMPLEMENTATION on `feat/glhc-003-storytelling`.
+**Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
+**Branch:** `feat/glhc-003-storytelling`, based on organizer setup `0ae92345220313fa9132639d4d82f47a76c85aa5` and accepted R6 main merge `1524431`.
 
-## Baseline verified
-- Organizer visually approved GLHC-002R6 buoy, procedural lake, ripple effects and waterline as good enough to proceed.
-- PR #1 from `feat/glhc-001-opening` merged to `main` as merge commit `1524431cc33723bfeb063ac96fededfb77f575dc` on 2026-10-20.
-- R6 reported 9 passing tests, zero Astro check errors/warnings/hints, passing production build, 11 draws / 44,916 triangles; responsive screenshot matrix and fixed-camera recordings saved. Physical mobile and 10-second readiness remain **unverified**.
-- The current `/` still shows the **old glider-led GLHC-001 development homepage**. The approved buoy story remains separately at `/prototype/glhc-002`. Merging did NOT integrate the new experience or deploy a site.
+## Current experience
+Root homepage contains the complete five-scene journey: invitation/photo → researchers and surface buoy → continuous waterline descent and parked sensor science → supplied collage and How It Works → buoy-free deep-water registration.
 
-## One next task
-Implement `docs/GLHC-003-BUILD-SPEC.md` in vertical slices, replacing main-page narrative on the new feature branch while preserving the isolated R6 prototype. Product direction is approved; focus on the whole site, not water-only iteration. Return screenshots, recordings where possible, test/bundle/performance outcomes for organizer review.
+Latest organizer hero direction supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; exact art/science/technology and solo/team creative-project invitation; bold no-experience welcome. A yellow Register Now button occupies the header. Redundant labels/header brand/visible photo caption and old hero button are removed. The photo-corner prize shape spins with upright text; centered supplied animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN”. Higher-resolution organizer group photo retained.
 
-## Content assets now supplied (2026-10-20)
-- Organizer supplied a **single composite water-quality communication collage** (night waterfront light visualization, open-hardware controller, purple LED panel), mounted in the coordinating ChatGPT conversation as `collage.jpg`. Two optimized responsive WebP variants are prepared in a handoff ZIP to be imported by Codex into `public/assets/`; the binaries are **not yet committed to GitHub**.
-- Organizer supplied Luma registration URL exactly as `https://luma.com/pz0iw2m7`. It is now set in `public/site-config.js` on the GLHC-003 branch. The registration destination comes directly from the organizer; its event details/current registration state were not independently verified.
-- GLHC-003 must use this collage as **one image** (not a carousel or generated replacement), with descriptive alt text. The source composite has three visually distinct regions despite earlier informal wording “four-photo collage”; do not fabricate a fourth.
-- Remaining release blockers: image/publication rights and physical iOS/Android performance with representative mobile network.
+Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
-## Next action
-Codex imports `GLHC-003-collage-assets.zip` from the coordinating thread, verifies files at `public/assets/glhc-communication-collage-{640,1080}.webp`, builds the approved five-scene story and tests that every Register Now CTA opens the exact supplied Luma URL securely. Do not invent date, venue, schedule or event status from the supplied URL.
+Both current registration CTAs (header/ending) use central `https://luma.com/pz0iw2m7`, work without JavaScript and passed actual secure new-tab browser clicks, with matching event title and no opener. No form submitted or logistics invented.
+
+## Preserved technical contracts
+- R6 GLB:181,648 bytes, blob `599c5f5585306c5542041f86118946ba979d8377`. Builder/waves/isolated timeline/page/styles unchanged; one renderer, original shaders/materials and 1.25× clock retained.
+- Same physical buoy throughout crossing; parked camera and exactly one horizontal transition between two exact science paragraphs, with reading holds. Continuous reverse scroll, responsive chapter bounds and deeper final camera with no buoy.
+- Readable no-JS/reduced/WebGL-failure/timeout alternatives, bounded Retry and generation-safe loading. Initial layout choice occurs before body parsing to preserve native refresh restoration.
+
+## Verification and evidence
+- Latest checks:11/11 tests, Astro zero errors/warnings/hints, successful telemetry-disabled production build and diff check.
+- Initial complete four-size production UAT covers forward/reverse, keyboard skip, landscape/no overflow, motion toggle and registration. No application errors; narrow recorded four ReadPixels driver warnings.
+- Final camera nine-state screenshots at all four sizes and paragraph-two refresh checks: `uat/glhc003/final/`, `final-stills-results.json`. Complete mobile/desktop videos exported. These precede the final hero/font follow-up.
+- Latest hero and both science panels at320×650,390×844,768×1024,1440×900: `uat/glhc003/font-review/`. Google Sans actually loaded; no overflow/page errors. Current two-CTA results: `registration-results.json`.
+- No-JS, OS reduced motion, forced/blocked WebGL and delayed-model timeout/retry passed; isolated prototype initializes. Exact evidence boundaries and capture failures: `docs/GLHC-003-UAT.md`.
+- Scene618.66kB/160.26kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Surface/sensors11draws/44,916triangles; final registration2draws/32,992triangles. Existing Vite warning remains.
+
+## Release boundary
+No main merge or production deployment. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
+
+## One next action
+Organizer reviews the draft PR and latest hero/complete-story evidence, then requests revisions or approves merge and real-device/launch checks.

@@ -1,5 +1,11 @@
 # GLHC-003 — Organizer assets and external registration link
 
+Implementation update (2026-10-21): both optimized WebPs are included in the
+GLHC-003 implementation and the complete square collage is rendered intact.
+All three configured registration links have passed actual secure new-tab
+navigation checks. See [GLHC-003-UAT.md](GLHC-003-UAT.md). The notes below describe
+the original delivery; image publication rights remain a launch check.
+
 **Supplied 2026-10-20.** The two missing content inputs are now available.
 
 ## Water-quality communication inspiration collage

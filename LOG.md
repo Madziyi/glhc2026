@@ -129,3 +129,9 @@
 - Marked draft PR ready for review and merged into `main` with SHA `1524431cc33723bfeb063ac96fededfb77f575dc`. No deployment.
 - Created `feat/glhc-003-storytelling` from merged `main`; updated project task/now/live state and wrote `docs/GLHC-003-BUILD-SPEC.md` defining five chapter website, actual GLB reuse, accessible progressive loading, placeholder collage, absent Luma URL and final UAT requirements.
 - Next: Codex Sol executes GLHC-003 from new branch, beginning with the student-photo hero and cinematic handoff to the approved buoy.
+
+### 2026-10-20 — Organizer supplied collage and Luma URL
+- Received one composite image `collage.jpg` containing waterfront light installation, electronics controller and a purple LED matrix, to be displayed intact as the single inspiration collage. Prepared mobile/large-screen optimized WebP versions in `GLHC-003-collage-assets.zip` for Codex import; image binaries are not yet committed.
+- Received exact Luma registration destination `https://luma.com/pz0iw2m7` and configured it on GLHC-003 branch, enabling existing registration controls in branch preview. Luma's current event metadata/registration state could not be independently verified; no new schedule/location claims.
+- Updated GLHC-003 specification and handoff to remove stale missing-asset/disabled-CTA assumptions. Source copyright/public release permissions, final navigation UAT and real-device performance remain pending.
+- No changes to R6 buoy model, camera, shader, production hosting, or main branch.

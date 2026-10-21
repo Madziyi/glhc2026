@@ -36,14 +36,14 @@
 ## Scene 4 — The public communication challenge
 
 - Camera moves to a deeper chapter. Explain turning real water-quality data into engaging displays and communication projects for the public.
-- Show **one static image containing a four-picture collage** of examples, captioned as inspiration (e.g. “There's inspiration to draw from…”). **Organizer has not yet provided the final collage:** reserve a well-designed labelled placeholder container; do not fabricate photos or claim invented outcomes. Swap in a single optimized image once received.
+- Show **the single organizer-supplied collage image** as one static responsive image, captioned as inspiration (e.g. “There's inspiration to draw from…”). It depicts (i) night waterfront green-light visualization, (ii) open-hardware controller/Raspberry Pi-style electronics, and (iii) close-up purple LED panel. Earlier planning called this a four-picture collage, but the supplied composite visibly has three regions: use it intact, do not fabricate a fourth. Import the optimized 640/1080 WebP assets from the delivered `GLHC-003-collage-assets.zip` to `public/assets/`. Use `picture`/`srcset` if helpful, descriptive alt text and correct aspect-ratio sizing. The files are not yet committed.
 - A short “How it works” section immediately after the collage explains: form/join a team; provided open hardware/equipment and real lake data; no prior skills required, all disciplines welcome; build an interactive public-facing experience.
 - No data-to-art interactive playground or second horizontal scroll.
 
 ## Scene 5 — Deeper open-water registration
 
 - Descend deeper; buoy must be **out of frame** by the final call to action.
-- Clear accessible “Register Now” action routed to an external organizer-verified **Luma** event. **URL is still missing:** do not invent it; until supplied, present a clearly unavailable CTA and explain registration link is forthcoming. Keep navigation jump to this section available.
+- Clear accessible “Register Now” action routed to an external organizer-verified **Luma** event. **Organizer supplied URL:** `https://luma.com/pz0iw2m7`, configured in `public/site-config.js`. Every registration CTA should open this exact HTTPS URL in a secure new tab (`rel="noopener noreferrer"`); verify links and do not infer event dates or ticket status from the URL. The Luma event page was not independently inspected. Keep navigation jump to this section available.
 - Restate the winning-team $500 prize, participation without experience, and potential public displays. No artificially gated/unlocked registration.
 
 ## Implementation plan (vertical slices)
@@ -66,8 +66,8 @@
 
 ## Outstanding external inputs
 
-1. Organizer's single four-image communication examples collage.
-2. Authentic external Luma URL.
+1. Import organizer's single composite image from `GLHC-003-collage-assets.zip` (WebPs prepared; not yet committed).
+2. Organizer-supplied Luma URL is available in `public/site-config.js`; external CTA/browser and registration-state verification pending.
 3. Rights/publication approval for researcher/student/RAEON photography (can prototype with supplied photos; do not assert public release clearance).
 4. Physical mobile/browser/network 10-second readiness and launch performance testing.
 

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#092c46" />
+    <meta name="description" content="A Great Lakes data hackathon for students of every background. Explore real lake science, work in teams, and compete for a $500 team prize. No previous experience required." />
+    <title>Great Lakes Data Hackathon Challenge</title>
+    <link rel="preload" href="./assets/lake-surface.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script is:inline src="/site-config.js"></script>
+    <script is:inline src="/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#challenge">Skip to the challenge</a>
+
+    <header class="topbar" id="topbar">
+      <a class="brand" href="#top" aria-label="Great Lakes Data Hackathon home">
+        <span class="brand__icon" aria-hidden="true"><span class="brand__wave"></span><span class="brand__wave brand__wave--lower"></span></span>
+        <span class="brand__text">GREAT LAKES <span>DATA HACKATHON</span></span>
+      </a>
+      <a class="topbar__link" href="#challenge">The challenge <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="journey" aria-label="Travel from the lake surface to underwater research" id="journey">
+        <div class="journey__viewport">
+          <div class="world" aria-hidden="true">
+            <div class="world__sky"></div>
+            <div class="world__lake"></div>
+            <div class="world__horizon"></div>
+            <div class="world__sunlight"></div>
+            <div class="world__buoy" id="buoy"><img src="./assets/buoy-cutout.webp" alt="" width="172" height="344" /></div>
+            <div class="world__reflection"></div>
+            <div class="world__underwater">
+              <div class="world__rays"></div>
+              <div class="world__bubbles world__bubbles--one"></div>
+              <div class="world__bubbles world__bubbles--two"></div>
+              <img class="world__glider" id="glider" src="./assets/glider-cutout.webp" alt="" width="708" height="216" decoding="async" loading="lazy" />
+              <div class="world__depth-fog"></div>
+            </div>
+            <div class="world__waterline"><span></span></div>
+            <div class="world__vignette"></div>
+          </div>
+
+          <div class="journey__hud">
+            <span class="eyebrow eyebrow--hero">AN INVITATION TO MAKE SOMETHING DIFFERENT</span>
+            <div class="journey__progress" aria-hidden="true"><span></span></div>
+            <div class="scene-counter" aria-hidden="true"><span id="scene-number">01</span> / 05</div>
+          </div>
+
+          <div class="story story--intro is-visible" data-scene="0">
+            <p class="story__kicker">GREAT LAKES DATA HACKATHON CHALLENGE</p>
+            <h1>Make waves<br />with <em>data.</em></h1>
+            <p class="story__description">Real lake data. Your imagination.<br />A new kind of public display.</p>
+            <div class="hero-rewards">
+              <span class="hero-rewards__prize"><strong>$500</strong> prize for the winning team</span>
+              <span class="hero-rewards__divider"></span>
+              <span class="hero-rewards__display">Your work could be featured in public spaces</span>
+            </div>
+            <p class="hero-welcome"><span class="hero-welcome__dot"></span> No experience needed. Everyone is welcome.</p>
+          </div>
+
+          <div class="story story--approach" data-scene="1">
+            <p class="story__kicker">01 / THE SURFACE</p>
+            <h2>This is where<br />the story starts.</h2>
+            <p>Across the Great Lakes, researchers use monitoring buoys to better understand the water around us.</p>
+          </div>
+          <div class="story story--crossing" data-scene="2">
+            <p class="story__kicker">02 / LOOK BENEATH</p>
+            <h2>There's more<br />below the surface.</h2>
+            <p>A whole world of measurements and observations is waiting to be explored.</p>
+          </div>
+          <div class="story story--glider" data-scene="3">
+            <p class="story__kicker">03 / EXPLORE DEEPER</p>
+            <h2>Meet the<br /><em>underwater explorer.</em></h2>
+            <p>Autonomous gliders travel through the lakes, collecting information about their changing conditions.</p>
+          </div>
+          <div class="story story--invitation" data-scene="4">
+            <p class="story__kicker">04 / YOUR TURN</p>
+            <h2>Now, what will<br /><em>you</em> create?</h2>
+            <p>Turn real Great Lakes water-quality data into an experience that gets people looking, talking, and thinking.</p>
+          </div>
+
+          <div class="journey__foot">
+            <button class="dive-cue" id="dive-cue" type="button" aria-label="Scroll to begin the underwater journey">
+              <span>SCROLL TO DIVE</span><span class="dive-cue__arrow" aria-hidden="true">↓</span>
+            </button>
+            <a class="journey__skip" href="#challenge">Skip the intro <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="challenge" id="challenge" aria-labelledby="challenge-title">
+        <div class="challenge__intro">
+          <span class="eyebrow">THE CHALLENGE</span>
+          <h2 id="challenge-title">You bring the curiosity.<br /><em>We'll bring the tools.</em></h2>
+          <p>Use open hardware and real Great Lakes data to build a creative, interactive display for people to experience in a public space. Think lights, motion, physical installations, or an idea nobody has tried yet.</p>
+        </div>
+        <div class="challenge__features">
+          <article class="feature">
+            <span class="feature__number">01</span>
+            <h3>Start from zero.</h3>
+            <p>No coding, electronics, or design experience required. All skill levels are welcome.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__number">02</span>
+            <h3>Build as a team.</h3>
+            <p>Form or join a group and work together to bring an idea to life.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__number">03</span>
+            <h3>Make it public.</h3>
+            <p>Create something others can see and explore, with the opportunity for public display.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="human" aria-label="People working together on Great Lakes research">
+        <div class="human__image"><img src="./assets/team-water.webp" alt="Great Lakes research team with a yellow underwater glider aboard a vessel" width="1200" height="1600" loading="lazy" decoding="async" /></div>
+        <div class="human__copy">
+          <span class="eyebrow">OPEN TO EVERYONE</span>
+          <h2>Never done a hackathon?<br /><em>You're in the right place.</em></h2>
+          <p>You don't need to arrive with a polished idea or a technical background. Bring your curiosity, be ready to collaborate, and try something new.</p>
+          <span class="human__detail">REAL DATA <span>✳</span> OPEN HARDWARE <span>✳</span> CREATIVE TEAMS</span>
+        </div>
+      </section>
+
+      <section class="register" id="register" aria-labelledby="register-title">
+        <div class="register__halo" aria-hidden="true"></div>
+        <span class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</span>
+        <p class="register__large-prize">$500 <span>TEAM PRIZE</span></p>
+        <h2 id="register-title">Ready to<br /><em>make waves?</em></h2>
+        <p>Open to every skill level. Build something meaningful with real Great Lakes data — and see where your idea could go.</p>
+        <a class="register__button" id="luma-registration" data-registration href="#register" aria-disabled="true">
+          <span>Registration link coming soon</span><span class="register__button-arrow" aria-hidden="true">↗</span>
+        </a>
+        <p id="registration-note" class="register__note" role="status">Luma registration link will appear here when it is available.</p>
+      </section>
+    </main>
+    <footer class="footer"><span>GREAT LAKES DATA HACKATHON</span><span>REAL LAKES. REAL DATA. YOUR IDEAS.</span><a href="#top">Back to surface ↑</a></footer>
+  </body>
+</html>

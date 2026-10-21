@@ -122,3 +122,10 @@
 - Added a finite-angle guard at the exact center of the radial GPU ripple function. Final checks after the guard: 9/9 tests, Astro 0/0/0, successful build; scene 616.71 kB minified / 159.52 kB gzip (+4.52/+1.50 vs R5), bootstrap 2.91/1.27 kB. No physical-device acceptance, merge or deployment.
 
 - Latest finish observations: mobile/desktop readiness 1,320.6/1,470.7 ms; narrow still-run readiness 1,907.8 ms. Capture last-frame samples 466.7/616.5 ms on software rendering; final material cost not isolated from recording/host overhead. No page exceptions in final narrow/tablet stills; mobile capture has four ReadPixels driver warnings, desktop capture has none. Optional speed-selector interaction remains unverified after the bounded helper timeout.
+
+### 2026-10-20 — Approved R6 and merged PR #1; opened GLHC-003
+- Organizer accepted the R6 buoy/sky/water prototype visually as good enough to move beyond water-only work. Not claiming physical mobile performance, 10-second startup target or release readiness.
+- Verified PR #1 pointed exactly to approved R6 commit `2f4b221daf183b9d1ce8900abe4e7697cb110ec6`, was 17 commits ahead / zero behind `main`, mergeable, had no recorded GitHub combined statuses, and user-reported 9 tests/build passing.
+- Marked draft PR ready for review and merged into `main` with SHA `1524431cc33723bfeb063ac96fededfb77f575dc`. No deployment.
+- Created `feat/glhc-003-storytelling` from merged `main`; updated project task/now/live state and wrote `docs/GLHC-003-BUILD-SPEC.md` defining five chapter website, actual GLB reuse, accessible progressive loading, placeholder collage, absent Luma URL and final UAT requirements.
+- Next: Codex Sol executes GLHC-003 from new branch, beginning with the student-photo hero and cinematic handoff to the approved buoy.

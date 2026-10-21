@@ -1,19 +1,11 @@
 # Live Infrastructure
 
-No hosting, production URL, Luma event URL, database, auth provider, or deployed version has been verified as of 2026-10-18.
+As of 2026-10-20, **GLHC-001/GLHC-002R6 source was merged to `main`** (merge SHA `1524431cc33723bfeb063ac96fededfb77f575dc`, PR #1). This is a GitHub source-code merge, **not evidence of a public site deployment**.
 
-- Repository: `Madziyi/glhc2026` (public; checked using GitHub connector).
-- Hosting: unselected / unverified.
-- Luma: planned external registration destination; actual event link not yet supplied.
-- No secrets configured or required for static prototype.
-- Do not interpret a source commit or generated ZIP as deployment evidence.
-
-## GLHC-002 local verification — 2026-10-18
-- Production static build includes `/` and isolated `/prototype/glhc-002`.
-- Parent exercised the local Astro preview at `http://127.0.0.1:4324/prototype/glhc-002`; this is a local review address, not a public deployment.
-- No hosting, remote configuration, database, secrets or registration destination changed. No deployed v2 version was verified.
-
-## GLHC-002R6 local verification — 2026-10-20
-- Production prototype verified locally at `http://127.0.0.1:4332/prototype/glhc-002`; this is not a deployment. An unchanged R5 snapshot was served locally for comparison.
-- Procedural sky/water and shared 1.25× motion are source/local-preview facts only. Physical mobile hardware and representative mobile-network readiness remain unverified.
-- No hosting, database, cron, secrets, Luma destination or deployed version changed. Feature PR remains unmerged for organizer review.
+- `/` in source remains the old glider-led development homepage pending GLHC-003 changes.
+- `/prototype/glhc-002` remains the visually approved R6 buoy feasibility route.
+- Hosting/public URL: not verified.
+- Luma event URL: not supplied; do not invent one.
+- No database, auth provider, payment, secrets, or production infrastructure configured for this static website.
+- GLHC-003 work is in `feat/glhc-003-storytelling`; source or preview builds are not deployments.
+- Physical mobile/Web Vitals and 10-second readiness not verified.

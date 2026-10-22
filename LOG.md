@@ -174,3 +174,10 @@
 - Verification:12/12 tests, Astro0/0/0, production build and diff checks pass. Four viewport sizes verify both actual smooth-scroll clicks, intermediate movement, correct hashes/focus, visible target headings, no overflow/page errors. Separate no-JS and OS-reduced contexts pass both links. Evidence/script: `uat/glhc003/hero-navigation/`, `hero-navigation.mjs`; mobile/desktop hero reviewed visually. Existing Vite warning and software-renderer capture limitations remain.
 - Live state: no merge or deployment. Known issues: existing physical-device/launch acceptance remains open. Unrelated untracked sources preserved.
 - Next action: organizer reviews the simplified opening and navigation in draft PR#2. Commit: this published handoff.
+
+### 2026-10-21 — Responsive hero fit and balanced spacing
+- Task: GLHC-003 responsive opening. Status: done, organizer review pending.
+- Changed CSS: viewport-height-aware photograph/heading, distributed portrait spacing and small cue reserve, compact short-tablet grid, two-column short landscape with side-by-side links and header-clear prize. Retained full photo, content, fonts, registration, navigation and scene. Text enlargement can grow the page; no fixed-height clipping.
+- Verification:11 default-text viewports from320x568 to1440x900, including375x667 SE,393x852 iPhone16,768x600 and two landscape sizes. Full hero/buttons/cue fit, no horizontal overflow/page errors; final mobile/landscape visual review. Script/evidence: `hero-responsive.mjs`, `hero-balanced/`, superseding final landscape shots in `hero-balanced-landscape/`.12 tests, Astro0/0/0, final production build and diff pass; scene bundle unchanged. Corrected initial4px compact overflow and reran; earlier exploratory scene-ready timeout occurred during concurrent rebuild, final sequential checks passed. Software-renderer capture/device acceptance limits remain.
+- Live state: no merge/deployment. Known issues: physical-device/launch acceptance remains open; unrelated untracked sources preserved.
+- Next action: organizer reviews balanced responsive hero in draft PR#2. Commit: this published handoff.

@@ -238,3 +238,31 @@ exceptions. Separate OS-reduced and actual no-JavaScript contexts pass both link
 with computed scroll behavior auto. Hero screenshots show rounded corners and the
 removed copy; Google Sans remains applied. Test-only4FPS software-renderer cap is
 for captures only, not performance acceptance. No merge/deployment.
+
+## Responsive hero spacing — 2026-10-21
+
+The organizer identified hero overflow on iPhone SE and then a bunched content
+stack with excessive empty space above the cue. Hero sizing now responds to both
+viewport height and width. Portrait uses a full-height minimum with distributed
+space between title, photograph, paragraph and buttons, reserving96px (92px on
+the shortest phones) for the cue. Photo size and heading adapt with the available
+height; buttons remain at least44px high. The document may grow for enlarged text
+rather than clipping content. Short tablets compact the grid, and short landscape
+uses two columns with side-by-side buttons and the prize clear of the fixed header.
+
+Production geometry/screenshot checks pass at375x667,393x852,320x568,360x640,
+430x932,768x1024,768x600,1366x768,1440x900,667x375,568x320: hero no taller than the
+viewport at default text size, both buttons above the cue, cue within the screen,
+heading below header, no horizontal overflow or page exceptions. Evidence/script:
+`uat/glhc003/hero-balanced/`, `hero-responsive.mjs`. Final landscape photograph/
+badge clearance refinement is separately captured in `hero-balanced-landscape/`;
+those two screenshots supersede the earlier landscape stills. Mobile SE/16 and
+landscape final screenshots reviewed visually. Initial exploratory captures were
+superseded after correcting4px compact-phone overflow; an earlier browser run's
+scene-ready wait timed out during a concurrent rebuild. The final11-size run and
+subsequent focused landscape run completed successfully after builds finished.
+
+Tests12/12, Astro0/0/0, final production build/diff check pass. Renderer, model,
+fonts and link destinations unchanged; existing Vite chunk warning remains.
+Test-only4FPS software-renderer captures do not verify physical-device performance.
+No merge or deployment.

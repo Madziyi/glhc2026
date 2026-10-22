@@ -55,3 +55,11 @@ jumps arrive with the target heading visible beneath the header; no overflow or
 page exceptions. No-JS and OS reduced motion links pass with immediate scrolling.
 Evidence: `uat/glhc003/hero-navigation/`, `hero-navigation.mjs`. Tests12/12,
 Astro0/0/0, production build/diff check passed. Renderer/model/fonts unchanged.
+
+Latest responsive follow-up: hero photograph, heading and spacing use viewport
+height as well as width. Portrait space is distributed between content blocks,
+with a small reserved cue area rather than a large empty bottom gap. Compact
+landscape uses two columns and side-by-side links. All11 tested default-text
+viewports fit the entire hero, both buttons and cue; enlarged content may grow
+naturally. Evidence: `uat/glhc003/hero-balanced/` and final landscape-only
+refinement in `hero-balanced-landscape/`; script `hero-responsive.mjs`.

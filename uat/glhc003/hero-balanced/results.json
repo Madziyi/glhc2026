@@ -1,0 +1,662 @@
+[
+  {
+    "name": "iphone-se",
+    "width": 375,
+    "height": 667,
+    "fit": true,
+    "layout": {
+      "viewport": 667,
+      "hero": {
+        "top": 0,
+        "bottom": 667,
+        "left": 0,
+        "right": 375,
+        "height": 667
+      },
+      "title": {
+        "top": 80,
+        "bottom": 140.40625,
+        "left": 20,
+        "right": 355,
+        "height": 60.40625
+      },
+      "photo": {
+        "top": 163.20523071289062,
+        "bottom": 357.7322692871094,
+        "left": 61.12311553955078,
+        "right": 313.8612747192383,
+        "height": 194.52703857421875
+      },
+      "description": {
+        "top": 380.515625,
+        "bottom": 441.40625,
+        "left": 20,
+        "right": 355,
+        "height": 60.890625
+      },
+      "actions": {
+        "top": 467,
+        "bottom": 571,
+        "left": 36.75,
+        "right": 338.25,
+        "height": 104
+      },
+      "cue": {
+        "top": 593.015625,
+        "bottom": 654.203125,
+        "left": 96.8203125,
+        "right": 278.1796875,
+        "height": 61.1875
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 375,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "iphone-16",
+    "width": 393,
+    "height": 852,
+    "fit": true,
+    "layout": {
+      "viewport": 852,
+      "hero": {
+        "top": 0,
+        "bottom": 852,
+        "left": 0,
+        "right": 393,
+        "height": 852
+      },
+      "title": {
+        "top": 85.1875,
+        "bottom": 163.09375,
+        "left": 20,
+        "right": 373,
+        "height": 77.90625
+      },
+      "photo": {
+        "top": 198.17881774902344,
+        "bottom": 461.27427673339844,
+        "left": 25.144886016845703,
+        "right": 367.8550910949707,
+        "height": 263.095458984375
+      },
+      "description": {
+        "top": 496.375,
+        "bottom": 589.125,
+        "left": 20,
+        "right": 373,
+        "height": 92.75
+      },
+      "actions": {
+        "top": 628,
+        "bottom": 756,
+        "left": 37.65625,
+        "right": 355.34375,
+        "height": 128
+      },
+      "cue": {
+        "top": 778.015625,
+        "bottom": 839.203125,
+        "left": 105.8203125,
+        "right": 287.1796875,
+        "height": 61.1875
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 393,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "small-phone",
+    "width": 320,
+    "height": 568,
+    "fit": true,
+    "layout": {
+      "viewport": 568,
+      "hero": {
+        "top": 0,
+        "bottom": 568,
+        "left": 0,
+        "right": 320,
+        "height": 568
+      },
+      "title": {
+        "top": 80,
+        "bottom": 137.4375,
+        "left": 20,
+        "right": 300,
+        "height": 57.4375
+      },
+      "photo": {
+        "top": 152.01943969726562,
+        "bottom": 262.4649353027344,
+        "left": 88.8008804321289,
+        "right": 231.19913482666016,
+        "height": 110.44549560546875
+      },
+      "description": {
+        "top": 277.03125,
+        "bottom": 358.21875,
+        "left": 20,
+        "right": 300,
+        "height": 81.1875
+      },
+      "actions": {
+        "top": 374.375,
+        "bottom": 476,
+        "left": 34,
+        "right": 286,
+        "height": 101.625
+      },
+      "cue": {
+        "top": 494.015625,
+        "bottom": 555.203125,
+        "left": 69.3203125,
+        "right": 250.6796875,
+        "height": 61.1875
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 320,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "android",
+    "width": 360,
+    "height": 640,
+    "fit": true,
+    "layout": {
+      "viewport": 640,
+      "hero": {
+        "top": 0,
+        "bottom": 640,
+        "left": 0,
+        "right": 360,
+        "height": 640
+      },
+      "title": {
+        "top": 80,
+        "bottom": 138.4375,
+        "left": 20,
+        "right": 340,
+        "height": 58.4375
+      },
+      "photo": {
+        "top": 155.73388671875,
+        "bottom": 322.45361328125,
+        "left": 71.87789916992188,
+        "right": 288.1221008300781,
+        "height": 166.7197265625
+      },
+      "description": {
+        "top": 339.765625,
+        "bottom": 420.953125,
+        "left": 20,
+        "right": 340,
+        "height": 81.1875
+      },
+      "actions": {
+        "top": 440.640625,
+        "bottom": 544,
+        "left": 36,
+        "right": 324,
+        "height": 103.359375
+      },
+      "cue": {
+        "top": 575.671875,
+        "bottom": 627.203125,
+        "left": 100.859375,
+        "right": 259.140625,
+        "height": 51.53125
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 360,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "wide-phone",
+    "width": 430,
+    "height": 932,
+    "fit": true,
+    "layout": {
+      "viewport": 932,
+      "hero": {
+        "top": 0,
+        "bottom": 932,
+        "left": 0,
+        "right": 430,
+        "height": 932
+      },
+      "title": {
+        "top": 93.1875,
+        "bottom": 178.21875,
+        "left": 20,
+        "right": 410,
+        "height": 85.03125
+      },
+      "photo": {
+        "top": 232.96580505371094,
+        "bottom": 524.7372894287109,
+        "left": 24.833797454833984,
+        "right": 405.1661949157715,
+        "height": 291.771484375
+      },
+      "description": {
+        "top": 579.484375,
+        "bottom": 649.046875,
+        "left": 20,
+        "right": 410,
+        "height": 69.5625
+      },
+      "actions": {
+        "top": 708,
+        "bottom": 836,
+        "left": 39.5,
+        "right": 390.5,
+        "height": 128
+      },
+      "cue": {
+        "top": 858.015625,
+        "bottom": 919.203125,
+        "left": 124.3203125,
+        "right": 305.6796875,
+        "height": 61.1875
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 430,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "width": 768,
+    "height": 1024,
+    "fit": true,
+    "layout": {
+      "viewport": 1024,
+      "hero": {
+        "top": 0,
+        "bottom": 1024,
+        "left": 0,
+        "right": 768,
+        "height": 1024
+      },
+      "title": {
+        "top": 297.625,
+        "bottom": 450.390625,
+        "left": 43,
+        "right": 364,
+        "height": 152.765625
+      },
+      "photo": {
+        "top": 388.4885559082031,
+        "bottom": 643.5114135742188,
+        "left": 399.840576171875,
+        "right": 729.159423828125,
+        "height": 255.02285766601562
+      },
+      "description": {
+        "top": 475.984375,
+        "bottom": 571.984375,
+        "left": 43,
+        "right": 364,
+        "height": 96
+      },
+      "actions": {
+        "top": 597.578125,
+        "bottom": 734.375,
+        "left": 43,
+        "right": 364,
+        "height": 136.796875
+      },
+      "cue": {
+        "top": 948.09375,
+        "bottom": 1011.203125,
+        "left": 280.125,
+        "right": 487.875,
+        "height": 63.109375
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 768,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "short-tablet",
+    "width": 768,
+    "height": 600,
+    "fit": true,
+    "layout": {
+      "viewport": 600,
+      "hero": {
+        "top": 0,
+        "bottom": 600,
+        "left": 0,
+        "right": 768,
+        "height": 600
+      },
+      "title": {
+        "top": 131.9375,
+        "bottom": 259.9375,
+        "left": 43,
+        "right": 364,
+        "height": 128
+      },
+      "photo": {
+        "top": 178.4885711669922,
+        "bottom": 433.5114440917969,
+        "left": 399.840576171875,
+        "right": 729.159423828125,
+        "height": 255.0228729248047
+      },
+      "description": {
+        "top": 273.9375,
+        "bottom": 362.0625,
+        "left": 43,
+        "right": 364,
+        "height": 88.125
+      },
+      "actions": {
+        "top": 376.0625,
+        "bottom": 480.0625,
+        "left": 43,
+        "right": 364,
+        "height": 104
+      },
+      "cue": {
+        "top": 524.09375,
+        "bottom": 587.203125,
+        "left": 280.125,
+        "right": 487.875,
+        "height": 63.109375
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 768,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "laptop",
+    "width": 1366,
+    "height": 768,
+    "fit": true,
+    "layout": {
+      "viewport": 768,
+      "hero": {
+        "top": 0,
+        "bottom": 768,
+        "left": 0,
+        "right": 1366,
+        "height": 768
+      },
+      "title": {
+        "top": 125.90625,
+        "bottom": 376.765625,
+        "left": 76.484375,
+        "right": 642.015625,
+        "height": 250.859375
+      },
+      "photo": {
+        "top": 163.54339599609375,
+        "bottom": 612.4566040039062,
+        "left": 716.6474609375,
+        "right": 1296.8369140625,
+        "height": 448.9132080078125
+      },
+      "description": {
+        "top": 402.359375,
+        "bottom": 485.328125,
+        "left": 76.484375,
+        "right": 621.890625,
+        "height": 82.96875
+      },
+      "actions": {
+        "top": 510.921875,
+        "bottom": 650.09375,
+        "left": 76.484375,
+        "right": 516.484375,
+        "height": 139.171875
+      },
+      "cue": {
+        "top": 692.09375,
+        "bottom": 755.203125,
+        "left": 579.125,
+        "right": 786.875,
+        "height": 63.109375
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 1366,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "fit": true,
+    "layout": {
+      "viewport": 900,
+      "hero": {
+        "top": 0,
+        "bottom": 900,
+        "left": 0,
+        "right": 1440,
+        "height": 900
+      },
+      "title": {
+        "top": 183.515625,
+        "bottom": 447.734375,
+        "left": 80.625,
+        "right": 676.796875,
+        "height": 264.21875
+      },
+      "photo": {
+        "top": 217.4844970703125,
+        "bottom": 690.5155029296875,
+        "left": 755.4730834960938,
+        "right": 1367.0894775390625,
+        "height": 473.031005859375
+      },
+      "description": {
+        "top": 473.328125,
+        "bottom": 559.71875,
+        "left": 80.625,
+        "right": 648.515625,
+        "height": 86.390625
+      },
+      "actions": {
+        "top": 585.3125,
+        "bottom": 724.484375,
+        "left": 80.625,
+        "right": 520.625,
+        "height": 139.171875
+      },
+      "cue": {
+        "top": 824.09375,
+        "bottom": 887.203125,
+        "left": 616.125,
+        "right": 823.875,
+        "height": 63.109375
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 1440,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "landscape",
+    "width": 667,
+    "height": 375,
+    "fit": true,
+    "layout": {
+      "viewport": 375,
+      "hero": {
+        "top": 0,
+        "bottom": 375,
+        "left": 0,
+        "right": 667,
+        "height": 375
+      },
+      "title": {
+        "top": 84.515625,
+        "bottom": 135.265625,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 50.75
+      },
+      "photo": {
+        "top": 64.93379974365234,
+        "bottom": 266.0661849975586,
+        "left": 366.70330810546875,
+        "right": 625.7654418945312,
+        "height": 201.13238525390625
+      },
+      "description": {
+        "top": 173.734375,
+        "bottom": 246.484375,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 72.75
+      },
+      "actions": {
+        "top": 269.71875,
+        "bottom": 313.71875,
+        "left": 37.34375,
+        "right": 629.65625,
+        "height": 44
+      },
+      "cue": {
+        "top": 331.46875,
+        "bottom": 375,
+        "left": 254.359375,
+        "right": 412.640625,
+        "height": 43.53125
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 667,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "small-landscape",
+    "width": 568,
+    "height": 320,
+    "fit": true,
+    "layout": {
+      "viewport": 320,
+      "hero": {
+        "top": 0,
+        "bottom": 320,
+        "left": 0,
+        "right": 568,
+        "height": 320
+      },
+      "title": {
+        "top": 71.0625,
+        "bottom": 121.0625,
+        "left": 20,
+        "right": 279.796875,
+        "height": 50
+      },
+      "photo": {
+        "top": 67.49812316894531,
+        "bottom": 208.4862518310547,
+        "left": 338.65704345703125,
+        "right": 521.1242065429688,
+        "height": 140.98812866210938
+      },
+      "description": {
+        "top": 132.15625,
+        "bottom": 204.90625,
+        "left": 20,
+        "right": 279.796875,
+        "height": 72.75
+      },
+      "actions": {
+        "top": 214.46875,
+        "bottom": 258.46875,
+        "left": 20,
+        "right": 548,
+        "height": 44
+      },
+      "cue": {
+        "top": 276.46875,
+        "bottom": 320,
+        "left": 204.859375,
+        "right": 363.140625,
+        "height": 43.53125
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 568,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  }
+]

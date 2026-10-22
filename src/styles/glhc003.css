@@ -35,6 +35,32 @@
 .invitation .scroll-cue{color:var(--yellow)}html.static-motion{scroll-behavior:auto}
 @media(max-width:600px){.invitation{padding-bottom:100px;gap:0}.hero-copy h1{margin-bottom:2rem}.hero-photo{width:calc(100% - 1rem);max-width:380px;margin-bottom:2rem}.hero-description{margin-bottom:2rem;font-size:1rem;line-height:1.55}.hero-actions{order:4;align-self:center;width:90%;gap:1.25rem;margin-bottom:1.5rem}.hero-jump{font-size:1.15rem;min-height:54px}.invitation .scroll-cue{bottom:.8rem}}
 @media(max-width:360px) and (min-height:600px){.invitation{padding-top:80px;padding-bottom:90px}.hero-copy h1{font-size:2rem;margin-bottom:1.6rem}.hero-photo{max-width:260px;margin-bottom:1.5rem}.hero-description{font-size:.9rem;margin-bottom:1.5rem}.hero-jump{font-size:1rem;min-height:50px}}
+/* Budget the stacked invitation against the available small viewport height.
+   Content may still grow naturally for enlarged text rather than being clipped. */
+@media(max-width:600px){
+ .invitation{min-height:100svh;justify-content:space-between;row-gap:clamp(12px,2.4svh,24px);padding-top:max(80px,10svh);padding-bottom:96px}
+ .hero-copy h1{font-size:clamp(1.75rem,min(9.8vw,4.5svh),3.3rem);margin-bottom:0}
+ .hero-photo{width:min(calc(100% - 1rem),380px,calc((100svh - 480px)*1.329));min-width:150px;max-width:100%;margin-bottom:0}
+ .hero-description{font-size:clamp(.875rem,1.9svh,1rem);line-height:1.45;margin-bottom:0}
+ .hero-actions{gap:clamp(10px,2.4svh,20px);margin-bottom:0}
+ .hero-jump{min-height:clamp(44px,6.4svh,54px);font-size:clamp(1rem,2.2svh,1.15rem);padding:.6rem 1rem}
+ .prize-burst{width:clamp(60px,9svh,77px)}.prize-burst strong{font-size:clamp(1.25rem,2.8svh,1.5rem)}
+}
+@media(min-width:601px) and (max-height:760px){
+ .invitation{padding-top:82px;padding-bottom:70px;row-gap:14px}
+ .hero-copy h1{font-size:clamp(2rem,7svh,4.5rem)}.hero-description{font-size:.95rem;line-height:1.45}
+ .hero-actions{gap:12px}.hero-jump{min-height:46px;font-size:1rem;padding:.6rem 1rem}
+ .hero-photo{max-width:calc((100svh - 180px)*1.329)}
+}
+@media(max-width:600px) and (max-height:600px) and (orientation:portrait){.invitation{padding-bottom:92px}.hero-photo{min-width:140px}}
+@media(max-height:550px) and (orientation:landscape){
+ .invitation{min-height:100svh;display:grid;grid-template-columns:1.1fr 1fr;grid-template-areas:"title photo" "description photo" "actions actions";align-items:center;align-content:center;column-gap:2rem;row-gap:8px;padding-top:68px;padding-bottom:60px}
+ .hero-copy{display:block}.hero-copy h1{font-size:clamp(1.5rem,6.5svh,2.1rem);margin:0;line-height:1}
+ .hero-photo{width:min(100%,calc((100svh - 220px)*1.329));min-width:0;justify-self:center;margin:0;align-self:center}
+ .hero-description{font-size:.8125rem;line-height:1.4;margin:0}.hero-actions{flex-direction:row;justify-self:center;max-width:620px;width:100%;gap:14px;margin:0}
+ .hero-jump{min-height:44px;font-size:.95rem;padding:.5rem .8rem}.prize-burst{width:55px;top:0;right:-.4rem}.prize-burst strong{font-size:1.15rem}
+ .invitation .scroll-cue{bottom:0;font-size:.48rem}.invitation .scroll-cue img{width:32px;height:32px}
+}
 html:not(.static-motion) .surface .research-photo{width:clamp(320px,40vw,520px);max-width:100%;align-self:flex-end;margin-top:22svh}
 html:not(.static-motion) .surface .research-photo img{max-height:520px}
 @media(max-width:600px){html:not(.static-motion) .surface .research-photo{width:244px}html:not(.static-motion) .surface .research-photo img{max-height:256px}html:not(.static-motion) .surface .research-photo figcaption{font-size:.65rem;max-width:100%}}

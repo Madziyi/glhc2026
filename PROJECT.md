@@ -44,6 +44,12 @@ visible winning-team caption placement. “What’s this about?” links to sect
 immediate movement. The prize qualification remains accessible
 and appears visibly in registration.
 
+Hero sizing responds to viewport height and width: portrait content distributes
+space between the title, full photograph, paragraph and buttons, reserving a small
+area for the scroll cue. Short landscape switches to two columns and side-by-side
+links. Preserve readable text/tap sizes and natural page growth for enlarged text;
+do not force a fixed-height clipped hero.
+
 Surface-to-science camera contract: one full reversible orbit about the buoy
 finishes before waterline crossing. The approved underwater camera/target must
 remain identical. Orbit moves the camera and framing target, not the buoy asset.

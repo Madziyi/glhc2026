@@ -6,7 +6,7 @@
 ## Current experience
 Root homepage contains the complete five-scene journey: invitation/photo → researchers and surface buoy → continuous waterline descent and parked sensor science → supplied collage and How It Works → buoy-free deep-water registration.
 
-Latest organizer hero reference supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; only the solo/team creative-project paragraph remains. The art/science/technology introduction and bold no-experience welcome are removed from the hero (the later welcome remains). The group photograph has rounded corners. Two yellow pill links, “What’s this about?” and “What’s the challenge?”, smoothly scroll to `#surface` (section01) and `#how-it-works` (“CURIOSITY IS YOUR STARTING POINT”). Native anchors remain functional without JavaScript; static/reduced motion scrolls immediately. A yellow Register Now button stays in the header. Prize shape spins with upright text; centered animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN” in yellow. Existing Google Sans/fonts and higher-resolution group photo retained.
+Latest organizer hero reference supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; only the solo/team creative-project paragraph remains. The art/science/technology introduction and bold no-experience welcome are removed from the hero (the later welcome remains). The group photograph has rounded corners. Two yellow pill links, “What’s this about?” and “What’s the challenge?”, scroll to `#surface` (section01) and `#how-it-works` (“CURIOSITY IS YOUR STARTING POINT”). These links and the hero scroll cue now use a3.2-second eased animation, cancellable by user input, resize/history or motion preference changes. Native anchors remain functional without JavaScript; static/reduced motion scrolls immediately. A yellow Register Now button stays in the header. Prize shape spins with upright text; centered animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN” in yellow. Existing Google Sans/fonts and higher-resolution group photo retained.
 
 Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
@@ -23,7 +23,7 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 - Final camera nine-state screenshots at all four sizes and paragraph-two refresh checks: `uat/glhc003/final/`, `final-stills-results.json`. Complete mobile/desktop videos exported. These precede the final hero/font follow-up.
 - Latest hero and both science panels at320×650,390×844,768×1024,1440×900: `uat/glhc003/font-review/`. Google Sans actually loaded; no overflow/page errors. Current two-CTA results: `registration-results.json`.
 - No-JS, OS reduced motion, forced/blocked WebGL and delayed-model timeout/retry passed; isolated prototype initializes. Exact evidence boundaries and capture failures: `docs/GLHC-003-UAT.md`.
-- Scene619.26kB/160.46kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Latest model surface11draws/45,080triangles; sensors12draws/45,272triangles (one new white-material batch). Final registration2draws/32,992triangles. Existing Vite warning remains.
+- Scene619.26kB/160.46kB gzip; bootstrap3.48/1.48 plus helper1.11/.65. Latest model surface11draws/45,080triangles; sensors12draws/45,272triangles (one new white-material batch). Final registration2draws/32,992triangles. Existing Vite warning remains.
 
 ## Release boundary
 No main merge or production deployment. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
@@ -63,3 +63,9 @@ landscape uses two columns and side-by-side links. All11 tested default-text
 viewports fit the entire hero, both buttons and cue; enlarged content may grow
 naturally. Evidence: `uat/glhc003/hero-balanced/` and final landscape-only
 refinement in `hero-balanced-landscape/`; script `hero-responsive.mjs`.
+
+Latest navigation timing:3.2-second eased hero button/cue jumps measured2.03–2.30x
+prior native long-jump duration on mobile/desktop. Wheel interruption stops the
+animation; correct80px target clearance, focus/hash and reduced/no-JS anchors pass.
+Evidence/script: `uat/glhc003/slow-scroll/`, `slow-scroll.mjs`. Tests12/12,
+Astro0/0/0, build passed; bootstrap3.48/1.48kB gzip, renderer unchanged.

@@ -1,3 +1,6 @@
+import { initSectionScroll } from './section-scroll.js';
+
+initSectionScroll();
 const root = document.documentElement;
 const toggle = document.querySelector('#reduce-motion');
 const preference = matchMedia('(prefers-reduced-motion: reduce)');

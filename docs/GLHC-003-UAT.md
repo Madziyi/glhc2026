@@ -266,3 +266,23 @@ Tests12/12, Astro0/0/0, final production build/diff check pass. Renderer, model,
 fonts and link destinations unchanged; existing Vite chunk warning remains.
 Test-only4FPS software-renderer captures do not verify physical-device performance.
 No merge or deployment.
+
+## Slower homepage jumps — 2026-10-21
+
+Organizer clarified the requested slowdown applies to clicks on the two homepage
+buttons and scroll cue, not manual scrolling or camera progression. Those three
+links now use a3,200ms smoothstep animation in `section-scroll.js`, preserving
+80px header clearance, final hash/history and keyboard focus. Wheel, touch,
+pointer, scroll keys, resize, history navigation and motion preference changes
+cancel an active jump. Reduced/static motion uses immediate native anchors;
+no-JavaScript links remain functional. Scene and manual scroll remain unchanged.
+
+Tests12/12, Astro0 errors/warnings/hints, production build/diff pass. Bootstrap
+3.48kB/1.48kB gzip (+1.42/.55); scene remains619.26/160.46kB. Existing Vite warning
+remains. Actual Chromium mobile/desktop clicks measure3.10–3.38 seconds versus
+1.46/1.52-second prior native long-jump references, ratios2.03–2.30. All three
+links reach correct hash, target focus and80px offset. Wheel interruption stops
+progress; OS-reduced and actual no-JS anchors pass. Raw timed positions/script:
+`uat/glhc003/slow-scroll/results.json`, `slow-scroll.mjs`. Capture-only4FPS cap
+and software renderer apply; these timings verify navigation duration, not GPU
+performance. No merge or deployment.

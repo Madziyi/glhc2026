@@ -40,8 +40,10 @@ centered supplied animated scroll SVG. Manual motion preference is in the footer
 OS reduced motion remains automatic. This supersedes older invitation copy and
 visible winning-team caption placement. “What’s this about?” links to section01
 (`#surface`); “What’s the challenge?” links to the curiosity/tools section
-(`#how-it-works`). Native smooth scrolling honors static/reduced motion with
-immediate movement. The prize qualification remains accessible
+(`#how-it-works`). Both hero links and its scroll cue use a3.2-second eased,
+interruptible scroll when motion is enabled. Manual wheel/touch scrolling stays
+native. Native anchors honor static/reduced motion with immediate movement and
+remain available without JavaScript. The prize qualification remains accessible
 and appears visibly in registration.
 
 Hero sizing responds to viewport height and width: portrait content distributes

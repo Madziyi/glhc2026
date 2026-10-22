@@ -181,3 +181,10 @@
 - Verification:11 default-text viewports from320x568 to1440x900, including375x667 SE,393x852 iPhone16,768x600 and two landscape sizes. Full hero/buttons/cue fit, no horizontal overflow/page errors; final mobile/landscape visual review. Script/evidence: `hero-responsive.mjs`, `hero-balanced/`, superseding final landscape shots in `hero-balanced-landscape/`.12 tests, Astro0/0/0, final production build and diff pass; scene bundle unchanged. Corrected initial4px compact overflow and reran; earlier exploratory scene-ready timeout occurred during concurrent rebuild, final sequential checks passed. Software-renderer capture/device acceptance limits remain.
 - Live state: no merge/deployment. Known issues: physical-device/launch acceptance remains open; unrelated untracked sources preserved.
 - Next action: organizer reviews balanced responsive hero in draft PR#2. Commit: this published handoff.
+
+### 2026-10-21 — Slower homepage section jumps
+- Task: GLHC-003 navigation timing. Status: done, organizer review pending.
+- Organizer clarified only homepage button/cue jumps. Added3.2-second eased navigation with user-input/resize/history/motion-change cancellation, final focus/hash and header clearance. Static/reduced/no-JS use native anchors. Manual scroll, camera/story, model and registration unchanged.
+- Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile/desktop actual clicks for all3 links measured3.10–3.38s,2.03–2.30x native1.46/1.52s references; correct destinations/focus/80px clearance. Wheel cancels; reduced/no-JS pass. Evidence/script: `uat/glhc003/slow-scroll/`, `slow-scroll.mjs`. Bootstrap3.48/1.48kB gzip, scene unchanged. Existing Vite/capture/device limits remain.
+- Live state: no merge/deployment. Known issues: existing physical-device/launch acceptance remains open; unrelated untracked sources preserved.
+- Next action: organizer reviews slower section jumps in draft PR#2. Commit: this published handoff.

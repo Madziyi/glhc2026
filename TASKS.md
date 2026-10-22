@@ -8,6 +8,7 @@
 - Organizer buoy detail follow-up `[implemented and locally verified; organizer review pending]` — matching grids on all three panels, white black-capped probe slightly shorter than blue, short black probe, upper cage plate removed and lower plate retained. Four-size evidence: `uat/glhc003/buoy-details/`.
 - Organizer homepage reference follow-up `[implemented and locally verified; organizer review pending]` — remove extra introductory/welcome lines, round photo corners, add yellow pill links smoothly navigating to section01 and curiosity/tools; keep fonts and registration. Four-size smooth-scroll plus no-JS/reduced-motion checks: `uat/glhc003/hero-navigation/`.
 - Responsive hero spacing `[implemented and locally verified; organizer review pending]` — height/width-aware photo, heading, balanced gaps and compact landscape layout. Entire hero fits11 tested default-text viewports; evidence `hero-balanced/` plus final `hero-balanced-landscape/`.
+- Slower section jumps `[implemented and locally verified; organizer review pending]` —3.2-second easing on both hero buttons and cue; mobile/desktop timing at least2x prior native duration, interruption and reduced/no-JS checks pass. Manual scroll/story unchanged. Evidence: `uat/glhc003/slow-scroll/`.
 
 ## Accepted baseline
 - GLHC-002R6 `[organizer visually accepted / merged via PR #1]` — accepted geometry and procedural lake baseline. Explicit organizer follow-up revises the shared model with panel grids and cage details only; historical R6 evidence predates this revision. No further water-engine iteration.

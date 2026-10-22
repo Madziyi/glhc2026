@@ -286,3 +286,36 @@ progress; OS-reduced and actual no-JS anchors pass. Raw timed positions/script:
 `uat/glhc003/slow-scroll/results.json`, `slow-scroll.mjs`. Capture-only4FPS cap
 and software renderer apply; these timings verify navigation duration, not GPU
 performance. No merge or deployment.
+
+## Four sections and two-round challenge — 2026-10-22
+
+Baseline is GitHub main908c22f (merged PR#2); follow-up `codex/challenge-rounds`.
+The four story labels now read1/4 At The Surface,2/4 Beneath The Surface,
+3/4 Understanding The Science,4/4 What’s The Challenge. Closing registration
+is unnumbered. The former separate challenge/participation sections are one
+section4 with How It Works and the organizer’s complete Round One/Two copy:
+solo/team ideas, all skills, real-data creativity, no prototype;10 ideas advance;
+then budget, equipment/support, build, cash awards, and public display at tourist
+destinations. The concluding sentence is emphasized. Mobile document order is
+Round One, supplied inspiration collage, Round Two; desktop places collage beside
+Round One. Hero challenge link targets `#challenge` with existing3.2s easing.
+The old `#how-it-works` fragment remains inside section4 for compatibility.
+
+Science height reduces280 to220svh (short landscape350 to260), reveal interval
+22–72% becomes22–62% of the parked scroll. Default reveal travel becomes48svh
+versus90svh, about47% less scrolling; short landscape64 versus125svh,49% less.
+Both exact paragraphs, settled holds, parked camera and reverse scroll remain.
+Original prototype timing, water, model, hero fit/fonts and registration unchanged.
+
+Tests12/12, Astro0 errors/warnings/hints, build/diff pass; scene619.26/160.46kB gzip,
+bootstrap3.48/1.48, existing Vite warning. Extended tests check four-section/content
+contracts and shorter reveal endpoint/midpoint; initial exact midpoint assertion
+was corrected to floating-point tolerance. Production browser evidence/script:
+`uat/glhc003/challenge-rounds/`, `challenge-rounds.mjs`. Five sizes320x650,
+393x852,768x1024,1440x900,667x375 pass actual section4 link/hash/focus/80px offset,
+labels, mobile visual/document order, panel start/mid/end and reverse, unchanged
+parked view, no overflow/page exceptions. Separate OS-reduced and actual no-JS
+contexts pass navigation and readable content. Mobile/desktop full section
+screenshots reviewed. Initial preview connection refusal was resolved by starting
+the local preview; completed matrix passed. Test-only4FPS software-renderer limits
+remain; no physical-device or production-deployment claim.

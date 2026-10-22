@@ -18,6 +18,9 @@ test('integrated camera parks for both science paragraphs and one transition', (
   assert.equal(storyAt(bounds.scienceEnd, bounds).panel, 1);
   assert.equal(storyAt(bounds.science + (bounds.scienceEnd - bounds.science) * .2, bounds).panel, 0);
   assert.equal(storyAt(bounds.science + (bounds.scienceEnd - bounds.science) * .8, bounds).panel, 1);
+  // The reveal now completes sooner, with settled reading space at both ends.
+  assert.equal(storyAt(bounds.science + (bounds.scienceEnd - bounds.science) * .62, bounds).panel, 1);
+  assert.ok(Math.abs(storyAt(bounds.science + (bounds.scienceEnd - bounds.science) * .42, bounds).panel - .5) < 1e-9);
 });
 
 test('integrated descent is continuous, reversible, and finishes below the equipment', () => {

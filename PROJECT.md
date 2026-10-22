@@ -1,10 +1,10 @@
 # GLHC 2026 — stable context
 
 ## Purpose
-A mobile-first recruitment story for the Great Lakes Data Hackathon Challenge. Students use provided open hardware and real Great Lakes water-quality data to create public-facing experiences. The first screen explains the **$500 prize for the winning team**, possible public displays and **no experience needed**.
+A mobile-first recruitment story for the Great Lakes Data Hackathon Challenge. Students use provided open hardware and real Great Lakes water-quality data to create public-facing experiences. The opening introduces the creative invitation and **$500 prize**; section4 explains the two rounds and no-experience requirement.
 
 ## Approved narrative
-Student/group photograph over moving lake, attached upper-right prize starburst → researchers and monitoring buoy at the surface → camera descends through the waterline beside the same instrument cage/sonde → two exact science paragraphs with one horizontal transition while camera is parked → supplied single communication collage and How It Works → deeper open water, no buoy, external Luma registration.
+Student/group photograph over moving lake, attached upper-right prize starburst →1/4 At The Surface →2/4 Beneath The Surface →3/4 Understanding The Science (two exact paragraphs, one parked horizontal transition) →4/4 What’s The Challenge (How It Works, Round One, supplied inspiration collage, Round Two) →unnumbered deep-water registration. On mobile the collage follows Round One and precedes Round Two. The combined fourth section uses the organizer’s exact two-round copy:10 ideas advance, then selected participants receive budget/equipment/support, build and showcase, compete for cash awards and public display at tourist destinations. Do not invent funding amounts, dates or selection mechanics.
 
 ## Architecture
 Astro static HTML and responsive CSS deliver the complete content and registration independently of JavaScript. A lightweight bootstrap progressively imports one Three.js R6 renderer. `src/scripts/glhc003/timeline.mjs` maps actual chapter layout to a deterministic native-scroll camera/prose timeline, with reading holds on both science panels. The shared scene detects the integrated homepage; `/prototype/glhc-002` retains its isolated camera/timeline behavior.
@@ -22,7 +22,7 @@ R6 water and approved finishes remain the baseline: original yellow and underwat
 The full story remains readable without JavaScript, with OS/user reduced motion, when WebGL fails and after the 10-second readiness timeout. Static views present both science paragraphs in order. Native scroll is never intercepted. Retry starts a fresh bounded initialization. The homepage's controls/copy are DOM content, not a rendered canvas interface.
 
 ## Current initiative and acceptance
-GLHC-003 replaces the superseded glider-led root homepage on `feat/glhc-003-storytelling`. The organizer approved R6 visually after PR #1 merged as `1524431`; its physical-device performance acceptance remains open. GLHC-003 is for organizer UAT, not a production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
+GLHC-003 replaced the superseded glider-led root homepage and merged via PR#2 as `908c22f`. Current organizer follow-up is on `codex/challenge-rounds`, based on that main. The organizer approved R6 visually after PR#1; physical-device performance acceptance remains open. Source merge does not verify production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
 
 ## Release controls
 No custom registration backend, fabricated scientific telemetry, interactive data-art simulator, forced animation unlock, additional horizontal chapters or glider-led opening. Image publication rights and representative physical iOS/Android/network readiness must be checked before launch. Do not merge or deploy GLHC-003 without organizer approval.
@@ -39,8 +39,9 @@ the rounded-corner photo, two yellow pill section links, a header-only yellow re
 centered supplied animated scroll SVG. Manual motion preference is in the footer;
 OS reduced motion remains automatic. This supersedes older invitation copy and
 visible winning-team caption placement. “What’s this about?” links to section01
-(`#surface`); “What’s the challenge?” links to the curiosity/tools section
-(`#how-it-works`). Both hero links and its scroll cue use a3.2-second eased,
+(`#surface`); “What’s the challenge?” links to section4 (`#challenge`). The old
+`#how-it-works` fragment remains within section4 as a compatibility anchor.
+Both hero links and its scroll cue use a3.2-second eased,
 interruptible scroll when motion is enabled. Manual wheel/touch scrolling stays
 native. Native anchors honor static/reduced motion with immediate movement and
 remain available without JavaScript. The prize qualification remains accessible
@@ -55,3 +56,9 @@ do not force a fixed-height clipped hero.
 Surface-to-science camera contract: one full reversible orbit about the buoy
 finishes before waterline crossing. The approved underwater camera/target must
 remain identical. Orbit moves the camera and framing target, not the buoy asset.
+
+The integrated science chapter is220svh (260svh in short landscape), with its
+horizontal reveal across22–62% of the parked scroll interval. This reduces
+vertical travel about47% versus the previous280svh/22–72% interval, preserving
+settled reading holds and reversible camera/paragraph behavior. Static science
+remains normal document flow; the isolated prototype timing is unchanged.

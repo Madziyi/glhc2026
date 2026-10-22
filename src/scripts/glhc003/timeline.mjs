@@ -28,7 +28,7 @@ export function storyAt(y, bounds) {
   // Reserve a genuine reading hold at each settled panel; the single lateral
   // reveal occupies only the middle of the sensor chapter's native scroll.
   if (y >= science && y <= scienceEnd) {
-    t.panel = smooth(.22, .72, scienceProgress);
+    t.panel = smooth(.22, .62, scienceProgress);
     t.panelIndex = t.panel < .5 ? 0 : 1;
   }
   // A distant opening becomes the approved surface composition, then follows

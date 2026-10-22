@@ -188,3 +188,12 @@
 - Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile/desktop actual clicks for all3 links measured3.10–3.38s,2.03–2.30x native1.46/1.52s references; correct destinations/focus/80px clearance. Wheel cancels; reduced/no-JS pass. Evidence/script: `uat/glhc003/slow-scroll/`, `slow-scroll.mjs`. Bootstrap3.48/1.48kB gzip, scene unchanged. Existing Vite/capture/device limits remain.
 - Live state: no merge/deployment. Known issues: existing physical-device/launch acceptance remains open; unrelated untracked sources preserved.
 - Next action: organizer reviews slower section jumps in draft PR#2. Commit: this published handoff.
+
+### 2026-10-22 — Four sections, two challenge rounds and shorter science scroll
+- Task: GLHC-003 organizer narrative refinement. Status: done, organizer review pending.
+- Sync: fetched main908c22f with PR#2 merged, fast-forwarded baseline and branched `codex/challenge-rounds`. Unrelated untracked user sources preserved.
+- Changed homepage/CSS:1/4–4/4 labels, combined challenge/How It Works with supplied two-round copy and emphasized conclusion; mobile Round One/collage/Round Two order, desktop collage beside Round One. Hero button now targets section4, existing3.2s easing retained. Old how-it-works fragment remains a compatibility anchor. Registration unnumbered.
+- Science reveal travel now48svh vs90 (about47% less),64 vs125 in short landscape. Camera stays parked, reading holds and reverse preserved; exact science paragraphs/prototype/model/water unchanged.
+- Verification:12 tests, Astro0/0/0, production build/diff pass. Five-size production checks plus reduced/no-JS: actual button destination/focus/header clearance, labels, mobile order, forward/reverse panel states, no overflow/page errors. Mobile/desktop screenshot review. Evidence/script: `uat/glhc003/challenge-rounds/`, `challenge-rounds.mjs`. Initial float midpoint test needed tolerance; initial preview was not running, started it and matrix passed. Scene619.26/160.46kB; bootstrap3.48/1.48, existing Vite/capture/device limits remain.
+- Live state: source PR#2 merge verified, no deployment performed/verified; this follow-up unmerged. Known issues: external physical-device/launch acceptance remains open.
+- Next action: organizer reviews the new follow-up PR. Commit: this published handoff.

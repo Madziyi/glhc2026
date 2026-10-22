@@ -213,3 +213,28 @@ flag; the corrected check uses actual model-load and rendered-triangle metrics.
 The homepage matrix completed before that harness correction and was retained.
 Capture-only4FPS software-renderer limitations apply; no device-FPS claim.
 No merge or deployment. Prior model evidence remains historical.
+
+## Homepage reference and section navigation — 2026-10-21
+
+The latest supplied mockup removes the art/science/technology introduction and
+bold welcome from the hero, retaining only the solo/team creative-project paragraph.
+The later participation/registration welcome remains. The photograph keeps its full
+composition with rounded corners and the spinning attached prize. Yellow pill links
+read “What’s this about?” (`#surface`, section01) and “What’s the challenge?”
+(`#how-it-works`, CURIOSITY IS YOUR STARTING POINT). They use native smooth anchor
+scrolling, keyboard-focusable section targets and existing header clearance. Both
+no-JavaScript/static and reduced-motion layouts retain immediate anchor navigation.
+Fonts, registration URL/buttons, buoy and renderer remain unchanged. Mobile layout
+follows the stacked reference; desktop retains the responsive two-column composition.
+The scroll-cue words are yellow as supplied in the reference.
+
+Verification:12/12 tests pass; Astro0 errors/warnings/hints; production build and
+diff check pass. Existing scene chunk warning remains, bundle unchanged. Script
+`uat/glhc003/hero-navigation.mjs` and evidence `hero-navigation/` cover320x650,
+390x844,768x1024,1440x900. Actual clicks record multiple intermediate native scroll
+positions and land with section tops80px below the viewport edge, target headings
+visible, correct URL hash and section focus. All four sizes have no overflow or page
+exceptions. Separate OS-reduced and actual no-JavaScript contexts pass both links
+with computed scroll behavior auto. Hero screenshots show rounded corners and the
+removed copy; Google Sans remains applied. Test-only4FPS software-renderer cap is
+for captures only, not performance acceptance. No merge/deployment.

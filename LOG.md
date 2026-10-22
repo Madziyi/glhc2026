@@ -167,3 +167,10 @@
 - Verification:12 tests, Astro0/0/0, production build and diff checks pass. Four-size production screenshots at front/both sides and parked sensors show grids and three distinct probes; approved camera coordinates unchanged, no overflow/page exceptions. Evidence/script: `uat/glhc003/buoy-details/`, `buoy-details.mjs`. Shared prototype initializes. Initial prototype-only harness assertion incorrectly expected a nonexistent data flag; corrected to actual readiness metrics and passed. Scene619.26/160.46kB; surface11 draws/45,080 triangles, sensors12/45,272. Existing Vite warning and test-only4FPS/software-renderer limits remain.
 - Live state: no merge or deployment. Known issues: physical-device acceptance remains open. Preserved unrelated untracked source files.
 - Next action: organizer reviews buoy details and complete story in draft PR#2. Commit: this published handoff.
+
+### 2026-10-21 — Homepage reference and section shortcuts
+- Task: GLHC-003 organizer hero reference. Status: done, organizer review pending.
+- Changed homepage/CSS: removed extra intro and welcome, kept solo/team paragraph, rounded photograph, added yellow pill links to section01 and curiosity/tools, yellow scroll-cue words. Fonts, registration, model and renderer retained. Native smooth anchors use focusable targets; static/reduced modes scroll immediately.
+- Verification:12/12 tests, Astro0/0/0, production build and diff checks pass. Four viewport sizes verify both actual smooth-scroll clicks, intermediate movement, correct hashes/focus, visible target headings, no overflow/page errors. Separate no-JS and OS-reduced contexts pass both links. Evidence/script: `uat/glhc003/hero-navigation/`, `hero-navigation.mjs`; mobile/desktop hero reviewed visually. Existing Vite warning and software-renderer capture limitations remain.
+- Live state: no merge or deployment. Known issues: existing physical-device/launch acceptance remains open. Unrelated untracked sources preserved.
+- Next action: organizer reviews the simplified opening and navigation in draft PR#2. Commit: this published handoff.

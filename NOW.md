@@ -6,7 +6,7 @@
 ## Current experience
 Root homepage contains the complete five-scene journey: invitation/photo → researchers and surface buoy → continuous waterline descent and parked sensor science → supplied collage and How It Works → buoy-free deep-water registration.
 
-Latest organizer hero direction supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; exact art/science/technology and solo/team creative-project invitation; bold no-experience welcome. A yellow Register Now button occupies the header. Redundant labels/header brand/visible photo caption and old hero button are removed. The photo-corner prize shape spins with upright text; centered supplied animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN”. Higher-resolution organizer group photo retained.
+Latest organizer hero reference supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; only the solo/team creative-project paragraph remains. The art/science/technology introduction and bold no-experience welcome are removed from the hero (the later welcome remains). The group photograph has rounded corners. Two yellow pill links, “What’s this about?” and “What’s the challenge?”, smoothly scroll to `#surface` (section01) and `#how-it-works` (“CURIOSITY IS YOUR STARTING POINT”). Native anchors remain functional without JavaScript; static/reduced motion scrolls immediately. A yellow Register Now button stays in the header. Prize shape spins with upright text; centered animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN” in yellow. Existing Google Sans/fonts and higher-resolution group photo retained.
 
 Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
@@ -48,3 +48,10 @@ beside the blue probe, upper plate removed and lower plate retained. Camera
 coordinates remain unchanged; no overflow/page exceptions. Evidence:
 `uat/glhc003/buoy-details/`. Repeated generation is byte-identical;40 compressed
 streams round-trip and no zero normals. Tests12/12, Astro0/0/0 and build pass.
+
+Latest homepage reference: simplified hero, rounded photograph and two yellow
+pill section links verified at320x650,390x844,768x1024,1440x900. Both native smooth
+jumps arrive with the target heading visible beneath the header; no overflow or
+page exceptions. No-JS and OS reduced motion links pass with immediate scrolling.
+Evidence: `uat/glhc003/hero-navigation/`, `hero-navigation.mjs`. Tests12/12,
+Astro0/0/0, production build/diff check passed. Renderer/model/fonts unchanged.

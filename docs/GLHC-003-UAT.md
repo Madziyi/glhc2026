@@ -154,3 +154,29 @@ viewport top upward160px, with no horizontal overflow or page exceptions.
 Evidence: `uat/glhc003/surface-photo/`; reproduction script `surface-photo.mjs`.
 Production build passed; existing deferred-scene chunk warning unchanged. The
 static reading layout and approved buoy/renderer/timeline are unchanged.
+
+## Surface orbit — 2026-10-21
+
+The transition from “A lake full of questions” to “A different perspective” now
+contains one full360° camera orbit around the buoy. It eases through22–94% of the
+surface chapter, then settles before the existing waterline descent starts.
+Camera and look target rotate together about the actual buoy; the model does not
+spin. Native scroll controls progress and reverse scroll reverses the same orbit.
+
+At the orbit endpoints the original camera/target are returned exactly, avoiding
+floating-point rotation residue. The entire crossing, sensor pause and later
+camera path retain their approved positions and orientation. New diagnostics
+expose cameraX/cameraZ and orbit progress for direct verification.
+
+Verification:12/12 tests pass, Astro zero errors/warnings/hints, telemetry-disabled
+build passes. Scene619.26kB/160.46kB gzip (+.60/.20kB versus the prior version).
+No model, material, shader, water renderer or draw-count changes. Tests cover a
+constant-radius above-water orbit, full return before descent, exact endpoint
+identity, existing parked sensor view and reversible/responsive timeline.
+
+Browser evidence: `uat/glhc003/orbit/` and `orbit.mjs` cover start, quarter/half/
+three-quarter/full turn, crossing, exact approved sensors and reverse scroll at
+320×650,390×844,768×1024,1440×900. Sensor camera matches x/y/z3.65/-1.45/-11.8
+on mobile and6.45/-1.45/-12.7 on tablet/desktop; look-target y remains-2.8/-.8.
+Reduced-motion still exposes the static reading path. Capture-only4FPS cadence
+and software-renderer limitations apply; this is not physical-device FPS evidence.

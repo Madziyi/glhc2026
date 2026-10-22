@@ -2,7 +2,7 @@
 
 ## Active — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached $500 Prize starburst, explicit winning-team/no-experience/public-display copy, immediate registration and progressive moving lake.
-- GLHC-003B `[implemented]` — approved R6 scene integrated into one continuous camera descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
+- GLHC-003B `[implemented]` — approved R6 scene integrated into a surface camera orbit returning before continuous descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
 - GLHC-003C `[implemented]` — supplied single responsive collage, five editorial participation steps, deep-water buoy-free ending; all registration links use configured Luma destination.
 - GLHC-003D `[local verification complete; organizer/device acceptance pending]` — four-size production browser journey, screenshot/video evidence, keyboard, motion/fallback/retry, resize/refresh, actual secure CTA navigation, tests/check/build and performance observations. Physical devices remain external acceptance.
 

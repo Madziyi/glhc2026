@@ -18,12 +18,12 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 - Readable no-JS/reduced/WebGL-failure/timeout alternatives, bounded Retry and generation-safe loading. Initial layout choice occurs before body parsing to preserve native refresh restoration.
 
 ## Verification and evidence
-- Latest checks:11/11 tests, Astro zero errors/warnings/hints, successful telemetry-disabled production build and diff check.
+- Latest checks:12/12 tests, Astro zero errors/warnings/hints, successful telemetry-disabled production build and diff check.
 - Initial complete four-size production UAT covers forward/reverse, keyboard skip, landscape/no overflow, motion toggle and registration. No application errors; narrow recorded four ReadPixels driver warnings.
 - Final camera nine-state screenshots at all four sizes and paragraph-two refresh checks: `uat/glhc003/final/`, `final-stills-results.json`. Complete mobile/desktop videos exported. These precede the final hero/font follow-up.
 - Latest hero and both science panels at320×650,390×844,768×1024,1440×900: `uat/glhc003/font-review/`. Google Sans actually loaded; no overflow/page errors. Current two-CTA results: `registration-results.json`.
 - No-JS, OS reduced motion, forced/blocked WebGL and delayed-model timeout/retry passed; isolated prototype initializes. Exact evidence boundaries and capture failures: `docs/GLHC-003-UAT.md`.
-- Scene618.66kB/160.26kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Surface/sensors11draws/44,916triangles; final registration2draws/32,992triangles. Existing Vite warning remains.
+- Scene619.26kB/160.46kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Surface/sensors11draws/44,916triangles; final registration2draws/32,992triangles. Existing Vite warning remains.
 
 ## Release boundary
 No main merge or production deployment. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
@@ -35,3 +35,9 @@ Latest surface editorial refinement: researcher photo is doubled in size and
 placed lower-right using section-owned normal flow. It enters that position as
 the section arrives, then moves upward with native scroll. Four-size before/after
 scroll evidence: `uat/glhc003/surface-photo/`. No scene/camera changes.
+
+Latest transition refinement: one full scroll-driven camera orbit now eases around
+the buoy as the surface chapter gives way to “A different perspective”. It finishes
+and settles before the original waterline descent; approved submerged framing is
+unchanged. Reverse scroll reverses the orbit; reduced motion stays static. Evidence:
+`uat/glhc003/orbit/`. Checks:12 tests, Astro0/0/0, build passed; scene619.26/160.46kB.

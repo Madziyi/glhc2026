@@ -21,3 +21,4 @@ Final evidence additions:
 - `link-check.mjs` clicks all three actual CTAs and records exact destination, title, secure link attributes and absent opener in `registration-results.json`.
 - `final-motion.mjs` was an optional uncapped recapture; export was interrupted and its partial results include the pre-fix refresh defect. It is historical evidence, not the final acceptance result. Use `final-stills-results.json` for the corrected refresh behavior.
 - `font-review.mjs` checks that Google Sans is actually loaded and captures the hero and both science paragraphs at all four widths after the organizer's final body-font request.
+- `orbit.mjs` verifies the full pre-descent camera turn, exact approved sensor coordinates, reverse scroll and reduced mode at all four sizes; mobile/desktop orbit recordings are in `orbit/`. Capture cadence is capped only in the test browser.

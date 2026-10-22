@@ -40,3 +40,7 @@ centered supplied animated scroll SVG. Manual motion preference is in the footer
 OS reduced motion remains automatic. This supersedes older invitation copy and
 visible winning-team caption placement; the prize qualification remains accessible
 and appears visibly in registration.
+
+Surface-to-science camera contract: one full reversible orbit about the buoy
+finishes before waterline crossing. The approved underwater camera/target must
+remain identical. Orbit moves the camera and framing target, not the buoy asset.

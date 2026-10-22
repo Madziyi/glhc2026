@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { timelineAt, smooth, STORY } from './timeline.mjs';
 import { MOTION_SPEED, surfaceHeightAt, rippleHeight, waveGLSL } from './waves.mjs';
-import { storyAt } from '../glhc003/timeline.mjs';
+import { storyAt, orbitView } from '../glhc003/timeline.mjs';
 
 const stage = document.querySelector('#stage');
 const integrated = !!document.querySelector('#invitation');
@@ -390,12 +390,21 @@ function frame(now) {
     const mobileSurfaceOffset = integrated && innerWidth < 760 ? 1.4 * (1 - sensorProgress) : 0;
     const targetY = t.targetY + mobileSurfaceOffset + 0.55 * sensorProgress - (innerWidth < 760 ? t.waterMix * (integrated ? 2.0 : 0.3) : 0);
     const target = new THREE.Vector3(targetX, targetY, 0);
+    if (integrated && t.orbitActive) {
+      const view = orbitView(desired, target, t.orbitProgress);
+      desired.set(view.position.x, view.position.y, view.position.z);
+      target.set(view.target.x, view.target.y, view.target.z);
+    }
     if (cameraInitialized) camera.position.lerp(desired, integrated ? 1 - Math.exp(-8 * delta) : 0.095);
     else { camera.position.copy(desired); cameraInitialized = true; }
     camera.lookAt(target);
     if (integrated) {
       readout.dataset.cameraY = camera.position.y.toFixed(3);
       readout.dataset.targetY = targetY.toFixed(3);
+      readout.dataset.cameraX = camera.position.x.toFixed(3);
+      readout.dataset.cameraZ = camera.position.z.toFixed(3);
+      readout.dataset.orbitProgress = t.orbitProgress.toFixed(4);
+      readout.dataset.orbitActive = String(t.orbitActive);
       // Once physically well below the instrument assembly, omit its distant
       // silhouette from the final open-water chapter (including the mooring line).
       if (buoy) buoy.visible = t.departure < .72;

@@ -153,3 +153,9 @@
 - Enlarged the surface-story researcher photograph to2× previous dimensions, aligned it right and added22svh flow spacing. It belongs to the section and scrolls naturally; no sticky/fixed positioning or new animation.
 - Production build passed; four-size browser checks verify exact160px upward displacement for160px native scroll, no overflow and no page exceptions. Evidence/script: `uat/glhc003/surface-photo/`, `surface-photo.mjs`.
 - Static reading layout and approved renderer/camera/model unchanged. No merge or deployment. Next: organizer reviews updated draft PR#2.
+
+### 2026-10-21 — Surface camera orbit before descent
+- Added one complete eased camera orbit during22–94% of the surface section, rotating camera and framing target around the stationary buoy. Native scroll remains the controller; reverse scroll retraces the orbit. A settled interval precedes the unchanged waterline descent.
+- Original view is returned exactly at orbit completion; crossing, underwater orientation and parked sensors unchanged. New orbit tests plus prior suites pass12/12; Astro0/0/0 and production build pass. Scene619.26/160.46kB gzip; geometry/materials/shaders/draw counts unchanged.
+- Four-size browser evidence/script in `uat/glhc003/orbit/`, `orbit.mjs`: orbit stages, reverse, waterline, approved sensor coordinates and reduced mode. Captures use test-only4FPS/software renderer, not physical-device performance evidence. Supplied MP4 reference reviewed via extracted frames outside the repository after the minimal bundled encoder could not decode it.
+- No merge/deploy. Next: organizer reviews the updated motion in draft PR#2.

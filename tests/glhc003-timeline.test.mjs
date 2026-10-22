@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { storyAt } from '../src/scripts/glhc003/timeline.mjs';
+import { storyAt, orbitView } from '../src/scripts/glhc003/timeline.mjs';
 
 const bounds = { surface: 800, crossing: 1600, science: 2400, scienceEnd: 4000, registration: 6400 };
 
@@ -50,4 +50,30 @@ test('layout bounds preserve chapter composition after viewport resize and clamp
   assert.deepEqual(storyAt(9000, bounds), storyAt(bounds.registration, bounds));
   const collapsed = storyAt(0, { surface: 0, crossing: 0, science: 0, scienceEnd: 0, registration: 0 });
   for (const field of ['cameraY', 'cameraZ', 'targetY', 'panel', 'progress']) assert.ok(Number.isFinite(collapsed[field]));
+});
+
+test('surface orbit completes one turn before the unchanged waterline descent', () => {
+  const position = { x: 7.1, y: 4.1, z: -10.5 }, target = { x: 2.8, y: 1.1, z: 0 };
+  const radius = Math.hypot(position.x, position.z);
+  let previous = 0;
+  for (let y = bounds.surface; y <= bounds.crossing; y += 4) {
+    const t = storyAt(y, bounds), view = orbitView(position, target, t.orbitProgress);
+    assert.ok(t.orbitProgress >= previous);
+    assert.equal(t.cameraY, 4.1, 'orbit must stay above the surface');
+    assert.equal(view.position.y, position.y);
+    assert.ok(Math.abs(Math.hypot(view.position.x, view.position.z) - radius) < 1e-9);
+    previous = t.orbitProgress;
+  }
+  assert.equal(previous, 1);
+  const halfway = orbitView(position, target, .5);
+  assert.ok(Math.abs(halfway.position.x + position.x) < 1e-9);
+  assert.ok(Math.abs(halfway.position.z + position.z) < 1e-9);
+  assert.deepEqual(orbitView(position, target, 0), { position, target });
+  assert.deepEqual(orbitView(position, target, 1), { position, target });
+  const settled = bounds.surface + .96 * (bounds.crossing - bounds.surface);
+  assert.equal(storyAt(settled, bounds).orbitActive, false);
+  for (const y of [bounds.crossing, 2000, bounds.science, 3200, bounds.scienceEnd, bounds.registration]) {
+    assert.equal(storyAt(y, bounds).orbitActive, false);
+    assert.deepEqual(orbitView(position, target, storyAt(y, bounds).orbitProgress), { position, target });
+  }
 });

@@ -1,0 +1,14 @@
+{
+  "progress": "0.0000",
+  "phase": "surface",
+  "cameraParked": "false",
+  "drawCalls": "12",
+  "triangles": "45272",
+  "frameMs": "753.00",
+  "modelLoadMs": "54.8",
+  "panelProgress": "0.0000",
+  "motionSpeed": "1.25",
+  "sceneReadyMs": "973.1",
+  "rendererShaderMs": "129.4",
+  "firstFrameMs": "973.1"
+}

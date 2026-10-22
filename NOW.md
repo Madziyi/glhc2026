@@ -13,7 +13,7 @@ Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOF
 Both current registration CTAs (header/ending) use central `https://luma.com/pz0iw2m7`, work without JavaScript and passed actual secure new-tab browser clicks, with matching event title and no opener. No form submitted or logistics invented.
 
 ## Preserved technical contracts
-- R6 GLB:181,648 bytes, blob `599c5f5585306c5542041f86118946ba979d8377`. Builder/waves/isolated timeline/page/styles unchanged; one renderer, original shaders/materials and 1.25× clock retained.
+- Organizer-authorized buoy-detail revision:188,892-byte GLB, blob `b6f46fcedddcd0f15d7007e724a3f764b61b93c1`. Builder adds side-panel grids and two cage probes (long white with black cap, short black), removes only the upper plate, and retains the lower plate. Both routes share the revised model. Waves/isolated timeline/page/styles unchanged; one renderer and 1.25× clock retained.
 - Same physical buoy throughout crossing; parked camera and exactly one horizontal transition between two exact science paragraphs, with reading holds. Continuous reverse scroll, responsive chapter bounds and deeper final camera with no buoy.
 - Readable no-JS/reduced/WebGL-failure/timeout alternatives, bounded Retry and generation-safe loading. Initial layout choice occurs before body parsing to preserve native refresh restoration.
 
@@ -23,7 +23,7 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 - Final camera nine-state screenshots at all four sizes and paragraph-two refresh checks: `uat/glhc003/final/`, `final-stills-results.json`. Complete mobile/desktop videos exported. These precede the final hero/font follow-up.
 - Latest hero and both science panels at320×650,390×844,768×1024,1440×900: `uat/glhc003/font-review/`. Google Sans actually loaded; no overflow/page errors. Current two-CTA results: `registration-results.json`.
 - No-JS, OS reduced motion, forced/blocked WebGL and delayed-model timeout/retry passed; isolated prototype initializes. Exact evidence boundaries and capture failures: `docs/GLHC-003-UAT.md`.
-- Scene619.26kB/160.46kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Surface/sensors11draws/44,916triangles; final registration2draws/32,992triangles. Existing Vite warning remains.
+- Scene619.26kB/160.46kB gzip; bootstrap2.06/.93 plus helper1.11/.65. Latest model surface11draws/45,080triangles; sensors12draws/45,272triangles (one new white-material batch). Final registration2draws/32,992triangles. Existing Vite warning remains.
 
 ## Release boundary
 No main merge or production deployment. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
@@ -41,3 +41,10 @@ the buoy as the surface chapter gives way to “A different perspective”. It f
 and settles before the original waterline descent; approved submerged framing is
 unchanged. Reverse scroll reverses the orbit; reduced motion stays static. Evidence:
 `uat/glhc003/orbit/`. Checks:12 tests, Astro0/0/0, build passed; scene619.26/160.46kB.
+
+Latest buoy-detail follow-up verified at320×650,390×844,768×1024,1440×900:
+all three panels have matching grids, white/short black probes are separated
+beside the blue probe, upper plate removed and lower plate retained. Camera
+coordinates remain unchanged; no overflow/page exceptions. Evidence:
+`uat/glhc003/buoy-details/`. Repeated generation is byte-identical;40 compressed
+streams round-trip and no zero normals. Tests12/12, Astro0/0/0 and build pass.

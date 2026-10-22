@@ -159,3 +159,11 @@
 - Original view is returned exactly at orbit completion; crossing, underwater orientation and parked sensors unchanged. New orbit tests plus prior suites pass12/12; Astro0/0/0 and production build pass. Scene619.26/160.46kB gzip; geometry/materials/shaders/draw counts unchanged.
 - Four-size browser evidence/script in `uat/glhc003/orbit/`, `orbit.mjs`: orbit stages, reverse, waterline, approved sensor coordinates and reduced mode. Captures use test-only4FPS/software renderer, not physical-device performance evidence. Supplied MP4 reference reviewed via extracted frames outside the repository after the minimal bundled encoder could not decode it.
 - No merge/deploy. Next: organizer reviews the updated motion in draft PR#2.
+
+### 2026-10-21 — Organizer buoy grids, probes and open upper cage
+- Task: GLHC-003 buoy detail follow-up. Status: done, organizer review pending.
+- Changed deterministic builder/shared GLB: matching grids on the two side panels; long white black-capped probe slightly shorter than blue; short black probe; upper cage plate/insets removed, lower retained. Explicit organizer request supersedes frozen-geometry scope. Original hull/finishes, camera, water and clock retained; both routes share this asset.
+- Model188,892B, blob `b6f46fcedddcd0f15d7007e724a3f764b61b93c1`,10 batches/12,280 triangles. Repeated generation byte-identical;40 compression streams round-trip, zero invalid normals. Texture unchanged.
+- Verification:12 tests, Astro0/0/0, production build and diff checks pass. Four-size production screenshots at front/both sides and parked sensors show grids and three distinct probes; approved camera coordinates unchanged, no overflow/page exceptions. Evidence/script: `uat/glhc003/buoy-details/`, `buoy-details.mjs`. Shared prototype initializes. Initial prototype-only harness assertion incorrectly expected a nonexistent data flag; corrected to actual readiness metrics and passed. Scene619.26/160.46kB; surface11 draws/45,080 triangles, sensors12/45,272. Existing Vite warning and test-only4FPS/software-renderer limits remain.
+- Live state: no merge or deployment. Known issues: physical-device acceptance remains open. Preserved unrelated untracked source files.
+- Next action: organizer reviews buoy details and complete story in draft PR#2. Commit: this published handoff.

@@ -35,8 +35,9 @@ deep-water registration story. It replaces the glider-led opening.
 
 ## Model and renderer preservation
 
-GLB remains **181,648 bytes**, git blob
-`599c5f5585306c5542041f86118946ba979d8377`. Builder, waves, isolated timeline,
+Initial integration retained the **181,648-byte** R6 GLB, git blob
+`599c5f5585306c5542041f86118946ba979d8377`. The subsequent organizer-authorized
+buoy-detail revision below supersedes that asset and builder. Waves, isolated timeline,
 prototype page and prototype styles are unchanged. Scene integration adds bounded
 homepage camera/UI hooks, layout-bound caching and loading lifecycle safeguards.
 No shader/material redesign or extra renderer is introduced. Original yellow and
@@ -170,7 +171,7 @@ expose cameraX/cameraZ and orbit progress for direct verification.
 
 Verification:12/12 tests pass, Astro zero errors/warnings/hints, telemetry-disabled
 build passes. Scene619.26kB/160.46kB gzip (+.60/.20kB versus the prior version).
-No model, material, shader, water renderer or draw-count changes. Tests cover a
+This orbit-only pass made no model, material, shader, water renderer or draw-count changes. Tests cover a
 constant-radius above-water orbit, full return before descent, exact endpoint
 identity, existing parked sensor view and reversible/responsive timeline.
 
@@ -180,3 +181,35 @@ three-quarter/full turn, crossing, exact approved sensors and reverse scroll at
 on mobile and6.45/-1.45/-12.7 on tablet/desktop; look-target y remains-2.8/-.8.
 Reduced-motion still exposes the static reading path. Capture-only4FPS cadence
 and software-renderer limitations apply; this is not physical-device FPS evidence.
+
+## Organizer buoy-detail revision — 2026-10-21
+
+The orbit exposed the two ungridded side solar panels. Matching five busbars and
+eight horizontal cell divisions now cover each side, alongside the existing front
+grid. A white probe with a black lower cap hangs beside the blue probe, ending
+0.12 model units (about 3.5 cm at the visual hull scale) higher. A shorter black
+probe also hangs inside the cage. The upper flat plate and its inset details are
+removed; the lower plate, cage rails, original yellow, blue probe and ballast remain.
+These are visual details, not engineering dimensions or sensor specifications.
+
+This explicit organizer request supersedes the earlier frozen-geometry boundary.
+Both homepage and isolated prototype share the revised GLB:188,892 bytes, git blob
+`b6f46fcedddcd0f15d7007e724a3f764b61b93c1` (+7,244 bytes). It contains10 material
+batches and12,280 model triangles. The white housing adds one material batch.
+Generator repeated byte-identically; all40 meshopt streams round-trip and no
+zero-length normals are present. The finish PNG remains unchanged.
+
+Verification:12/12 tests, Astro0 errors/warnings/hints, production build passed.
+Deferred scene remains619.26kB/160.46kB gzip, with the existing Vite chunk warning.
+Homepage surface reports11 draws/45,080 triangles; underwater12/45,272. The white
+probe batch is culled from the surface camera. Four-size screenshots and raw
+metrics in `uat/glhc003/buoy-details/` cover front and both side panels during the
+orbit plus parked sensors at320x650,390x844,768x1024,1440x900. Visual review confirms
+three separated probes, white black cap, and one remaining lower cage plate.
+No page exceptions/overflow; all approved sensor camera coordinates unchanged.
+Isolated prototype also loads the revised model (`prototype.json`). The first
+prototype check timed out because the harness expected a nonexistent WEBGL data
+flag; the corrected check uses actual model-load and rendered-triangle metrics.
+The homepage matrix completed before that harness correction and was retained.
+Capture-only4FPS software-renderer limitations apply; no device-FPS claim.
+No merge or deployment. Prior model evidence remains historical.

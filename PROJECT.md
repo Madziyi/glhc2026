@@ -9,7 +9,7 @@ Student/group photograph over moving lake, attached upper-right prize starburst 
 ## Architecture
 Astro static HTML and responsive CSS deliver the complete content and registration independently of JavaScript. A lightweight bootstrap progressively imports one Three.js R6 renderer. `src/scripts/glhc003/timeline.mjs` maps actual chapter layout to a deterministic native-scroll camera/prose timeline, with reading holds on both science panels. The shared scene detects the integrated homepage; `/prototype/glhc-002` retains its isolated camera/timeline behavior.
 
-R6 model and water are frozen: original yellow and underwater materials, silver upper framework, reflective dark-blue solar glass, one procedural sky/water grid and shared 1.25× CPU/GPU wave clock. GLB is 181,648 bytes. No water-engine research or geometry redesign is part of GLHC-003.
+R6 water and approved finishes remain the baseline: original yellow and underwater materials, silver upper framework, reflective dark-blue solar glass, one procedural sky/water grid and shared 1.25× CPU/GPU wave clock. The organizer explicitly authorized a bounded model revision after the orbit revealed the sides: grids on all three solar panels, a long white black-capped probe and short black probe inside the cage, and removal of the upper cage plate. The lower plate remains. Shared GLB is now 188,892 bytes; both routes use it. No water-engine research or broader geometry redesign is part of GLHC-003.
 
 ## Content and registration
 - Hero: supplied `team-lab.webp`, full 638:480 composition, no removed background or cropped faces.

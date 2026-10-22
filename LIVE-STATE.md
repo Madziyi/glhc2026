@@ -1,19 +1,14 @@
 # Live Infrastructure
 
-No hosting, production URL, Luma event URL, database, auth provider, or deployed version has been verified as of 2026-10-18.
+As of 2026-10-20/21, source GLHC-001/GLHC-002R6 is merged to main via PR #1 (`1524431cc33723bfeb063ac96fededfb77f575dc`). GLHC-003 is implemented separately on `feat/glhc-003-storytelling`, based on organizer setup commit `0ae92345220313fa9132639d4d82f47a76c85aa5`.
 
-- Repository: `Madziyi/glhc2026` (public; checked using GitHub connector).
-- Hosting: unselected / unverified.
-- Luma: planned external registration destination; actual event link not yet supplied.
-- No secrets configured or required for static prototype.
-- Do not interpret a source commit or generated ZIP as deployment evidence.
+- Local source `/` contains the complete student-first GLHC-003 story. This is not proof of a public deployment.
+- `/prototype/glhc-002` retains the isolated R6 timeline/renderer and now shares the organizer-requested panel-grid/probe/cage-plate model revision (188,892-byte GLB). This source revision is not proof of deployment.
+- Local production preview used for UAT: `http://127.0.0.1:4334`.
+- Official supplied Luma destination: `https://luma.com/pz0iw2m7`. Browser link checks reached “Great Lakes Hackathon Challenge · Luma” with a new tab and no opener. No form submitted; event dates, fees and current registration availability are not asserted.
+- Hosting/public site URL: not verified. No GLHC-003 merge or deployment performed.
+- No database, authentication provider, payment service, secrets or new production infrastructure configured.
+- Physical-mobile GPU, representative network and 10-second readiness target remain unverified.
+- Supplied image publication rights remain a launch check.
 
-## GLHC-002 local verification — 2026-10-18
-- Production static build includes `/` and isolated `/prototype/glhc-002`.
-- Parent exercised the local Astro preview at `http://127.0.0.1:4324/prototype/glhc-002`; this is a local review address, not a public deployment.
-- No hosting, remote configuration, database, secrets or registration destination changed. No deployed v2 version was verified.
-
-## GLHC-002R6 local verification — 2026-10-20
-- Production prototype verified locally at `http://127.0.0.1:4332/prototype/glhc-002`; this is not a deployment. An unchanged R5 snapshot was served locally for comparison.
-- Procedural sky/water and shared 1.25× motion are source/local-preview facts only. Physical mobile hardware and representative mobile-network readiness remain unverified.
-- No hosting, database, cron, secrets, Luma destination or deployed version changed. Feature PR remains unmerged for organizer review.
+See `docs/GLHC-003-UAT.md` for local production evidence and limitations.

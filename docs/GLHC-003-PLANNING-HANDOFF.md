@@ -1,51 +1,15 @@
 # GLHC-003 — Full Website Storytelling Integration
 
-Status: planning handoff only; implementation waits for organizer review of R6.
+Implementation update (2026-10-21): the complete homepage is implemented on the
+feature branch. This document remains the original planning contract. Current
+verification, evidence and release boundaries: [GLHC-003-UAT.md](GLHC-003-UAT.md).
 
-## Goal and sequence
+Status: **APPROVED FOR IMPLEMENTATION**, after organizer accepted R6 and PR #1 merged into `main` (`1524431`). New work is on `feat/glhc-003-storytelling`.
 
-Integrate the approved story into the main website after the isolated buoy
-experience is accepted. Preserve the existing site until that gate is met.
+Follow the detailed implementation and acceptance contract in **`docs/GLHC-003-BUILD-SPEC.md`**.
 
-1. Student-photo hero with the attached upper-right **$500 Prize** animation,
-   “for the winning team,” and “no experience required.” Confirm the approved
-   photograph and its release rights before public launch.
-2. Transition through researcher context to the approved buoy at the surface,
-   retaining progressive loading, the readiness timeout and the static story.
-3. Descend beside the sensor cage. Keep the two science paragraphs verbatim,
-   the parked camera and exactly one horizontal paragraph transition.
-4. Continue into the organizer's single communication-examples collage.
-5. Present How It Works: team forming, supplied equipment and all experience
-   levels welcome. Follow with deeper open water and the eventual external
-   Luma registration ending.
+Approved order: student/group photograph over moving lake with photo-corner $500 Prize starburst and explicit winning-team clarification → buoy/scientists at surface → waterline and same buoy sensors, parked camera with exactly **two science paragraphs and one horizontal transition** → single organizer-supplied four-image inspiration collage and short How It Works → deep-water, buoy-free external Luma registration conclusion.
 
-## Implementation order
+Organizer has now supplied a single collage image (`collage.jpg`) and exact registration destination `https://luma.com/pz0iw2m7`. Optimized asset ZIP is available in the coordinating thread for import to `public/assets/`; images are not yet committed. The configured Luma URL is organizer-supplied, but event details and current registration availability are not independently verified. Use a functioning secure CTA after browser checks, not an unavailable placeholder. Supplied photographs require public-release rights approval before launch.
 
-- Confirm R6's visual choice and profile representative physical mobile
-  hardware before accepting renderer performance. Do not start another water
-  engine experiment.
-- Inventory only the approved hero, researcher and collage assets; confirm the
-  actual Luma URL. Record missing inputs without inventing replacements or links.
-- Define one integrated scroll timeline and responsive compositions around the
-  approved sections. Port the prototype as a bounded component, preserving its
-  geometry, wave synchronization and accessible static reading path.
-- Integrate the narrative in vertical slices, then test forward/reverse scroll,
-  keyboard navigation, initial reduced motion, no JavaScript, WebGL failure,
-  narrow prose readability and the single horizontal transition.
-- Measure production loading/bundle cost, physical-device readiness and frame
-  intervals. Review complete mobile/desktop recordings before release.
-
-## Acceptance and open inputs
-
-The story must explain the prize and participation immediately, keep navigation
-and copy usable during loading, show the sensor explanation without obscuring
-the instruments, and end with a verified Luma destination. Preserve the approved
-buoy geometry and all science wording. Scope includes the collage, How It Works
-and registration ending per the R6 request; the older GLHC-004 backlog split
-should be reconciled during detailed planning, without implementing it now.
-
-Outstanding: organizer acceptance of R6; physical iOS/Android and mobile-network
-performance; approved collage availability; image rights; actual Luma URL.
-
-Next action: organizer reviews the saved R5/R6 comparison and confirms the
-retained visual version before detailed GLHC-003 implementation planning.
+The R6 GLB/renderer and isolated prototype are the baseline; no more water-engine exploration. Implement content-first HTML with lazy scene loading, 10-second mobile readiness target and full static fallback. Verify all widths and interactions. Do not merge or deploy GLHC-003 without organizer review.

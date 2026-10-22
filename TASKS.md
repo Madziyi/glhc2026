@@ -1,28 +1,24 @@
-# Task board
+# GLHC 2026 Task Board
 
-## Active
-- GLHC-002R6 `[implemented; organizer visual review and physical-device performance acceptance pending]` — procedural sunny sky/lake, 1.25× synchronized motion and geometric hull ripples. Four-size UAT, exported R5/R6 recordings and raw measurements: `docs/GLHC-002R6-UAT.md`. Final standalone water milestone; no new water engine experiment. Supersedes R5 below; its previously unavailable recordings are now saved.
-- GLHC-002R5 `[implemented; automated checks pass; organizer visual approval pending]` — refine the Version A hybrid buoy's wave-following bob/pitch/roll and analytic hull ripples. Motion recording/export and physical-device performance remain outstanding; see the latest `docs/GLHC-002-UAT.md` addendum.
-- GLHC-002R4 `[implemented; superseded by R5 motion refinement]` — hybrid water, underwater blending, progressive loading/fallback and dev timing instrumentation. See `docs/GLHC-002-UAT.md`.
-- GLHC-002R2 `[implemented; superseded by GLHC-002R3 comparison]` — refined lake image and shader effects remain Version A baseline; see `docs/GLHC-002-UAT.md`.
-- GLHC-002R3 `[implemented; superseded by GLHC-002R4 finalization]` — A/B comparison and visual/performance evidence in `docs/GLHC-002R3-COMPARISON.md`.
-- GLHC-002R `[implementation committed; visual review pending]` — prior isolated material/model refinement; do not integrate without organizer approval.
+## Active — GLHC-003
+- GLHC-003A `[implemented]` — people-first hero, attached $500 Prize starburst, explicit winning-team/no-experience/public-display copy, immediate registration and progressive moving lake.
+- GLHC-003B `[implemented]` — approved R6 scene integrated into a surface camera orbit returning before continuous descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
+- GLHC-003C `[implemented]` — supplied single responsive collage, five editorial participation steps, deep-water buoy-free ending; all registration links use configured Luma destination.
+- GLHC-003D `[local verification complete; organizer/device acceptance pending]` — four-size production browser journey, screenshot/video evidence, keyboard, motion/fallback/retry, resize/refresh, actual secure CTA navigation, tests/check/build and performance observations. Physical devices remain external acceptance.
+- Organizer buoy detail follow-up `[implemented and locally verified; organizer review pending]` — matching grids on all three panels, white black-capped probe slightly shorter than blue, short black probe, upper cage plate removed and lower plate retained. Four-size evidence: `uat/glhc003/buoy-details/`.
+- Organizer homepage reference follow-up `[implemented and locally verified; organizer review pending]` — remove extra introductory/welcome lines, round photo corners, add yellow pill links smoothly navigating to section01 and curiosity/tools; keep fonts and registration. Four-size smooth-scroll plus no-JS/reduced-motion checks: `uat/glhc003/hero-navigation/`.
+- Responsive hero spacing `[implemented and locally verified; organizer review pending]` — height/width-aware photo, heading, balanced gaps and compact landscape layout. Entire hero fits11 tested default-text viewports; evidence `hero-balanced/` plus final `hero-balanced-landscape/`.
+- Slower section jumps `[implemented and locally verified; organizer review pending]` —3.2-second easing on both hero buttons and cue; mobile/desktop timing at least2x prior native duration, interruption and reduced/no-JS checks pass. Manual scroll/story unchanged. Evidence: `uat/glhc003/slow-scroll/`.
 
-## Completed technical feasibility
-- GLHC-002 `[technical feasibility verified; visual QA pending refinement]` — isolated camera/buoy/sensors + single horizontal science transition. Baseline `1df0648`; 6 passing tests and 22 screenshots. Retain UAT evidence.
+## Accepted baseline
+- GLHC-002R6 `[organizer visually accepted / merged via PR #1]` — accepted geometry and procedural lake baseline. Explicit organizer follow-up revises the shared model with panel grids and cage details only; historical R6 evidence predates this revision. No further water-engine iteration.
+- GLHC-001 `[superseded]` — prior glider-led opening evidence remains historical; it no longer defines root-page design.
 
-## Approved subsequent work
-- GLHC-003 full storytelling integration planning handoff is ready in `docs/GLHC-003-PLANNING-HANDOFF.md`; implementation waits for R6 review. Scope follows the latest organizer request: student hero, prize animation, buoy descent/science, communication collage, How It Works and eventual Luma ending. Reconcile the older GLHC-003/004 split below during detailed planning.
-- GLHC-003 `[planned after GLHC-002R visual approval]` — people-first image hero, attached **$500 Prize** starburst, scientists/surface buoy, sensor science paragraphs.
-- GLHC-004 `[planned]` — one four-image collage (provided by organizer), short How it works, deep-water registration CTA.
-- GLHC-005 `[planned]` — launch polish, rights, dependency vulnerabilities, Lighthouse/real devices, verified deployment.
+## Organizer review / launch checks
+- Approve GLHC-003 visual composition and complete mobile/desktop journey before merge.
+- Physical iOS/Android, representative mobile network, 10-second readiness and release performance acceptance.
+- Public publication rights for supplied photography and inspiration examples.
+- Security/dependency audit, Lighthouse and deployment approval.
 
-## Earlier baseline
-- GLHC-001 `[UAT complete; superseded visual direction]` — 16 responsive screenshots and original site; unchanged while prototyping v2.
-
-## Blocked
-- Actual Luma URL; organizer's collage; rights clearance (not blocking GLHC-002R feasibility).
-- Real iOS/Android performance until physical devices are available.
-
-## Out of scope
-- Glider-led opening, data-to-art simulator, invented telemetry or depths, scroll-gated registration, changing root site before visual approval.
+## Excluded
+Glider-led core story, fake scientific telemetry, data-art simulator, fabricated schedule/location, custom registration backend and registration gating.

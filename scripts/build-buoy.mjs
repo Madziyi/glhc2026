@@ -21,6 +21,7 @@ const materials = [
   { name: 'Black acetal instrument housing', pbrMetallicRoughness: { baseColorFactor: [0.025, 0.031, 0.033, 1], metallicFactor: 0.05, roughnessFactor: 0.48 } },
   { name: 'Red coated steel ballast', pbrMetallicRoughness: { baseColorFactor: [0.38, 0.055, 0.045, 1], metallicFactor: 0.36, roughnessFactor: 0.49 } },
   { name: 'Marine fasteners and fittings', pbrMetallicRoughness: { baseColorFactor: [0.085, 0.105, 0.105, 1], metallicFactor: 0.78, roughnessFactor: 0.4 } },
+  { name: 'White instrument housing', pbrMetallicRoughness: { baseColorFactor: [0.89, 0.92, 0.92, 1], metallicFactor: 0, roughnessFactor: 0.4 } },
 ];
 function geometry(name, positions, indices, material, color = null) {
   const normals = new Array(positions.length).fill(0);
@@ -114,6 +115,10 @@ box('left solar glass',-0.592,1.49,0,0.022,1.65,0.91,3);
 box('right solar glass',0.592,1.49,0,0.022,1.65,0.91,3);
 for(let i=1;i<6;i++) box('front photovoltaic busbar',-0.47+i*.94/6,1.49,-0.565,.007,1.59,.004,4);
 for(let i=1;i<9;i++) box('front photovoltaic cell gap',0,0.665+i*1.65/9,-0.565,.9,.008,.004,4);
+for (const side of [-1, 1]) {
+  for(let i=1;i<6;i++) box('side photovoltaic busbar',side*.607,1.49,-.455+i*.91/6,.004,1.59,.007,4);
+  for(let i=1;i<9;i++) box('side photovoltaic cell gap',side*.607,.665+i*1.65/9,0,.004,.008,.87,4);
+}
 // Fine perimeter rails and restrained panel attachment points.
 for (const x of [-.51, .51]) tube('panel edge rail',[x,.66,-.57],[x,2.32,-.57],.018,2,8);
 for (const x of [-.48,.48]) for (const y of [.72,2.25]) cyl('panel clamp',x,y,-.584,.026,.018,4,10);
@@ -130,7 +135,7 @@ cyl('weather sensor cap',0,4.39,0,.031,.04,4,12,.024);
 for(const x of [-0.54,0.54]) box('underdeck mounting plate',x,-0.65,0,0.33,0.11,0.34,8);
 tube('secondary probe mount',[1.25,-0.6,0.15],[1.42,-0.95,0.15],0.075,8,12);
 cyl('secondary silver sensor',1.42,-1.02,0.15,0.1,0.22,4,16,0.06);
-// Open rounded rectangular marine cage: four rails, cross plates and rounded ends.
+// Open rounded rectangular marine cage: four rails, one lower plate and rounded ends.
 const cageTop=-0.82,cageBottom=-3.82,cx=0.04,cz=0.02,cw=1.08,cd=0.76,cr=0.2;
 for(const x of [-1,1]) for(const z of [-1,1]) tube('cage corner rail',[cx+x*cw/2,cageTop-cr,cz+z*cd/2],[cx+x*cw/2,cageBottom+cr,cz+z*cd/2],0.035,4,10);
 function roundedVerticalFrame(name, zz) {
@@ -141,7 +146,7 @@ function roundedVerticalFrame(name, zz) {
   for(let i=0;i<points.length-1;i++)tube(name,points[i],points[i+1],0.035,4,10);
 }
 for(const z of [-1,1])roundedVerticalFrame('vertical rounded cage perimeter',cz+z*cd/2);
-for(const yy of [-1.55,-2.94]) {
+for(const yy of [-2.94]) {
   box('perforated horizontal cage plate',cx,yy,cz,cw+0.04,0.075,cd+0.04,4);
   for(const x of [-0.18,0,0.18]) for(const z of [-0.15,0.15]) cyl('plate perforation dark inset',cx+x,yy+0.039,cz+z,0.027,0.005,8,8);
 }
@@ -151,6 +156,13 @@ cyl('black sonde lower housing',-0.21,-2.11,-0.30,0.102,0.43,6,18,0.067);
 cyl('sonde end cap',-0.21,-2.34,-0.30,0.068,0.1,8,16,0.035);
 box('sonde connector',-0.21,-0.9,-0.30,0.17,0.13,0.17,8);
 tube('sonde cable',[0.0,-0.78,0.08],[-0.08,-0.94,-0.08],0.018,8,8);
+// Additional suspended probes. The white probe ends 0.12 units (about 3.5 cm)
+// above the blue sonde; both additions stay inside the cage and above its plate.
+cyl('long white probe body',.13,-1.555,-.23,.082,1.15,9,18);
+cyl('white probe black end cap',.13,-2.20,-.23,.085,.14,6,18,.075);
+box('white probe connector',.13,-.94,-.23,.13,.1,.13,8);
+cyl('short black probe body',.38,-1.34,-.16,.068,.72,6,16,.06);
+box('short probe connector',.38,-.94,-.16,.11,.1,.11,8);
 // Red ballast hangs directly below the cage with a small metal shackle and mooring line.
 cyl('red ballast cylinder',0.04,-4.34,0.02,0.32,0.76,7,24,0.32);
 cyl('ballast cap',0.04,-3.94,0.02,0.19,0.08,8,16,0.16);

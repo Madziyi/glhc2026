@@ -1,0 +1,554 @@
+{
+  "name": "desktop",
+  "width": 1440,
+  "height": 900,
+  "keyboard": "Skip to the challenge",
+  "hero": {
+    "heading": {
+      "x": 80.625,
+      "y": 263.328125,
+      "width": 596.171875,
+      "height": 203.8125,
+      "bottom": 467.140625
+    },
+    "photo": {
+      "x": 764.3232421875,
+      "y": 209.2688751220703,
+      "width": 595.0677490234375,
+      "height": 456.48236083984375,
+      "bottom": 665.7512359619141
+    },
+    "badge": {
+      "x": 1234.568603515625,
+      "y": 183.58602905273438,
+      "width": 159.9935302734375,
+      "height": 159.99368286132812,
+      "bottom": 343.5797119140625
+    },
+    "links": [
+      {
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
+  },
+  "stats": {
+    "progress": "0.0000",
+    "phase": "invitation",
+    "cameraParked": "false",
+    "drawCalls": "11",
+    "triangles": "44916",
+    "frameMs": "233.40",
+    "panelProgress": "0.0000",
+    "motionSpeed": "1.25",
+    "cameraY": "5.300",
+    "targetY": "1.100",
+    "buoyVisible": "true",
+    "modelLoadMs": "73.4",
+    "sceneReadyMs": "776.4",
+    "rendererShaderMs": "113.4",
+    "firstFrameMs": "776.4",
+    "paints": [
+      {
+        "name": "first-paint",
+        "ms": 200
+      },
+      {
+        "name": "first-contentful-paint",
+        "ms": 200
+      }
+    ],
+    "navigation": [
+      {
+        "responseEnd": 10.700000002980232,
+        "domContentLoaded": 149
+      }
+    ],
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "states": [
+    {
+      "state": "hero",
+      "scrollY": 0,
+      "overflow": false,
+      "readout": {
+        "progress": "0.0000",
+        "phase": "invitation",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "216.70",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "5.300",
+        "targetY": "1.100",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 3150.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 3150.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "surface",
+      "scrollY": 900,
+      "overflow": false,
+      "readout": {
+        "progress": "0.1197",
+        "phase": "surface",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "250.00",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "4.100",
+        "targetY": "1.100",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 2250.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 2250.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "waterline",
+      "scrollY": 2115,
+      "overflow": false,
+      "readout": {
+        "progress": "0.2814",
+        "phase": "crossing",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "250.00",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "4.100",
+        "targetY": "1.100",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 1035.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 1035.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "sensors-paragraph-1",
+      "scrollY": 2977,
+      "overflow": false,
+      "readout": {
+        "progress": "0.3961",
+        "phase": "sensors",
+        "cameraParked": "true",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "216.60",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-1.450",
+        "targetY": "-0.800",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 270.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 270.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "paragraph-2",
+      "scrollY": 4370,
+      "overflow": false,
+      "readout": {
+        "progress": "0.5814",
+        "phase": "sensors",
+        "cameraParked": "true",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "266.70",
+        "panelProgress": "1.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-1.450",
+        "targetY": "-0.800",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": -429.375,
+            "y": 270.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 270.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "challenge",
+      "scrollY": 5400,
+      "overflow": false,
+      "readout": {
+        "progress": "0.7185",
+        "phase": "challenge",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "483.30",
+        "panelProgress": "1.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-4.050",
+        "targetY": "-3.475",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": -429.375,
+            "y": -629.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": -629.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "collage",
+      "scrollY": 5464,
+      "overflow": false,
+      "readout": {
+        "progress": "0.7270",
+        "phase": "challenge",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "116.70",
+        "panelProgress": "1.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-4.381",
+        "targetY": "-3.815",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": -429.375,
+            "y": -693.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": -693.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "how-it-works",
+      "scrollY": 6455,
+      "overflow": false,
+      "readout": {
+        "progress": "0.8589",
+        "phase": "challenge",
+        "cameraParked": "false",
+        "drawCalls": "5",
+        "triangles": "41684",
+        "frameMs": "50.00",
+        "panelProgress": "1.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-10.147",
+        "targetY": "-9.748",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": -429.375,
+            "y": -1684.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": -1684.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "registration",
+      "scrollY": 7516,
+      "overflow": false,
+      "readout": {
+        "progress": "1.0000",
+        "phase": "registration",
+        "cameraParked": "false",
+        "drawCalls": "2",
+        "triangles": "32992",
+        "frameMs": "50.00",
+        "panelProgress": "1.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-13.600",
+        "targetY": "-13.300",
+        "buoyVisible": "false",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": -429.375,
+            "y": -2745.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": -2745.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "reverse-sensors",
+      "scrollY": 2977,
+      "overflow": false,
+      "readout": {
+        "progress": "0.3961",
+        "phase": "sensors",
+        "cameraParked": "true",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "116.60",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "-1.452",
+        "targetY": "-0.800",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 270.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 270.5
+          }
+        }
+      ]
+    },
+    {
+      "state": "reverse-hero",
+      "scrollY": 0,
+      "overflow": false,
+      "readout": {
+        "progress": "0.0000",
+        "phase": "invitation",
+        "cameraParked": "false",
+        "drawCalls": "11",
+        "triangles": "44916",
+        "frameMs": "116.60",
+        "panelProgress": "0.0000",
+        "motionSpeed": "1.25",
+        "cameraY": "5.299",
+        "targetY": "1.100",
+        "buoyVisible": "true",
+        "modelLoadMs": "73.4",
+        "sceneReadyMs": "776.4",
+        "rendererShaderMs": "113.4",
+        "firstFrameMs": "776.4"
+      },
+      "panels": [
+        {
+          "heading": "Signals fromthe lake.",
+          "aria": "false",
+          "rect": {
+            "x": 80.625,
+            "y": 3150.5
+          }
+        },
+        {
+          "heading": "A sharedfreshwater future.",
+          "aria": "false",
+          "rect": {
+            "x": 590.625,
+            "y": 3150.5
+          }
+        }
+      ]
+    }
+  ],
+  "landscape": {
+    "width": 900,
+    "height": 1440,
+    "overflow": false
+  },
+  "registration": {
+    "url": "https://luma.com/pz0iw2m7",
+    "opener": false,
+    "title": "Great Lakes Hackathon Challenge · Luma",
+    "destinationError": null
+  },
+  "reduced": {
+    "static": true,
+    "overflow": false,
+    "panels": [
+      {
+        "hidden": "false",
+        "height": 350.140625
+      },
+      {
+        "hidden": "false",
+        "height": 350.140625
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "frameIntervals": {
+    "count": 14,
+    "median": 233.30000000000018,
+    "p95": 266.60000000000036
+  }
+}

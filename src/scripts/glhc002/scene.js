@@ -3,17 +3,22 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { timelineAt, smooth, STORY } from './timeline.mjs';
 import { MOTION_SPEED, surfaceHeightAt, rippleHeight, waveGLSL } from './waves.mjs';
+import { storyAt, orbitView } from '../glhc003/timeline.mjs';
 
 const stage = document.querySelector('#stage');
-const track = document.querySelector('#buoy-story');
+const integrated = !!document.querySelector('#invitation');
+const track = document.querySelector('#buoy-story') || document.querySelector('#story');
 const canvas = document.querySelector('#buoy-canvas');
 const motionToggle = document.querySelector('#reduce-motion');
 const readout = document.querySelector('#scene-readout');
+let chapterBounds;
 let renderer, scene, camera, buoy, water, sun, fill, frameId, staticMode = false, failed = false, cameraInitialized = false;
 let renderStats = { ms: 0, calls: 0, triangles: 0 };
 let ready = false, shaderCompiled = false;
 let shaderCompiledAt = null;
 let onReadyCallback = () => {};
+let onFallbackCallback = () => {};
+let rendererGeneration = 0;
 const navigationStart = performance.timeOrigin;
 const timings = { sceneImportMs: null, modelMs: null, rendererShaderMs: null, firstFrameMs: null, readyMs: null, fallback: null };
 let lastFrame = performance.now(), reportAt = 0;
@@ -31,7 +36,7 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has('compare')) 
   for (const speed of [1, 1.25]) select.add(new Option(`${speed}\u00d7`, String(speed), false, speed === MOTION_SPEED));
   select.addEventListener('change', () => { motionSpeed = Number(select.value); });
   label.append(select);
-  document.querySelector('.prototype-bar').append(label);
+  (document.querySelector('.prototype-bar') || document.querySelector('header')).append(label);
 }
 
 function sampleBuoySurface(time) {
@@ -255,6 +260,7 @@ function refineBuoyMaterial(material) {
 
 function startRenderer() {
   if (renderer || staticMode || failed) return;
+  const generation = ++rendererGeneration;
   try {
     const loading = document.querySelector('#scene-loading');
     loading.hidden = false;
@@ -281,18 +287,22 @@ function startRenderer() {
     loader.setMeshoptDecoder(MeshoptDecoder);
     const modelStarted = performance.now();
     loader.load('/models/glhc002-buoy.glb', gltf => {
+      if (generation !== rendererGeneration) return;
       timings.modelMs = performance.now() - modelStarted;
       readout.dataset.modelLoadMs = timings.modelMs.toFixed(1);
       buoy = gltf.scene;
       buoy.traverse(o => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; if (o.material) refineBuoyMaterial(o.material); } });
       scene.add(buoy);
-    }, undefined, error => activateFallback(error?.message ?? 'Buoy model failed to load'));
+    }, undefined, error => {
+      if (generation === rendererGeneration) activateFallback(error?.message ?? 'Buoy model failed to load');
+    });
     frameId = requestAnimationFrame(frame);
   } catch (error) { activateFallback(error?.message ?? 'Renderer initialization failed'); }
 }
 
 function activateFallback(reason = 'WebGL initialization failed') {
   failed = true;
+  rendererGeneration++;
   timings.fallback = reason;
   reportTimings('fallback');
   cancelAnimationFrame(frameId);
@@ -314,9 +324,11 @@ function activateFallback(reason = 'WebGL initialization failed') {
   document.querySelector('#scene-loading').hidden = false;
   document.querySelector('#loading-label').textContent = 'The 3D view is unavailable. The full story remains readable.';
   document.querySelector('#scene-retry').hidden = false;
+  onFallbackCallback(reason);
 }
 
 function resize() {
+  chapterBounds = undefined;
   if (!renderer || !camera) return;
   const w = Math.max(canvas.clientWidth, 1), h = Math.max(canvas.clientHeight, 1);
   renderer.setSize(w, h, false);
@@ -333,9 +345,10 @@ function phaseFor(p) {
 function frame(now) {
   frameId = requestAnimationFrame(frame);
   const elapsed = now - lastFrame; lastFrame = now;
-  const p = clamp((-track.getBoundingClientRect().top) / Math.max(track.offsetHeight - stage.offsetHeight, 1));
-  const t = timelineAt(p), phase = phaseFor(p);
-  const panelVisible = p >= STORY.sensorPark;
+  const p = integrated ? 0 : clamp((-track.getBoundingClientRect().top) / Math.max(track.offsetHeight - stage.offsetHeight, 1));
+  const t = integrated ? integratedState() : timelineAt(p);
+  const phase = integrated ? [t.phase, t.phase] : phaseFor(p);
+  const panelVisible = integrated ? t.panelVisible : p >= STORY.sensorPark;
   stage.style.setProperty('--underwater', String(t.waterMix));
   stage.dataset.underwater = String(t.waterMix > 0.86);
   stage.dataset.panelVisible = String(panelVisible);
@@ -344,14 +357,15 @@ function frame(now) {
   const panelTrack = document.querySelector('#panel-track');
   panelTrack.style.transform = `translateX(${-t.panel * 50}%)`;
   panelTrack.style.setProperty('--panel-progress', String(t.panel));
-  document.querySelector('#panel-one').setAttribute('aria-hidden', String(t.panelIndex !== 0));
-  document.querySelector('#panel-two').setAttribute('aria-hidden', String(t.panelIndex !== 1));
-  const percentage = String(Math.round(p * 100)).padStart(2, '0');
+  document.querySelector('#panel-one').setAttribute('aria-hidden', String(!integrated && t.panelIndex !== 0));
+  document.querySelector('#panel-two').setAttribute('aria-hidden', String(!integrated && t.panelIndex !== 1));
+  const percentage = String(Math.round(t.progress * 100)).padStart(2, '0');
   document.querySelector('#readout-progress').textContent = `${percentage}%`;
   document.querySelector('#readout-phase').textContent = phase[0].toUpperCase();
-  readout.dataset.progress = p.toFixed(4);
+  readout.dataset.progress = t.progress.toFixed(4);
   readout.dataset.phase = phase[0];
   readout.dataset.cameraParked = String(t.cameraParked);
+  readout.dataset.panelProgress = t.panel.toFixed(4);
 
   if (renderer && camera && !staticMode) {
     const delta = document.hidden ? 0 : Math.max(elapsed, 0) * 0.001;
@@ -369,15 +383,33 @@ function frame(now) {
       buoy.rotation.z += (Math.atan(slopeX) * 0.72 - buoy.rotation.z) * rotationDamping;
       buoy.rotation.x += (-Math.atan(slopeZ) * 0.72 - buoy.rotation.x) * rotationDamping;
     }
-    const targetX = innerWidth > 760 ? -1.4 : 0;
-    const sensorProgress = smooth(STORY.crossStart, STORY.sensorPark, p);
+    const targetX = innerWidth > 760 ? (integrated ? 2.8 : -1.4) : 0;
+    const sensorProgress = integrated ? t.sensorProgress : smooth(STORY.crossStart, STORY.sensorPark, p);
     const sensorPullback = (innerWidth < 760 ? 3.1 : 4.0) * sensorProgress;
     const desired = new THREE.Vector3(targetX + t.cameraX, t.cameraY, t.cameraZ - sensorPullback);
-    const targetY = t.targetY + 0.55 * sensorProgress - (innerWidth < 760 ? t.waterMix * 0.3 : 0);
+    const mobileSurfaceOffset = integrated && innerWidth < 760 ? 1.4 * (1 - sensorProgress) : 0;
+    const targetY = t.targetY + mobileSurfaceOffset + 0.55 * sensorProgress - (innerWidth < 760 ? t.waterMix * (integrated ? 2.0 : 0.3) : 0);
     const target = new THREE.Vector3(targetX, targetY, 0);
-    if (cameraInitialized) camera.position.lerp(desired, 0.095);
+    if (integrated && t.orbitActive) {
+      const view = orbitView(desired, target, t.orbitProgress);
+      desired.set(view.position.x, view.position.y, view.position.z);
+      target.set(view.target.x, view.target.y, view.target.z);
+    }
+    if (cameraInitialized) camera.position.lerp(desired, integrated ? 1 - Math.exp(-8 * delta) : 0.095);
     else { camera.position.copy(desired); cameraInitialized = true; }
     camera.lookAt(target);
+    if (integrated) {
+      readout.dataset.cameraY = camera.position.y.toFixed(3);
+      readout.dataset.targetY = targetY.toFixed(3);
+      readout.dataset.cameraX = camera.position.x.toFixed(3);
+      readout.dataset.cameraZ = camera.position.z.toFixed(3);
+      readout.dataset.orbitProgress = t.orbitProgress.toFixed(4);
+      readout.dataset.orbitActive = String(t.orbitActive);
+      // Once physically well below the instrument assembly, omit its distant
+      // silhouette from the final open-water chapter (including the mooring line).
+      if (buoy) buoy.visible = t.departure < .72;
+      readout.dataset.buoyVisible = String(buoy?.visible ?? false);
+    }
     scene.fog.color.copy(new THREE.Color(0x91a49e).lerp(new THREE.Color(0x17414a), t.waterMix));
     scene.fog.density = THREE.MathUtils.lerp(0.006, 0.024, t.waterMix);
     sun.intensity = THREE.MathUtils.lerp(2.15, 1.45, t.waterMix);
@@ -427,9 +459,23 @@ function frame(now) {
   }
 }
 
+function integratedState() {
+  if (!chapterBounds) {
+    const top = id => document.getElementById(id).getBoundingClientRect().top + scrollY;
+    const science = document.getElementById('science'), scienceTop = top('science');
+    chapterBounds = {
+      surface: top('surface'), crossing: top('crossing'), science: scienceTop,
+      scienceEnd: scienceTop + Math.max(science.offsetHeight - innerHeight, 1),
+      registration: top('registration'),
+    };
+  }
+  return storyAt(scrollY, chapterBounds);
+}
+
 function setStatic(enabled) {
   if (failed && !enabled) return;
   staticMode = enabled;
+  chapterBounds = undefined;
   document.documentElement.classList.toggle('static-motion', enabled);
   if (enabled) {
     cancelAnimationFrame(frameId);
@@ -454,15 +500,29 @@ motionToggle.addEventListener('change', () => setStatic(motionToggle.checked));
 canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); activateFallback(); }, { once: true });
 /* Restart is exposed to the lightweight bootstrap for its visible retry button. */
 export function retryScene() {
+  if (renderer) renderer.dispose();
+  renderer = null;
+  buoy = null;
+  cancelAnimationFrame(frameId);
   failed = false;
   ready = false;
   shaderCompiled = false;
   staticMode = false;
   document.documentElement.classList.remove('static-motion');
   stage.classList.remove('webgl-failed');
+  motionToggle.disabled = false;
+  motionToggle.checked = false;
   startRenderer();
 }
+export function pauseScene() { setStatic(true); }
 window.addEventListener('resize', resize, { passive: true });
+if (integrated) {
+  // Intrinsic image dimensions keep initial layout stable; invalidate for actual
+  // responsive/content-size changes rather than forcing layout every frame.
+  const layoutObserver = new ResizeObserver(() => { chapterBounds = undefined; });
+  layoutObserver.observe(track);
+  window.addEventListener('load', () => { chapterBounds = undefined; }, { once: true });
+}
 document.addEventListener('visibilitychange', () => { lastFrame = performance.now(); });
 window.addEventListener('scroll', () => {}, { passive: true });
 function reportTimings(outcome) {
@@ -489,4 +549,8 @@ else if (!staticMode) startRenderer();
 export function onSceneReady(callback) {
   onReadyCallback = callback;
   if (ready) callback();
+}
+export function onSceneFallback(callback) {
+  onFallbackCallback = callback;
+  if (failed) callback(timings.fallback);
 }

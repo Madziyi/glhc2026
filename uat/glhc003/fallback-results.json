@@ -1,0 +1,209 @@
+[
+  {
+    "mode": "no-js",
+    "static": true,
+    "timeout": false,
+    "overflow": false,
+    "canvasVisible": "none",
+    "panels": [
+      {
+        "heading": "Signals fromthe lake.",
+        "aria": null,
+        "height": 237.265625
+      },
+      {
+        "heading": "A sharedfreshwater future.",
+        "aria": null,
+        "height": 237.265625
+      }
+    ],
+    "links": [
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "loading": "Preparing the lake…",
+    "errors": []
+  },
+  {
+    "mode": "os-reduced",
+    "static": true,
+    "timeout": false,
+    "overflow": false,
+    "canvasVisible": "none",
+    "panels": [
+      {
+        "heading": "Signals fromthe lake.",
+        "aria": null,
+        "height": 237.265625
+      },
+      {
+        "heading": "A sharedfreshwater future.",
+        "aria": null,
+        "height": 237.265625
+      }
+    ],
+    "links": [
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "loading": "Preparing the lake…",
+    "errors": []
+  },
+  {
+    "mode": "forced-fallback",
+    "static": true,
+    "timeout": false,
+    "overflow": false,
+    "canvasVisible": "none",
+    "panels": [
+      {
+        "heading": "Signals fromthe lake.",
+        "aria": "false",
+        "height": 237.265625
+      },
+      {
+        "heading": "A sharedfreshwater future.",
+        "aria": "false",
+        "height": 237.265625
+      }
+    ],
+    "links": [
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "loading": "The 3D view is unavailable. The full story remains readable.",
+    "errors": []
+  },
+  {
+    "mode": "blocked-webgl",
+    "static": true,
+    "timeout": false,
+    "overflow": false,
+    "canvasVisible": "none",
+    "panels": [
+      {
+        "heading": "Signals fromthe lake.",
+        "aria": "false",
+        "height": 237.265625
+      },
+      {
+        "heading": "A sharedfreshwater future.",
+        "aria": "false",
+        "height": 237.265625
+      }
+    ],
+    "links": [
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "loading": "The 3D view is unavailable. The full story remains readable.",
+    "errors": []
+  },
+  {
+    "mode": "slow-model",
+    "static": true,
+    "timeout": true,
+    "overflow": false,
+    "canvasVisible": "none",
+    "panels": [
+      {
+        "heading": "Signals fromthe lake.",
+        "aria": "false",
+        "height": 237.265625
+      },
+      {
+        "heading": "A sharedfreshwater future.",
+        "aria": "false",
+        "height": 237.265625
+      }
+    ],
+    "links": [
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "url": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "loading": "Explore the full story in the static view. The 3D lake is taking longer to load.",
+    "retry": {
+      "progress": "0.9943",
+      "phase": "challenge",
+      "cameraParked": "false",
+      "drawCalls": "2",
+      "triangles": "32992",
+      "frameMs": "337.30",
+      "panelProgress": "1.0000",
+      "motionSpeed": "1.25",
+      "cameraY": "-13.593",
+      "targetY": "-15.293",
+      "buoyVisible": "false",
+      "modelLoadMs": "1521.6",
+      "sceneReadyMs": "20093.3",
+      "rendererShaderMs": "353.5",
+      "firstFrameMs": "20093.3"
+    },
+    "errors": []
+  }
+]

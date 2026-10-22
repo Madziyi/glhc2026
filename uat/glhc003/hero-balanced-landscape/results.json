@@ -1,0 +1,122 @@
+[
+  {
+    "name": "landscape",
+    "width": 667,
+    "height": 375,
+    "fit": true,
+    "layout": {
+      "viewport": 375,
+      "hero": {
+        "top": 0,
+        "bottom": 375,
+        "left": 0,
+        "right": 667,
+        "height": 375
+      },
+      "title": {
+        "top": 93.265625,
+        "bottom": 144.015625,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 50.75
+      },
+      "photo": {
+        "top": 83.23482513427734,
+        "bottom": 247.7651596069336,
+        "left": 390.56549072265625,
+        "right": 601.9188842773438,
+        "height": 164.53033447265625
+      },
+      "description": {
+        "top": 164.984375,
+        "bottom": 237.734375,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 72.75
+      },
+      "actions": {
+        "top": 252.21875,
+        "bottom": 296.21875,
+        "left": 37.34375,
+        "right": 629.65625,
+        "height": 44
+      },
+      "cue": {
+        "top": 331.46875,
+        "bottom": 375,
+        "left": 254.359375,
+        "right": 412.640625,
+        "height": 43.53125
+      },
+      "header": {
+        "top": 0,
+        "bottom": 76,
+        "left": 0,
+        "right": 667,
+        "height": 76
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "small-landscape",
+    "width": 568,
+    "height": 320,
+    "fit": true,
+    "layout": {
+      "viewport": 320,
+      "hero": {
+        "top": 0,
+        "bottom": 320,
+        "left": 0,
+        "right": 568,
+        "height": 320
+      },
+      "title": {
+        "top": 72.625,
+        "bottom": 122.625,
+        "left": 20,
+        "right": 279.796875,
+        "height": 50
+      },
+      "photo": {
+        "top": 85.52127838134766,
+        "bottom": 190.4630889892578,
+        "left": 362.3136901855469,
+        "right": 497.4831848144531,
+        "height": 104.94181060791016
+      },
+      "description": {
+        "top": 130.625,
+        "bottom": 203.375,
+        "left": 20,
+        "right": 279.796875,
+        "height": 72.75
+      },
+      "actions": {
+        "top": 211.375,
+        "bottom": 255.375,
+        "left": 20,
+        "right": 548,
+        "height": 44
+      },
+      "cue": {
+        "top": 276.46875,
+        "bottom": 320,
+        "left": 204.859375,
+        "right": 363.140625,
+        "height": 43.53125
+      },
+      "header": {
+        "top": 0,
+        "bottom": 64,
+        "left": 0,
+        "right": 568,
+        "height": 64
+      },
+      "overflow": false
+    },
+    "errors": []
+  }
+]

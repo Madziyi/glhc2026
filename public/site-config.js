@@ -1,4 +1,4 @@
-/** Public configuration. Paste the exact Luma event URL here after it has been provided. */
+/** Public, organizer-supplied registration destination; event page content not independently verified. */
 window.GLHC_CONFIG = Object.freeze({
-  lumaUrl: '',
+  lumaUrl: 'https://luma.com/pz0iw2m7',
 });

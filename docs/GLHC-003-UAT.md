@@ -319,3 +319,20 @@ contexts pass navigation and readable content. Mobile/desktop full section
 screenshots reviewed. Initial preview connection refusal was resolved by starting
 the local preview; completed matrix passed. Test-only4FPS software-renderer limits
 remain; no physical-device or production-deployment claim.
+
+## Section4 heading simplification — 2026-10-22
+
+Organizer annotation replaces the repeated large heading/kicker with the single
+small accessible heading “4/4: How it works”. Round titles now read “Round 1 -
+Submit Your Idea” and “Round 2 - Bring Your Idea to Life”, with subtitles “Open To
+Everyone” and “Build & Showcase”. Body copy, mobile collage placement, section4
+fragment/navigation and science timing are unchanged. Legacy how-it-works anchor
+is retained inside the small heading.
+
+Verification:12 tests, Astro0 errors/warnings/hints, production build and diff
+check pass. Mobile393x852 and desktop1440x900 browser checks/visual review confirm
+exact heading/subtitle strings, a small label (under12px), no repeated kicker,
+no overflow/page exceptions. Evidence/script: `uat/glhc003/round-heading-review/`,
+`round-heading-review.mjs`. Prior five-size science/order checks remain applicable
+to the unchanged interactions. Renderer/bootstrap output unchanged; existing Vite
+warning and physical-device acceptance boundary remain. No merge/deployment.

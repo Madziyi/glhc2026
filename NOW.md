@@ -4,7 +4,7 @@
 **Branch:** `codex/challenge-rounds`, based on GitHub main `908c22f` (PR#2 merged).
 
 ## Current experience
-Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 combines What’s The Challenge/How It Works with the supplied two-round copy. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
+Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
 
 Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “What’s this about?” targets `#surface` (1/4); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Register Now, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
 
@@ -83,3 +83,13 @@ mobile Round One/image/Round Two order, shorter panel reveal and reverse return,
 parked camera, no overflow/page exceptions. Reduced/no-JS paths pass. Reveal
 travel is53% of prior distance (51% in short landscape). Evidence:
 `uat/glhc003/challenge-rounds/`; tests12/12, Astro0/0/0, build/diff pass.
+
+Current organizer follow-up: simplify section4 to the single label “4/4: How it
+works”, remove repeated large heading/kicker, name headings “Round 1 - Submit
+Your Idea” and “Round 2 - Bring Your Idea to Life”, retain only Open To Everyone
+and Build & Showcase as subtitles. Preserve copy, layout order and navigation.
+
+Heading simplification verified:12 tests, Astro0/0/0, production build/diff pass.
+Mobile393x852 and desktop1440x900 show the single small section heading, exact
+round labels/subtitles, no overflow/page errors. Evidence/script:
+`uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. PR#3 update.

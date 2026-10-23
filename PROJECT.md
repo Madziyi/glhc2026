@@ -62,3 +62,9 @@ horizontal reveal across22–62% of the parked scroll interval. This reduces
 vertical travel about47% versus the previous280svh/22–72% interval, preserving
 settled reading holds and reversible camera/paragraph behavior. Static science
 remains normal document flow; the isolated prototype timing is unchanged.
+
+Latest section4 heading refinement (2026-10-22): only “4/4: How it works” appears
+as a small accessible section heading; repeated large challenge heading and extra
+kicker are removed. Titles are “Round 1 - Submit Your Idea” and “Round 2 - Bring
+Your Idea to Life”; subtitles are “Open To Everyone” and “Build & Showcase”.
+Full body copy, mobile collage order and section4 navigation remain unchanged.

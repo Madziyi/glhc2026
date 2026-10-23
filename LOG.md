@@ -197,3 +197,9 @@
 - Verification:12 tests, Astro0/0/0, production build/diff pass. Five-size production checks plus reduced/no-JS: actual button destination/focus/header clearance, labels, mobile order, forward/reverse panel states, no overflow/page errors. Mobile/desktop screenshot review. Evidence/script: `uat/glhc003/challenge-rounds/`, `challenge-rounds.mjs`. Initial float midpoint test needed tolerance; initial preview was not running, started it and matrix passed. Scene619.26/160.46kB; bootstrap3.48/1.48, existing Vite/capture/device limits remain.
 - Live state: source PR#2 merge verified, no deployment performed/verified; this follow-up unmerged. Known issues: external physical-device/launch acceptance remains open.
 - Next action: organizer reviews the new follow-up PR. Commit: this published handoff.
+
+### 2026-10-22 — Simplified round headings
+- Task: organizer section4 annotation. Status: done, organizer review pending.
+- Changed: single small accessible “4/4: How it works” heading; removed repeated large title and How It Works kicker. Titles use Round 1 - Submit Your Idea / Round 2 - Bring Your Idea to Life; subtitles retain only Open To Everyone / Build & Showcase. Body, collage order, links, scene and timing unchanged.
+- Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile393x852 and desktop1440x900 exact text/label-size/no-overflow/no-page-error checks and screenshot review pass. Evidence/script: `uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. Existing Vite/capture/device limits remain.
+- Live state: no merge/deployment. Next action: organizer reviews updated PR#3. Commit: this published handoff.

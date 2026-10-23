@@ -1,0 +1,38 @@
+[
+  {
+    "name": "mobile",
+    "state": {
+      "label": "4/4: How it works",
+      "headings": [
+        "Round 1 - Submit Your Idea",
+        "Round 2 - Bring Your Idea to Life"
+      ],
+      "subtitles": [
+        "Open To Everyone",
+        "Build & Showcase"
+      ],
+      "extraKicker": false,
+      "fontSize": 9.6,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "state": {
+      "label": "4/4: How it works",
+      "headings": [
+        "Round 1 - Submit Your Idea",
+        "Round 2 - Bring Your Idea to Life"
+      ],
+      "subtitles": [
+        "Open To Everyone",
+        "Build & Showcase"
+      ],
+      "extraKicker": false,
+      "fontSize": 11.04,
+      "overflow": false
+    },
+    "errors": []
+  }
+]

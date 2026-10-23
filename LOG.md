@@ -223,3 +223,9 @@
 - Changed: yellow bottom-right rectangle on hero photo with exact two-line tourist-attractions wording/arrow. Container-scaled to photo, static display text. Replaced all live fixed-dollar references with CASH Prizes after organizer plural clarification; metadata, accessible caption, badge and registration updated, no single-winning-team implication. Historical evidence remains unchanged.
 - Verification:15 tests, Astro0/0/0, production build/diff pass. Six sizes320x568,375x667,393x852,768x1024,1440x900,667x375: exact copy, both lines fit, rectangle within photo, hero fits, no overflow/page errors. Mobile/desktop visual review confirms no faces covered. Initial compact line fit adjusted, final matrix passed. Evidence/script: `uat/glhc003/hero-cash-prizes/`, `hero-cash-prize.mjs`. Bundles unchanged; existing Vite/capture/device limits remain.
 - Live state: main source merge observed, no production deployment performed/verified. Next action: organizer reviews new follow-up PR. Commit: this published handoff.
+
+### 2026-10-23 — Attend the info session CTA labels
+- Task: rename registration buttons. Status: done, organizer review pending.
+- Sync: PR#4 merged as595f8c0; started `codex/info-session-cta`. Both header/ending buttons now read Attend the info session; neutral new-tab note, same central Luma URL/security/configuration. No event details invented.
+- Verification:15 tests, Astro0/0/0, build/diff pass.320x568,393x852,1440x900 exact labels/URL/security/no-clipping/no-overflow/page-error checks pass; mobile header visually reviewed. Evidence/script: `uat/glhc003/info-session-cta/`, `info-session-cta.mjs`. Existing Vite/device limits remain, runtime unchanged.
+- Live state: source merge observed; no deployment. Next action: organizer reviews new follow-up PR. Commit: this published handoff.

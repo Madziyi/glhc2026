@@ -1,12 +1,12 @@
 # Active Initiative — GLHC-003
 
 **Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
-**Branch:** `codex/hero-cash-prize`, based on GitHub main `386060d` (PR#3 merged).
+**Branch:** `codex/info-session-cta`, based on GitHub main `595f8c0` (PR#4 merged).
 
 ## Current experience
 Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
 
-Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “What’s this about?” targets `#surface` (1/4); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Register Now, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
+Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “What’s this about?” targets `#surface` (1/4); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Attend the info session, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
 
 Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
@@ -134,3 +134,9 @@ Hero callout/CASH Prizes follow-up verified at320x568,375x667,393x852,768x1024,
 viewport and no overflow/page errors. Exact callout text and plural prize copy
 verified in badge, registration, metadata and accessible caption.15 tests,
 Astro0/0/0, build/diff pass. Evidence: `uat/glhc003/hero-cash-prizes/`.
+
+Current organizer follow-up: both header/ending CTAs now read “Attend the info session”. The supplied Luma URL and secure new-tab behavior are retained; no session schedule/details invented. Closing note simply says Opens in a new tab. PR#4 is merged; this label-only follow-up is unmerged.
+
+Info-session CTA verification:15 tests, Astro0/0/0, build/diff pass. Both labels,
+URL/target/rel and no-clipping/no-overflow/page-error checks pass at320x568,
+393x852,1440x900. Evidence: `uat/glhc003/info-session-cta/`.

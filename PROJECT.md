@@ -83,3 +83,5 @@ Your Idea to Life”; subtitles are “Open To Everyone” and “Build & Showca
 Full body copy, mobile collage order and section4 navigation remain unchanged.
 
 Latest hero/prize direction (2026-10-23): use CASH Prizes, with no specific dollar amount or single-winning-team implication. Hero starburst, accessible caption, metadata and registration share this wording. A yellow rectangular annotation inside the photo’s bottom-right reads “YOUR IDEA COULD BE FEATURED” / “AT TOURIST ATTRACTIONS ↗”. It is static display text, sized to the photo container; retain full photo composition and responsive hero fit.
+
+CTA wording (2026-10-23): both header and ending links display “Attend the info session”, retaining the centrally supplied Luma URL and secure new-tab behavior. Do not invent dates or session details; internal registration classes/data attributes remain for configuration compatibility. Current follow-up `codex/info-session-cta` is based on main595f8c0 after PR#4 merged.

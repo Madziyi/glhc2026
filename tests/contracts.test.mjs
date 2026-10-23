@@ -12,7 +12,7 @@ test('homepage contains the four-section recruitment story in reading order', ()
     assert.ok(position > previous, `${id} must follow the preceding chapter`);
     previous = position;
   }
-  for (const phrase of ['$500', 'winning team', 'No experience', 'public', 'data-register'])
+  for (const phrase of ['CASH Prizes', 'cash awards', 'No experience', 'public', 'data-register'])
     assert.ok(html.includes(phrase), `Missing ${phrase}`);
   assert.equal((html.match(/class="science-panel"/g) || []).length, 2);
   assert.ok(!html.includes('glider-cutout'));

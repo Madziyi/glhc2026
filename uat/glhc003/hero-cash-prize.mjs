@@ -1,0 +1,13 @@
+import{createRequire}from'node:module';import fs from'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE),browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH});
+const dir='uat/glhc003/hero-cash-prizes',results=[];await fs.mkdir(dir,{recursive:true});
+for(const[name,width,height]of[['small',320,568],['se',375,667],['mobile',393,852],['tablet',768,1024],['desktop',1440,900],['landscape',667,375]]){
+ const context=await browser.newContext({viewport:{width,height}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.addInitScript(()=>{window.requestAnimationFrame=fn=>setTimeout(()=>fn(performance.now()),250);window.cancelAnimationFrame=clearTimeout});
+ await page.goto('http://127.0.0.1:4334');await page.waitForFunction(()=>document.querySelector('#intro-preloader').hidden,{timeout:15000});await page.evaluate(()=>document.fonts.ready);
+ const state=await page.evaluate(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return{left:r.left,top:r.top,right:r.right,bottom:r.bottom,height:r.height}};return{photo:rect('.hero-photo__frame'),callout:rect('.hero-photo__callout'),hero:rect('#invitation'),lines:[...document.querySelectorAll('.hero-photo__callout>span')].map(e=>({text:e.textContent,clipped:e.scrollWidth>e.clientWidth})),badge:document.querySelector('.prize-burst').textContent,caption:document.querySelector('.hero-photo figcaption').textContent,registration:document.querySelector('.registration-prize').textContent,meta:document.querySelector('meta[name=description]').content,oldAmount:document.documentElement.innerHTML.includes('$500'),overflow:document.documentElement.scrollWidth>innerWidth}});
+ if(state.oldAmount||state.overflow||state.lines.some(l=>l.clipped)||state.callout.right>state.photo.right||state.callout.bottom>state.photo.bottom||state.callout.left<state.photo.left||state.callout.top<state.photo.top||state.hero.height>height+1)throw Error(name+' failed '+JSON.stringify(state));
+ if(state.lines.map(l=>l.text).join('|')!=='YOUR IDEA COULD BE FEATURED|AT TOURIST ATTRACTIONS ↗'||state.badge!=='CASHPrizes'||!state.registration.includes('CASH Prizes')||!state.meta.includes('CASH Prizes')||!state.caption.includes('CASH Prizes'))throw Error(name+' copy');
+ await page.screenshot({path:`${dir}/${name}-hero.png`});results.push({name,width,height,state,errors});if(errors.length)throw Error(errors.join('\n'));await page.locator('#reduce-motion').check();await context.close();await fs.writeFile(`${dir}/results.json`,JSON.stringify(results,null,2));console.log(name+' passed');
+}
+await browser.close();

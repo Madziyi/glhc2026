@@ -14,3 +14,5 @@ As of2026-10-23, GitHub main includes PR#3, merge `386060d50589dcb19c764fa16d6af
 See `docs/GLHC-003-UAT.md` for local production evidence and limitations.
 
 2026-10-23 source sync: PR#4 merge595f8c04686db042f63615e89f69b6e4bb046c21 observed on GitHub main; info-session CTA label follow-up is on `codex/info-session-cta`. No production version/deployment or new external destination verified by this pass.
+
+2026-10-23 source sync: PR#5 merge692dcfecc1c3eb498887121623f12f049455f91a observed on GitHub main; submission-date hero follow-up is on `codex/submission-dates`. No production deployment/version or external event schedule verified by this pass; displayed dates are directly organizer-supplied.

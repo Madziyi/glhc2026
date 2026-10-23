@@ -1,7 +1,7 @@
 # Active Initiative — GLHC-003
 
 **Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
-**Branch:** `codex/info-session-cta`, based on GitHub main `595f8c0` (PR#4 merged).
+**Branch:** `codex/submission-dates`, based on GitHub main `692dcfe` (PR#5 merged).
 
 ## Current experience
 Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
@@ -140,3 +140,19 @@ Current organizer follow-up: both header/ending CTAs now read “Attend the info
 Info-session CTA verification:15 tests, Astro0/0/0, build/diff pass. Both labels,
 URL/target/rel and no-clipping/no-overflow/page-error checks pass at320x568,
 393x852,1440x900. Evidence: `uat/glhc003/info-session-cta/`.
+
+Current organizer follow-up: add the supplied submission opening/closing dates
+as two lines directly beneath the hero paragraph, without inventing a year or
+times. Keep responsive hero fit, existing CTA/link/preloader and scene behavior.
+
+Latest organizer-supplied schedule: “Idea Submissions OPEN: Nov 5th.” and “Idea Submissions CLOSE: Dec 3rd.” appear immediately below the hero description. No year or cutoff time supplied/added. Prior PR#5 merged; this follow-up is unmerged.
+
+Submission-date verification complete:15 tests, Astro0/0/0, build/diff pass.
+Exact two-line text sits beneath description and above buttons at320x568,
+375x667,393x852,768x1024,1440x900,667x375,568x320; entire hero/cue fits, no overflow
+or page errors. Evidence/script: `uat/glhc003/submission-dates/`, `submission-dates.mjs`.
+
+Date-label follow-up: OPEN and CLOSE are now uppercase. Production build/diff
+check and three-width static browser exact-text/no-clipping checks passed;
+`uat/glhc003/submission-dates/capitalization-results.json`. Earlier screenshots
+predate this casing-only edit.

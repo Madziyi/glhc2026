@@ -203,3 +203,10 @@
 - Changed: single small accessible “4/4: How it works” heading; removed repeated large title and How It Works kicker. Titles use Round 1 - Submit Your Idea / Round 2 - Bring Your Idea to Life; subtitles retain only Open To Everyone / Build & Showcase. Body, collage order, links, scene and timing unchanged.
 - Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile393x852 and desktop1440x900 exact text/label-size/no-overflow/no-page-error checks and screenshot review pass. Evidence/script: `uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. Existing Vite/capture/device limits remain.
 - Live state: no merge/deployment. Next action: organizer reviews updated PR#3. Commit: this published handoff.
+
+### 2026-10-22 — Constant-radius smoothed camera orbit
+- Task: remove in/out bumps during uneven orbit scrolling. Status: done, organizer review pending.
+- Cause: Cartesian interpolation between rotated positions cut chords across the circle; look target moved immediately ahead of the camera. Changed integrated camera to damp base camera/target and angular progress together before rotation, with no post-rotation Cartesian lerp. Prototype retains its old camera branch; approved settled framing/model/waves/prose/navigation remain unchanged.
+- Verification:15 tests, Astro0/0/0, production build/diff pass. Regressions cover abrupt/reverse input, radius/framing distance,30/60/120Hz invariance, exact settled endpoint and synchronized descent. Four-size browser checks with64 transient samples each show radius variation at most0.00001, endpoint within0.01, original underwater camera/look positions and no page errors. Evidence/script: `orbit-smoothing-final/`, `orbit-smoothing.mjs`. Supplied25.57s recording reviewed via frame extraction; generated reference/partial captures removed. Initial fixed-delay/literal-angle harness replaced by bounded endpoint wait, final matrix passed.
+- Scene619.82/160.69kB gzip (+.56/.23), bootstrap unchanged. Existing Vite/capture/device limits remain; no physical-FPS claim.
+- Live state: no merge/deployment. Next action: organizer reviews orbit fix in PR#3. Commit: this published handoff.

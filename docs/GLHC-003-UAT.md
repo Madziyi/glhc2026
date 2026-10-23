@@ -336,3 +336,38 @@ no overflow/page exceptions. Evidence/script: `uat/glhc003/round-heading-review/
 `round-heading-review.mjs`. Prior five-size science/order checks remain applicable
 to the unchanged interactions. Renderer/bootstrap output unchanged; existing Vite
 warning and physical-device acceptance boundary remain. No merge/deployment.
+
+## Orbit zoom-pumping fix — 2026-10-22
+
+Reviewed the supplied25.57-second recording using sampled video frames. The
+renderer interpolated between already-rotated camera positions in Cartesian
+space, cutting chords across the orbit during uneven/fast/reverse scroll input.
+Its target rotated immediately, ahead of the damped camera. This could change
+camera radius and framing distance, producing the reported in/out bump.
+
+`camera.mjs` now damps the unrotated camera, unrotated target and continuous orbit
+progress with the same time-based response, then rotates camera/target together.
+There is no second Cartesian interpolation after rotation. Angular easing continues
+through endpoint settling; initial refresh uses the actual pose immediately.
+The prototype retains its original camera branch. Orbit route/scroll boundaries,
+approved sensor pose, buoy/waves/materials, prose and3.2-second section jumps stay
+unchanged. Diagnostics expose actual rendered angle, radius and look coordinates.
+
+15 tests pass: new regressions cover abrupt forward/reverse progress at30/60/120
+and4Hz, constant radius and camera-to-target distance, frame-rate-independent
+response, exact eventual orbit return, synchronized descent and no initial fly-in.
+Astro0 errors/warnings/hints, production build/diff pass. Scene619.82/160.69kB gzip
+(+.56/.23), bootstrap3.48/1.48 unchanged; existing Vite warning remains.
+
+Script/evidence: `uat/glhc003/orbit-smoothing.mjs`, `orbit-smoothing-final/`.
+320x650,393x852,768x1024,1440x900 each exercise8 abrupt/reversing orbit inputs with
+64 transient samples. Radius remains11.34637 mobile/12.67518 desktop within0.00001
+model units. Completion returns the original camera within0.01; settled sensors
+match x/y/z3.65/-1.45/-11.8 and lookY-2.8 on phones,6.45/-1.45/-12.7 and lookY-.8
+on larger viewports. No page exceptions; final underwater screenshot reviewed.
+An initial harness required a literal fully settled angle after a fixed delay;
+replaced with a bounded condition-based endpoint/position wait and the full matrix
+passed. Reference contact frames and partial exploratory captures were removed;
+the original supplied recording is untouched. Capture-only4FPS software-renderer
+sampling verifies geometry/behavior, not physical-device FPS or video fluidity.
+No merge/deployment performed.

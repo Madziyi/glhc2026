@@ -93,3 +93,17 @@ Heading simplification verified:12 tests, Astro0/0/0, production build/diff pass
 Mobile393x852 and desktop1440x900 show the single small section heading, exact
 round labels/subtitles, no overflow/page errors. Evidence/script:
 `uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. PR#3 update.
+
+Current follow-up: fix orbit zoom pumping under uneven/fast/reverse scrolling.
+Investigate Cartesian damping across the circular path and unsynchronized look
+orientation; smooth the base camera/target and angular progress before rotation,
+then verify constant orbit radius and exact settled underwater orientation.
+
+Latest orbit fix: camera/target base pose and angular progress now share temporal
+smoothing before rotation, preventing circular-path chord shortcuts and aim
+mismatch.15 tests pass, Astro0/0/0, build/diff pass. Four-size transient browser
+checks include8 abrupt/reversing inputs and64 samples each; radius variation is
+at most0.00001 model units, original endpoint returns within0.01, settled sensor
+camera/look targets unchanged. Evidence: `uat/glhc003/orbit-smoothing-final/`.
+Scene619.82/160.69kB gzip (+.56/.23), bootstrap unchanged3.48/1.48. Existing
+Vite/software-renderer/device limits remain. No merge/deployment; PR#3 updated.

@@ -3,7 +3,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { timelineAt, smooth, STORY } from './timeline.mjs';
 import { MOTION_SPEED, surfaceHeightAt, rippleHeight, waveGLSL } from './waves.mjs';
-import { storyAt, orbitView } from '../glhc003/timeline.mjs';
+import { storyAt } from '../glhc003/timeline.mjs';
+import { advanceCamera } from '../glhc003/camera.mjs';
 
 const stage = document.querySelector('#stage');
 const integrated = !!document.querySelector('#invitation');
@@ -12,6 +13,7 @@ const canvas = document.querySelector('#buoy-canvas');
 const motionToggle = document.querySelector('#reduce-motion');
 const readout = document.querySelector('#scene-readout');
 let chapterBounds;
+let integratedCameraState;
 let renderer, scene, camera, buoy, water, sun, fill, frameId, staticMode = false, failed = false, cameraInitialized = false;
 let renderStats = { ms: 0, calls: 0, triangles: 0 };
 let ready = false, shaderCompiled = false;
@@ -270,6 +272,7 @@ function startRenderer() {
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, innerWidth < 700 ? 1.35 : 1.7));
     renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
     cameraInitialized = false;
+    integratedCameraState = undefined;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
@@ -390,12 +393,13 @@ function frame(now) {
     const mobileSurfaceOffset = integrated && innerWidth < 760 ? 1.4 * (1 - sensorProgress) : 0;
     const targetY = t.targetY + mobileSurfaceOffset + 0.55 * sensorProgress - (innerWidth < 760 ? t.waterMix * (integrated ? 2.0 : 0.3) : 0);
     const target = new THREE.Vector3(targetX, targetY, 0);
-    if (integrated && t.orbitActive) {
-      const view = orbitView(desired, target, t.orbitProgress);
-      desired.set(view.position.x, view.position.y, view.position.z);
+    if (integrated) {
+      const view = advanceCamera(integratedCameraState, desired, target, t.orbitProgress, delta);
+      integratedCameraState = view.state;
+      camera.position.set(view.position.x, view.position.y, view.position.z);
       target.set(view.target.x, view.target.y, view.target.z);
-    }
-    if (cameraInitialized) camera.position.lerp(desired, integrated ? 1 - Math.exp(-8 * delta) : 0.095);
+      cameraInitialized = true;
+    } else if (cameraInitialized) camera.position.lerp(desired, 0.095);
     else { camera.position.copy(desired); cameraInitialized = true; }
     camera.lookAt(target);
     if (integrated) {
@@ -405,6 +409,11 @@ function frame(now) {
       readout.dataset.cameraZ = camera.position.z.toFixed(3);
       readout.dataset.orbitProgress = t.orbitProgress.toFixed(4);
       readout.dataset.orbitActive = String(t.orbitActive);
+      readout.dataset.orbitRendered = integratedCameraState.progress.toFixed(7);
+      readout.dataset.orbitRadius = Math.hypot(camera.position.x, camera.position.z).toFixed(5);
+      readout.dataset.lookX = target.x.toFixed(5);
+      readout.dataset.lookY = target.y.toFixed(5);
+      readout.dataset.lookZ = target.z.toFixed(5);
       // Once physically well below the instrument assembly, omit its distant
       // silhouette from the final open-water chapter (including the mooring line).
       if (buoy) buoy.visible = t.departure < .72;

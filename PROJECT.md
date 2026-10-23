@@ -56,6 +56,11 @@ do not force a fixed-height clipped hero.
 Surface-to-science camera contract: one full reversible orbit about the buoy
 finishes before waterline crossing. The approved underwater camera/target must
 remain identical. Orbit moves the camera and framing target, not the buoy asset.
+Smooth the unrotated camera/target and orbit progress together before applying
+the rotation. Never interpolate Cartesian positions between rotated orbit points:
+that cuts across the circle and changes radius during uneven/reverse scrolling.
+The eased angle continues to settle at the orbit endpoint; the approved sensor
+camera and target remain exact once settled. Prototype camera behavior is separate.
 
 The integrated science chapter is220svh (260svh in short landscape), with its
 horizontal reveal across22–62% of the parked scroll interval. This reduces

@@ -4,7 +4,7 @@ import test from 'node:test';
 const read = path => readFileSync(new URL(path, import.meta.url), 'utf8');
 const html = read('../src/pages/index.astro');
 
-test('homepage contains the five chapter recruitment story in reading order', () => {
+test('homepage contains the four-section recruitment story in reading order', () => {
   const ids = ['invitation', 'surface', 'crossing', 'science', 'challenge', 'how-it-works', 'registration'];
   let previous = -1;
   for (const id of ids) {
@@ -16,6 +16,12 @@ test('homepage contains the five chapter recruitment story in reading order', ()
     assert.ok(html.includes(phrase), `Missing ${phrase}`);
   assert.equal((html.match(/class="science-panel"/g) || []).length, 2);
   assert.ok(!html.includes('glider-cutout'));
+  assert.equal((html.match(/\d\/4:/g) || []).length, 4);
+  assert.match(html, /class="button hero-jump" href="#challenge">What’s the challenge\?/);
+  assert.ok(!html.includes('class="how-it-works chapter"'));
+  assert.ok(html.indexOf('class="challenge-round round-one"') < html.indexOf('class="collage"'));
+  assert.ok(html.indexOf('class="collage"') < html.indexOf('class="challenge-round round-two"'));
+  for (const phrase of ['10 ideas will be selected', 'No prototype required.', 'Receive a project budget.', 'tourist destinations.', 'thousands of people experience.']) assert.ok(html.includes(phrase));
 });
 
 test('registration is centrally configured to the organizer supplied secure destination', () => {

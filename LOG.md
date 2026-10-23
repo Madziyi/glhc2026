@@ -188,3 +188,31 @@
 - Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile/desktop actual clicks for all3 links measured3.10–3.38s,2.03–2.30x native1.46/1.52s references; correct destinations/focus/80px clearance. Wheel cancels; reduced/no-JS pass. Evidence/script: `uat/glhc003/slow-scroll/`, `slow-scroll.mjs`. Bootstrap3.48/1.48kB gzip, scene unchanged. Existing Vite/capture/device limits remain.
 - Live state: no merge/deployment. Known issues: existing physical-device/launch acceptance remains open; unrelated untracked sources preserved.
 - Next action: organizer reviews slower section jumps in draft PR#2. Commit: this published handoff.
+
+### 2026-10-22 — Four sections, two challenge rounds and shorter science scroll
+- Task: GLHC-003 organizer narrative refinement. Status: done, organizer review pending.
+- Sync: fetched main908c22f with PR#2 merged, fast-forwarded baseline and branched `codex/challenge-rounds`. Unrelated untracked user sources preserved.
+- Changed homepage/CSS:1/4–4/4 labels, combined challenge/How It Works with supplied two-round copy and emphasized conclusion; mobile Round One/collage/Round Two order, desktop collage beside Round One. Hero button now targets section4, existing3.2s easing retained. Old how-it-works fragment remains a compatibility anchor. Registration unnumbered.
+- Science reveal travel now48svh vs90 (about47% less),64 vs125 in short landscape. Camera stays parked, reading holds and reverse preserved; exact science paragraphs/prototype/model/water unchanged.
+- Verification:12 tests, Astro0/0/0, production build/diff pass. Five-size production checks plus reduced/no-JS: actual button destination/focus/header clearance, labels, mobile order, forward/reverse panel states, no overflow/page errors. Mobile/desktop screenshot review. Evidence/script: `uat/glhc003/challenge-rounds/`, `challenge-rounds.mjs`. Initial float midpoint test needed tolerance; initial preview was not running, started it and matrix passed. Scene619.26/160.46kB; bootstrap3.48/1.48, existing Vite/capture/device limits remain.
+- Live state: source PR#2 merge verified, no deployment performed/verified; this follow-up unmerged. Known issues: external physical-device/launch acceptance remains open.
+- Next action: organizer reviews the new follow-up PR. Commit: this published handoff.
+
+### 2026-10-22 — Simplified round headings
+- Task: organizer section4 annotation. Status: done, organizer review pending.
+- Changed: single small accessible “4/4: How it works” heading; removed repeated large title and How It Works kicker. Titles use Round 1 - Submit Your Idea / Round 2 - Bring Your Idea to Life; subtitles retain only Open To Everyone / Build & Showcase. Body, collage order, links, scene and timing unchanged.
+- Verification:12 tests, Astro0/0/0, production build/diff pass. Mobile393x852 and desktop1440x900 exact text/label-size/no-overflow/no-page-error checks and screenshot review pass. Evidence/script: `uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. Existing Vite/capture/device limits remain.
+- Live state: no merge/deployment. Next action: organizer reviews updated PR#3. Commit: this published handoff.
+
+### 2026-10-22 — Constant-radius smoothed camera orbit
+- Task: remove in/out bumps during uneven orbit scrolling. Status: done, organizer review pending.
+- Cause: Cartesian interpolation between rotated positions cut chords across the circle; look target moved immediately ahead of the camera. Changed integrated camera to damp base camera/target and angular progress together before rotation, with no post-rotation Cartesian lerp. Prototype retains its old camera branch; approved settled framing/model/waves/prose/navigation remain unchanged.
+- Verification:15 tests, Astro0/0/0, production build/diff pass. Regressions cover abrupt/reverse input, radius/framing distance,30/60/120Hz invariance, exact settled endpoint and synchronized descent. Four-size browser checks with64 transient samples each show radius variation at most0.00001, endpoint within0.01, original underwater camera/look positions and no page errors. Evidence/script: `orbit-smoothing-final/`, `orbit-smoothing.mjs`. Supplied25.57s recording reviewed via frame extraction; generated reference/partial captures removed. Initial fixed-delay/literal-angle harness replaced by bounded endpoint wait, final matrix passed.
+- Scene619.82/160.69kB gzip (+.56/.23), bootstrap unchanged. Existing Vite/capture/device limits remain; no physical-FPS claim.
+- Live state: no merge/deployment. Next action: organizer reviews orbit fix in PR#3. Commit: this published handoff.
+
+### 2026-10-22 — Six-second fading invitation preloader
+- Task: organizer final intro request. Status: done, organizer review pending.
+- Added full-screen exact invitation fading in1.1s, parent overlay/text fading out together.7s after6s timer. Scene starts concurrently. Independent inline dismissal restores inert/scroll state even with blocked bootstrap/delayed model; reduced motion has no fades, actual no-JS skips overlay. Explicit organizer timing supersedes prior no-intro-gate boundary.
+- Verification:15 tests, Astro0/0/0, production build/diff pass. Four-size browser intro/readability/background readiness/timing/cleanup/no-overflow/no-page-error checks and mobile post-intro navigation pass. Reduced, no-JS, blocked bootstrap,8s-delayed model pass; blocked/slow scenes do not delay dismissal. Evidence/script: `uat/glhc003/preloader/`, `preloader.mjs`. Hold6.01–6.43s, cleanup.70–1.22s under software-renderer callback load; configured CSS fades1.1s/.7s. Scene/bootstrap sizes unchanged, existing Vite/device limits remain.
+- Live state: no merge/deployment. Next action: organizer reviews preloader in PR#3. Commit: this published handoff.

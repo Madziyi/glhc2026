@@ -286,3 +286,116 @@ progress; OS-reduced and actual no-JS anchors pass. Raw timed positions/script:
 `uat/glhc003/slow-scroll/results.json`, `slow-scroll.mjs`. Capture-only4FPS cap
 and software renderer apply; these timings verify navigation duration, not GPU
 performance. No merge or deployment.
+
+## Four sections and two-round challenge — 2026-10-22
+
+Baseline is GitHub main908c22f (merged PR#2); follow-up `codex/challenge-rounds`.
+The four story labels now read1/4 At The Surface,2/4 Beneath The Surface,
+3/4 Understanding The Science,4/4 What’s The Challenge. Closing registration
+is unnumbered. The former separate challenge/participation sections are one
+section4 with How It Works and the organizer’s complete Round One/Two copy:
+solo/team ideas, all skills, real-data creativity, no prototype;10 ideas advance;
+then budget, equipment/support, build, cash awards, and public display at tourist
+destinations. The concluding sentence is emphasized. Mobile document order is
+Round One, supplied inspiration collage, Round Two; desktop places collage beside
+Round One. Hero challenge link targets `#challenge` with existing3.2s easing.
+The old `#how-it-works` fragment remains inside section4 for compatibility.
+
+Science height reduces280 to220svh (short landscape350 to260), reveal interval
+22–72% becomes22–62% of the parked scroll. Default reveal travel becomes48svh
+versus90svh, about47% less scrolling; short landscape64 versus125svh,49% less.
+Both exact paragraphs, settled holds, parked camera and reverse scroll remain.
+Original prototype timing, water, model, hero fit/fonts and registration unchanged.
+
+Tests12/12, Astro0 errors/warnings/hints, build/diff pass; scene619.26/160.46kB gzip,
+bootstrap3.48/1.48, existing Vite warning. Extended tests check four-section/content
+contracts and shorter reveal endpoint/midpoint; initial exact midpoint assertion
+was corrected to floating-point tolerance. Production browser evidence/script:
+`uat/glhc003/challenge-rounds/`, `challenge-rounds.mjs`. Five sizes320x650,
+393x852,768x1024,1440x900,667x375 pass actual section4 link/hash/focus/80px offset,
+labels, mobile visual/document order, panel start/mid/end and reverse, unchanged
+parked view, no overflow/page exceptions. Separate OS-reduced and actual no-JS
+contexts pass navigation and readable content. Mobile/desktop full section
+screenshots reviewed. Initial preview connection refusal was resolved by starting
+the local preview; completed matrix passed. Test-only4FPS software-renderer limits
+remain; no physical-device or production-deployment claim.
+
+## Section4 heading simplification — 2026-10-22
+
+Organizer annotation replaces the repeated large heading/kicker with the single
+small accessible heading “4/4: How it works”. Round titles now read “Round 1 -
+Submit Your Idea” and “Round 2 - Bring Your Idea to Life”, with subtitles “Open To
+Everyone” and “Build & Showcase”. Body copy, mobile collage placement, section4
+fragment/navigation and science timing are unchanged. Legacy how-it-works anchor
+is retained inside the small heading.
+
+Verification:12 tests, Astro0 errors/warnings/hints, production build and diff
+check pass. Mobile393x852 and desktop1440x900 browser checks/visual review confirm
+exact heading/subtitle strings, a small label (under12px), no repeated kicker,
+no overflow/page exceptions. Evidence/script: `uat/glhc003/round-heading-review/`,
+`round-heading-review.mjs`. Prior five-size science/order checks remain applicable
+to the unchanged interactions. Renderer/bootstrap output unchanged; existing Vite
+warning and physical-device acceptance boundary remain. No merge/deployment.
+
+## Orbit zoom-pumping fix — 2026-10-22
+
+Reviewed the supplied25.57-second recording using sampled video frames. The
+renderer interpolated between already-rotated camera positions in Cartesian
+space, cutting chords across the orbit during uneven/fast/reverse scroll input.
+Its target rotated immediately, ahead of the damped camera. This could change
+camera radius and framing distance, producing the reported in/out bump.
+
+`camera.mjs` now damps the unrotated camera, unrotated target and continuous orbit
+progress with the same time-based response, then rotates camera/target together.
+There is no second Cartesian interpolation after rotation. Angular easing continues
+through endpoint settling; initial refresh uses the actual pose immediately.
+The prototype retains its original camera branch. Orbit route/scroll boundaries,
+approved sensor pose, buoy/waves/materials, prose and3.2-second section jumps stay
+unchanged. Diagnostics expose actual rendered angle, radius and look coordinates.
+
+15 tests pass: new regressions cover abrupt forward/reverse progress at30/60/120
+and4Hz, constant radius and camera-to-target distance, frame-rate-independent
+response, exact eventual orbit return, synchronized descent and no initial fly-in.
+Astro0 errors/warnings/hints, production build/diff pass. Scene619.82/160.69kB gzip
+(+.56/.23), bootstrap3.48/1.48 unchanged; existing Vite warning remains.
+
+Script/evidence: `uat/glhc003/orbit-smoothing.mjs`, `orbit-smoothing-final/`.
+320x650,393x852,768x1024,1440x900 each exercise8 abrupt/reversing orbit inputs with
+64 transient samples. Radius remains11.34637 mobile/12.67518 desktop within0.00001
+model units. Completion returns the original camera within0.01; settled sensors
+match x/y/z3.65/-1.45/-11.8 and lookY-2.8 on phones,6.45/-1.45/-12.7 and lookY-.8
+on larger viewports. No page exceptions; final underwater screenshot reviewed.
+An initial harness required a literal fully settled angle after a fixed delay;
+replaced with a bounded condition-based endpoint/position wait and the full matrix
+passed. Reference contact frames and partial exploratory captures were removed;
+the original supplied recording is untouched. Capture-only4FPS software-renderer
+sampling verifies geometry/behavior, not physical-device FPS or video fluidity.
+No merge/deployment performed.
+
+## Six-second introduction preloader — 2026-10-22
+
+Explicit organizer request adds a full-screen navy overlay with the exact bold
+invitation: “Into art, science, technology, or just curious? This event is for you.”
+Words fade in1.1s after a.15s delay. A6,000ms inline timer starts the.7s opacity
+fade on the parent overlay, taking words and background out together. Scroll and
+underlying interaction are restored after dismissal. Background content is inert
+while covered, retaining any existing inert state afterward. No-JavaScript skips
+the overlay entirely. OS reduced motion shows the6s message without fades.
+
+Scene/module loading starts as before behind the intro. Its dismissal does not
+wait for scene-ready and is independent of bootstrap execution; blocked/delayed
+3D cannot keep the overlay up forever. This gives rendering time but is not a
+six-second rendering-readiness guarantee. Existing timeout/retry remain independent.
+
+15 tests, Astro0 errors/warnings/hints, production build/diff pass. Bootstrap and
+scene bundles unchanged3.48/1.48 and619.82/160.69kB gzip; existing Vite warning.
+Script/evidence: `uat/glhc003/preloader.mjs`, `preloader/`.320x568,393x852,
+768x1024,1440x900 show exact readable text within viewport, scene-ready while
+covered, correct fade class and hidden state, restored interaction/no overflow/
+page exceptions. Mobile button navigation works after dismissal. Additional OS
+reduced, actual no-JS, blocked bootstrap and8s-delayed model scenarios pass;
+slow/blocked cases dismiss even though scene is not ready. Measured hold6.01–6.43s
+and final cleanup.70–1.22s after fade start reflect callback scheduling/software
+renderer load; CSS durations remain1.1s/.7s. Reduced removes immediately at6s.
+Capture-only4FPS software rendering is not physical-device readiness evidence.
+Mobile/desktop intro screenshots reviewed. No merge/deployment.

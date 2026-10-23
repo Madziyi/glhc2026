@@ -64,3 +64,22 @@
 html:not(.static-motion) .surface .research-photo{width:clamp(320px,40vw,520px);max-width:100%;align-self:flex-end;margin-top:22svh}
 html:not(.static-motion) .surface .research-photo img{max-height:520px}
 @media(max-width:600px){html:not(.static-motion) .surface .research-photo{width:244px}html:not(.static-motion) .surface .research-photo img{max-height:256px}html:not(.static-motion) .surface .research-photo figcaption{font-size:.65rem;max-width:100%}}
+
+/* Four story sections; a shorter parked science reveal precedes both rounds. */
+.science{height:220svh}
+.challenge-rounds{min-height:0;grid-template-columns:1fr 1fr;grid-template-areas:"intro intro" "one inspiration" "two two";gap:clamp(3rem,7vw,6rem);align-items:start;padding-top:12svh;padding-bottom:14svh;background:linear-gradient(#032c3bbf,#032333e8)}
+.challenge-rounds .challenge-intro{grid-area:intro;max-width:none}.challenge-rounds .challenge-intro h2{font-family:inherit;font-size:.69rem;letter-spacing:.16em;line-height:1.5;font-weight:700;margin-bottom:0}
+.round-one{grid-area:one}.round-two{grid-area:two;width:100%;max-width:850px;justify-self:center;border-top:1px solid #b9e3d540;padding-top:clamp(2rem,5vw,4rem)}
+.challenge-round h3{font-size:clamp(1.65rem,2.8vw,2.6rem);font-weight:600;letter-spacing:-.045em;line-height:1.15;margin-bottom:.8rem}.challenge-round h3 span{color:var(--mint);white-space:nowrap}
+.challenge-round .round-subtitle{font-size:.85rem;font-weight:700;letter-spacing:.04em;color:var(--mint);margin-bottom:1.5rem}
+.challenge-round>p,.challenge-round li{font-size:1rem;line-height:1.65;color:#dceae7}.challenge-round ul{padding-left:1.2rem;margin:1.5rem 0}.challenge-round li{padding-left:.3rem;margin-bottom:1rem}.challenge-round li::marker{color:var(--yellow)}.challenge-round strong{color:#f6f6ed}.challenge-round .round-selection{margin-top:1.7rem;margin-bottom:0}.challenge-round .round-finale{font-size:clamp(1.25rem,2vw,1.6rem);max-width:40ch;margin:2rem 0 0;line-height:1.5}.round-finale strong{color:var(--yellow)}
+.challenge-rounds .collage{grid-area:inspiration;width:100%;margin-top:0;max-width:620px;justify-self:end}.challenge-rounds .collage h3{font-size:clamp(1.6rem,2.4vw,2.3rem)}
+@media(max-width:600px){.challenge-rounds{display:flex;flex-direction:column;gap:2.8rem;padding-block:10svh}.challenge-rounds .collage{max-width:none}.challenge-round h3{font-size:1.75rem}.challenge-round>p,.challenge-round li{font-size:.92rem}.challenge-round .round-subtitle{font-size:.78rem}.challenge-rounds .challenge-intro h2{font-size:.6rem;letter-spacing:.13em}}
+@media(max-height:550px) and (orientation:landscape){.science{height:260svh}}
+
+/* Six-second introduction; rendering starts normally behind this overlay. */
+html.intro-active{overflow:hidden}
+.intro-preloader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.5rem,env(safe-area-inset-left));background:#052638;color:#f6f6ed;opacity:1;transition:opacity .7s ease;isolation:isolate}
+.intro-preloader[hidden]{display:none}.intro-preloader p{max-width:25ch;margin:0;text-align:center;font-size:clamp(1.4rem,4.7vw,3.2rem);line-height:1.4;letter-spacing:-.025em;opacity:0;animation:intro-words-in 1.1s ease .15s forwards}.intro-preloader strong{font-weight:600}.intro-preloader.is-leaving{opacity:0}
+@keyframes intro-words-in{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.intro-preloader{transition:none}.intro-preloader p{opacity:1;animation:none}}

@@ -1,12 +1,12 @@
 # Active Initiative — GLHC-003
 
 **Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
-**Branch:** `feat/glhc-003-storytelling`, based on organizer setup `0ae92345220313fa9132639d4d82f47a76c85aa5` and accepted R6 main merge `1524431`.
+**Branch:** `codex/challenge-rounds`, based on GitHub main `908c22f` (PR#2 merged).
 
 ## Current experience
-Root homepage contains the complete five-scene journey: invitation/photo → researchers and surface buoy → continuous waterline descent and parked sensor science → supplied collage and How It Works → buoy-free deep-water registration.
+Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
 
-Latest organizer hero reference supersedes earlier invitation copy: “Great Lakes Hackathon Challenge” with yellow italic Challenge; only the solo/team creative-project paragraph remains. The art/science/technology introduction and bold no-experience welcome are removed from the hero (the later welcome remains). The group photograph has rounded corners. Two yellow pill links, “What’s this about?” and “What’s the challenge?”, scroll to `#surface` (section01) and `#how-it-works` (“CURIOSITY IS YOUR STARTING POINT”). These links and the hero scroll cue now use a3.2-second eased animation, cancellable by user input, resize/history or motion preference changes. Native anchors remain functional without JavaScript; static/reduced motion scrolls immediately. A yellow Register Now button stays in the header. Prize shape spins with upright text; centered animated scroll_down.svg reads “SCROLL FOR A COOL BREAKDOWN” in yellow. Existing Google Sans/fonts and higher-resolution group photo retained.
+Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “What’s this about?” targets `#surface` (1/4); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Register Now, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
 
 Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
@@ -26,10 +26,10 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 - Scene619.26kB/160.46kB gzip; bootstrap3.48/1.48 plus helper1.11/.65. Latest model surface11draws/45,080triangles; sensors12draws/45,272triangles (one new white-material batch). Final registration2draws/32,992triangles. Existing Vite warning remains.
 
 ## Release boundary
-No main merge or production deployment. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
+PR#2 source merge is verified; this follow-up is unmerged. No production deployment performed or verified. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
 
 ## One next action
-Organizer reviews the draft PR and latest hero/complete-story evidence, then requests revisions or approves merge and real-device/launch checks.
+Organizer reviews the combined two-round challenge and shorter science transition in the new follow-up PR, then requests revisions or approves merge.
 
 Latest surface editorial refinement: researcher photo is doubled in size and
 placed lower-right using section-owned normal flow. It enters that position as
@@ -69,3 +69,54 @@ prior native long-jump duration on mobile/desktop. Wheel interruption stops the
 animation; correct80px target clearance, focus/hash and reduced/no-JS anchors pass.
 Evidence/script: `uat/glhc003/slow-scroll/`, `slow-scroll.mjs`. Tests12/12,
 Astro0/0/0, build passed; bootstrap3.48/1.48kB gzip, renderer unchanged.
+
+Active organizer follow-up (2026-10-22): combine challenge/How It Works into one
+4/4 section with supplied two-round copy; mobile inspiration follows Round One;
+hero challenge link targets section4. Shorten science chapter and lateral-reveal
+scroll while preserving parked camera, reading holds, reverse scroll and slow
+3.2-second navigation. Verify responsive DOM order, navigation and panel travel.
+PR#2 is now merged on GitHub main as908c22f; this pass starts from that source.
+
+Latest four-section/two-round verification: five viewports320x650,393x852,
+768x1024,1440x900,667x375 pass section4 jump/focus/80px clearance, numbering,
+mobile Round One/image/Round Two order, shorter panel reveal and reverse return,
+parked camera, no overflow/page exceptions. Reduced/no-JS paths pass. Reveal
+travel is53% of prior distance (51% in short landscape). Evidence:
+`uat/glhc003/challenge-rounds/`; tests12/12, Astro0/0/0, build/diff pass.
+
+Current organizer follow-up: simplify section4 to the single label “4/4: How it
+works”, remove repeated large heading/kicker, name headings “Round 1 - Submit
+Your Idea” and “Round 2 - Bring Your Idea to Life”, retain only Open To Everyone
+and Build & Showcase as subtitles. Preserve copy, layout order and navigation.
+
+Heading simplification verified:12 tests, Astro0/0/0, production build/diff pass.
+Mobile393x852 and desktop1440x900 show the single small section heading, exact
+round labels/subtitles, no overflow/page errors. Evidence/script:
+`uat/glhc003/round-heading-review/`, `round-heading-review.mjs`. PR#3 update.
+
+Current follow-up: fix orbit zoom pumping under uneven/fast/reverse scrolling.
+Investigate Cartesian damping across the circular path and unsynchronized look
+orientation; smooth the base camera/target and angular progress before rotation,
+then verify constant orbit radius and exact settled underwater orientation.
+
+Latest orbit fix: camera/target base pose and angular progress now share temporal
+smoothing before rotation, preventing circular-path chord shortcuts and aim
+mismatch.15 tests pass, Astro0/0/0, build/diff pass. Four-size transient browser
+checks include8 abrupt/reversing inputs and64 samples each; radius variation is
+at most0.00001 model units, original endpoint returns within0.01, settled sensor
+camera/look targets unchanged. Evidence: `uat/glhc003/orbit-smoothing-final/`.
+Scene619.82/160.69kB gzip (+.56/.23), bootstrap unchanged3.48/1.48. Existing
+Vite/software-renderer/device limits remain. No merge/deployment; PR#3 updated.
+
+Current organizer follow-up: six-second full-screen intro with the supplied
+art/science/technology message fading in; overlay and words fade out together
+at6s. Scene loads concurrently. Dismiss independently of scene/module success,
+restore interaction/scroll, preserve no-JS reading and reduced-motion preferences.
+
+Latest organizer addition: full-screen navy preloader displays the exact
+“Into art, science, technology, or just curious? This event is for you.” message.
+Text fades in1.1s,6s hold timer starts immediately, overlay/text fade out together
+in.7s. Scene starts concurrently; inline dismissal is independent of bootstrap/
+3D success. Inert/scroll restored; no-JS skips overlay, reduced motion has no fades.
+15 tests, Astro0/0/0, build/diff pass. Four viewport sizes plus reduced, no-JS,
+blocked bootstrap and8s-delayed model pass. Evidence: `uat/glhc003/preloader/`.

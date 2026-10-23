@@ -1,7 +1,7 @@
 # Active Initiative — GLHC-003
 
 **Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
-**Branch:** `codex/challenge-rounds`, based on GitHub main `908c22f` (PR#2 merged).
+**Branch:** `codex/hero-cash-prize`, based on GitHub main `386060d` (PR#3 merged).
 
 ## Current experience
 Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
@@ -26,7 +26,7 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 - Scene619.26kB/160.46kB gzip; bootstrap3.48/1.48 plus helper1.11/.65. Latest model surface11draws/45,080triangles; sensors12draws/45,272triangles (one new white-material batch). Final registration2draws/32,992triangles. Existing Vite warning remains.
 
 ## Release boundary
-PR#2 source merge is verified; this follow-up is unmerged. No production deployment performed or verified. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
+PR#2 and PR#3 source merges are verified; this hero callout/prize follow-up is unmerged. No production deployment performed or verified. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
 
 ## One next action
 Organizer reviews the combined two-round challenge and shorter science transition in the new follow-up PR, then requests revisions or approves merge.
@@ -120,3 +120,17 @@ in.7s. Scene starts concurrently; inline dismissal is independent of bootstrap/
 3D success. Inert/scroll restored; no-JS skips overlay, reduced motion has no fades.
 15 tests, Astro0/0/0, build/diff pass. Four viewport sizes plus reduced, no-JS,
 blocked bootstrap and8s-delayed model pass. Evidence: `uat/glhc003/preloader/`.
+
+Current organizer follow-up (2026-10-23): add a rectangular bottom-right hero-photo
+callout with the supplied tourist-attractions wording; replace every live $500
+mention with CASH prize (starburst, registration, meta description and accessible
+caption). Preserve photo composition, responsive hero fit and preloader/camera.
+PR#3 merged as386060d; this pass starts from that main on codex/hero-cash-prize.
+
+Latest organizer correction: all live prize wording is plural CASH Prizes, for top projects, without a fixed amount. Photo gains the supplied two-line tourist-attractions rectangle at bottom-right. Earlier singular/dollar-amount notes are historical.
+
+Hero callout/CASH Prizes follow-up verified at320x568,375x667,393x852,768x1024,
+1440x900,667x375. Rectangle stays within photo, both lines fit, hero still fits
+viewport and no overflow/page errors. Exact callout text and plural prize copy
+verified in badge, registration, metadata and accessible caption.15 tests,
+Astro0/0/0, build/diff pass. Evidence: `uat/glhc003/hero-cash-prizes/`.

@@ -1,0 +1,272 @@
+[
+  {
+    "name": "small",
+    "width": 320,
+    "height": 568,
+    "state": {
+      "photo": {
+        "left": 88.8008804321289,
+        "top": 152.01943969726562,
+        "right": 231.19913482666016,
+        "bottom": 262.4649353027344,
+        "height": 110.44549560546875
+      },
+      "callout": {
+        "left": 106.01072692871094,
+        "top": 225.7473907470703,
+        "right": 223.5363311767578,
+        "bottom": 256.3303527832031,
+        "height": 30.582962036132812
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 320,
+        "bottom": 568,
+        "height": 568
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "se",
+    "width": 375,
+    "height": 667,
+    "state": {
+      "photo": {
+        "left": 61.12311553955078,
+        "top": 163.20523071289062,
+        "right": 313.8612747192383,
+        "bottom": 357.7322692871094,
+        "height": 194.52703857421875
+      },
+      "callout": {
+        "left": 177.4636993408203,
+        "top": 319.24029541015625,
+        "right": 304.3817138671875,
+        "bottom": 351.5976867675781,
+        "height": 32.357391357421875
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 375,
+        "bottom": 667,
+        "height": 667
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "width": 393,
+    "height": 852,
+    "state": {
+      "photo": {
+        "left": 25.144886016845703,
+        "top": 198.17881774902344,
+        "right": 367.8550910949707,
+        "bottom": 461.27427673339844,
+        "height": 263.095458984375
+      },
+      "callout": {
+        "left": 182.83169555664062,
+        "top": 413.91796875,
+        "right": 356.4639892578125,
+        "bottom": 454.54864501953125,
+        "height": 40.63067626953125
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 393,
+        "bottom": 852,
+        "height": 852
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "width": 768,
+    "height": 1024,
+    "state": {
+      "photo": {
+        "left": 399.840576171875,
+        "top": 388.4885559082031,
+        "right": 729.159423828125,
+        "bottom": 643.5114135742188,
+        "height": 255.02285766601562
+      },
+      "callout": {
+        "left": 551.4965209960938,
+        "top": 596.184814453125,
+        "right": 715.876220703125,
+        "bottom": 637.0794677734375,
+        "height": 40.8946533203125
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 768,
+        "bottom": 1024,
+        "height": 1024
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "state": {
+      "photo": {
+        "left": 755.4730834960938,
+        "top": 217.4844970703125,
+        "right": 1367.0894775390625,
+        "bottom": 690.5155029296875,
+        "height": 473.031005859375
+      },
+      "callout": {
+        "left": 1101.4171142578125,
+        "top": 617.0335693359375,
+        "right": 1341.9715576171875,
+        "bottom": 678.524169921875,
+        "height": 61.4906005859375
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 1440,
+        "bottom": 900,
+        "height": 900
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "landscape",
+    "width": 667,
+    "height": 375,
+    "state": {
+      "photo": {
+        "left": 390.56549072265625,
+        "top": 83.23482513427734,
+        "right": 601.9188842773438,
+        "bottom": 247.7651596069336,
+        "height": 164.53033447265625
+      },
+      "callout": {
+        "left": 473.78680419921875,
+        "top": 209.55844116210938,
+        "right": 591.6124267578125,
+        "bottom": 241.55943298339844,
+        "height": 32.00099182128906
+      },
+      "hero": {
+        "left": 0,
+        "top": 0,
+        "right": 667,
+        "bottom": 375,
+        "height": 375
+      },
+      "lines": [
+        {
+          "text": "YOUR IDEA COULD BE FEATURED",
+          "clipped": false
+        },
+        {
+          "text": "AT TOURIST ATTRACTIONS ↗",
+          "clipped": false
+        }
+      ],
+      "badge": "CASHPrizes",
+      "caption": "CASH Prizes for top projects.",
+      "registration": "CASH Prizes for top projects.",
+      "meta": "Make waves with real Great Lakes data. A student hackathon for every skill level, with equipment provided and CASH Prizes.",
+      "oldAmount": false,
+      "overflow": false
+    },
+    "errors": []
+  }
+]

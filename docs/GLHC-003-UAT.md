@@ -399,3 +399,30 @@ and final cleanup.70–1.22s after fade start reflect callback scheduling/softwa
 renderer load; CSS durations remain1.1s/.7s. Reduced removes immediately at6s.
 Capture-only4FPS software rendering is not physical-device readiness evidence.
 Mobile/desktop intro screenshots reviewed. No merge/deployment.
+
+## Hero annotation and CASH Prizes — 2026-10-23
+
+Based on GitHub main386060d (PR#3 merged), branch `codex/hero-cash-prize`.
+Hero photo now has a yellow rectangle inside the bottom-right corner containing
+“YOUR IDEA COULD BE FEATURED” / “AT TOURIST ATTRACTIONS ↗”. It is static text,
+not an invented link. Photo-container sizing keeps it proportional at different
+hero dimensions and preserves the full source photograph and visible faces.
+The organizer clarified plural CASH Prizes: the starburst, registration, meta
+description and accessible photo caption now omit the fixed dollar amount and
+single-winning-team implication. Registration/caption say prizes for top projects,
+consistent with Round Two. No counts or monetary values invented. Historical
+reports/screenshots are retained as evidence of their versions.
+
+Verification:15 tests, Astro0 errors/warnings/hints, production build/diff pass.
+No old dollar amount remains in live source/generated pages. Updated existing
+content contract expects CASH Prizes/cash awards. Six viewport checks320x568,
+375x667,393x852,768x1024,1440x900,667x375 pass exact copy, text fit, photo-contained
+rectangle, hero viewport fit and no overflow/page exceptions. Mobile/desktop
+screenshots reviewed; callout overlays the lower floor area, leaving faces visible.
+An initial compact callout line exceeded its text box; adjusted its minimum type
+size/tracking and the full final matrix passed with plural wording. Evidence:
+`uat/glhc003/hero-cash-prizes/`, script `hero-cash-prize.mjs`.
+Renderer/bootstrap sizes unchanged619.82/160.69 and3.48/1.48kB gzip. Existing Vite
+warning and capture-only4FPS/software-renderer/device limits remain. Preloader,
+scene/camera, navigation and registration destination unchanged. No merge or
+production deployment performed/verified in this pass.

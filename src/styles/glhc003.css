@@ -83,3 +83,8 @@ html.intro-active{overflow:hidden}
 .intro-preloader[hidden]{display:none}.intro-preloader p{max-width:25ch;margin:0;text-align:center;font-size:clamp(1.4rem,4.7vw,3.2rem);line-height:1.4;letter-spacing:-.025em;opacity:0;animation:intro-words-in 1.1s ease .15s forwards}.intro-preloader strong{font-weight:600}.intro-preloader.is-leaving{opacity:0}
 @keyframes intro-words-in{to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.intro-preloader{transition:none}.intro-preloader p{opacity:1;animation:none}}
+
+/* A second photo annotation, sized to the photo rather than the viewport. */
+.hero-photo__frame{container-type:inline-size}
+.hero-photo__callout{position:absolute;right:clamp(6px,2cqi,14px);bottom:clamp(6px,2cqi,14px);max-width:calc(100% - 12px);padding:clamp(5px,1.5cqi,10px) clamp(6px,2.5cqi,16px);background:var(--yellow);color:#092e40;font-size:clamp(.4rem,2.9cqi,.8rem);font-weight:700;line-height:1.4;letter-spacing:.02em;text-align:left;box-shadow:0 3px 12px #031c3833}
+.hero-photo__callout>span{display:block;white-space:nowrap}

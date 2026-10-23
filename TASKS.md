@@ -1,7 +1,7 @@
 # GLHC 2026 Task Board
 
 ## Active — GLHC-003
-- GLHC-003A `[implemented]` — people-first hero, attached $500 Prize starburst, explicit winning-team/no-experience/public-display copy, immediate registration and progressive moving lake.
+- GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.
 - GLHC-003B `[implemented]` — approved R6 scene integrated into a surface camera orbit returning before continuous descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
 - GLHC-003C `[implemented and locally verified; organizer review pending]` — combined section4 with supplied two-round copy and responsive inspiration collage; deep-water buoy-free ending; all registration links use configured Luma destination. Four-section labels, corrected section4 jump and about47% shorter science reveal verified at five viewports plus no-JS/reduced motion (`uat/glhc003/challenge-rounds/`).
 - Latest heading simplification `[implemented and locally verified]` — single “4/4: How it works” label; Round 1/2 title prefixes; only Open To Everyone / Build & Showcase subtitles. Mobile/desktop evidence: `uat/glhc003/round-heading-review/`.
@@ -25,3 +25,5 @@
 
 ## Excluded
 Glider-led core story, fake scientific telemetry, data-art simulator, fabricated schedule/location, custom registration backend and registration gating.
+
+Latest organizer follow-up: hero callout/CASH Prizes wording on `codex/hero-cash-prize` for review after PR#3 merged as386060d. Historical evidence still contains prior dollar/singular copy.

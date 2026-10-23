@@ -1,7 +1,7 @@
 # GLHC 2026 — stable context
 
 ## Purpose
-A mobile-first recruitment story for the Great Lakes Data Hackathon Challenge. Students use provided open hardware and real Great Lakes water-quality data to create public-facing experiences. The opening introduces the creative invitation and **$500 prize**; section4 explains the two rounds and no-experience requirement.
+A mobile-first recruitment story for the Great Lakes Data Hackathon Challenge. Students use provided open hardware and real Great Lakes water-quality data to create public-facing experiences. The opening introduces the creative invitation and **CASH Prizes**; section4 explains the two rounds and no-experience requirement.
 
 ## Approved narrative
 Student/group photograph over moving lake, attached upper-right prize starburst →1/4 At The Surface →2/4 Beneath The Surface →3/4 Understanding The Science (two exact paragraphs, one parked horizontal transition) →4/4 What’s The Challenge (How It Works, Round One, supplied inspiration collage, Round Two) →unnumbered deep-water registration. On mobile the collage follows Round One and precedes Round Two. The combined fourth section uses the organizer’s exact two-round copy:10 ideas advance, then selected participants receive budget/equipment/support, build and showcase, compete for cash awards and public display at tourist destinations. Do not invent funding amounts, dates or selection mechanics.
@@ -30,7 +30,7 @@ content. No-JS skips the overlay; reduced motion keeps the6s message without fad
 This timed introduction does not assert that rendering has completed in6s.
 
 ## Current initiative and acceptance
-GLHC-003 replaced the superseded glider-led root homepage and merged via PR#2 as `908c22f`. Current organizer follow-up is on `codex/challenge-rounds`, based on that main. The organizer approved R6 visually after PR#1; physical-device performance acceptance remains open. Source merge does not verify production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
+GLHC-003 replaced the superseded glider-led root homepage and merged via PR#2 as `908c22f`. PR#3 subsequently merged as `386060d`; the current hero callout/prize follow-up is on `codex/hero-cash-prize`, based on that main. The organizer approved R6 visually after PR#1; physical-device performance acceptance remains open. Source merge does not verify production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
 
 ## Release controls
 No custom registration backend, fabricated scientific telemetry, interactive data-art simulator, interaction gates beyond the organizer-requested six-second intro, additional horizontal chapters or glider-led opening. Image publication rights and representative physical iOS/Android/network readiness must be checked before launch. Do not merge or deploy GLHC-003 without organizer approval.
@@ -81,3 +81,5 @@ as a small accessible section heading; repeated large challenge heading and extr
 kicker are removed. Titles are “Round 1 - Submit Your Idea” and “Round 2 - Bring
 Your Idea to Life”; subtitles are “Open To Everyone” and “Build & Showcase”.
 Full body copy, mobile collage order and section4 navigation remain unchanged.
+
+Latest hero/prize direction (2026-10-23): use CASH Prizes, with no specific dollar amount or single-winning-team implication. Hero starburst, accessible caption, metadata and registration share this wording. A yellow rectangular annotation inside the photo’s bottom-right reads “YOUR IDEA COULD BE FEATURED” / “AT TOURIST ATTRACTIONS ↗”. It is static display text, sized to the photo container; retain full photo composition and responsive hero fit.

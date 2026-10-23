@@ -29,3 +29,5 @@ Glider-led core story, fake scientific telemetry, data-art simulator, fabricated
 Latest organizer follow-up: hero callout/CASH Prizes wording on `codex/hero-cash-prize` for review after PR#3 merged as386060d. Historical evidence still contains prior dollar/singular copy.
 
 Info-session CTA labels: both header/ending links renamed “Attend the info session”; destination/security retained. Based on main595f8c0 (PR#4 merged), branch `codex/info-session-cta`.
+
+Hero submission dates: supplied Nov5 opening / Dec3 closing text added under description, responsive hero verification in progress on `codex/submission-dates`, based on merged PR#5 main692dcfe.

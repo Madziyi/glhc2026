@@ -1,0 +1,11 @@
+import{createRequire}from'node:module';import fs from'node:fs/promises';
+const require=createRequire(import.meta.url),{chromium}=require(process.env.PLAYWRIGHT_MODULE),browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH});
+const dir='uat/glhc003/submission-dates',results=[];await fs.mkdir(dir,{recursive:true});
+for(const[name,width,height]of[['small',320,568],['se',375,667],['mobile',393,852],['tablet',768,1024],['desktop',1440,900],['landscape',667,375],['short-landscape',568,320]]){
+ const context=await browser.newContext({viewport:{width,height}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.addInitScript(()=>{window.requestAnimationFrame=fn=>setTimeout(()=>fn(performance.now()),250);window.cancelAnimationFrame=clearTimeout});
+ await page.goto('http://127.0.0.1:4334');await page.waitForFunction(()=>document.querySelector('#intro-preloader').hidden,{timeout:15000});await page.evaluate(()=>document.fonts.ready);
+ const state=await page.evaluate(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return{top:r.top,bottom:r.bottom,left:r.left,right:r.right,height:r.height}};return{lines:[...document.querySelectorAll('.hero-dates span')].map(e=>e.textContent),description:rect('.hero-description'),dates:rect('.hero-dates'),actions:rect('.hero-actions'),hero:rect('#invitation'),cue:rect('.scroll-cue'),overflow:document.documentElement.scrollWidth>innerWidth}});
+ const pass=state.lines.join('|')==='Idea Submissions open: Nov 5th.|Idea Submissions close: Dec 3rd.'&&state.dates.top>=state.description.bottom&&state.actions.top>=state.dates.bottom&&state.actions.bottom<state.cue.top&&state.hero.height<=height+1&&!state.overflow&&!errors.length;
+ await page.screenshot({path:`${dir}/${name}-hero.png`});results.push({name,width,height,pass,state,errors});await fs.writeFile(`${dir}/results.json`,JSON.stringify(results,null,2));await page.locator('#reduce-motion').check();await context.close();console.log(name,pass,JSON.stringify({hero:state.hero.height,dates:state.dates,actions:state.actions.bottom,cue:state.cue.top}));
+}await browser.close();if(results.some(r=>!r.pass))process.exitCode=1;

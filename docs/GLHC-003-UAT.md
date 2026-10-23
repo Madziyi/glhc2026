@@ -436,3 +436,17 @@ verify both exact labels, URLs/security attributes, no clipping/overflow/page
 exceptions. Mobile header visual review passes. Evidence/script:
 `uat/glhc003/info-session-cta/`, `info-session-cta.mjs`. Runtime bundles unchanged;
 existing Vite/software-renderer/device limits remain. No merge/deployment.
+
+## Hero submission dates — 2026-10-23
+Directly beneath the hero description, added the organizer-supplied lines:
+“Idea Submissions open: Nov 5th.” / “Idea Submissions close: Dec 3rd.”
+No year, timezone or cutoff time was supplied or inferred. Description and dates
+share one grid/flex item; photo sizing and compact spacing adapt to retain full
+hero fit. Short landscape uses compact type/spacing. Existing CTAs, URL, preloader,
+camera and story remain unchanged.
+15 tests, Astro0/0/0, build/diff pass. Seven sizes320x568,375x667,393x852,
+768x1024,1440x900,667x375,568x320 verify exact lines, placement below description
+and above buttons, complete hero/cue fit, no overflow/page errors. Mobile screenshot
+reviewed. Evidence/script: `uat/glhc003/submission-dates/`, `submission-dates.mjs`.
+Runtime bundles unchanged; existing Vite/capture/device limits remain. Based on
+main692dcfe (PR#5 merged). No merge or deployment performed.

@@ -1,0 +1,345 @@
+[
+  {
+    "name": "small",
+    "width": 320,
+    "height": 568,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 255.84375,
+        "bottom": 337.03125,
+        "left": 20,
+        "right": 300,
+        "height": 81.1875
+      },
+      "dates": {
+        "top": 343.03125,
+        "bottom": 373.8125,
+        "left": 20,
+        "right": 300,
+        "height": 30.78125
+      },
+      "actions": {
+        "top": 382.375,
+        "bottom": 484,
+        "left": 34,
+        "right": 286,
+        "height": 101.625
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 568,
+        "left": 0,
+        "right": 320,
+        "height": 568
+      },
+      "cue": {
+        "top": 494.015625,
+        "bottom": 555.203125,
+        "left": 69.3203125,
+        "right": 250.6796875,
+        "height": 61.1875
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "se",
+    "width": 375,
+    "height": 667,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 333.796875,
+        "bottom": 394.6875,
+        "left": 20,
+        "right": 355,
+        "height": 60.890625
+      },
+      "dates": {
+        "top": 402.6875,
+        "bottom": 439.78125,
+        "left": 20,
+        "right": 355,
+        "height": 37.09375
+      },
+      "actions": {
+        "top": 467,
+        "bottom": 571,
+        "left": 36.75,
+        "right": 338.25,
+        "height": 104
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 667,
+        "left": 0,
+        "right": 375,
+        "height": 667
+      },
+      "cue": {
+        "top": 593.015625,
+        "bottom": 654.203125,
+        "left": 96.8203125,
+        "right": 278.1796875,
+        "height": 61.1875
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "width": 393,
+    "height": 852,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 466.3125,
+        "bottom": 559.0625,
+        "left": 20,
+        "right": 373,
+        "height": 92.75
+      },
+      "dates": {
+        "top": 567.0625,
+        "bottom": 604.15625,
+        "left": 20,
+        "right": 373,
+        "height": 37.09375
+      },
+      "actions": {
+        "top": 628,
+        "bottom": 756,
+        "left": 37.65625,
+        "right": 355.34375,
+        "height": 128
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 852,
+        "left": 0,
+        "right": 393,
+        "height": 852
+      },
+      "cue": {
+        "top": 778.015625,
+        "bottom": 839.203125,
+        "left": 105.8203125,
+        "right": 287.1796875,
+        "height": 61.1875
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "width": 768,
+    "height": 1024,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 452.234375,
+        "bottom": 548.234375,
+        "left": 43,
+        "right": 364,
+        "height": 96
+      },
+      "dates": {
+        "top": 558.625,
+        "bottom": 595.71875,
+        "left": 43,
+        "right": 364,
+        "height": 37.09375
+      },
+      "actions": {
+        "top": 621.3125,
+        "bottom": 758.109375,
+        "left": 43,
+        "right": 364,
+        "height": 136.796875
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 1024,
+        "left": 0,
+        "right": 768,
+        "height": 1024
+      },
+      "cue": {
+        "top": 948.09375,
+        "bottom": 1011.203125,
+        "left": 280.125,
+        "right": 487.875,
+        "height": 63.109375
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 446.09375,
+        "bottom": 532.484375,
+        "left": 80.625,
+        "right": 648.515625,
+        "height": 86.390625
+      },
+      "dates": {
+        "top": 542.875,
+        "bottom": 586.9375,
+        "left": 80.625,
+        "right": 676.796875,
+        "height": 44.0625
+      },
+      "actions": {
+        "top": 612.53125,
+        "bottom": 751.703125,
+        "left": 80.625,
+        "right": 520.625,
+        "height": 139.171875
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 900,
+        "left": 0,
+        "right": 1440,
+        "height": 900
+      },
+      "cue": {
+        "top": 824.09375,
+        "bottom": 887.203125,
+        "left": 616.125,
+        "right": 823.875,
+        "height": 63.109375
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "landscape",
+    "width": 667,
+    "height": 375,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 140.65625,
+        "bottom": 213.40625,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 72.75
+      },
+      "dates": {
+        "top": 219.40625,
+        "bottom": 249.09375,
+        "left": 37.34375,
+        "right": 330.828125,
+        "height": 29.6875
+      },
+      "actions": {
+        "top": 257.09375,
+        "bottom": 301.09375,
+        "left": 37.34375,
+        "right": 629.65625,
+        "height": 44
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 375,
+        "left": 0,
+        "right": 667,
+        "height": 375
+      },
+      "cue": {
+        "top": 331.46875,
+        "bottom": 375,
+        "left": 254.359375,
+        "right": 412.640625,
+        "height": 43.53125
+      },
+      "overflow": false
+    },
+    "errors": []
+  },
+  {
+    "name": "short-landscape",
+    "width": 568,
+    "height": 320,
+    "pass": true,
+    "state": {
+      "lines": [
+        "Idea Submissions open: Nov 5th.",
+        "Idea Submissions close: Dec 3rd."
+      ],
+      "description": {
+        "top": 120.5,
+        "bottom": 187.6875,
+        "left": 20,
+        "right": 279.796875,
+        "height": 67.1875
+      },
+      "dates": {
+        "top": 191.6875,
+        "bottom": 217.6875,
+        "left": 20,
+        "right": 279.796875,
+        "height": 26
+      },
+      "actions": {
+        "top": 221.6875,
+        "bottom": 265.6875,
+        "left": 20,
+        "right": 548,
+        "height": 44
+      },
+      "hero": {
+        "top": 0,
+        "bottom": 320,
+        "left": 0,
+        "right": 568,
+        "height": 320
+      },
+      "cue": {
+        "top": 276.46875,
+        "bottom": 320,
+        "left": 204.859375,
+        "right": 363.140625,
+        "height": 43.53125
+      },
+      "overflow": false
+    },
+    "errors": []
+  }
+]

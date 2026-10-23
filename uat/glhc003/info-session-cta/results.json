@@ -1,0 +1,110 @@
+[
+  {
+    "name": "narrow",
+    "links": [
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "states": [
+      {
+        "label": "header",
+        "left": 100.265625,
+        "right": 300,
+        "width": 199.734375,
+        "clipped": false,
+        "overflow": false
+      },
+      {
+        "label": "ending",
+        "left": 39.515625,
+        "right": 280.46875,
+        "width": 240.953125,
+        "clipped": false,
+        "overflow": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "links": [
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "states": [
+      {
+        "label": "header",
+        "left": 173.265625,
+        "right": 373,
+        "width": 199.734375,
+        "clipped": false,
+        "overflow": false
+      },
+      {
+        "label": "ending",
+        "left": 76.015625,
+        "right": 316.96875,
+        "width": 240.953125,
+        "clipped": false,
+        "overflow": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "links": [
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "label": "Attend the info session",
+        "href": "https://luma.com/pz0iw2m7",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "states": [
+      {
+        "label": "header",
+        "left": 1136.171875,
+        "right": 1359.375,
+        "width": 223.203125,
+        "clipped": false,
+        "overflow": false
+      },
+      {
+        "label": "ending",
+        "left": 590.03125,
+        "right": 849.953125,
+        "width": 259.921875,
+        "clipped": false,
+        "overflow": false
+      }
+    ],
+    "errors": []
+  }
+]

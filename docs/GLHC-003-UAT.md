@@ -426,3 +426,13 @@ Renderer/bootstrap sizes unchanged619.82/160.69 and3.48/1.48kB gzip. Existing Vi
 warning and capture-only4FPS/software-renderer/device limits remain. Preloader,
 scene/camera, navigation and registration destination unchanged. No merge or
 production deployment performed/verified in this pass.
+
+## Info-session CTA labels — 2026-10-23
+Both header and ending buttons now read “Attend the info session”; the closing
+new-tab note is neutral. Existing central Luma URL, _blank/noopener noreferrer
+behavior and configuration hooks remain. No session dates/details invented.
+15 tests, Astro0/0/0, build/diff pass. Browser checks at320x568,393x852,1440x900
+verify both exact labels, URLs/security attributes, no clipping/overflow/page
+exceptions. Mobile header visual review passes. Evidence/script:
+`uat/glhc003/info-session-cta/`, `info-session-cta.mjs`. Runtime bundles unchanged;
+existing Vite/software-renderer/device limits remain. No merge/deployment.

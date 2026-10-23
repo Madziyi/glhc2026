@@ -31,3 +31,6 @@ Latest organizer follow-up: hero callout/CASH Prizes wording on `codex/hero-cash
 Info-session CTA labels: both header/ending links renamed “Attend the info session”; destination/security retained. Based on main595f8c0 (PR#4 merged), branch `codex/info-session-cta`.
 
 Hero submission dates: supplied Nov5 opening / Dec3 closing text added under description, responsive hero verification in progress on `codex/submission-dates`, based on merged PR#5 main692dcfe.
+
+Submission-date casing: OPEN and CLOSE capitalized; build/diff and320/393/1440px
+static browser exact-text/no-clipping checks pass. PR#6 update.

@@ -145,9 +145,14 @@ Current organizer follow-up: add the supplied submission opening/closing dates
 as two lines directly beneath the hero paragraph, without inventing a year or
 times. Keep responsive hero fit, existing CTA/link/preloader and scene behavior.
 
-Latest organizer-supplied schedule: “Idea Submissions open: Nov 5th.” and “Idea Submissions close: Dec 3rd.” appear immediately below the hero description. No year or cutoff time supplied/added. Prior PR#5 merged; this follow-up is unmerged.
+Latest organizer-supplied schedule: “Idea Submissions OPEN: Nov 5th.” and “Idea Submissions CLOSE: Dec 3rd.” appear immediately below the hero description. No year or cutoff time supplied/added. Prior PR#5 merged; this follow-up is unmerged.
 
 Submission-date verification complete:15 tests, Astro0/0/0, build/diff pass.
 Exact two-line text sits beneath description and above buttons at320x568,
 375x667,393x852,768x1024,1440x900,667x375,568x320; entire hero/cue fits, no overflow
 or page errors. Evidence/script: `uat/glhc003/submission-dates/`, `submission-dates.mjs`.
+
+Date-label follow-up: OPEN and CLOSE are now uppercase. Production build/diff
+check and three-width static browser exact-text/no-clipping checks passed;
+`uat/glhc003/submission-dates/capitalization-results.json`. Earlier screenshots
+predate this casing-only edit.

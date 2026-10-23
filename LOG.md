@@ -235,3 +235,8 @@
 - Sync: PR#5 merged as692dcfe; started `codex/submission-dates`. Exact two-line Nov5/Dec3 wording supplied by organizer; no year/time inferred. Grouped dates with description, adapted compact photo/spacing to retain hero fit. Existing CTAs/preloader/camera unchanged.
 - Verification:15 tests, Astro0/0/0, build/diff pass. Seven viewport sizes320x568 through1440x900 plus short landscape: exact text/placement/full hero fit/no overflow/page errors. Mobile screenshot reviewed. Evidence/script: `uat/glhc003/submission-dates/`, `submission-dates.mjs`. Runtime bundles unchanged, existing Vite/device limits remain.
 - Live state: source merge observed; no deployment. Next action: organizer reviews new follow-up PR. Commit: this published handoff.
+
+### 2026-10-23 — Uppercase submission status words
+- Task: capitalize OPEN/CLOSE. Status: done. Updated live date lines and verification expectations/current context; dates/layout unchanged.
+- Verification: production build/diff pass; static browser exact-text/no-clipping checks at320/393/1440px pass (`uat/glhc003/submission-dates/capitalization-results.json`). Prior screenshots predate casing change. No merge/deployment.
+- Next action: organizer reviews updated PR#6. Commit: this published handoff.

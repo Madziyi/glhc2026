@@ -450,3 +450,7 @@ and above buttons, complete hero/cue fit, no overflow/page errors. Mobile screen
 reviewed. Evidence/script: `uat/glhc003/submission-dates/`, `submission-dates.mjs`.
 Runtime bundles unchanged; existing Vite/capture/device limits remain. Based on
 main692dcfe (PR#5 merged). No merge or deployment performed.
+
+2026-10-23 casing follow-up: date labels now use OPEN and CLOSE. Build/diff pass;
+320/393/1440px no-JS browser text/fit checks pass (`capitalization-results.json`).
+Earlier screenshots retain prior casing; content, layout and behavior unchanged.

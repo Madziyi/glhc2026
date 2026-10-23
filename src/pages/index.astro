@@ -11,6 +11,7 @@ if (!registrationUrl || !registrationUrl.startsWith('https://luma.com/')) throw 
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#062f42" />
     <script is:inline>
+      document.documentElement.classList.add('intro-active');
       // Select layout before body parsing so native scroll restoration sees
       // the final chapter heights; no-JavaScript readers retain the static layout.
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -24,6 +25,35 @@ if (!registrationUrl || !registrationUrl.startsWith('https://luma.com/')) throw 
     <script is:inline src="/site-config.js"></script>
   </head>
   <body>
+    <div class="intro-preloader" id="intro-preloader" role="status" aria-live="polite" hidden><p><strong>Into art, science, technology, or just curious? This event is for you.</strong></p></div>
+    <script is:inline>
+      // Independent of the scene module: even a blocked/failed 3D load must
+      // never strand the reader behind the introduction.
+      (() => {
+        const root = document.documentElement;
+        const intro = document.getElementById('intro-preloader');
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+        const content = [];
+        intro.hidden = false;
+        const finish = () => {
+          intro.hidden = true;
+          root.classList.remove('intro-active');
+          for (const [element, wasInert] of content) element.inert = wasInert;
+        };
+        setTimeout(() => {
+          intro.classList.add('is-leaving');
+          setTimeout(finish, reduced.matches ? 0 : 700);
+        }, 6000);
+        document.addEventListener('DOMContentLoaded', () => {
+          if (!root.classList.contains('intro-active')) return;
+          for (const element of document.body.children) {
+            if (element === intro || element.tagName === 'SCRIPT') continue;
+            content.push([element, element.inert]);
+            element.inert = true;
+          }
+        }, { once: true });
+      })();
+    </script>
     <a class="skip-link" href="#challenge">Skip to the challenge</a>
     <header class="site-header">
       <nav aria-label="Main navigation"><a class="button header-register" data-register href={registrationUrl} target="_blank" rel="noopener noreferrer">Register Now <span aria-hidden="true">↗</span><span class="sr-only"> on Luma (new tab)</span></a></nav>

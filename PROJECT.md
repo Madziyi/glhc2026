@@ -21,11 +21,19 @@ R6 water and approved finishes remain the baseline: original yellow and underwat
 ## Progressive enhancement
 The full story remains readable without JavaScript, with OS/user reduced motion, when WebGL fails and after the 10-second readiness timeout. Static views present both science paragraphs in order. Native scroll is never intercepted. Retry starts a fresh bounded initialization. The homepage's controls/copy are DOM content, not a rendered canvas interface.
 
+Organizer-requested intro: on JavaScript-enabled loads, a full-screen navy
+preloader displays “Into art, science, technology, or just curious? This event is
+for you.” Text fades in over1.1s; after6s the whole overlay/text fades out over.7s.
+Scene loading starts normally underneath, without waiting for this timer. Inline
+dismissal is independent of the scene/bootstrap, and restores scroll and inert
+content. No-JS skips the overlay; reduced motion keeps the6s message without fades.
+This timed introduction does not assert that rendering has completed in6s.
+
 ## Current initiative and acceptance
 GLHC-003 replaced the superseded glider-led root homepage and merged via PR#2 as `908c22f`. Current organizer follow-up is on `codex/challenge-rounds`, based on that main. The organizer approved R6 visually after PR#1; physical-device performance acceptance remains open. Source merge does not verify production deployment. See `NOW.md` and `docs/GLHC-003-UAT.md` for exact verification boundaries.
 
 ## Release controls
-No custom registration backend, fabricated scientific telemetry, interactive data-art simulator, forced animation unlock, additional horizontal chapters or glider-led opening. Image publication rights and representative physical iOS/Android/network readiness must be checked before launch. Do not merge or deploy GLHC-003 without organizer approval.
+No custom registration backend, fabricated scientific telemetry, interactive data-art simulator, interaction gates beyond the organizer-requested six-second intro, additional horizontal chapters or glider-led opening. Image publication rights and representative physical iOS/Android/network readiness must be checked before launch. Do not merge or deploy GLHC-003 without organizer approval.
 
 Follow `AGENTS.md` and `AGENT-WORKFLOW.md`; the active implementation agent owns durable context until its handoff is published.
 

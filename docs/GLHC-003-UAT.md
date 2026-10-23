@@ -371,3 +371,31 @@ passed. Reference contact frames and partial exploratory captures were removed;
 the original supplied recording is untouched. Capture-only4FPS software-renderer
 sampling verifies geometry/behavior, not physical-device FPS or video fluidity.
 No merge/deployment performed.
+
+## Six-second introduction preloader — 2026-10-22
+
+Explicit organizer request adds a full-screen navy overlay with the exact bold
+invitation: “Into art, science, technology, or just curious? This event is for you.”
+Words fade in1.1s after a.15s delay. A6,000ms inline timer starts the.7s opacity
+fade on the parent overlay, taking words and background out together. Scroll and
+underlying interaction are restored after dismissal. Background content is inert
+while covered, retaining any existing inert state afterward. No-JavaScript skips
+the overlay entirely. OS reduced motion shows the6s message without fades.
+
+Scene/module loading starts as before behind the intro. Its dismissal does not
+wait for scene-ready and is independent of bootstrap execution; blocked/delayed
+3D cannot keep the overlay up forever. This gives rendering time but is not a
+six-second rendering-readiness guarantee. Existing timeout/retry remain independent.
+
+15 tests, Astro0 errors/warnings/hints, production build/diff pass. Bootstrap and
+scene bundles unchanged3.48/1.48 and619.82/160.69kB gzip; existing Vite warning.
+Script/evidence: `uat/glhc003/preloader.mjs`, `preloader/`.320x568,393x852,
+768x1024,1440x900 show exact readable text within viewport, scene-ready while
+covered, correct fade class and hidden state, restored interaction/no overflow/
+page exceptions. Mobile button navigation works after dismissal. Additional OS
+reduced, actual no-JS, blocked bootstrap and8s-delayed model scenarios pass;
+slow/blocked cases dismiss even though scene is not ready. Measured hold6.01–6.43s
+and final cleanup.70–1.22s after fade start reflect callback scheduling/software
+renderer load; CSS durations remain1.1s/.7s. Reduced removes immediately at6s.
+Capture-only4FPS software rendering is not physical-device readiness evidence.
+Mobile/desktop intro screenshots reviewed. No merge/deployment.

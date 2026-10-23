@@ -76,3 +76,10 @@ html:not(.static-motion) .surface .research-photo img{max-height:520px}
 .challenge-rounds .collage{grid-area:inspiration;width:100%;margin-top:0;max-width:620px;justify-self:end}.challenge-rounds .collage h3{font-size:clamp(1.6rem,2.4vw,2.3rem)}
 @media(max-width:600px){.challenge-rounds{display:flex;flex-direction:column;gap:2.8rem;padding-block:10svh}.challenge-rounds .collage{max-width:none}.challenge-round h3{font-size:1.75rem}.challenge-round>p,.challenge-round li{font-size:.92rem}.challenge-round .round-subtitle{font-size:.78rem}.challenge-rounds .challenge-intro h2{font-size:.6rem;letter-spacing:.13em}}
 @media(max-height:550px) and (orientation:landscape){.science{height:260svh}}
+
+/* Six-second introduction; rendering starts normally behind this overlay. */
+html.intro-active{overflow:hidden}
+.intro-preloader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.5rem,env(safe-area-inset-left));background:#052638;color:#f6f6ed;opacity:1;transition:opacity .7s ease;isolation:isolate}
+.intro-preloader[hidden]{display:none}.intro-preloader p{max-width:25ch;margin:0;text-align:center;font-size:clamp(1.4rem,4.7vw,3.2rem);line-height:1.4;letter-spacing:-.025em;opacity:0;animation:intro-words-in 1.1s ease .15s forwards}.intro-preloader strong{font-weight:600}.intro-preloader.is-leaving{opacity:0}
+@keyframes intro-words-in{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.intro-preloader{transition:none}.intro-preloader p{opacity:1;animation:none}}

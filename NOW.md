@@ -107,3 +107,16 @@ at most0.00001 model units, original endpoint returns within0.01, settled sensor
 camera/look targets unchanged. Evidence: `uat/glhc003/orbit-smoothing-final/`.
 Scene619.82/160.69kB gzip (+.56/.23), bootstrap unchanged3.48/1.48. Existing
 Vite/software-renderer/device limits remain. No merge/deployment; PR#3 updated.
+
+Current organizer follow-up: six-second full-screen intro with the supplied
+art/science/technology message fading in; overlay and words fade out together
+at6s. Scene loads concurrently. Dismiss independently of scene/module success,
+restore interaction/scroll, preserve no-JS reading and reduced-motion preferences.
+
+Latest organizer addition: full-screen navy preloader displays the exact
+“Into art, science, technology, or just curious? This event is for you.” message.
+Text fades in1.1s,6s hold timer starts immediately, overlay/text fade out together
+in.7s. Scene starts concurrently; inline dismissal is independent of bootstrap/
+3D success. Inert/scroll restored; no-JS skips overlay, reduced motion has no fades.
+15 tests, Astro0/0/0, build/diff pass. Four viewport sizes plus reduced, no-JS,
+blocked bootstrap and8s-delayed model pass. Evidence: `uat/glhc003/preloader/`.

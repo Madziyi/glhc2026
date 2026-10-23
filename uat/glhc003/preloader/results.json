@@ -1,0 +1,276 @@
+[
+  {
+    "name": "narrow",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": true
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 120
+        },
+        {
+          "type": "fade",
+          "t": 6140.69999999553
+        },
+        {
+          "type": "hide",
+          "t": 6938.79999999702
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": true,
+      "overflow": false
+    },
+    "holdMs": 6020.69999999553,
+    "fadeMs": 798.1000000014901,
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": true
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 47.29999999701977
+        },
+        {
+          "type": "fade",
+          "t": 6274.79999999702
+        },
+        {
+          "type": "hide",
+          "t": 7353.5
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": true,
+      "overflow": false
+    },
+    "holdMs": 6227.5,
+    "fadeMs": 1078.7000000029802,
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": true
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 47.399999998509884
+        },
+        {
+          "type": "fade",
+          "t": 6476
+        },
+        {
+          "type": "hide",
+          "t": 7592.5
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": true,
+      "overflow": false
+    },
+    "holdMs": 6428.60000000149,
+    "fadeMs": 1116.5,
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": true
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 45.29999999701977
+        },
+        {
+          "type": "fade",
+          "t": 6233.69999999553
+        },
+        {
+          "type": "hide",
+          "t": 7452.39999999851
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": true,
+      "overflow": false
+    },
+    "holdMs": 6188.39999999851,
+    "fadeMs": 1218.7000000029802,
+    "errors": []
+  },
+  {
+    "name": "reduced",
+    "initial": {
+      "opacity": 1,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": false
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 109.39999999850988
+        },
+        {
+          "type": "fade",
+          "t": 6118.10000000149
+        },
+        {
+          "type": "hide",
+          "t": 6118.60000000149
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": false,
+      "overflow": false
+    },
+    "holdMs": 6008.70000000298,
+    "fadeMs": 0.5,
+    "errors": []
+  },
+  {
+    "name": "blocked-module",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": false
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 84.10000000149012
+        },
+        {
+          "type": "fade",
+          "t": 6092.10000000149
+        },
+        {
+          "type": "hide",
+          "t": 6793.4000000059605
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": false,
+      "overflow": false
+    },
+    "holdMs": 6008,
+    "fadeMs": 701.3000000044703,
+    "errors": []
+  },
+  {
+    "name": "delayed-model",
+    "initial": {
+      "opacity": 0,
+      "visible": true,
+      "inert": true
+    },
+    "visible": {
+      "text": "Into art, science, technology, or just curious? This event is for you.",
+      "opacity": 1,
+      "overlayOpacity": 1,
+      "fits": true,
+      "sceneReady": false
+    },
+    "final": {
+      "events": [
+        {
+          "type": "show",
+          "t": 61.69999999552965
+        },
+        {
+          "type": "fade",
+          "t": 6075
+        },
+        {
+          "type": "hide",
+          "t": 7046.0999999940395
+        }
+      ],
+      "locked": false,
+      "inert": false,
+      "sceneReady": false,
+      "overflow": false
+    },
+    "holdMs": 6013.30000000447,
+    "fadeMs": 971.0999999940395,
+    "errors": []
+  },
+  {
+    "name": "no-js",
+    "state": {
+      "hidden": true,
+      "locked": false,
+      "inert": false
+    }
+  }
+]

@@ -1,8 +1,10 @@
 # GLHC 2026 Task Board
 
-## Active — GLHC-004
-- `[organizer approved]` — silent 15-second opening, preserved as the Opening composition.
-- `[rendered and verified; organizer review pending]` — full 75-second silent promo with invitation, two rounds, ten advancing concepts, support, cash prizes, guaranteed public displays for top winners and supplied submission CTA.
+## Active - GLHC-004 revised motion storytelling
+- `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
+- `[direction agreed]` - Section1 lake/buoy/sensors/signal journey; not implemented yet.
+- `[rendered and verified; comparison pending]` - Section2 A continuous3D conceptual installations, B actual installation photographs from supplied deck. Both12s1080p30, silent, no persistent text. See promo/SECTION2-STUDIES.md.
+- `[pending]` - choose A/B/blend, then discuss and build subsequent sections one at a time.
 
 ## Website handoff — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.

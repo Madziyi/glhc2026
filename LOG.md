@@ -258,3 +258,12 @@
 - Verification: initial full render inspected at12 representative times; full-resolution closing card and corrected trophy still checked. Corrected export rendered2250/2250 and every frame decoded successfully. Five approved-opening samples have exactly zero decoded pixel difference in initial/final full exports. Eight new scene intervals cover450-2249 without gaps/overlap; package/lock consistency and git diff check pass. Evidence and repeatable decoder/contact-sheet helper in promo/.
 - Removed unintended local parent-package dependency from isolated promo manifest/lock. README, visual script and local review page updated. Audio intentionally absent; timing editable. No new browser playback/UAT or production deployment claim. Previous localhost preview limitations retained; MP4 delivered directly.
 - Next action: organizer reviews full silent draft, then supplies audio for timing/sound pass. Commit: published branch handoff.
+
+
+### 2026-10-26 - GLHC-004 Section2 comparative motion studies
+- Task: build both animated concepts and actual-photo approaches for Section2. Status: both rendered/verified; organizer comparison pending.
+- Synced main55a9194 unchanged; continued codex/promo-prototype. Organizer's new direction supersedes earlier style approval: no repeated editorial layouts or small slogans; discuss/build section by section. Agreed Section1 lake/buoy/sensor/signal remains unimplemented.
+- A: Three.js real geometry, illuminated rods, water/speaker station, hinged shells, continuous camera travel, signal trail, transition to paper trace. Original conceptual objects, no exact reconstruction or scientific-reading claim.
+- B: original extracted +POOL Light, Ripple Effect and CLAMS photographs from supplied deck. Pan/zoom, ripple/ellipse reveals and linked trace. No claimed real motion in source stills, no prior entrant implication. Source/credits and public-use rights boundary in SECTION2-STUDIES.md; deck untouched.
+- Verification: both360/360-frame renders completed; every frame decoded,12s1920x1080/30FPS. Full-resolution3D still and six representative moments per version inspected, including transitions and common sketch ending. Evidence versioned under promo/evidence/. Manifest/lock consistency verified. No audio/browser-playback/deployment claims.
+- Added pinned three0.180.0 only inside promo. Older compositions preserved; website implementation unchanged, unrelated sources preserved. Next: organizer chooses A/B/blend before Section3. Commit: published branch handoff.

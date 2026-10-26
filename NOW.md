@@ -1,17 +1,17 @@
-# Active Initiative - GLHC-004 full silent promo
+# Active Initiative - GLHC-004 Section 2 motion studies
 
-Status: full silent draft rendered and verified; organizer review pending on codex/promo-prototype. Main55a9194 checked; no new upstream changes. Organizer approved the 15-second opening and requested the next step.
+Status: both studies rendered and verified; organizer comparison pending on codex/promo-prototype; main55a9194 synced2026-10-26.
 
-Scope: extend approved opening into 75-second silent landscape promo in isolated promo/ project. Include student eligibility/inclusion, idea-only Round1, ten selections, supported Round2, cash prizes, guaranteed display for top winners and submission CTA. Approved opening remains a separate composition.
+Organizer rejected the previous repeated heading/illustration/caption layout as animated PowerPoint. This supersedes the earlier stylistic approval. Replan and build section by section. Agreed Section1 direction: lake, buoy, underwater sensors, signal into a creative idea. Current authorized task: build BOTH Section2 versions for comparison before continuing.
 
-Decisions: Great Lakes Hackathon Challenge; top winners WILL have designs displayed at tourist attractions. Use organizer-supplied Nov5-Dec3 2026, Dec3 11:59PM ET deadline and raeonhacks.com/project from pasted brief. No prize/funding amounts. Graphics are original conceptual illustrations, no fabricated scientific readings. Audio later.
+Scope: two silent12-second1080p30 studies of data becoming light, sound and movement. A: actual3D conceptual installations with continuous camera movement. B: actual +POOL Light, Ripple Effect and CLAMS photos from supplied deck, moving photographic composition with signal-led transitions. No persistent headings, tiny slogans or event branding. Section1 and remaining promo not built in this pass.
 
-Acceptance: full 2250-frame 1080p/30FPS MP4; representative scene inspection, decode every frame, preserve approved opening pixels, update source/script and durable handoff.
+Script: Turn a measurement into light. A changing pattern into sound. Or build something that moves with the data. What would you create?
 
-Website handoff: promo/WEBSITE-HANDOFF.md. Website implementation untouched. No deployment.
+Source: organizer-supplied deck. Examples are existing independent installations, not student entrants. Credits recorded separately; images not assumed cleared for public release. Original conceptual3D assets should not claim exact reconstructions or actual readings.
 
-Verification: 2250/2250 frames rendered for initial and corrected full exports. Twelve representative scenes visually inspected. Trophy contrast corrected and checked in a full-resolution still; closing card inspected at full resolution. Five sampled opening frames matched the approved opening with zero decoded pixel differences in both initial and final full exports. Final export decoded all2250 frames:75s,1920x1080,30FPS. Evidence: promo/evidence/. Scene timing covers frames450-2249 without gaps/overlap; package/lock dependencies agree; git diff check passes.
+Acceptance: render and decode both360-frame studies, inspect representative frames and transitions, present both videos for choice. Preserve older versions as history. No website/deployment edits.
 
-Boundary: no audio, production deployment, portal availability check, or new browser playback claim. Rendered MP4 lives in ignored promo/out/; source and final verification evidence are versioned.
+Verification: both Remotion compositions rendered360/360 frames; every frame decoded successfully,12s,1920x1080,30FPS. Six moments from each version inspected in contact sheet, including two camera/image transitions and paper ending. 3D light/material/framing still inspected at full resolution. Evidence: promo/evidence/section2-review.jpg and section2-verification.json. Manifest/lock dependencies agree. No browser-playback or audio verification claimed.
 
-Next action: organizer reviews the full silent draft before audio timing.
+Next action: organizer compares A and B, then chooses animated concepts, existing photographs or a blend before Section3.

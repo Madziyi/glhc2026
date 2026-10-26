@@ -1,7 +1,8 @@
 # GLHC 2026 Task Board
 
 ## Active — GLHC-004
-- `[implemented, organizer review pending]` — silent 15-second Remotion opening, editable vector graphics, geographic lakes, conceptual waveform and kinetic light installation. MP4 at `promo/out/glhc-opening.mp4`; source/instructions in `promo/`.
+- `[organizer approved]` — silent 15-second opening, preserved as the Opening composition.
+- `[rendered and verified; organizer review pending]` — full 75-second silent promo with invitation, two rounds, ten advancing concepts, support, cash prizes, guaranteed public displays for top winners and supplied submission CTA.
 
 ## Website handoff — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.

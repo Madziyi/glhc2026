@@ -249,3 +249,12 @@
 - Verification: rendered and decoded450/450 frames,1920×1080/30FPS/15s. Eight representative initial frames inspected, lake framing/island fill corrected and corrected opening inspected. Website tests15/15, diff check passes; website implementation unchanged.
 - Remotion Studio loaded in IAB. Custom review-page UAT unverified after two localhost connection failures; hypotheses Python-server/firewall or IAB routing. MP4 delivered directly. Audio intentionally absent. Browser download/render required elevated execution after sandbox DNS/launch failures.
 - No deployment/infrastructure changes. Output local/ignored, reproducible via README. Next: organizer reviews graphics/pacing before full promo.
+
+
+### 2026-10-25 — GLHC-004 full silent promo
+- Task: extend organizer-approved opening into the complete promo. Status: done as silent draft; organizer review pending.
+- Synced origin/main55a9194 (unchanged), continued codex/promo-prototype. Split approved opening into reusable component; FullPromo adds eight scenes for student invitation, Round1 idea-only entry, ten selections, supported Round2, build/test/showcase, cash prizes, guaranteed tourist-attraction displays for top winners and supplied submission CTA.75s/2250frames/1080p30. No website implementation edits.
+- Content: official Great Lakes Hackathon Challenge, RAEON organizer, no award/funding amounts; dates Nov5-Dec3,2026, Dec3 11:59PM Eastern deadline and raeonhacks.com/project directly from pasted organizer brief. No live portal verification asserted. Conceptual graphics, no fabricated readings or prior-participant claims.
+- Verification: initial full render inspected at12 representative times; full-resolution closing card and corrected trophy still checked. Corrected export rendered2250/2250 and every frame decoded successfully. Five approved-opening samples have exactly zero decoded pixel difference in initial/final full exports. Eight new scene intervals cover450-2249 without gaps/overlap; package/lock consistency and git diff check pass. Evidence and repeatable decoder/contact-sheet helper in promo/.
+- Removed unintended local parent-package dependency from isolated promo manifest/lock. README, visual script and local review page updated. Audio intentionally absent; timing editable. No new browser playback/UAT or production deployment claim. Previous localhost preview limitations retained; MP4 delivered directly.
+- Next action: organizer reviews full silent draft, then supplies audio for timing/sound pass. Commit: published branch handoff.

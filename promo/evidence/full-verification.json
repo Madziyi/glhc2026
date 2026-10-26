@@ -1,0 +1,16 @@
+{
+  "decoded_frames": 2250,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 75.0,
+  "opening_sample_mean_pixel_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

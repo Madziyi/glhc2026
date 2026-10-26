@@ -1,17 +1,17 @@
-# Active Initiative â€” GLHC-004 Promo opening prototype
+# Active Initiative - GLHC-004 full silent promo
 
-Status: prototype rendered and locally verified; organizer review pending on `codex/promo-prototype`, synced to main `55a9194`.
+Status: full silent draft rendered and verified; organizer review pending on codex/promo-prototype. Main55a9194 checked; no new upstream changes. Organizer approved the 15-second opening and requested the next step.
 
-Organizer explicitly reprioritized to a 10â€“15-second motion-graphics prototype inspired by the supplied Nations Championship explainer. Website review context is preserved in `promo/WEBSITE-HANDOFF.md`.
+Scope: extend approved opening into 75-second silent landscape promo in isolated promo/ project. Include student eligibility/inclusion, idea-only Round1, ten selections, supported Round2, cash prizes, guaranteed display for top winners and submission CTA. Approved opening remains a separate composition.
 
-Scope: isolated Remotion project in `promo/`, original vector graphics, geographic Great Lakes silhouette, kinetic text, silent 1920Ã—1080/30FPS opening and local preview. Website source stays untouched.
+Decisions: Great Lakes Hackathon Challenge; top winners WILL have designs displayed at tourist attractions. Use organizer-supplied Nov5-Dec3 2026, Dec3 11:59PM ET deadline and raeonhacks.com/project from pasted brief. No prize/funding amounts. Graphics are original conceptual illustrations, no fabricated scientific readings. Audio later.
 
-Decisions: official name Great Lakes Hackathon Challenge. Top winners WILL have their designs displayed at tourist attractions. No prize values invented. Navy/yellow/aqua branding. Audio arrives later; timing remains editable. Conceptual data graphics carry no fabricated scientific readings.
+Acceptance: full 2250-frame 1080p/30FPS MP4; representative scene inspection, decode every frame, preserve approved opening pixels, update source/script and durable handoff.
 
-Acceptance: render a playable 10â€“15s MP4; inspect representative frames and browser preview; provide source and durable handoff.
+Website handoff: promo/WEBSITE-HANDOFF.md. Website implementation untouched. No deployment.
 
-Verification: Remotion rendered all 450 frames. OpenCV decoded all 450 frames, 1920×1080, 30FPS, 15 seconds. Representative frames visually inspected; opening adjusted to retain all five lakes. Existing website tests pass 15/15. `git diff --check` passes. Remotion Studio loaded in the in-app browser; custom review-page browser UAT is unverified after two localhost connection failures. MP4 delivery is available directly at `promo/out/glhc-opening.mp4`.
+Verification: 2250/2250 frames rendered for initial and corrected full exports. Twelve representative scenes visually inspected. Trophy contrast corrected and checked in a full-resolution still; closing card inspected at full resolution. Five sampled opening frames matched the approved opening with zero decoded pixel differences in both initial and final full exports. Final export decoded all2250 frames:75s,1920x1080,30FPS. Evidence: promo/evidence/. Scene timing covers frames450-2249 without gaps/overlap; package/lock dependencies agree; git diff check passes.
 
-Known limits: silent landscape opening only; full promo, final audio timing, and vertical adaptation remain future work. Local render browser requires elevated execution in this environment. Browser preview connection hypotheses: Python server reachability/firewall or IAB localhost routing. No production deployment.
+Boundary: no audio, production deployment, portal availability check, or new browser playback claim. Rendered MP4 lives in ignored promo/out/; source and final verification evidence are versioned.
 
-Next action: organizer watches MP4 and reviews graphics/pacing before extending the promo.
+Next action: organizer reviews the full silent draft before audio timing.

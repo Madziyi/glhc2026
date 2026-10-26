@@ -1,0 +1,1 @@
+{"name":"glhc-promo","private":true,"type":"module","scripts":{"studio":"remotion studio src/index.jsx","render":"remotion render src/index.jsx Opening out/glhc-opening.mp4 --codec=h264"},"dependencies":{"@remotion/cli":"4.0.387","@remotion/player":"4.0.387","great-lakes-hackathon-2026":"file:..","react":"19.0.0","react-dom":"19.0.0","remotion":"4.0.387"}}

@@ -1,6 +1,9 @@
 # GLHC 2026 Task Board
 
-## Active — GLHC-003
+## Active — GLHC-004
+- `[implemented, organizer review pending]` — silent 15-second Remotion opening, editable vector graphics, geographic lakes, conceptual waveform and kinetic light installation. MP4 at `promo/out/glhc-opening.mp4`; source/instructions in `promo/`.
+
+## Website handoff — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.
 - GLHC-003B `[implemented]` — approved R6 scene integrated into a surface camera orbit returning before continuous descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
 - GLHC-003C `[implemented and locally verified; organizer review pending]` — combined section4 with supplied two-round copy and responsive inspiration collage; deep-water buoy-free ending; all registration links use configured Luma destination. Four-section labels, corrected section4 jump and about47% shorter science reveal verified at five viewports plus no-JS/reduced motion (`uat/glhc003/challenge-rounds/`).

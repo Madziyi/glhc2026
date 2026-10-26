@@ -240,3 +240,12 @@
 - Task: capitalize OPEN/CLOSE. Status: done. Updated live date lines and verification expectations/current context; dates/layout unchanged.
 - Verification: production build/diff pass; static browser exact-text/no-clipping checks at320/393/1440px pass (`uat/glhc003/submission-dates/capitalization-results.json`). Prior screenshots predate casing change. No merge/deployment.
 - Next action: organizer reviews updated PR#6. Commit: this published handoff.
+
+
+### 2026-10-25 — GLHC-004 promo opening prototype
+- Task: organizer-authorized 10–15s opening inspired by supplied explainer. Status: rendered; organizer review pending.
+- Synced main55a9194, fast-forwarded checkout, branched codex/promo-prototype. Unrelated untracked sources preserved. NOW reprioritized; website handoff preserved in promo/WEBSITE-HANDOFF.md.
+- Isolated Remotion/React project with lockfile, Google Sans/OFL, public-domain Natural Earth lake outlines. Original editable SVG, typography and navy/yellow/aqua palette. Illustrations are conceptual. Official name Great Lakes Hackathon Challenge; full promo will state top winners' designs WILL be displayed at tourist attractions.
+- Verification: rendered and decoded450/450 frames,1920×1080/30FPS/15s. Eight representative initial frames inspected, lake framing/island fill corrected and corrected opening inspected. Website tests15/15, diff check passes; website implementation unchanged.
+- Remotion Studio loaded in IAB. Custom review-page UAT unverified after two localhost connection failures; hypotheses Python-server/firewall or IAB routing. MP4 delivered directly. Audio intentionally absent. Browser download/render required elevated execution after sandbox DNS/launch failures.
+- No deployment/infrastructure changes. Output local/ignored, reproducible via README. Next: organizer reviews graphics/pacing before full promo.

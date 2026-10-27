@@ -3,7 +3,7 @@
 ## Active - GLHC-004 revised motion storytelling
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
 - `[direction agreed]` - Section1 lake/buoy/sensors/signal journey; not implemented yet.
-- `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and animated Great Lakes LED display replacing shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
+- `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and LED display with animated BE CREATIVE lettering, replacing earlier lake artwork and shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
 - `[pending]` - review revised A, then discuss/build subsequent sections one at a time.
 
 ## Website handoff — GLHC-003

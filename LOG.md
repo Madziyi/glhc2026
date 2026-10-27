@@ -275,3 +275,10 @@
 - Intent: express water quality through engaging environmental art. Shader colors/movement remain conceptual, with no actual readings or validated safety classification. Proposed third voiceover beat now bring the Great Lakes to life through animation.
 - Verification: revised A rendered360/360; decoded all360 frames,12s1920x1080/30FPS. Full-resolution frame295 and six-point final contact sheet inspected; diff check passes. Evidence section2-led-review.jpg/section2-led-verification.json. MP4 local at promo/out/section2-a-led-display.mp4. No audio/browser playback/deployment claims.
 - No website/dependency changes. Next action: organizer reviews revised A before Section3. Commit: published branch handoff.
+
+
+### 2026-10-26 - LED screen invitation: BE CREATIVE
+- Task: animate BE CREATIVE inside the display and align proposed narration to light/sound/digital display invitation. Status: rendered/verified; organizer review pending.
+- Synced main55a9194 unchanged. Replaced geographic lake mask with frame-deterministic canvas letter animation mapped into the3D LED screen. Staggered upward reveal, moving illuminated color, same camera/screen/first two installations. No added film overlay text. Proposed narration recorded in SECTION2-STUDIES.md; audio remains later.
+- Verification:360/360 rendered and every frame decoded,12s1920x1080/30FPS. Full-resolution frame310 and six representative moments inspected for reveal/readability/perspective. Diff check passes. Evidence section2-be-creative-review.jpg and section2-be-creative-verification.json. Local MP4 section2-a-be-creative.mp4. No audio sync/browser playback/deployment claim.
+- Website/dependencies unchanged. Next action: organizer reviews then Section3 discussion. Commit: published branch handoff.

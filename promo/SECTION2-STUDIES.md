@@ -33,3 +33,10 @@ Organizer selected A and replaced its third installation (shells) with an animat
 Revised proposed voiceover: "Turn a measurement into light. A changing pattern into sound. Or bring the Great Lakes to life through animation. What would you create?"
 
 Previous shell version output and B are historical alternatives. The existing photo version is unchanged. New LED artwork uses the already credited public-domain Natural Earth lake outlines; all display geometry and shader animation are original and editable.
+
+
+## Current selected A / BE CREATIVE (2026-10-26)
+
+Organizer replaced the LED lake artwork with animated words BE CREATIVE within the physical display. Each letter rises into place in a staggered reveal, followed by a flowing illuminated color treatment. Typography is a CanvasTexture inside the3D screen, so perspective/camera movement remain natural. No overlay slogan was added elsewhere. Light sculpture, water/sound installation and paper-transition ending remain.
+
+Current output: out/section2-a-be-creative.mp4. Previous screen artwork is historical. Proposed narration: "You can express the data through light, through sound, or through a digital display. Be as creative as possible." Audio remains a future pass; existing12s timing is adjustable.

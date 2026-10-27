@@ -6,7 +6,7 @@
     "studio": "remotion studio src/index.jsx",
     "render": "remotion render src/index.jsx Opening out/glhc-opening.mp4 --codec=h264",
     "render:full": "remotion render src/index.jsx FullPromo out/glhc-full-promo.mp4 --codec=h264",
-    "render:section2:a": "remotion render src/index.jsx Section2Concept out/section2-a-led-display.mp4 --codec=h264 --gl=angle",
+    "render:section2:a": "remotion render src/index.jsx Section2Concept out/section2-a-be-creative.mp4 --codec=h264 --gl=angle",
     "render:section2:b": "remotion render src/index.jsx Section2Photos out/section2-b-photographs.mp4 --codec=h264"
   },
   "dependencies": {

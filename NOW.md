@@ -1,6 +1,6 @@
 # Active Initiative - GLHC-004 Section 2 motion studies
 
-Status: selected A revision rendered and verified; organizer review pending on codex/promo-prototype; main55a9194 synced2026-10-26.
+Status: BE CREATIVE revision rendered and verified; organizer review pending on codex/promo-prototype; main55a9194 synced2026-10-26.
 
 Organizer rejected the previous repeated heading/illustration/caption layout as animated PowerPoint. This supersedes the earlier stylistic approval. Replan and build section by section. Agreed Section1 direction: lake, buoy, underwater sensors, signal into a creative idea. Organizer selected A and requests a beautifully animated LED display as its third installation, expressing Great Lakes water quality through visual experience. Preserve light sculpture, water/sound station and continuous camera. B remains historical.
 
@@ -16,4 +16,9 @@ Verification: both Remotion compositions rendered360/360 frames; every frame dec
 
 Revision verification: revised A rendered360/360 frames and every frame decoded,12s1920x1080/30FPS. Full-resolution LED still plus six representative moments inspected. Evidence: promo/evidence/section2-led-review.jpg and section2-led-verification.json. Output: promo/out/section2-a-led-display.mp4. Geographic lake silhouettes, animated currents/ribbons, freestanding LED geometry and closer final camera; no numbers, shells or extra copy in selected A. Colors are conceptual, not actual measurements or safety classifications.
 
-Next action: organizer reviews revised A before Section3.
+Next action: organizer reviews BE CREATIVE animation before Section3.
+
+Current organizer correction: replace lake artwork inside LED screen with animated words BE CREATIVE. Keep light/sound/display sequence and animate text within the physical screen, not a title overlay. Proposed narration: Express the data through light, sound, or a digital display. Be as creative as you can. Audio remains later.
+
+
+Latest verification: BE CREATIVE letters animate inside the physical3D screen via CanvasTexture, with flowing color treatment; previous lake mask removed from selected A. Revised MP4 promo/out/section2-a-be-creative.mp4 rendered360/360 and every frame decoded,12s1080p30. Full-resolution frame310 and six-point contact sheet inspected. Evidence: promo/evidence/section2-be-creative-review.jpg and verification JSON. Current narration: You can express the data through light, through sound, or through a digital display. Be as creative as possible. Still silent; no audio synchronization claimed.

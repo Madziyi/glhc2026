@@ -1,6 +1,6 @@
-# Active Initiative — GLHC-003
+# Active Initiative — GLHC Info Session Chooser
 
-**Status:** COMPLETE IMPLEMENTATION / organizer review and merge approval pending.
+**Status:** Implemented directly on `main`; browser and production build verification pending.
 **Branch:** `codex/submission-dates`, based on GitHub main `692dcfe` (PR#5 merged).
 
 ## Current experience

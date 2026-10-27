@@ -240,3 +240,9 @@
 - Task: capitalize OPEN/CLOSE. Status: done. Updated live date lines and verification expectations/current context; dates/layout unchanged.
 - Verification: production build/diff pass; static browser exact-text/no-clipping checks at320/393/1440px pass (`uat/glhc003/submission-dates/capitalization-results.json`). Prior screenshots predate casing change. No merge/deployment.
 - Next action: organizer reviews updated PR#6. Commit: this published handoff.
+
+### 2026-10-27 — In-person / virtual info session modal
+- Organizer asked for both “Attend the info session” CTAs to open a styled modal with an in-person option at University of Windsor (`https://luma.com/pz0iw2m7`) and a virtual option (`https://luma.com/zrbvt2az`).
+- Implemented shared native dialog, Escape/backdrop/close behavior, return-focus, accessible headings, matching GLHC dark navy/yellow styling, and both options as secure new-tab Luma links. With JS disabled or no dialog support, CTA anchors go to a visible choice section.
+- Updated centralized public configuration and added a source contract test. GitHub-only static verification was performed; no local browser UAT or full Astro build is claimed.
+- No hosting configuration or production deployment was modified.

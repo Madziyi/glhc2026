@@ -4,7 +4,9 @@
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
 - `[direction agreed]` - Section1 lake/buoy/sensors/signal journey; not implemented yet.
 - `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and LED display with animated BE CREATIVE lettering, replacing earlier lake artwork and shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
-- `[pending]` - review revised A, then discuss/build subsequent sections one at a time.
+- `[prototype accepted]` - Section2 A BE CREATIVE direction; final camera/material/animation polish still pending.
+- `[rendered and verified; review pending]` - Section3 self-drawing invitation, concept drawings, supplied group photo and YOUR IDEA page.10s1080p30, silent.
+- `[pending]` - discuss Round1 after Section3 review; final smoothness/animation/audio pass follows agreed sequence.
 
 ## Website handoff — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.

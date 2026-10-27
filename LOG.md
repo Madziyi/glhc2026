@@ -282,3 +282,10 @@
 - Synced main55a9194 unchanged. Replaced geographic lake mask with frame-deterministic canvas letter animation mapped into the3D LED screen. Staggered upward reveal, moving illuminated color, same camera/screen/first two installations. No added film overlay text. Proposed narration recorded in SECTION2-STUDIES.md; audio remains later.
 - Verification:360/360 rendered and every frame decoded,12s1920x1080/30FPS. Full-resolution frame310 and six representative moments inspected for reveal/readability/perspective. Diff check passes. Evidence section2-be-creative-review.jpg and section2-be-creative-verification.json. Local MP4 section2-a-be-creative.mp4. No audio sync/browser playback/deployment claim.
 - Website/dependencies unchanged. Next action: organizer reviews then Section3 discussion. Commit: published branch handoff.
+
+
+### 2026-10-26 - Section3 self-drawing invitation prototype
+- Task: build agreed self-drawing sketch direction. Status: rendered/verified; organizer review pending.
+- Synced main55a9194 unchanged, continued promo branch. Organizer accepted Section2 as prototype only, requested smoother/richer final animation. Added isolated10s Section3 composition; matching warm-paper/curve handoff, animated original SVG light/sound/screen sketches and traveling camera, supplied full-composition lab photo, return to unfinished YOUR IDEA page. No persistent editorial headers/captions.
+- Verification:300/300 rendered, every frame decoded,10s1920x1080/30FPS. Six representative stages inspected; photo copied byte-identically from public/assets/team-lab.webp and full image preserved. Evidence section3-review.jpg/section3-verification.json. Render compilation and diff check pass. Audio timing provisional, no browser playback/deployment claim.
+- Added source/credits/proposed narration in SECTION3-STUDY.md. No website/dependency changes. Section1 remains unimplemented. Next: organizer reviews Section3, then Round1 discussion. Commit: published branch handoff.

@@ -1,0 +1,11 @@
+{
+  "decoded_frames": 300,
+  "duration_seconds": 10,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "photo_source_sha256": "178a9e2b63c1ce66c67e5459f2b3de51f9af7520f7404fb79d50615447db6b0b",
+  "photo_copy_byte_identical": true
+}

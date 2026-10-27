@@ -1,24 +1,15 @@
-# Active Initiative - GLHC-004 Section 2 motion studies
+# Active Initiative - GLHC-004 Section3 self-drawing invitation
 
-Status: BE CREATIVE revision rendered and verified; organizer review pending on codex/promo-prototype; main55a9194 synced2026-10-26.
+Status: Section3 prototype rendered and verified; organizer review pending on codex/promo-prototype; main55a9194 synced2026-10-26.
 
-Organizer rejected the previous repeated heading/illustration/caption layout as animated PowerPoint. This supersedes the earlier stylistic approval. Replan and build section by section. Agreed Section1 direction: lake, buoy, underwater sensors, signal into a creative idea. Organizer selected A and requests a beautifully animated LED display as its third installation, expressing Great Lakes water quality through visual experience. Preserve light sculpture, water/sound station and continuous camera. B remains historical.
+Organizer approved Section2 BE CREATIVE as a prototype, with final smoothness/material/animation polish explicitly still required. Agreed next: self-drawing sketch invitation. Build Section3 only, not the remainder of promo.
 
-Scope: two silent12-second1080p30 studies of data becoming light, sound and movement. A: actual3D conceptual installations with continuous camera movement. B: actual +POOL Light, Ripple Effect and CLAMS photos from supplied deck, moving photographic composition with signal-led transitions. No persistent headings, tiny slogans or event branding. Section1 and remaining promo not built in this pass.
+Scope:10-second silent1080p30 study continuing the warm-paper trace from Section2. Sketch develops into light sculpture, sound installation and digital display. Camera travels through the drawing, briefly connects to supplied group photo (full composition), then returns to unfinished idea. Only YOUR IDEA handwriting inside the page. No persistent headers/captions/extra slogans. No prior-entrant claim about photo.
 
-Script: Turn a measurement into light. A changing pattern into sound. Or bring the Great Lakes to life through animation. What would you create?
+Proposed narration: Into art, science, technology—or just curious? This challenge is for you. Enter on your own or with a team. No experience needed. Start with an idea. Audio timing remains provisional.
 
-Source: organizer-supplied deck. Examples are existing independent installations, not student entrants. Credits recorded separately; images not assumed cleared for public release. Original conceptual3D assets should not claim exact reconstructions or actual readings.
+Acceptance: render/decode300frames, inspect scene stages/photo/full-frame composition and end. Deliver reviewable prototype plus source/handoff. Website untouched; no deployment. Existing Section2 output remains available.
 
-Acceptance: render and decode both360-frame studies, inspect representative frames and transitions, present both videos for choice. Preserve older versions as history. No website/deployment edits.
+Verification: rendered300/300 and every frame decoded successfully,10s1920x1080/30FPS. Six representative stages inspected (handoff, light, sound, display, photo, final page). Photo copy verified byte-identical to supplied website asset, full composition retained. Source compiles through Remotion render; diff check passes. Evidence: promo/evidence/section3-review.jpg and section3-verification.json. Local output: promo/out/section3-self-drawing.mp4. No audio synchronization/browser-playback/deployment claims.
 
-Verification: both Remotion compositions rendered360/360 frames; every frame decoded successfully,12s,1920x1080,30FPS. Six moments from each version inspected in contact sheet, including two camera/image transitions and paper ending. 3D light/material/framing still inspected at full resolution. Evidence: promo/evidence/section2-review.jpg and section2-verification.json. Manifest/lock dependencies agree. No browser-playback or audio verification claimed.
-
-Revision verification: revised A rendered360/360 frames and every frame decoded,12s1920x1080/30FPS. Full-resolution LED still plus six representative moments inspected. Evidence: promo/evidence/section2-led-review.jpg and section2-led-verification.json. Output: promo/out/section2-a-led-display.mp4. Geographic lake silhouettes, animated currents/ribbons, freestanding LED geometry and closer final camera; no numbers, shells or extra copy in selected A. Colors are conceptual, not actual measurements or safety classifications.
-
-Next action: organizer reviews BE CREATIVE animation before Section3.
-
-Current organizer correction: replace lake artwork inside LED screen with animated words BE CREATIVE. Keep light/sound/display sequence and animate text within the physical screen, not a title overlay. Proposed narration: Express the data through light, sound, or a digital display. Be as creative as you can. Audio remains later.
-
-
-Latest verification: BE CREATIVE letters animate inside the physical3D screen via CanvasTexture, with flowing color treatment; previous lake mask removed from selected A. Revised MP4 promo/out/section2-a-be-creative.mp4 rendered360/360 and every frame decoded,12s1080p30. Full-resolution frame310 and six-point contact sheet inspected. Evidence: promo/evidence/section2-be-creative-review.jpg and verification JSON. Current narration: You can express the data through light, through sound, or through a digital display. Be as creative as possible. Still silent; no audio synchronization claimed.
+Next action: organizer reviews Section3 before discussing Round1 section.

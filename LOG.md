@@ -267,3 +267,11 @@
 - B: original extracted +POOL Light, Ripple Effect and CLAMS photographs from supplied deck. Pan/zoom, ripple/ellipse reveals and linked trace. No claimed real motion in source stills, no prior entrant implication. Source/credits and public-use rights boundary in SECTION2-STUDIES.md; deck untouched.
 - Verification: both360/360-frame renders completed; every frame decoded,12s1920x1080/30FPS. Full-resolution3D still and six representative moments per version inspected, including transitions and common sketch ending. Evidence versioned under promo/evidence/. Manifest/lock consistency verified. No audio/browser-playback/deployment claims.
 - Added pinned three0.180.0 only inside promo. Older compositions preserved; website implementation unchanged, unrelated sources preserved. Next: organizer chooses A/B/blend before Section3. Commit: published branch handoff.
+
+
+### 2026-10-26 - Selected A: expressive Great Lakes LED display
+- Task: replace third shell installation in selected A with animated LED screen. Status: rendered/verified; organizer review pending.
+- Synced main55a9194 unchanged; continued codex/promo-prototype. Retained first two installations/continuous camera; replaced shell geometry with freestanding display, geographic Great Lakes mask and original animated shader of currents/ribbons/color, with final camera push. No numerical dashboard/headings. B remains historical and unchanged.
+- Intent: express water quality through engaging environmental art. Shader colors/movement remain conceptual, with no actual readings or validated safety classification. Proposed third voiceover beat now bring the Great Lakes to life through animation.
+- Verification: revised A rendered360/360; decoded all360 frames,12s1920x1080/30FPS. Full-resolution frame295 and six-point final contact sheet inspected; diff check passes. Evidence section2-led-review.jpg/section2-led-verification.json. MP4 local at promo/out/section2-a-led-display.mp4. No audio/browser playback/deployment claims.
+- No website/dependency changes. Next action: organizer reviews revised A before Section3. Commit: published branch handoff.

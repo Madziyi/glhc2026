@@ -3,8 +3,8 @@
 ## Active - GLHC-004 revised motion storytelling
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
 - `[direction agreed]` - Section1 lake/buoy/sensors/signal journey; not implemented yet.
-- `[rendered and verified; comparison pending]` - Section2 A continuous3D conceptual installations, B actual installation photographs from supplied deck. Both12s1080p30, silent, no persistent text. See promo/SECTION2-STUDIES.md.
-- `[pending]` - choose A/B/blend, then discuss and build subsequent sections one at a time.
+- `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and animated Great Lakes LED display replacing shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
+- `[pending]` - review revised A, then discuss/build subsequent sections one at a time.
 
 ## Website handoff — GLHC-003
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.

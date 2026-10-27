@@ -2,6 +2,7 @@ import React, {useLayoutEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Img,staticFile,useCurrentFrame,delayRender,continueRender} from 'remotion';
 import * as THREE from 'three';
 import {ramp} from './opening';
+import lakes from './lakes.json';
 
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
@@ -38,29 +39,57 @@ function setup(canvas){
  const rings=[];
  for(let i=0;i<12;i++){const mat=new THREE.MeshStandardMaterial({color:'#91f7e9',emissive:'#3cbfb5',emissiveIntensity:.7,transparent:true,opacity:.7});const m=mesh(new THREE.TorusGeometry(.12+i*.13,.009,6,100),mat);m.rotation.x=Math.PI/2;m.position.set(9,.96,0);rings.push(m)}
  const cone=mesh(new THREE.CylinderGeometry(.9,1.1,.09,64),dark);cone.position.set(9,1.0,0);
- // Three original shell-like objects, inspired by the possibility of kinetic art.
- const shells=[];
- [[17.9,0,.2],[19.7,0,-1.3],[16.4,0,-1.7]].forEach(([x,y,z],i)=>{
-  const root=new THREE.Group();root.position.set(x,.55,z);root.rotation.y=i*.65;scene.add(root);
-  const top=new THREE.Group();top.position.z=-.9;root.add(top);
-  const geo=new THREE.SphereGeometry(1.15,56,24,0,Math.PI*2,0,Math.PI/2);geo.scale(1,.36,1);geo.translate(0,0,.9);
-  mesh(geo,silver,top);const bottom=mesh(geo.clone(),metal,root);bottom.rotation.x=Math.PI;bottom.position.z=-.9;
-  const glow=mesh(new THREE.CircleGeometry(.86,64),new THREE.MeshStandardMaterial({color:'#ffd657',emissive:'#ffbe29',emissiveIntensity:2,side:THREE.DoubleSide}));glow.rotation.x=-Math.PI/2;glow.position.set(x,.53,z);
-  for(let k=0;k<13;k++){const a=k/13*Math.PI*2;const points=[];for(let j=0;j<=24;j++){const t=j/24*Math.PI/2;points.push(new THREE.Vector3(Math.sin(t)*Math.cos(a)*1.16,Math.cos(t)*.425,Math.sin(t)*Math.sin(a)*1.16+.9))}const curve=new THREE.CatmullRomCurve3(points);mesh(new THREE.TubeGeometry(curve,24,.008,4,false),dark,top)}
-  shells.push(top);
- });
+ // A freestanding LED artwork: geographically accurate lakes filled with living currents.
+ // Color and movement express a design possibility, not measured safety thresholds.
+ const maskCanvas=document.createElement('canvas');maskCanvas.width=1300;maskCanvas.height=850;
+ const ctx=maskCanvas.getContext('2d');ctx.fillStyle='black';ctx.fillRect(0,0,1300,850);ctx.fillStyle='white';
+ lakes.forEach(l=>ctx.fill(new Path2D(l.d),'evenodd'));
+ const lakeMask=new THREE.CanvasTexture(maskCanvas);lakeMask.minFilter=THREE.LinearFilter;
+ const displayMaterial=new THREE.ShaderMaterial({uniforms:{uTime:{value:0},uMask:{value:lakeMask}},toneMapped:false,
+ vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+ fragmentShader:`
+ precision highp float; varying vec2 vUv; uniform float uTime;uniform sampler2D uMask;
+ float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+ float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+1.),f.x),f.y);}
+ void main(){
+  vec2 uv=vUv;float t=uTime;vec2 mp=(uv-.5)*vec2(1.24,1.12)+.5;
+  float mask=texture2D(uMask,mp).r;
+  if(mp.x<0.||mp.x>1.||mp.y<0.||mp.y>1.)mask=0.;
+  float n=noise(uv*5.+vec2(t*.15,-t*.09));
+  float flow=sin(uv.x*15.+uv.y*10.-t*1.6+n*5.);
+  float stream=pow(.5+.5*sin(uv.y*48.+sin(uv.x*8.-t)*3.+t*1.8),9.);
+  vec3 deep=vec3(.015,.13,.25),aqua=vec3(.05,.76,.80),blue=vec3(.12,.35,.95),gold=vec3(.98,.73,.20);
+  vec3 water=mix(deep,aqua,.5+.5*flow);water=mix(water,blue,.22+.22*sin(uv.x*6.-t*.55));
+  water+=stream*vec3(.26,.7,.6)*.7;
+  float bloom=exp(-length((uv-vec2(.5+.25*sin(t*.5),.5+.15*cos(t*.6)))*vec2(2.,3.))*5.);
+  water=mix(water,gold,bloom*.65);
+  float edge=abs(mask-texture2D(uMask,mp+vec2(.002,0.)).r)+abs(mask-texture2D(uMask,mp+vec2(0.,.002)).r);
+  vec3 bg=vec3(.006,.025,.055)+vec3(.015,.065,.09)*(.5+.5*sin(uv.x*10.+uv.y*8.+t));
+  float ribbon=pow(.5+.5*sin(uv.y*16.+sin(uv.x*5.+t*.5)*1.6-t*.4),22.);
+  bg+=ribbon*vec3(.01,.12,.16);
+  vec3 col=mix(bg,water,mask);col+=edge*vec3(.22,.62,.65)*.6;
+  // A subtle pixel texture reads as an LED surface up close.
+  vec2 pixel=fract(uv*vec2(360.,202.));float grid=smoothstep(.04,.13,pixel.x)*smoothstep(.04,.13,pixel.y);
+  col*=.86+.14*grid;gl_FragColor=vec4(col,1.);
+ }`});
+ const chassis=mesh(new THREE.BoxGeometry(6.05,3.55,.23),metal);chassis.position.set(18,2.35,-.3);
+ const display=mesh(new THREE.PlaneGeometry(5.82,3.28),displayMaterial);display.position.set(18,2.35,-.17);
+ [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
+ const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);scene.add(screenGlow);
  const particles=[];
  for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?.075:.025,8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
  function draw(f){
   const t=f/30,x=cameraX(f);const a=.36+Math.sin(t*.2)*.23;
-  const zoom=ramp(f,300,350,0,1);camera.position.set(x+Math.sin(a)*8.7,4.3-zoom*.9,Math.cos(a)*8.7-zoom*.8);camera.lookAt(x,1.2,0);
+  const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
+  camera.position.set(x+Math.sin(a)*8.7*(1-zoom*.35),4.3-zoom*1.0,Math.cos(a)*8.7-zoom*2.5);
+  camera.lookAt(x,1.2+screenFocus*.85,0);
   rods.forEach(({rod,mat,height},i)=>{rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*.8});
-  shells.forEach((top,i)=>{top.rotation.x=-.12-(Math.sin(t*2+i*.7)+1)*.3});
+  displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
   particles.forEach((p,i)=>{const lead=x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7)});
   renderer.render(scene,camera);
  }
- return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose())}});renderer.dispose()}};
+ return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose())}});lakeMask.dispose();renderer.dispose()}};
 }
 
 export function Section2Concept(){

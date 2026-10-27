@@ -24,3 +24,12 @@ npm run render:section2:a
 npm run render:section2:b
 
 Remotion Studio exposes both compositions. out/ is local/ignored. Source assets are versioned for reproduction. No music or voiceover added. Section1 remains a discussed direction and is not represented as implemented by these studies.
+
+
+## Selected A revision / LED screen (2026-10-26)
+
+Organizer selected A and replaced its third installation (shells) with an animated LED display. Current A output: out/section2-a-led-display.mp4. The light sculpture and water/sound station remain; camera now pushes toward a freestanding screen. Its shader fills the geographic Great Lakes silhouettes with evolving currents, luminous ribbons and subtle color changes. No numerical dashboard or extra copy. It expresses a possible environmental artwork; no actual measurements, validated thresholds or water-safety classifications are claimed. A final scientific mapping remains future design work.
+
+Revised proposed voiceover: "Turn a measurement into light. A changing pattern into sound. Or bring the Great Lakes to life through animation. What would you create?"
+
+Previous shell version output and B are historical alternatives. The existing photo version is unchanged. New LED artwork uses the already credited public-domain Natural Earth lake outlines; all display geometry and shader animation are original and editable.

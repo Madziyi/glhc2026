@@ -296,3 +296,13 @@
 - Implemented shared native dialog, Escape/backdrop/close behavior, return-focus, accessible headings, matching GLHC dark navy/yellow styling, and both options as secure new-tab Luma links. With JS disabled or no dialog support, CTA anchors go to a visible choice section.
 - Updated centralized public configuration and added a source contract test. GitHub-only static verification was performed; no local browser UAT or full Astro build is claimed.
 - No hosting configuration or production deployment was modified.
+
+
+### 2026-10-29 - Ashley audio and rough first-scene blocking
+- Task: use supplied recording; organizer explicitly narrowed next work to rough first scene, high quality only after agreement. Status: rendered/verified; organizer shot/timing review pending. Ending deferred unchanged.
+- Synced main8b4e7d9. Deliberately merged reviewed website info-session chooser into promo branch. NOW/LOG context conflicts resolved preserving promo handoff plus upstream append-only log; previous NOW saved in promo/PREVIOUS-HANDOFF.md. No additional website edits.17/17 repository tests pass.
+- Source Ashley MP3 copied unchanged into ignored public/audio/. Local faster-whisper base.en timestamps: full68.5976s; opening spoken0-12.78s; next science starts13.52s. Local tool/model downloads only, audio not uploaded. PyAV19 decoder incompatibility resolved by decoding FFmpeg PCM into array; no system-package edits. Automatic transcript evidence and sourceSHA recorded; no manual listening claim.
+- Added original rough3D boat/crane/glider, reviewed byte-identical buoy GLB and isolated adaptation of existing water/sky shaders. Deployment, underwater travel near buoy (no docking), rise/title10.5s; CASH PRIZES beat4.54s.13.5s405frames1080p30 with supplied audio. No full-film rebuild or ending edits.
+- Verification:405/405 rendered and decoded. Full-resolution deployment/underwater/title frames and six export moments inspected. Audio decoded13.5s, source-prefix correlation0.984 after42.7ms codec-delay compensation (<2frames); zero-lag comparison initially failed, delay isolated by waveform cross-correlation. Diff check passes. Evidence opening-rough-review.jpg/opening-rough-verification.json and ashley-timing.json. No browser playback/deployment claim.
+- Latest narrative/CTA raeonhacks.ca supersedes older video .com/project copy. Sketch now belongs with Round1; previous sections remain study assets. Rough geometry/material/water/camera/effects still need high-quality pass after approval.
+- Next action: organizer reviews first-scene shot/timing path. Commit: published branch handoff.

@@ -3,3 +3,7 @@ out/
 build/
 
 references/
+
+.local-python/
+.local-models/
+public/audio/

@@ -1,0 +1,1115 @@
+{
+  "duration": 68.5975625,
+  "source_sha256": "ef6d9222bacc447c94f66f9bd02d2f4d98f505770a835cc3292ae25b7ecf2134",
+  "method": "local faster-whisper base.en word timestamps; automatic transcription, not manual listening",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.18,
+      "text": " Are you a high school or university student",
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.14,
+          "word": " Are"
+        },
+        {
+          "start": 0.14,
+          "end": 0.32,
+          "word": " you"
+        },
+        {
+          "start": 0.32,
+          "end": 0.42,
+          "word": " a"
+        },
+        {
+          "start": 0.42,
+          "end": 0.64,
+          "word": " high"
+        },
+        {
+          "start": 0.64,
+          "end": 0.92,
+          "word": " school"
+        },
+        {
+          "start": 0.92,
+          "end": 1.22,
+          "word": " or"
+        },
+        {
+          "start": 1.22,
+          "end": 1.6,
+          "word": " university"
+        },
+        {
+          "start": 1.6,
+          "end": 2.18,
+          "word": " student"
+        }
+      ]
+    },
+    {
+      "start": 2.18,
+      "end": 4.0,
+      "text": " into art, science, or tech?",
+      "words": [
+        {
+          "start": 2.18,
+          "end": 2.54,
+          "word": " into"
+        },
+        {
+          "start": 2.54,
+          "end": 2.9,
+          "word": " art,"
+        },
+        {
+          "start": 2.94,
+          "end": 3.36,
+          "word": " science,"
+        },
+        {
+          "start": 3.7,
+          "end": 3.74,
+          "word": " or"
+        },
+        {
+          "start": 3.74,
+          "end": 4.0,
+          "word": " tech?"
+        }
+      ]
+    },
+    {
+      "start": 4.54,
+      "end": 6.5,
+      "text": " Enter a hackathon with cash prizes",
+      "words": [
+        {
+          "start": 4.54,
+          "end": 4.76,
+          "word": " Enter"
+        },
+        {
+          "start": 4.76,
+          "end": 4.9,
+          "word": " a"
+        },
+        {
+          "start": 4.9,
+          "end": 5.38,
+          "word": " hackathon"
+        },
+        {
+          "start": 5.38,
+          "end": 5.66,
+          "word": " with"
+        },
+        {
+          "start": 5.66,
+          "end": 5.9,
+          "word": " cash"
+        },
+        {
+          "start": 5.9,
+          "end": 6.5,
+          "word": " prizes"
+        }
+      ]
+    },
+    {
+      "start": 6.5,
+      "end": 8.76,
+      "text": " and a chance to see your creation displayed",
+      "words": [
+        {
+          "start": 6.5,
+          "end": 7.08,
+          "word": " and"
+        },
+        {
+          "start": 7.08,
+          "end": 7.26,
+          "word": " a"
+        },
+        {
+          "start": 7.26,
+          "end": 7.4,
+          "word": " chance"
+        },
+        {
+          "start": 7.4,
+          "end": 7.7,
+          "word": " to"
+        },
+        {
+          "start": 7.7,
+          "end": 7.86,
+          "word": " see"
+        },
+        {
+          "start": 7.86,
+          "end": 7.96,
+          "word": " your"
+        },
+        {
+          "start": 7.96,
+          "end": 8.46,
+          "word": " creation"
+        },
+        {
+          "start": 8.46,
+          "end": 8.76,
+          "word": " displayed"
+        }
+      ]
+    },
+    {
+      "start": 8.76,
+      "end": 9.9,
+      "text": " at tourist attractions.",
+      "words": [
+        {
+          "start": 8.76,
+          "end": 9.04,
+          "word": " at"
+        },
+        {
+          "start": 9.04,
+          "end": 9.26,
+          "word": " tourist"
+        },
+        {
+          "start": 9.26,
+          "end": 9.9,
+          "word": " attractions."
+        }
+      ]
+    },
+    {
+      "start": 10.54,
+      "end": 12.78,
+      "text": " This is the Great Lakes Hackathon Challenge.",
+      "words": [
+        {
+          "start": 10.54,
+          "end": 10.74,
+          "word": " This"
+        },
+        {
+          "start": 10.74,
+          "end": 11.02,
+          "word": " is"
+        },
+        {
+          "start": 11.02,
+          "end": 11.18,
+          "word": " the"
+        },
+        {
+          "start": 11.18,
+          "end": 11.5,
+          "word": " Great"
+        },
+        {
+          "start": 11.5,
+          "end": 11.74,
+          "word": " Lakes"
+        },
+        {
+          "start": 11.74,
+          "end": 12.34,
+          "word": " Hackathon"
+        },
+        {
+          "start": 12.34,
+          "end": 12.78,
+          "word": " Challenge."
+        }
+      ]
+    },
+    {
+      "start": 13.52,
+      "end": 15.42,
+      "text": " The Great Lakes have a story to tell.",
+      "words": [
+        {
+          "start": 13.52,
+          "end": 13.58,
+          "word": " The"
+        },
+        {
+          "start": 13.58,
+          "end": 13.8,
+          "word": " Great"
+        },
+        {
+          "start": 13.8,
+          "end": 14.1,
+          "word": " Lakes"
+        },
+        {
+          "start": 14.1,
+          "end": 14.44,
+          "word": " have"
+        },
+        {
+          "start": 14.44,
+          "end": 14.56,
+          "word": " a"
+        },
+        {
+          "start": 14.56,
+          "end": 14.84,
+          "word": " story"
+        },
+        {
+          "start": 14.84,
+          "end": 15.16,
+          "word": " to"
+        },
+        {
+          "start": 15.16,
+          "end": 15.42,
+          "word": " tell."
+        }
+      ]
+    },
+    {
+      "start": 15.98,
+      "end": 18.22,
+      "text": " Beneath the surface, scientists collect data",
+      "words": [
+        {
+          "start": 15.98,
+          "end": 16.22,
+          "word": " Beneath"
+        },
+        {
+          "start": 16.22,
+          "end": 16.3,
+          "word": " the"
+        },
+        {
+          "start": 16.3,
+          "end": 16.62,
+          "word": " surface,"
+        },
+        {
+          "start": 17.0,
+          "end": 17.46,
+          "word": " scientists"
+        },
+        {
+          "start": 17.46,
+          "end": 17.86,
+          "word": " collect"
+        },
+        {
+          "start": 17.86,
+          "end": 18.22,
+          "word": " data"
+        }
+      ]
+    },
+    {
+      "start": 18.22,
+      "end": 19.06,
+      "text": " about their health.",
+      "words": [
+        {
+          "start": 18.22,
+          "end": 18.64,
+          "word": " about"
+        },
+        {
+          "start": 18.64,
+          "end": 18.82,
+          "word": " their"
+        },
+        {
+          "start": 18.82,
+          "end": 19.06,
+          "word": " health."
+        }
+      ]
+    },
+    {
+      "start": 19.76,
+      "end": 20.16,
+      "text": " Your challenge?",
+      "words": [
+        {
+          "start": 19.76,
+          "end": 19.8,
+          "word": " Your"
+        },
+        {
+          "start": 19.8,
+          "end": 20.16,
+          "word": " challenge?"
+        }
+      ]
+    },
+    {
+      "start": 20.8,
+      "end": 21.98,
+      "text": " Bring that story to life.",
+      "words": [
+        {
+          "start": 20.8,
+          "end": 20.84,
+          "word": " Bring"
+        },
+        {
+          "start": 20.84,
+          "end": 21.12,
+          "word": " that"
+        },
+        {
+          "start": 21.12,
+          "end": 21.42,
+          "word": " story"
+        },
+        {
+          "start": 21.42,
+          "end": 21.72,
+          "word": " to"
+        },
+        {
+          "start": 21.72,
+          "end": 21.98,
+          "word": " life."
+        }
+      ]
+    },
+    {
+      "start": 22.62,
+      "end": 24.68,
+      "text": " Turn that data into something people can experience",
+      "words": [
+        {
+          "start": 22.62,
+          "end": 22.68,
+          "word": " Turn"
+        },
+        {
+          "start": 22.68,
+          "end": 22.9,
+          "word": " that"
+        },
+        {
+          "start": 22.9,
+          "end": 23.12,
+          "word": " data"
+        },
+        {
+          "start": 23.12,
+          "end": 23.46,
+          "word": " into"
+        },
+        {
+          "start": 23.46,
+          "end": 23.72,
+          "word": " something"
+        },
+        {
+          "start": 23.72,
+          "end": 24.1,
+          "word": " people"
+        },
+        {
+          "start": 24.1,
+          "end": 24.34,
+          "word": " can"
+        },
+        {
+          "start": 24.34,
+          "end": 24.68,
+          "word": " experience"
+        }
+      ]
+    },
+    {
+      "start": 25.3,
+      "end": 28.34,
+      "text": " through light, through sound, through a digital display.",
+      "words": [
+        {
+          "start": 25.3,
+          "end": 25.6,
+          "word": " through"
+        },
+        {
+          "start": 25.6,
+          "end": 25.9,
+          "word": " light,"
+        },
+        {
+          "start": 26.4,
+          "end": 26.46,
+          "word": " through"
+        },
+        {
+          "start": 26.46,
+          "end": 26.9,
+          "word": " sound,"
+        },
+        {
+          "start": 27.32,
+          "end": 27.46,
+          "word": " through"
+        },
+        {
+          "start": 27.46,
+          "end": 27.56,
+          "word": " a"
+        },
+        {
+          "start": 27.56,
+          "end": 27.86,
+          "word": " digital"
+        },
+        {
+          "start": 27.86,
+          "end": 28.34,
+          "word": " display."
+        }
+      ]
+    },
+    {
+      "start": 28.34,
+      "end": 30.56,
+      "text": " Be as creative as possible.",
+      "words": [
+        {
+          "start": 28.34,
+          "end": 29.1,
+          "word": " Be"
+        },
+        {
+          "start": 29.1,
+          "end": 29.34,
+          "word": " as"
+        },
+        {
+          "start": 29.34,
+          "end": 29.78,
+          "word": " creative"
+        },
+        {
+          "start": 29.78,
+          "end": 30.16,
+          "word": " as"
+        },
+        {
+          "start": 30.16,
+          "end": 30.56,
+          "word": " possible."
+        }
+      ]
+    },
+    {
+      "start": 31.18,
+      "end": 34.0,
+      "text": " Round one, submit your idea by December 3.",
+      "words": [
+        {
+          "start": 31.18,
+          "end": 31.5,
+          "word": " Round"
+        },
+        {
+          "start": 31.5,
+          "end": 31.8,
+          "word": " one,"
+        },
+        {
+          "start": 32.16,
+          "end": 32.4,
+          "word": " submit"
+        },
+        {
+          "start": 32.4,
+          "end": 32.72,
+          "word": " your"
+        },
+        {
+          "start": 32.72,
+          "end": 33.02,
+          "word": " idea"
+        },
+        {
+          "start": 33.02,
+          "end": 33.3,
+          "word": " by"
+        },
+        {
+          "start": 33.3,
+          "end": 33.5,
+          "word": " December"
+        },
+        {
+          "start": 33.5,
+          "end": 34.0,
+          "word": " 3."
+        }
+      ]
+    },
+    {
+      "start": 34.34,
+      "end": 36.44,
+      "text": " Sketches and simple concepts are welcome.",
+      "words": [
+        {
+          "start": 34.34,
+          "end": 34.92,
+          "word": " Sketches"
+        },
+        {
+          "start": 34.92,
+          "end": 35.12,
+          "word": " and"
+        },
+        {
+          "start": 35.12,
+          "end": 35.38,
+          "word": " simple"
+        },
+        {
+          "start": 35.38,
+          "end": 35.82,
+          "word": " concepts"
+        },
+        {
+          "start": 35.82,
+          "end": 36.12,
+          "word": " are"
+        },
+        {
+          "start": 36.12,
+          "end": 36.44,
+          "word": " welcome."
+        }
+      ]
+    },
+    {
+      "start": 36.92,
+      "end": 39.74,
+      "text": " No experience needed, no working prototype required.",
+      "words": [
+        {
+          "start": 36.92,
+          "end": 37.04,
+          "word": " No"
+        },
+        {
+          "start": 37.04,
+          "end": 37.34,
+          "word": " experience"
+        },
+        {
+          "start": 37.34,
+          "end": 37.88,
+          "word": " needed,"
+        },
+        {
+          "start": 38.26,
+          "end": 38.5,
+          "word": " no"
+        },
+        {
+          "start": 38.5,
+          "end": 38.76,
+          "word": " working"
+        },
+        {
+          "start": 38.76,
+          "end": 39.26,
+          "word": " prototype"
+        },
+        {
+          "start": 39.26,
+          "end": 39.74,
+          "word": " required."
+        }
+      ]
+    },
+    {
+      "start": 40.34,
+      "end": 41.98,
+      "text": " Enter on your own or with a team.",
+      "words": [
+        {
+          "start": 40.34,
+          "end": 40.52,
+          "word": " Enter"
+        },
+        {
+          "start": 40.52,
+          "end": 40.7,
+          "word": " on"
+        },
+        {
+          "start": 40.7,
+          "end": 40.84,
+          "word": " your"
+        },
+        {
+          "start": 40.84,
+          "end": 41.1,
+          "word": " own"
+        },
+        {
+          "start": 41.1,
+          "end": 41.44,
+          "word": " or"
+        },
+        {
+          "start": 41.44,
+          "end": 41.62,
+          "word": " with"
+        },
+        {
+          "start": 41.62,
+          "end": 41.74,
+          "word": " a"
+        },
+        {
+          "start": 41.74,
+          "end": 41.98,
+          "word": " team."
+        }
+      ]
+    },
+    {
+      "start": 42.48,
+      "end": 43.62,
+      "text": " It starts with an idea.",
+      "words": [
+        {
+          "start": 42.48,
+          "end": 42.56,
+          "word": " It"
+        },
+        {
+          "start": 42.56,
+          "end": 42.82,
+          "word": " starts"
+        },
+        {
+          "start": 42.82,
+          "end": 43.2,
+          "word": " with"
+        },
+        {
+          "start": 43.2,
+          "end": 43.32,
+          "word": " an"
+        },
+        {
+          "start": 43.32,
+          "end": 43.62,
+          "word": " idea."
+        }
+      ]
+    },
+    {
+      "start": 44.36,
+      "end": 47.72,
+      "text": " In round two, the top 10 ideas receive funding, equipment,",
+      "words": [
+        {
+          "start": 44.36,
+          "end": 44.44,
+          "word": " In"
+        },
+        {
+          "start": 44.44,
+          "end": 44.64,
+          "word": " round"
+        },
+        {
+          "start": 44.64,
+          "end": 45.02,
+          "word": " two,"
+        },
+        {
+          "start": 45.32,
+          "end": 45.42,
+          "word": " the"
+        },
+        {
+          "start": 45.42,
+          "end": 45.66,
+          "word": " top"
+        },
+        {
+          "start": 45.66,
+          "end": 45.88,
+          "word": " 10"
+        },
+        {
+          "start": 45.88,
+          "end": 46.26,
+          "word": " ideas"
+        },
+        {
+          "start": 46.26,
+          "end": 46.6,
+          "word": " receive"
+        },
+        {
+          "start": 46.6,
+          "end": 47.08,
+          "word": " funding,"
+        },
+        {
+          "start": 47.38,
+          "end": 47.72,
+          "word": " equipment,"
+        }
+      ]
+    },
+    {
+      "start": 48.16,
+      "end": 50.74,
+      "text": " and expert support to bring their designs to life.",
+      "words": [
+        {
+          "start": 48.16,
+          "end": 48.32,
+          "word": " and"
+        },
+        {
+          "start": 48.32,
+          "end": 48.72,
+          "word": " expert"
+        },
+        {
+          "start": 48.72,
+          "end": 49.18,
+          "word": " support"
+        },
+        {
+          "start": 49.18,
+          "end": 49.44,
+          "word": " to"
+        },
+        {
+          "start": 49.44,
+          "end": 49.68,
+          "word": " bring"
+        },
+        {
+          "start": 49.68,
+          "end": 49.86,
+          "word": " their"
+        },
+        {
+          "start": 49.86,
+          "end": 50.14,
+          "word": " designs"
+        },
+        {
+          "start": 50.14,
+          "end": 50.52,
+          "word": " to"
+        },
+        {
+          "start": 50.52,
+          "end": 50.74,
+          "word": " life."
+        }
+      ]
+    },
+    {
+      "start": 51.44,
+      "end": 53.46,
+      "text": " Build it, test it, showcase it.",
+      "words": [
+        {
+          "start": 51.44,
+          "end": 51.5,
+          "word": " Build"
+        },
+        {
+          "start": 51.5,
+          "end": 51.72,
+          "word": " it,"
+        },
+        {
+          "start": 51.94,
+          "end": 52.16,
+          "word": " test"
+        },
+        {
+          "start": 52.16,
+          "end": 52.48,
+          "word": " it,"
+        },
+        {
+          "start": 52.78,
+          "end": 52.98,
+          "word": " showcase"
+        },
+        {
+          "start": 52.98,
+          "end": 53.46,
+          "word": " it."
+        }
+      ]
+    },
+    {
+      "start": 53.82,
+      "end": 55.36,
+      "text": " Top winners earn cash prizes",
+      "words": [
+        {
+          "start": 53.82,
+          "end": 53.98,
+          "word": " Top"
+        },
+        {
+          "start": 53.98,
+          "end": 54.24,
+          "word": " winners"
+        },
+        {
+          "start": 54.24,
+          "end": 54.64,
+          "word": " earn"
+        },
+        {
+          "start": 54.64,
+          "end": 54.92,
+          "word": " cash"
+        },
+        {
+          "start": 54.92,
+          "end": 55.36,
+          "word": " prizes"
+        }
+      ]
+    },
+    {
+      "start": 55.36,
+      "end": 57.22,
+      "text": " and will have their designs displayed",
+      "words": [
+        {
+          "start": 55.36,
+          "end": 55.88,
+          "word": " and"
+        },
+        {
+          "start": 55.88,
+          "end": 56.06,
+          "word": " will"
+        },
+        {
+          "start": 56.06,
+          "end": 56.26,
+          "word": " have"
+        },
+        {
+          "start": 56.26,
+          "end": 56.42,
+          "word": " their"
+        },
+        {
+          "start": 56.42,
+          "end": 56.76,
+          "word": " designs"
+        },
+        {
+          "start": 56.76,
+          "end": 57.22,
+          "word": " displayed"
+        }
+      ]
+    },
+    {
+      "start": 57.22,
+      "end": 58.3,
+      "text": " at tourist attractions.",
+      "words": [
+        {
+          "start": 57.22,
+          "end": 57.5,
+          "word": " at"
+        },
+        {
+          "start": 57.5,
+          "end": 57.72,
+          "word": " tourist"
+        },
+        {
+          "start": 57.72,
+          "end": 58.3,
+          "word": " attractions."
+        }
+      ]
+    },
+    {
+      "start": 58.92,
+      "end": 59.66,
+      "text": " Ready for the challenge?",
+      "words": [
+        {
+          "start": 58.92,
+          "end": 59.14,
+          "word": " Ready"
+        },
+        {
+          "start": 59.14,
+          "end": 59.34,
+          "word": " for"
+        },
+        {
+          "start": 59.34,
+          "end": 59.46,
+          "word": " the"
+        },
+        {
+          "start": 59.46,
+          "end": 59.66,
+          "word": " challenge?"
+        }
+      ]
+    },
+    {
+      "start": 60.26,
+      "end": 62.1,
+      "text": " Create something people will stop for",
+      "words": [
+        {
+          "start": 60.26,
+          "end": 60.5,
+          "word": " Create"
+        },
+        {
+          "start": 60.5,
+          "end": 60.82,
+          "word": " something"
+        },
+        {
+          "start": 60.82,
+          "end": 61.2,
+          "word": " people"
+        },
+        {
+          "start": 61.2,
+          "end": 61.44,
+          "word": " will"
+        },
+        {
+          "start": 61.44,
+          "end": 61.74,
+          "word": " stop"
+        },
+        {
+          "start": 61.74,
+          "end": 62.1,
+          "word": " for"
+        }
+      ]
+    },
+    {
+      "start": 62.1,
+      "end": 64.32,
+      "text": " and help them connect with the Great Lakes.",
+      "words": [
+        {
+          "start": 62.1,
+          "end": 62.56,
+          "word": " and"
+        },
+        {
+          "start": 62.56,
+          "end": 62.9,
+          "word": " help"
+        },
+        {
+          "start": 62.9,
+          "end": 63.08,
+          "word": " them"
+        },
+        {
+          "start": 63.08,
+          "end": 63.44,
+          "word": " connect"
+        },
+        {
+          "start": 63.44,
+          "end": 63.72,
+          "word": " with"
+        },
+        {
+          "start": 63.72,
+          "end": 63.84,
+          "word": " the"
+        },
+        {
+          "start": 63.84,
+          "end": 64.06,
+          "word": " Great"
+        },
+        {
+          "start": 64.06,
+          "end": 64.32,
+          "word": " Lakes."
+        }
+      ]
+    },
+    {
+      "start": 65.0,
+      "end": 68.24,
+      "text": " Find out more at ray-onhacks.ca today.",
+      "words": [
+        {
+          "start": 65.0,
+          "end": 65.12,
+          "word": " Find"
+        },
+        {
+          "start": 65.12,
+          "end": 65.26,
+          "word": " out"
+        },
+        {
+          "start": 65.26,
+          "end": 65.52,
+          "word": " more"
+        },
+        {
+          "start": 65.52,
+          "end": 65.8,
+          "word": " at"
+        },
+        {
+          "start": 65.8,
+          "end": 66.06,
+          "word": " ray"
+        },
+        {
+          "start": 66.06,
+          "end": 67.06,
+          "word": "-onhacks"
+        },
+        {
+          "start": 67.06,
+          "end": 67.66,
+          "word": ".ca"
+        },
+        {
+          "start": 67.66,
+          "end": 68.24,
+          "word": " today."
+        }
+      ]
+    }
+  ]
+}

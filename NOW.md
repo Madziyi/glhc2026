@@ -1,6 +1,6 @@
 # Active Initiative - GLHC-004 rough opening with supplied narration
 
-Status: implementing first scene only, on codex/promo-prototype. Latest reviewed main8b4e7d9 integrated; website info-session changes preserved. Previous promo handoff in promo/PREVIOUS-HANDOFF.md.
+Status: rough first scene rendered and verified; organizer shot/timing review pending, on codex/promo-prototype. Latest reviewed main8b4e7d9 integrated; website info-session changes preserved. Previous promo handoff in promo/PREVIOUS-HANDOFF.md.
 
 Organizer supplied Ashley ElevenLabs narration2026-10-29 and explicitly requests a rough first-scene pass before a high-quality build. Ending will be fixed later; do not revise it now.
 
@@ -10,4 +10,8 @@ Latest CTA destination from organizer is raeonhacks.ca, superseding old .com/pro
 
 Acceptance: audio-backed rough opening rendered to actual first-section duration; representative frames and complete decode verified; exact timing/source hash recorded. No website/deployment changes beyond integrated upstream.
 
-Next action: align supplied narration and render rough opening for organizer review.
+Verification: 405/405 frames rendered and decoded;13.5s1080p30 with source narration. Deployment, underwater and title stills plus six-point export contact sheet inspected. Export audio prefix matches source with0.984 waveform correlation after42.7ms codec-delay compensation (under2frames); no manual listening claim. Source hash and timing in promo/evidence/ashley-timing.json; render verification/contact sheet in promo/evidence/opening-rough-*. 17/17 repository tests and diff check pass after upstream merge. Buoy copy byte-identical. Output: promo/out/opening-rough-ashley.mp4.
+
+Known limits: rough boat/glider geometry, placeholder deployment details, camera/effects/material polish pending. First section only; ending untouched. Source MP3 local/ignored and needed to reproduce. No production deployment or browser-playback claim.
+
+Next action: organizer agrees or revises opening shot order/camera/timing before high-quality pass.

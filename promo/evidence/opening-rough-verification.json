@@ -1,0 +1,20 @@
+{
+  "decoded_frames": 405,
+  "duration_seconds": 13.5,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "audio_prefix_check": {
+    "lag_samples": 683,
+    "delay_seconds": 0.0426875,
+    "correlation_after_alignment": 0.9842754616764462,
+    "output_seconds": 13.5
+  },
+  "audio_source_sha256": "ef6d9222bacc447c94f66f9bd02d2f4d98f505770a835cc3292ae25b7ecf2134",
+  "buoy_copy_byte_identical": true,
+  "ending_untouched": true,
+  "website_tests_passed": 17,
+  "audio_check_method": "decoded waveform correlation with encoding delay compensation; no manual listening claim"
+}

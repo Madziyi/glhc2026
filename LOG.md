@@ -289,3 +289,10 @@
 - Synced main55a9194 unchanged, continued promo branch. Organizer accepted Section2 as prototype only, requested smoother/richer final animation. Added isolated10s Section3 composition; matching warm-paper/curve handoff, animated original SVG light/sound/screen sketches and traveling camera, supplied full-composition lab photo, return to unfinished YOUR IDEA page. No persistent editorial headers/captions.
 - Verification:300/300 rendered, every frame decoded,10s1920x1080/30FPS. Six representative stages inspected; photo copied byte-identically from public/assets/team-lab.webp and full image preserved. Evidence section3-review.jpg/section3-verification.json. Render compilation and diff check pass. Audio timing provisional, no browser playback/deployment claim.
 - Added source/credits/proposed narration in SECTION3-STUDY.md. No website/dependency changes. Section1 remains unimplemented. Next: organizer reviews Section3, then Round1 discussion. Commit: published branch handoff.
+
+
+### 2026-10-27 — In-person / virtual info session modal
+- Organizer asked for both “Attend the info session” CTAs to open a styled modal with an in-person option at University of Windsor (`https://luma.com/pz0iw2m7`) and a virtual option (`https://luma.com/zrbvt2az`).
+- Implemented shared native dialog, Escape/backdrop/close behavior, return-focus, accessible headings, matching GLHC dark navy/yellow styling, and both options as secure new-tab Luma links. With JS disabled or no dialog support, CTA anchors go to a visible choice section.
+- Updated centralized public configuration and added a source contract test. GitHub-only static verification was performed; no local browser UAT or full Astro build is claimed.
+- No hosting configuration or production deployment was modified.

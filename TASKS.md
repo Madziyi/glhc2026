@@ -42,3 +42,8 @@ Hero submission dates: supplied Nov5 opening / Dec3 closing text added under des
 
 Submission-date casing: OPEN and CLOSE capitalized; build/diff and320/393/1440px
 static browser exact-text/no-clipping checks pass. PR#6 update.
+
+## 2026-10-27 — Info session selector
+- [x] Both info-session CTAs now open one modal with two organizer-supplied Luma links; no-JavaScript fallback provides both options.
+- [x] Native dialog, Escape/backdrop/close controls, focus return, narrow layouts and reduced-motion CSS implemented.
+- [ ] Physical browser/production build UAT not performed by this connector-only edit; verify in deployment before announcing.

@@ -97,4 +97,12 @@ if (configured && new URL(configured).protocol === 'https:') {
     link.rel = 'noopener noreferrer';
   }
 }
+const virtualConfigured = window.GLHC_CONFIG?.virtualLumaUrl;
+if (virtualConfigured && new URL(virtualConfigured).protocol === 'https:') {
+  for (const link of document.querySelectorAll('[data-register-virtual]')) {
+    link.href = virtualConfigured;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  }
+}
 if (!toggle.checked) requestAnimationFrame(loadScene);

@@ -95,3 +95,31 @@ html.intro-active{overflow:hidden}
 @media(max-height:550px) and (orientation:landscape){.hero-photo{width:min(100%,calc((100svh - 220px)*1.329))}.hero-dates{font-size:.6875rem;line-height:1.35;margin-top:6px}}
 @media(max-height:350px) and (orientation:landscape){.invitation{padding-top:76px;padding-bottom:46px;row-gap:4px}.hero-copy h1{font-size:1.35rem}.hero-description{font-size:.75rem}.hero-dates{font-size:.625rem;line-height:1.3;margin-top:4px}}
 @media(max-width:600px) and (max-height:350px) and (orientation:landscape){.invitation{padding-top:64px}}
+
+
+/* Organizer's info-session chooser: top-layer dialog with a native-anchor fallback. */
+.info-session-fallback{position:relative;z-index:3;scroll-margin-top:5rem;padding:clamp(3.25rem,7vw,6rem) var(--page-pad);text-align:center;background:linear-gradient(160deg,#083a4d,#051e2c);border-top:1px solid #b9e3d52e}
+.info-session-fallback h2{font-size:clamp(2rem,5vw,3.5rem);margin:.5rem auto 1rem}
+.info-session-fallback>p:not(.eyebrow){color:#d0e4e0}
+.has-info-session-dialog .info-session-fallback{display:none}
+.info-session-dialog{position:fixed;inset:0;width:min(620px,calc(100% - 1.5rem));max-width:620px;max-height:min(90dvh,780px);margin:auto;padding:0;border:1px solid #9ac2bc80;border-radius:24px;overflow:auto;background:linear-gradient(155deg,#0b4355,#05283b 65%,#041c2e);box-shadow:0 30px 85px #000b;color:#f6f6ed}
+.info-session-dialog::backdrop{background:rgba(1,14,25,.78);backdrop-filter:blur(8px)}
+.info-session-dialog__inner{position:relative;padding:clamp(1.5rem,5vw,3.25rem)}
+.info-session-dialog__inner>.eyebrow{margin:0 3rem .9rem 0}
+.info-session-dialog h2{font-size:clamp(2.05rem,6vw,3.35rem);line-height:1.03;margin:0 2.4rem 1rem}
+.info-session-dialog #info-session-description{color:#d0e4e0;font-size:1rem;margin:0 0 1.5rem}
+.info-session-dialog__close{position:absolute;top:1.15rem;right:1.15rem;width:44px;height:44px;display:grid;place-items:center;border:1px solid #b9e3d585;border-radius:50%;background:#052b3e;color:#f6f6ed;font-size:1.75rem;line-height:1;cursor:pointer}
+.info-session-dialog__close:hover{border-color:var(--yellow);color:var(--yellow)}
+.info-session-choices{display:flex;flex-direction:column;gap:.65rem;width:min(100%,500px);margin:1.5rem auto}
+.info-session-choice{position:relative;display:flex;flex-direction:column;gap:.2rem;align-items:flex-start;min-height:110px;padding:1.25rem 3.4rem 1.25rem 1.25rem;text-decoration:none;text-align:left;border:1px solid #98c2c377;border-radius:12px;background:#052b3bd9;transition:border-color .2s,background .2s,transform .2s}
+.info-session-choice:hover{border-color:var(--yellow);background:#12495a;transform:translateY(-2px)}
+.info-session-choice__eyebrow{font-size:.67rem;letter-spacing:.18em;font-weight:700;color:var(--yellow)}
+.info-session-choice__title{font-size:clamp(1.08rem,2.7vw,1.35rem);font-weight:700;line-height:1.3}
+.info-session-choice__detail{font-size:.84rem;color:#c5dcdd}
+.info-session-choice__arrow{position:absolute;right:1.3rem;top:50%;transform:translateY(-50%);font-size:1.45rem;color:var(--yellow)}
+.info-session-divider{display:flex;align-items:center;gap:1rem;color:#d0e4e0;font-weight:700;font-size:.72rem;letter-spacing:.13em}
+.info-session-divider:before,.info-session-divider:after{content:"";height:1px;flex:1;background:#b9e3d54f}
+.info-session-dialog__note{font-size:.78rem;color:#b9d4d5;text-align:center;margin:1.25rem 0 0}
+.info-session-dialog a:focus-visible,.info-session-dialog button:focus-visible,.info-session-fallback a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:480px){.info-session-dialog{width:calc(100% - 1rem);max-height:calc(100dvh - 1rem);border-radius:17px}.info-session-dialog__inner{padding:1.5rem 1rem}.info-session-dialog h2{margin-right:1.75rem}.info-session-dialog__close{top:.75rem;right:.75rem}.info-session-choice{padding:1rem 3rem 1rem 1rem;min-height:99px}.info-session-choice__arrow{right:1rem}}
+@media(prefers-reduced-motion:reduce){.info-session-choice{transition:none}.info-session-choice:hover{transform:none}}

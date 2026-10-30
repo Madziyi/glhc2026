@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {waveGLSL} from '../../src/scripts/glhc002/waves.mjs';
 
 // Reviewed defaults are preserved; opt-in film mode adds denser surface/reflection inputs.
-export function createOpeningEnvironment(scene,{production=false}={}){
+export function createOpeningEnvironment(scene,{production=false,waterCenterX=-34}={}){
 function createWater() {
   // A continuous grid concentrates resolution at the hull and expands offshore.
   // No overlapping transparent tiles, local patch seam, or extra water draw.
@@ -10,7 +10,7 @@ function createWater() {
   const vertices = geo.attributes.position;
   const expand = v => Math.sign(v) * .8 * (Math.exp(Math.abs(v) * Math.log(3126)) - 1);
   const filmExpand=v=>{const a=Math.abs(v);return Math.sign(v)*(a<=.7?a/.7*90:90+Math.pow((a-.7)/.3,3)*2410)};
-  for (let i = 0; i < vertices.count; i++) vertices.setXY(i, production?filmExpand(vertices.getX(i))-34:expand(vertices.getX(i)), production?filmExpand(vertices.getY(i)):expand(vertices.getY(i)));
+  for (let i = 0; i < vertices.count; i++) vertices.setXY(i, production?filmExpand(vertices.getX(i))+waterCenterX:expand(vertices.getX(i)), production?filmExpand(vertices.getY(i)):expand(vertices.getY(i)));
   geo.computeBoundingSphere();
   const mat = new THREE.ShaderMaterial({
     transparent: false, depthWrite: true, side: THREE.DoubleSide,

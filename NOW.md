@@ -1,15 +1,11 @@
-# Active Initiative - GLHC-004 production science/sensors
+# Active Initiative - GLHC-004 production waterfront
 
-Status: organizer accepted opening water/deployment and requested next section. ProductionScience rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Full-film production/sound pending.
+Status: organizer accepted production science and requested next section. ProductionWaterfront complete on codex/promo-prototype; organizer review pending. Main8b4e7d9 integrated before implementation.
 
-Scope: same318-frame13.5-24.1s narration. Exact opening-end camera/target and absolute environment clock. Smooth continuous descent/orbit, wider sensor framing, refined production water/lighting/absorption/caustics on reviewed buoy GLB. Fine particles at buoy, no launch emissions. Two anchored callouts keep Water-quality buoy / Sensors wording,34px type and matching1.5px leaders. Third pulse gets soft glow and1.5px screen-width trail, follows toward centre-dot/navy bridge to waterfront. No invented telemetry, geometry redesign or extra captions.
+Scope: 212 frames,1920x1080/30FPS, narration24.1-31.1667s. Preserved approved continuous lateral camera path,48-unit station spacing, fixed varied-height tubes, sound bowl and central-column LED screen. No visitors. Seamless9-unit terrace,7-unit green strip/benches,5-unit brick foreground. Added detailed slatted benches, planting, paver geometry, procedural material grain, shadows, lake reflection and distant shore. Light moves green/yellow inside fixed tubes; restrained sound rings; BE CREATIVE animates within physical screen. Centred aqua/navy entry and approved paper-line ending.
 
-Changed: production-science-path.mjs, opt-in production mode for science, shared effects support extra targets/particle centre/no emission, Line2 trail/aura. Reviewed buoy asset unchanged. Rough/default scenes and original complete rough retain prior exports; no website/deployment/full-film edits.
+Verification: full212-frame render/decode,7.0667s,9 sampled frames visually inspected. Audio correlation0.9999999999999999 to approved rough. Camera path unchanged; holds feature one installation. Initial terrain shader used reserved GLSL word patch; corrected to variation, rerendered without shader errors. Diff check passed. Evidence promo/evidence/waterfront-production-render.json and waterfront-production-review.jpg. No manual playback/listening or deployment claim.
 
-Verification:318/318 render/decode1920x1080/30FPS,10.6s;9 final moments inspected. Narration correlation1.0 to approved assembled science. Opening end/science start camera-target exact; measured adjacent-frame pixel difference0.859742 (0-255 scale). All buoy/sensor anchor frames within48px safe margins after widening camera; zero failures. Pulse endpoint equals final camera target. Diff check passed. Evidence science-production-path.json/science-production-render.json/science-production-review.jpg. No manual listening/browser playback/deployment claim.
+Artifact: promo/out/waterfront-detailed-pass.mp4. Earlier full rough/export files retained. Website and deployed state unchanged. Final-film assembly, remaining rounds/closing finish, music/SFX and spoken.com correction remain. Destination raeonhacks.com.
 
-Artifacts: promo/out/science-detailed-pass.mp4, science-sensors-detail.png. Notes promo/SCIENCE-DEVELOPMENT.md. Pulse is a visual metaphor, not asserted scientific telemetry.
-
-Remaining production: waterfront/rounds/closing consistency, final assembly, music/SFX and spoken.com correction. Current promo destination raeonhacks.com.
-
-Next action: organizer reviews production science; then bring waterfront to same finish with centred dot handoff.
+Next action: organizer reviews waterfront production pass; then refine Round1 sketch/submission section.

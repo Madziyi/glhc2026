@@ -1,0 +1,21 @@
+{
+  "decoded_frames": 212,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 7.066666666666666,
+  "audio_correlation_to_previous": 0.9999999999999999,
+  "source_audio_start_seconds": 24.1,
+  "station_spacing": 48,
+  "tube_scale_fixed": 1,
+  "light_colours": [
+    "green",
+    "yellow"
+  ],
+  "screen_stand": "single column and rectangular base",
+  "no_visitors": true,
+  "camera_samples_checked": 303,
+  "neighbouring_installation_frustum_intersections": 0
+}

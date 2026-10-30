@@ -20,19 +20,27 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
  const silver=new THREE.MeshStandardMaterial({color:'#a2c0c7',metalness:.85,roughness:.22,side:THREE.DoubleSide});
  const dark=new THREE.MeshStandardMaterial({color:'#062c3c',metalness:.6,roughness:.18});
  const ground=new THREE.Mesh(new THREE.PlaneGeometry(180,100),new THREE.MeshStandardMaterial({color:'#061e2b',metalness:.45,roughness:.28}));ground.rotation.x=-Math.PI/2;ground.position.y=-.12;scene.add(ground);
- const mesh=(geo,mat,parent=scene)=>{const m=new THREE.Mesh(geo,mat);parent.add(m);return m};
+ const stations=[new THREE.Group(),new THREE.Group(),new THREE.Group()];stations.forEach(g=>scene.add(g));let activeStation=stations[0];
+ const mesh=(geo,mat,parent=activeStation)=>{const m=new THREE.Mesh(geo,mat);parent.add(m);return m};
  const platform=x=>{const m=mesh(new THREE.CylinderGeometry(3.25,3.5,.15,96),metal);m.position.set(x,0,0)};
- [0,9,18].forEach(platform);
+ [0,9,18].forEach((x,i)=>{activeStation=stations[i];platform(x)});activeStation=stations[0];
  const rods=[];
  for(let i=0;i<19;i++){
   const angle=i/19*Math.PI*2;const r=1.9+.2*Math.sin(i*1.8);const height=1.2+(Math.sin(i*.68)+1)*1.3;
-  const group=new THREE.Group();group.position.set(Math.cos(angle)*r,.1,Math.sin(angle)*r);scene.add(group);
+  const group=new THREE.Group();group.position.set(Math.cos(angle)*r,.1,Math.sin(angle)*r);stations[0].add(group);
   const base=mesh(new THREE.CylinderGeometry(.11,.18,.23,16),metal,group);base.position.y=.11;
   const mat=new THREE.MeshStandardMaterial({color:'#94f6ed',emissive:'#40ded2',emissiveIntensity:2,metalness:.1,roughness:.3});
-  const rod=mesh(new THREE.CylinderGeometry(.045,.045,height,12),mat,group);rod.position.y=height/2+.2;rods.push({rod,mat,height});
+  if(waterfront){mat.dispose();}
+  const tubeMaterial=waterfront?new THREE.ShaderMaterial({uniforms:{uTime:{value:0},uIndex:{value:i}},toneMapped:false,
+   vertexShader:`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
+   fragmentShader:`varying vec2 vUv;uniform float uTime;uniform float uIndex;
+   void main(){float cycle=mod(uTime,2.);float travel=fract(uTime-uIndex*.035);float band=exp(-pow((vUv.y-travel)/.22,2.));vec3 green=vec3(.08,.95,.22),yellow=vec3(1.,.8,.04);vec3 light=cycle<1.?green:yellow;vec3 shell=vec3(.30,.43,.40);gl_FragColor=vec4(mix(shell,light,band*.95)+light*band*.25,1.);}`
+  }):mat;
+  const rod=mesh(new THREE.CylinderGeometry(.045,.045,height,12),tubeMaterial,group);rod.position.y=height/2+.2;rods.push({rod,mat:tubeMaterial,height});
  }
- const light=new THREE.PointLight('#65f7ee',28,10,2);light.position.set(0,2,0);scene.add(light);
+ const light=new THREE.PointLight('#65f7ee',28,10,2);light.position.set(0,2,0);stations[0].add(light);
  // The sound station is a bowl of water over a speaker; rings are a visual metaphor.
+ activeStation=stations[1];
  const speaker=mesh(new THREE.CylinderGeometry(1.65,1.5,.75,80),metal);speaker.position.set(9,.45,0);
  const bowl=mesh(new THREE.TorusGeometry(1.7,.16,18,96),silver);bowl.rotation.x=Math.PI/2;bowl.position.set(9,.95,0);
  const water=mesh(new THREE.CircleGeometry(1.7,96),dark);water.rotation.x=-Math.PI/2;water.position.set(9,.94,0);
@@ -40,6 +48,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
  for(let i=0;i<12;i++){const mat=new THREE.MeshStandardMaterial({color:'#91f7e9',emissive:'#3cbfb5',emissiveIntensity:.7,transparent:true,opacity:.7});const m=mesh(new THREE.TorusGeometry(.12+i*.13,.009,6,100),mat);m.rotation.x=Math.PI/2;m.position.set(9,.96,0);rings.push(m)}
  const cone=mesh(new THREE.CylinderGeometry(.9,1.1,.09,64),dark);cone.position.set(9,1.0,0);
  // Typography belongs to the physical LED screen, not an overlay on the film.
+ activeStation=stations[2];
  const maskCanvas=document.createElement('canvas');maskCanvas.width=1536;maskCanvas.height=864;
  const ctx=maskCanvas.getContext('2d');
  const textMask=new THREE.CanvasTexture(maskCanvas);textMask.minFilter=THREE.LinearFilter;
@@ -86,8 +95,15 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
  }`});
  const chassis=mesh(new THREE.BoxGeometry(6.05,3.55,.23),metal);chassis.position.set(18,2.35,-.3);
  const display=mesh(new THREE.PlaneGeometry(5.82,3.28),displayMaterial);display.position.set(18,2.35,-.17);
- [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
- const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);scene.add(screenGlow);
+ if(waterfront){
+  chassis.position.y=3.5;display.position.y=3.5;
+  const column=mesh(new THREE.CylinderGeometry(.25,.32,1.8,32),metal);column.position.set(18,.98,-.3);
+  const collar=mesh(new THREE.CylinderGeometry(.26,.26,.45,32),metal);collar.position.set(18,1.9,-.3);
+  const foot=mesh(new THREE.BoxGeometry(2.7,.16,1.7),metal);foot.position.set(18,.17,-.15);
+ }else [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
+ const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);stations[2].add(screenGlow);
+ if(waterfront){stations.forEach((g,i)=>g.position.set(i*48-i*9,0,-8));}
+ activeStation=scene;
  const shore=waterfront?createWaterfront(scene,ground):null;
  if(waterfront){camera.far=6000;camera.updateProjectionMatrix();renderer.toneMappingExposure=.85;key.intensity=2.4;rim.intensity=.8;}
  const particles=[];
@@ -99,16 +115,16 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
   const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
   camera.position.set(x+Math.sin(a)*8.7*(1-zoom*.35),4.3-zoom*1.0,Math.cos(a)*8.7-zoom*2.5);
   camera.lookAt(x,1.2+screenFocus*.85,0);
-  rods.forEach(({rod,mat,height},i)=>{rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
+  rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*.8});
   paintText(f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
-  particles.forEach((p,i)=>{const lead=creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7);if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
+  particles.forEach((p,i)=>{const lead=waterfront?(f<124?0:f<242?48:96):creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7-(waterfront?8:0));if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
   pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});
-  if(creative){const build=ramp(localFrame,7,58);rods.forEach(({rod})=>{rod.scale.y*=.05+.95*build});light.intensity=28*(.25+.75*build)}
+  if(creative&&!waterfront){const build=ramp(localFrame,7,58);rods.forEach(({rod})=>{rod.scale.y*=.05+.95*build});light.intensity=28*(.25+.75*build)}
   if(waterfront){
-   const station=f<124?0:f<242?9:18;
-   const phase=station===0?ramp(f,0,123):station===9?ramp(f,124,241):ramp(f,242,359);
-   camera.position.set(station+5.8-phase*2.5,3.6-phase*.55,11.8-phase*1.7);camera.lookAt(station,1.4,-1.8);
+   const station=f<124?0:f<242?48:96;
+   const phase=station===0?ramp(f,0,123):station===48?ramp(f,124,241):ramp(f,242,359);
+   camera.position.set(station+6.5-phase*1.8,3.8-phase*.2,10.5-phase*.5);camera.lookAt(station,1.15,-8);
    shore.draw(localFrame/30);
   }
   renderer.render(scene,camera);

@@ -12,7 +12,7 @@
     "render:rough-opening": "remotion render src/index.jsx RoughOpening out/opening-rough-distant-buoy.mp4 --codec=h264 --gl=angle",
     "render:rough-science": "remotion render src/index.jsx RoughScience out/science-rough-ashley.mp4 --codec=h264 --gl=angle",
     "render:rough-creative": "remotion render src/index.jsx RoughCreative out/section3-creative-rough.mp4 --codec=h264 --gl=angle",
-    "render:waterfront": "remotion render src/index.jsx RoughWaterfront out/section3-waterfront-rough.mp4 --codec=h264 --gl=angle"
+    "render:waterfront": "remotion render src/index.jsx RoughWaterfront out/section3-waterfront-spaced.mp4 --codec=h264 --gl=angle"
   },
   "dependencies": {
     "@remotion/cli": "4.0.387",

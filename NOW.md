@@ -1,11 +1,11 @@
-# Active Initiative - GLHC-004 rough section 3 creative installations
+# Active Initiative - GLHC-004 section3 landscaped waterfront rough
 
-Status: organizer accepted science callouts as rough idea and requested section3. Creative-installation continuation rendered on codex/promo-prototype; final polish and ending revision deferred. Main8b4e7d9 remains integrated.
+Status: organizer requested all three scenic moments and chose landscaped waterfront; explicitly no visitors. RoughWaterfront continues the selected light/sound/LED ideas in a conceptual lakefront promenade. Final production and ending revision deferred. Main8b4e7d9 remains integrated.
 
-Scope: Ashley source22.6-31.1667s,257 frames. Reuse selected light-rod sculpture, water/sound bowl and physical LED screen. Match aqua dot/rings across stations, grow lights, ripple bowl and animate BE CREATIVE within screen. End with paper/sketch-line bridge toward Round1. No clams, extra headings, website changes or ending edits.
+Scope: start at can experience (source24.10s) through31.1667s;212 frames. Three scenic views: light sculpture, water/sound bowl, animated BE CREATIVE screen. Lake horizon, sand, promenade, planted beds, trees and benches provide context; no people. Aqua pulse motif retained. Paper/sketch bridge retained for Round1. No existing real location or built installation is asserted.
 
-Implementation: reusable setupInstallations with optional creative mode, RoughCreative composition and isolated render script. Historical Section2Concept retained. Dot colour/rings match science motif; transition is rough staging rather than a finished seamless camera move.
+Implementation: optional waterfront mode in shared installation setup, isolated waterfront environment and RoughWaterfront composition. Studio rough retained. Science currently ends22.6s; its extension through24.1s is a later assembly task, not silently filled here. This export starts on can experience as requested.
 
-Verification:257/257 frames rendered/decoded1920x1080/30FPS,8.5667s. Six export stages visually inspected; light hold adjusted to spoken cue. Source narration slice matched0.989 correlation after codec delay compensation. Evidence promo/evidence/creative-rough-review.jpg and creative-rough-verification.json. Diff check passes. Audio remains local/ignored; no manual listening/browser playback/deployment claim.
+Review artifact: promo/out/section3-waterfront-rough.mp4. Three individual moment excerpts accompany the combined rough. Verification:212/212 frames rendered and decoded1920x1080/30FPS,7.0667s. Six final export moments inspected; tree moved clear of screen. Source24.1s slice correlation0.9878 after42.6875ms codec delay. Silent slowed light/sound/display studies decoded90/89/92 frames respectively. Evidence promo/evidence/waterfront-review.jpg and waterfront-verification.json. Diff check passes. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/section3-creative-rough.mp4. Next action: organizer reviews light/sound/display timing before Round1 rough animation. Earlier science and opening evidence retained. Latest CTA raeonhacks.ca; supplied ending deferred.
+Next action: organizer reviews all three waterfront moments before further polish or Round1.

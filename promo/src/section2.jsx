@@ -2,11 +2,12 @@ import React, {useLayoutEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Img,staticFile,useCurrentFrame,delayRender,continueRender} from 'remotion';
 import * as THREE from 'three';
 import {ramp} from './opening';
+import {createWaterfront} from './waterfront-environment';
 
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
 
-export function setupInstallations(canvas,creative=false){
+export function setupInstallations(canvas,creative=false,waterfront=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});
  renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
@@ -87,6 +88,8 @@ export function setupInstallations(canvas,creative=false){
  const display=mesh(new THREE.PlaneGeometry(5.82,3.28),displayMaterial);display.position.set(18,2.35,-.17);
  [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
  const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);scene.add(screenGlow);
+ const shore=waterfront?createWaterfront(scene,ground):null;
+ if(waterfront){camera.far=6000;camera.updateProjectionMatrix();renderer.toneMappingExposure=.85;key.intensity=2.4;rim.intensity=.8;}
  const particles=[];
  for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?.075:.025,8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
  const pulseRings=[];
@@ -102,9 +105,15 @@ export function setupInstallations(canvas,creative=false){
   particles.forEach((p,i)=>{const lead=creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7);if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
   pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});
   if(creative){const build=ramp(localFrame,7,58);rods.forEach(({rod})=>{rod.scale.y*=.05+.95*build});light.intensity=28*(.25+.75*build)}
+  if(waterfront){
+   const station=f<124?0:f<242?9:18;
+   const phase=station===0?ramp(f,0,123):station===9?ramp(f,124,241):ramp(f,242,359);
+   camera.position.set(station+5.8-phase*2.5,3.6-phase*.55,11.8-phase*1.7);camera.lookAt(station,1.4,-1.8);
+   shore.draw(localFrame/30);
+  }
   renderer.render(scene,camera);
  }
- return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose())}});textMask.dispose();renderer.dispose()}};
+ return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose())}});textMask.dispose();shore?.dispose();renderer.dispose()}};
 }
 
 export function Section2Concept(){

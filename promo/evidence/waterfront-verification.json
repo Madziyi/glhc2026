@@ -1,0 +1,27 @@
+{
+  "decoded_frames": 212,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 7.066666666666666,
+  "source_audio_start_seconds": 24.1,
+  "audio_correlation_to_source": 0.9877914477144222,
+  "codec_delay_seconds": 0.0426875,
+  "no_visitors": true,
+  "individual_studies": {
+    "light": {
+      "frames": 90,
+      "silent_slowed_review": true
+    },
+    "sound": {
+      "frames": 89,
+      "silent_slowed_review": true
+    },
+    "display": {
+      "frames": 92,
+      "silent_slowed_review": true
+    }
+  }
+}

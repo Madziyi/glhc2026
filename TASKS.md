@@ -1,6 +1,7 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
+- `[waterfront revision rendered; review pending]` -three scenic light/sound/LED moments on landscaped promenade, no visitors, starts on can experience24.10s. Studio rough retained. Science extension22.6-24.1s needed at assembly.
 - `[section3 creative rough rendered; review pending]` -8.5667s Ashley-timed light sculpture, sound bowl and BE CREATIVE LED, matching aqua pulse, paper/sketch handoff to Round1.
 - `[rough science accepted; final polish pending]` -9.1s surface descent, original sensor cage reveal, two tracked buoy/sensor callouts and unchanged third transition pulse, source narration13.5-22.6s.
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.

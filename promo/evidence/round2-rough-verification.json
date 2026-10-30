@@ -1,0 +1,16 @@
+{
+  "decoded_frames": 437,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 14.566666666666666,
+  "source_audio_start_seconds": 44.333333333333336,
+  "source_audio_end_seconds": 58.9,
+  "audio_correlation_to_source": 0.9875758908244867,
+  "codec_delay_seconds": 0.042625,
+  "review_frames": 9,
+  "selected_proposals": 10,
+  "no_funding_amount_invented": true
+}

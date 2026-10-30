@@ -1,13 +1,13 @@
-# Active Initiative - GLHC-004 Round1 light-only revision
+# Active Initiative - GLHC-004 Round2 build/showcase rough
 
-Status: organizer revision rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Final production/ending deferred.
+Status: organizer accepted simplified Round1 and requested next section. RoughRoundTwo rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated; final production/ending deferred.
 
-Scope/decisions: only larger light sculpture sketch, drawing at0.25x rate over most of clip. Remove sound/screen drawings and all visible pencils. Stamp reads Just submit your idea. Left of sketch: Idea Submissions / Open / Nov5th. Above December3 calendar: Idea Submissions / Deadline. Paper/envelope handoff retained; narration unchanged31.1667-44.3333s. Dates organizer-supplied; no year/cutoff invented.
+Scope: Ashley44.3333-58.9s,437frames. Prior envelope fans into exactly ten proposal envelopes with10 marker. One representative light sketch receives funding/equipment/expert-support symbols; paper dissolves into waterfront as individual tubes assemble. Fixed built tubes pulse green/yellow for testing/showcase. CASH PRIZES marker on winner beat, clean scenic installation on tourist-display narration. Example design, no invented funding amount/location, no visitors. CTA ending unchanged.
 
-Changed: isolated RoughRoundOne composition and render script. Other compositions/website/ending untouched. Existing sketch primitives reused.
+Changed: isolated RoughRoundTwo composition; optional roundTwo mode in shared installation scene for assembly/orbit, other designs hidden in this composition only; render script and evidence. Previous compositions retain defaults. No website/deployment/full-film changes.
 
-Verification:395/395 rendered/decoded1920x1080/30FPS,13.1667s. Six representative final moments visually inspected for drawing progression, labels and envelope. Audio waveform correlation1.0 to previous Round1 export. Diff check passed. Evidence promo/evidence/round1-light-review.jpg and round1-light-verification.json. No manual listening/browser playback/deployment claim.
+Verification:437/437 rendered/decoded1920x1080/30FPS,14.5667s. Nine final moments visually inspected including ten envelopes, three support symbols, assembly, prize marker and public setting. Source audio correlation0.987576 after42.6875ms codec-delay compensation. Diff check passed. Evidence promo/evidence/round2-rough-review.jpg and round2-rough-verification.json. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/round1-light-sketch-rough.mp4. Previous export historical. Assembly science extension22.6-24.1s and final transitions/polish remain deferred; latest CTA raeonhacks.ca.
+Review artifact: promo/out/round2-build-rough.mp4. Final transition/material/camera polish deferred. Science22.6-24.1s extension remains assembly task; latest CTA raeonhacks.ca; ending to revise later.
 
-Next action: organizer reviews simplified Round1 before Round2 rough.
+Next action: organizer reviews Round2 rough before discussing deferred ending.

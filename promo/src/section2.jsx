@@ -8,7 +8,7 @@ import {waterfrontMotion} from './waterfront-motion.mjs';
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
 
-export function setupInstallations(canvas,creative=false,waterfront=false){
+export function setupInstallations(canvas,creative=false,waterfront=false,roundTwo=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});
  renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
@@ -104,6 +104,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
  }else [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
  const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);stations[2].add(screenGlow);
  if(waterfront){stations.forEach((g,i)=>g.position.set(i*48-i*9,0,-9.5));}
+ if(roundTwo){stations[1].visible=false;stations[2].visible=false;}
  activeStation=scene;
  const shore=waterfront?createWaterfront(scene,ground):null;
  if(waterfront){camera.far=6000;camera.updateProjectionMatrix();renderer.toneMappingExposure=.85;key.intensity=2.4;rim.intensity=.8;}
@@ -116,7 +117,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
   const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
   camera.position.set(x+Math.sin(a)*8.7*(1-zoom*.35),4.3-zoom*1.0,Math.cos(a)*8.7-zoom*2.5);
   camera.lookAt(x,1.2+screenFocus*.85,0);
-  rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
+  rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;if(roundTwo){const built=ramp(localFrame-45,177+i*2.2,210+i*2.2);rod.position.y=height/2+.2+(1-built)*3;rod.visible=built>0;}return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*.8});
   paintText(f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
   particles.forEach((p,i)=>{const lead=waterfront?waterfrontMotion(localFrame-45).centre:creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7-(waterfront?9.5:0));if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
@@ -125,6 +126,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false){
   if(waterfront){
    const motion=waterfrontMotion(localFrame-45);
    camera.position.set(...motion.camera);camera.lookAt(...motion.target);
+   if(roundTwo){const frame=localFrame-45,p=ramp(frame,170,436);camera.position.set(6.5-p*3,3.8-p*.4,10.5-p*1.4);camera.lookAt(0,1.15,-9.5);particles.forEach(o=>o.visible=false);pulseRings.forEach(o=>o.visible=false);}
    shore.draw(localFrame/30);
   }
   renderer.render(scene,camera);

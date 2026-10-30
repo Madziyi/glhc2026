@@ -363,3 +363,10 @@
 - Organizer requested light sculpture drawing only, slower, no pencils; replace stamp with Just submit your idea, deadline caption above calendar, opening Nov5th at left. Removed all pencil nodes/helper and other sketch drawings from RoughRoundOne. Enlarged light drawing, quarter-rate progress spans most of395-frame clip. Added exact requested labels; envelope and source narration retained. Other compositions unchanged.
 - Verification:395/395 rendered/decoded1920x1080/30FPS,13.1667s; six final moments inspected including gradual strokes and both date labels. Audio correlation1.0 to previous Round1 export; diff check passed. Evidence round1-light-review.jpg/round1-light-verification.json. No manual listening/browser playback/deployment claim.
 - Output round1-light-sketch-rough.mp4. Previous export historical. Next: organizer reviews simplified Round1 before Round2. Commit: published promo branch handoff.
+
+
+### 2026-10-29 - Round2 resources, building and showcase rough
+- Organizer accepted simplified Round1 and requested next section. Added RoughRoundTwo437frames with unchanged Ashley44.3333-58.9s. Prior envelope fans into exactly ten proposals; representative light sketch receives coin/tool/support symbols, dissolves into waterfront as tubes assemble, tests with green/yellow pulses, showcases with CASH PRIZES marker and public-display scene. No invented funding amount, real location or visitors. Ending deferred unchanged.
+- Shared installation scene adds opt-in roundTwo assembly/orbit mode; earlier composition defaults preserved. No website/deployment/full-film assembly changes.
+- Verification:437/437 render/decode1920x1080/30FPS,14.5667s; nine final export moments inspected including10 selection, support, assembly, prize and waterfront. Source-slice correlation0.987576 after42.6875ms AAC delay. Diff check passed. Evidence round2-rough-review.jpg/round2-rough-verification.json. No manual listening/browser playback/deployment claim.
+- Output round2-build-rough.mp4. Final polish/science extension remain later assembly work. Next: organizer reviews Round2 before deferred ending discussion. Commit: published promo branch handoff.

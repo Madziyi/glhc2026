@@ -1,7 +1,8 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
-- `[Round1 rough rendered/verified; review pending]` -paper-line handoff, slower light-only sketch, Nov5th opening label at left, Idea Submissions Deadline above Dec3 calendar, Just submit your idea stamp, no visible pencils, submission envelope. Ashley31.1667-44.3333s.
+- `[Round2 rough rendered/verified; review pending]` -ten selected proposals, funding/equipment/support symbols, sketch-to-built light installation, testing/showcase, cash prizes and tourist-display beat. Ashley44.3333-58.9s; ending deferred.
+- `[Round1 simplified rough accepted; final polish pending]` -paper-line handoff, slower light-only sketch, Nov5th opening label at left, Idea Submissions Deadline above Dec3 calendar, Just submit your idea stamp, no visible pencils, submission envelope. Ashley31.1667-44.3333s.
 - `[continuous waterfront rough accepted; final polish pending]` -one continuous move through light/sound/LED installations; smooth terrace25% narrower, brick foreground walkway25% wider; partial path then green seating strip then paved terrace/lake, stationary green/yellow LED tubes and central-column display stand; no visitors, starts on can experience24.10s. Studio rough retained. Science extension22.6-24.1s needed at assembly.
 - `[section3 creative rough rendered; review pending]` -8.5667s Ashley-timed light sculpture, sound bowl and BE CREATIVE LED, matching aqua pulse, paper/sketch handoff to Round1.
 - `[rough science accepted; final polish pending]` -9.1s surface descent, original sensor cage reveal, two tracked buoy/sensor callouts and unchanged third transition pulse, source narration13.5-22.6s.

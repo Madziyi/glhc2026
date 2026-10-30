@@ -1,0 +1,35 @@
+{
+  "frames": 212,
+  "start": {
+    "centre": 0,
+    "camera": [
+      6.5,
+      3.8,
+      10.5
+    ],
+    "target": [
+      0,
+      1.15,
+      -9.5
+    ]
+  },
+  "end": {
+    "centre": 96,
+    "camera": [
+      100.7,
+      3.5999999999999996,
+      10
+    ],
+    "target": [
+      96,
+      1.15,
+      -9.5
+    ]
+  },
+  "max_frame_centre_step": 4.068425529801118,
+  "continuous_at_pan_boundaries": true,
+  "terrace_depth_before": 12,
+  "terrace_depth_after": 9,
+  "walkway_depth_before": 4,
+  "walkway_depth_after": 5
+}

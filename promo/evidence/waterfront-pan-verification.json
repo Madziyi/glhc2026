@@ -1,0 +1,15 @@
+{
+  "decoded_frames": 212,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 7.066666666666666,
+  "audio_correlation_to_previous": 0.9999999999999999,
+  "source_audio_start_seconds": 24.1,
+  "terrace_depth_reduction_percent": 25,
+  "walkway_depth_increase_percent": 25,
+  "continuous_camera": true,
+  "review_frames": 9
+}

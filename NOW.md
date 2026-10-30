@@ -1,13 +1,13 @@
-# Active Initiative - GLHC-004 section3 spaced waterfront revision
+# Active Initiative - GLHC-004 continuous waterfront pan
 
-Status: approved terrace/green/path order built and rendered on codex/promo-prototype. Main8b4e7d9 remains integrated. Organizer review pending; final production/ending deferred.
+Status: organizer follow-up built/rendered on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Final production/ending deferred.
 
-Scope/decisions: from camera toward lake: partial foreground walkway, green strip with scattered benches, expanded paved installation terrace, lake. Installation centres0/48/96 at terrace z-8; only featured installation in each shot. Stationary varied-height tubes carry travelling green then yellow bands. Sound bowl unchanged. LED screen has single central column and broad rectangular foot following supplied reference; animated BE CREATIVE retained. No visitors.
+Scope/decisions: smooth sculpture terrace depth12 ->9 (25% narrower), no joints/lines. Foreground pedestrian walkway depth4 ->5 (25% wider), staggered brick pattern only there. Green seating strip between path/terrace. One continuous lateral camera and aqua-dot movement through same physical scene: hold lights, ease across to sound, ease across to LED; no camera cuts. Stationary green/yellow tubes, sound bowl and central-column screen unchanged. No visitors.
 
-Changed: shared installation grouping and waterfront-only materials/stand/camera, revised landscape bands/seating, render script. Studio compositions retain prior behaviour. Source audio24.10-31.1667s unchanged; science extension22.6-24.1s remains assembly work.
+Changed: waterfront-motion.mjs pure continuous path, shared renderer camera/dot and continuous animation clock; revised landscape widths/joints, output script. Existing sceneFrame mapping now controls installation choreography only, not camera cuts. Installations remain48 units apart; camera travels96 units with eased pans on narration timing. Faster travel is rough blocking within7.07s clip.
 
-Verification:212/212 frames rendered/decoded1920x1080/30FPS,7.0667s. Six final export moments inspected including green/yellow flow and stand. Narration waveform correlation1.0 to previous waterfront export.303 sampled camera poses exclude conservative boxes of both neighbouring installations (zero frustum intersections). Tube scale fixed1 in waterfront draw; colour travels within shader. Diff check passes. Evidence promo/evidence/waterfront-spaced-review.jpg and waterfront-spaced-verification.json. No manual listening/browser playback/deployment claim.
+Verification:212/212 frames rendered/decoded1920x1080/30FPS,7.0667s; nine export moments inspected including both pans and brick foreground. Narration waveform correlation1.0 to previous waterfront export.212 sampled motion frames move monotonically; epsilon checks at all four pan boundaries confirm continuity. Maximum centre travel4.068 units/frame during short pan. Evidence waterfront-pan-review.jpg, waterfront-pan-verification.json, waterfront-pan-motion.json. Diff check passed. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/section3-waterfront-spaced.mp4. Earlier rough exports/studies retained as historical and do not include these revisions.
+Review artifact: promo/out/section3-waterfront-pan.mp4. Prior exports remain historical. Science extension22.6-24.1s remains later assembly work. Source24.1-31.1667s unchanged; latest CTA raeonhacks.ca and ending deferred.
 
-Next action: organizer reviews revised placement, framing and light flow before Round1 or final polish. Latest CTA raeonhacks.ca; ending unchanged.
+Next action: organizer reviews continuous camera travel and surface layout before Round1/final polish.

@@ -6,7 +6,7 @@ import {ramp} from './opening';
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
 
-function setup(canvas){
+export function setupInstallations(canvas,creative=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});
  renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
@@ -89,7 +89,9 @@ function setup(canvas){
  const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);scene.add(screenGlow);
  const particles=[];
  for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?.075:.025,8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
- function draw(f){
+ const pulseRings=[];
+ if(creative){particles[0].material.color.set('#8ff4ef');for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:.4}));pulseRings.push(h)}}
+ function draw(f,localFrame=f){
   const t=f/30,x=cameraX(f);const a=.36+Math.sin(t*.2)*.23;
   const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
   camera.position.set(x+Math.sin(a)*8.7*(1-zoom*.35),4.3-zoom*1.0,Math.cos(a)*8.7-zoom*2.5);
@@ -97,7 +99,9 @@ function setup(canvas){
   rods.forEach(({rod,mat,height},i)=>{rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*.8});
   paintText(f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
-  particles.forEach((p,i)=>{const lead=x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7)});
+  particles.forEach((p,i)=>{const lead=creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7);if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
+  pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});
+  if(creative){const build=ramp(localFrame,7,58);rods.forEach(({rod})=>{rod.scale.y*=.05+.95*build});light.intensity=28*(.25+.75*build)}
   renderer.render(scene,camera);
  }
  return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const ms=Array.isArray(o.material)?o.material:[o.material];ms.forEach(m=>m.dispose())}});textMask.dispose();renderer.dispose()}};
@@ -105,7 +109,7 @@ function setup(canvas){
 
 export function Section2Concept(){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('3D installation frame'));
- useLayoutEffect(()=>{world.current=setup(canvas.current);world.current.draw(f);continueRender(handle);return()=>world.current?.dispose()},[]);
+ useLayoutEffect(()=>{world.current=setupInstallations(canvas.current);world.current.draw(f);continueRender(handle);return()=>world.current?.dispose()},[]);
  useLayoutEffect(()=>{world.current?.draw(f)},[f]);
  const sketch=ramp(f,335,359);
  return <AbsoluteFill style={{background:'#03131f',overflow:'hidden'}}><canvas ref={canvas} style={{width:1920,height:1080}}/>

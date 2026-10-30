@@ -1,7 +1,8 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
-- `[rough science rendered/verified; review pending]` -9.1s surface descent, original sensor cage reveal, two tracked buoy/sensor callouts and unchanged third transition pulse, source narration13.5-22.6s.
+- `[section3 creative rough rendered; review pending]` -8.5667s Ashley-timed light sculpture, sound bowl and BE CREATIVE LED, matching aqua pulse, paper/sketch handoff to Round1.
+- `[rough science accepted; final polish pending]` -9.1s surface descent, original sensor cage reveal, two tracked buoy/sensor callouts and unchanged third transition pulse, source narration13.5-22.6s.
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
 - `[rough first scene accepted; final polish pending]` -13.5s glider deployed from distant boat, underwater weave, camera surfacing far from buoy then flying in above water for title; sensor reveal reserved for science section, with supplied Ashley narration. High-quality build only after organizer agrees. Ending deferred.
 - `[revised narrative]` - student/prizes hook, lake science, creative light/sound/display examples, how-it-works with sketch, CTA at raeonhacks.ca. Source recording68.60s. Earlier prototype numbering/order superseded.

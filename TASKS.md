@@ -1,6 +1,7 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
+- `[production stage1: detailed glider/model integration rendered and verified; review pending]` -reference-based yellow hull/charcoal nose, centre wing saddle, foil wings, rear fin/probes, hardware/materials/lettering; 12s model-review and13.5s opening with continuous gliding, small background fish, CASH PRIZES then GET FEATURED AT TOURIST SPOTS. Boat/water/deployment production finish next.
 - `[full rough assembled/verified; organizer review pending]` -68.6s latest opening/science/waterfront/Round1/Round2/closing; one continuous original narration; science extended through24.1s. Final spoken.com correction pending organizer.
 - `[closing rough accepted; final polish pending]` -current Ashley58.9-68.6s, waterfront pullback, aqua dot/Great Lakes motif, event name and raeonhacks.com end card. Original audio retained; final spoken .ca must be corrected to .com.
 - `[Round2 rough accepted; final polish pending]` -ten selected proposals, funding/equipment/support symbols, sketch-to-built light installation, testing/showcase, cash prizes and tourist-display beat. Ashley44.3333-58.9s; ending deferred.

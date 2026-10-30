@@ -1,0 +1,25 @@
+{
+  "frames_checked": 405,
+  "underwater_frames": 175,
+  "sensor_frustum_intersections": 0,
+  "max_underwater_heading_change_per_frame_radians": 0.012883989097118322,
+  "end_pose": {
+    "camera": [
+      -5.5,
+      2.8,
+      7.5
+    ],
+    "target": [
+      0,
+      0.7,
+      0
+    ],
+    "glider": [
+      -43,
+      -2.5,
+      5
+    ]
+  },
+  "cash_caption_end_frame": 196,
+  "tourist_caption_start_frame": 201
+}

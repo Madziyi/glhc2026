@@ -1,11 +1,15 @@
-# Active Initiative - GLHC-004 complete rough assembly
+# Active Initiative - GLHC-004 production opening, glider-first pass
 
-Status: organizer requested latest rough passes stitched together and will correct final spoken domain. Full68.6s preview assembled on codex/promo-prototype; final science fade refinement and full verification complete; organizer flow review pending. Main8b4e7d9 remains integrated.
+Status: organizer approved rough concepts and requested production work, prioritizing serious glider development from supplied photographs. Detailed model and first integrated opening motion pass rendered/verified on codex/promo-prototype; organizer model review pending. Main8b4e7d9 remains integrated. Full production finish not yet complete.
 
-Scope: latest distant launch opening, science/callouts, continuous waterfront pan, slower light-only Round1, Round2 and .com closing. One continuous original voiceover replaces sliced clip audio. ScienceAssembly318frames extends science13.5-24.1s with slower final pulse and later fade, filling prior1.5s gap; waterfront starts can experience24.1s. Other approved clip timings unchanged. No final polish/music/website/deployment changes.
+Changed/model: reusable production-glider.js visual reconstruction: smooth yellow hull/charcoal nose, foil-section wings, central saddle/rails/fasteners, tapered rear, upright rudder/supports, probes/guards, ports/vents, curved lettering and procedural subtle finish.83 meshes/165244 triangles; reference-proportioned, not manufacturer CAD/dimensions.12s silent multi-angle studio review. Materials/UV mirrored text corrected after first still.
 
-Implementation: rough-assembly.json exact2058-frame manifest, assemble-rough.py, verify-assembly.py, ROUGH-ASSEMBLY.md and opt-in assembled science variant. Prior science composition retained by default. Output promo/out/glhc-rough-full.mp4. Source audio local/ignored and unchanged; .ca spoken reference still pending organizer.com correction, end card correctly.com.
+Opening integration: opt-in ProductionOpening leaves original RoughOpening/complete rough unchanged. Shape-preserving cubic positions keep velocity continuous; tangent-following orientation, broader gentle depth arcs, subtle roll. Brief small irregular background fish3.25-5.65s. CASH PRIZES then GET FEATURED AT TOURIST SPOTS (non-overlapping). Boat paint darkened below waterline. Existing distant launch/fixed buoy/camera-only rise and exact science end pose retained. No website or later-scene edits.
 
-Verification: final assembly2058/2058 decode1920x1080/30FPS,68.6s;18 scene first/middle/last frame comparisons within5 mean pixel values, source audio correlation0.999998 with zero measured offset.12 contact moments inspected. Late science fade refined after initial review; full decode/audio/scene comparison rerun passed. Evidence assembled-rough-review.jpg/assembled-rough-verification.json.
+Verification: model360/360 decode1920x1080/30FPS,12s, six views inspected. All model coordinates finite, required reference features present. Opening405/405 decode,13.5s; nine final moments and full-resolution underwater frame inspected. Narration correlation1.0 to approved rough.405 camera samples: zero sensor-region intersections during175 underwater frames; final camera[-5.5,2.8,7.5]/target[0,.7,0]. Maximum tested underwater heading step0.012884rad/frame. Diff check passed. Evidence glider-model-*/production-opening-* in promo/evidence. No manual listening/browser playback/deployment claim.
 
-Next action: organizer watches complete rough and identifies flow/timing changes before high-quality production.
+Artifacts: promo/out/glider-detailed-review.mp4, glider-detailed-hero.png, opening-detailed-pass.mp4, glider-underwater-detail.png. Notes promo/GLIDER-DEVELOPMENT.md. Prior complete68.6s rough remains unchanged.
+
+Known production work: boat geometry, water/deployment effects and final lighting/camera/transitions/music still need their production pass. Model review studio is for geometry/material assessment; underwater shot remains first integration. Final spoken.com correction pending organizer; displayed promo URL is raeonhacks.com.
+
+Next action: organizer reviews glider silhouette/proportions/details; continue boat, water and deployment production work while preserving approved shot sequence.

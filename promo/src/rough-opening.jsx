@@ -6,10 +6,13 @@ import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {createOpeningEnvironment} from './opening-environment';
 import {ramp} from './opening';
 import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mjs';
+import {productionOpeningPath} from './production-opening-path.mjs';
+import {createProductionGlider} from './production-glider.js';
+import {createOpeningFish} from './opening-fish.js';
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-export async function setup(canvas,science=false,annotationCanvas=null){
+export async function setup(canvas,science=false,annotationCanvas=null,production=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,.08,6000);
  const environment=createOpeningEnvironment(scene);scene.fog=new THREE.FogExp2('#aec5ce',.006);
@@ -24,19 +27,32 @@ export async function setup(canvas,science=false,annotationCanvas=null){
  const boat=new THREE.Group();boat.position.set(LAUNCH_BOAT_X,.55,-.2);scene.add(boat);
  const hullShape=new THREE.Shape();hullShape.moveTo(-1.9,-4.3);hullShape.lineTo(1.9,-4.3);hullShape.lineTo(2,2.7);hullShape.quadraticCurveTo(1.7,4.4,0,5.5);hullShape.quadraticCurveTo(-1.7,4.4,-2,2.7);hullShape.closePath();
  const hull=mesh(new THREE.ExtrudeGeometry(hullShape,{depth:1,bevelEnabled:true,bevelSize:.15,bevelThickness:.15,bevelSegments:2,steps:1}),white,boat);hull.rotation.x=-Math.PI/2;hull.position.y=-.8;
+ if(production){
+  const hullPaint=white.clone();hullPaint.onBeforeCompile=shader=>{
+   shader.vertexShader='varying float vBoatHeight;\n'+shader.vertexShader;
+   shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvBoatHeight=(modelMatrix*vec4(transformed,1.)).y;');
+   shader.fragmentShader='varying float vBoatHeight;\n'+shader.fragmentShader;
+   shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=mix(vec3(.025,.055,.07),diffuseColor.rgb,smoothstep(-.04,.33,vBoatHeight));');
+  };hull.material=hullPaint;
+ }
+
  box(3.7,.18,7.1,navy,[0,.28,-.6],boat);box(2.9,1.8,2.9,white,[0,1.25,1.6],boat);box(2.5,.72,2.93,material('#1f536b',.35,.2),[0,1.65,1.6],boat);box(3.2,.16,3.2,white,[0,2.22,1.6],boat);
  for(const x of [-1.8,1.8]){rod([x,.5,-4],[x,1.35,-4],.045,steel,boat);rod([x,.5,-1.7],[x,1.35,-1.7],.045,steel,boat);rod([x,1.35,-4],[x,1.35,-1.7],.04,steel,boat)}
  rod([0,2.3,1.5],[0,4.1,1.5],.035,steel,boat);box(.75,.08,.08,white,[0,3.6,1.5],boat);
  rod([1.3,.5,-2.5],[1.3,3.9,-2.5],.15,orange,boat);rod([1.3,3.9,-2.5],[3,4.15,-.1],.13,orange,boat);
  const cablePoints=new Float32Array(6);const cableGeo=new THREE.BufferGeometry();cableGeo.setAttribute('position',new THREE.BufferAttribute(cablePoints,3));const cable=new THREE.Line(cableGeo,new THREE.LineBasicMaterial({color:'#25323a'}));scene.add(cable);
+ let glider;
+ if(production){glider=createProductionGlider();scene.add(glider);}else{
  // Concept glider: streamlined yellow body, dark nose, swept wings, rear fin.
- const glider=new THREE.Group();scene.add(glider);
+ glider=new THREE.Group();scene.add(glider);
  const body=mesh(new THREE.CylinderGeometry(.22,.22,2.65,32),yellow,glider);body.rotation.x=Math.PI/2;
  const nose=mesh(new THREE.SphereGeometry(.225,28,16),black,glider);nose.scale.z=1.6;nose.position.z=1.35;
  const tail=mesh(new THREE.ConeGeometry(.22,.6,24),yellow,glider);tail.rotation.x=-Math.PI/2;tail.position.z=-1.58;
  for(const z of [-.95,.9]){const band=mesh(new THREE.CylinderGeometry(.225,.225,.2,32),black,glider);band.rotation.x=Math.PI/2;band.position.z=z}
  const wing=(sign)=>{const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute([sign*.16,0,.3,sign*1.3,0,-.28,sign*1.1,0,-.52,sign*.16,0,.3,sign*1.1,0,-.52,sign*.16,0,-.2],3));g.computeVertexNormals();return mesh(g,yellow,glider)};wing(-1);wing(1);
  const finGeo=new THREE.BufferGeometry();finGeo.setAttribute('position',new THREE.Float32BufferAttribute([0,.05,-.9,0,.6,-1.5,0,.05,-1.65],3));finGeo.computeVertexNormals();mesh(finGeo,yellow,glider);rod([0,.4,-1.45],[0,.95,-1.48],.014,black,glider);
+ }
+ const fish=production?createOpeningFish(scene):null;
  const loader=new GLTFLoader();loader.setMeshoptDecoder(MeshoptDecoder);const gltf=await loader.loadAsync(staticFile('models/glhc002-buoy.glb'));const buoy=gltf.scene;scene.add(buoy);
  buoy.traverse(o=>{if(o.isMesh){o.material.side=THREE.DoubleSide;if(o.material.name==='Powder-coated charcoal frame'){o.material.color.set('#8fa6ae');o.material.metalness=.65;o.material.roughness=.3}}});
  const bubbles=[];for(let i=0;i<28;i++){const b=mesh(new THREE.SphereGeometry(.035+(i%4)*.012,8,8),new THREE.MeshBasicMaterial({color:'#b7f1ef',transparent:true,opacity:.24}),scene);bubbles.push(b)}
@@ -51,10 +67,15 @@ export async function setup(canvas,science=false,annotationCanvas=null){
  const underwater=new THREE.Color('#073b4d'),air=new THREE.Color('#aec5ce');
  function draw(f){
   const local=f/30;const t=local+(science?13.5:0);
-  const path=openingPath(t);const [x,y,z]=path.glider;
-  const ahead=openingPath(t+.035).glider,behind=openingPath(Math.max(0,t-.035)).glider;
+  const samplePath=production?productionOpeningPath:openingPath;const path=samplePath(t);const [x,y,z]=path.glider;
+  const ahead=samplePath(t+.035).glider,behind=samplePath(Math.max(0,t-.035)).glider;
   const release=ramp(f,99,132);const heading=Math.atan2(ahead[0]-behind[0],ahead[2]-behind[2]);
   glider.position.set(x,y,z);glider.rotation.y=heading*release;glider.rotation.x=at(t,[0,3,5,7.8,10],[0,.12,.08,-.08,0]);glider.rotation.z=Math.sin(t*1.2)*.075*release;
+  if(production){
+   const direction=new THREE.Vector3(...samplePath(Math.min(13.49,t+.05)).glider).sub(new THREE.Vector3(...samplePath(Math.max(0,t-.05)).glider));
+   if(direction.lengthSq()>1e-8){const q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,0,1),direction.normalize());glider.quaternion.slerpQuaternions(new THREE.Quaternion(),q,THREE.MathUtils.smootherstep(t,3.25,4.7));glider.rotateZ(Math.sin(t*.85)*.018);}
+   fish.draw(t);
+  }
   boat.position.y=.55+Math.sin(t*1.1)*.04;boat.rotation.z=Math.sin(t*.8)*.007;
   cablePoints.set([LAUNCH_GLIDER_X,4.7,-.3,LAUNCH_GLIDER_X,t<3.5?y+.35:at(t,[3.5,5],[y+.35,4.2]),0]);cableGeo.attributes.position.needsUpdate=true;cableGeo.computeBoundingSphere();cable.visible=t<5;
   // The buoy stays fixed. Only the camera leaves the underwater path and rises.
@@ -95,17 +116,19 @@ export async function setup(canvas,science=false,annotationCanvas=null){
  }
  return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};
 }
-export function RoughOpening(){
+export function RoughOpening({production=false}){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('rough glider scene and reviewed buoy'));
- useLayoutEffect(()=>{let disposed=false;setup(canvas.current).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
+ useLayoutEffect(()=>{let disposed=false;setup(canvas.current,false,null,production).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
  useLayoutEffect(()=>{world.current?.draw(f)},[f]);
+ const featured=production?ramp(f,201,217)*(1-ramp(f,286,302)):0;
  const title=ramp(f,315,335);const prize=ramp(f,136,148)*(1-ramp(f,185,196));
  return <AbsoluteFill style={{background:'#0a3d50',overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
  <Audio src={staticFile('audio/ashley-reference.mp3')}/>
  <canvas ref={canvas} style={{width:1920,height:1080}}/>
- <AbsoluteFill style={{background:'linear-gradient(90deg,rgba(0,20,35,.35),transparent 65%)',opacity:Math.max(title,prize)}}/>
+ <AbsoluteFill style={{background:'linear-gradient(90deg,rgba(0,20,35,.35),transparent 65%)',opacity:Math.max(title,prize,featured)}}/>
  <div style={{position:'absolute',left:100,bottom:115,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:70,color:'#ffd450',opacity:prize,transform:`translateY(${(1-prize)*30}px)`}}>CASH PRIZES</div>
+ {production&&<div style={{position:'absolute',left:100,bottom:115,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:62,lineHeight:1.08,color:'#f6f6ed',opacity:featured,transform:`translateY(${(1-featured)*22}px)`}}>GET FEATURED AT<br/><span style={{color:'#ffd450'}}>TOURIST SPOTS</span></div>}
  <div style={{position:'absolute',left:100,top:300,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:100,lineHeight:.98,letterSpacing:'-.055em',color:'#f6f6ed',opacity:title,transform:`translateY(${(1-title)*30}px)`}}>GREAT LAKES<br/>HACKATHON<br/><span style={{color:'#ffd450',fontStyle:'italic'}}>CHALLENGE</span></div>
  </AbsoluteFill>
 }

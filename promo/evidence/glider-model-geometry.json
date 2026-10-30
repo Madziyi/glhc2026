@@ -1,0 +1,12 @@
+{
+  "meshes": 83,
+  "triangles": 165244,
+  "invalid_coordinates": 0,
+  "bounds_size": [
+    1.812000036239624,
+    0.8803204687759281,
+    3.58046694126561
+  ],
+  "units": "visual staging units; not manufacturer dimensions",
+  "reference_features_checked": true
+}

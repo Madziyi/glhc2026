@@ -412,3 +412,9 @@
 - Preserved two anchored label words; refined34px type and1.5px leaders. Third pulse adds soft glow and matching1.5px Line2 trail, ends centred on navy for waterfront entry. First orbit check found buoy anchor near upper edge; widened camera/raised target modestly, then checked full animation margin bounds and rerendered. Original rough/default modes/exports retained.
 - Verification:318/318 decode1920x1080/30FPS,10.6s;9 final moments inspected. Audio correlation1.0 to assembled science. Opening end/science start camera-target exact, adjacent-frame mean RGB difference0.859742. Both anchor frame ranges maintain48px margins, zero failures; pulse endpoint equals target. Diff check passed. Evidence science-production-path.json/science-production-render.json/science-production-review.jpg. No manual listening/browser playback/deployment claim.
 - Output science-detailed-pass.mp4, science-sensors-detail.png; notes SCIENCE-DEVELOPMENT.md. Website/deployment/full rough unchanged. Next: organizer reviews science before production waterfront. Commit: published promo branch handoff.
+
+
+### 2026-10-30 - Production waterfront handoff
+- ProductionWaterfront complete:212 frames,1920x1080/30FPS,7.0667s;9 sampled frames visually inspected. Audio correlation effectively1.0 to approved rough. Final render shader errors cleared after renaming reserved GLSL variable. Diff check passed.
+- Landscape/materials/shadows/reflections and installation details refined; approved camera path, fixed tube heights, no visitors, central-column LED and paper-line exit preserved. Output promo/out/waterfront-detailed-pass.mp4; evidence promo/evidence/waterfront-production-render.json and waterfront-production-review.jpg. Implementation53a5f13.
+- Organizer review pending; next Round1 production. Remaining assembly/sound/closing and spoken.com correction retained. No deployment or manual playback claim.

@@ -59,3 +59,9 @@ static browser exact-text/no-clipping checks pass. PR#6 update.
 - [x] Both info-session CTAs now open one modal with two organizer-supplied Luma links; no-JavaScript fallback provides both options.
 - [x] Native dialog, Escape/backdrop/close controls, focus return, narrow layouts and reduced-motion CSS implemented.
 - [ ] Physical browser/production build UAT not performed by this connector-only edit; verify in deployment before announcing.
+
+
+### 2026-10-30 - Production waterfront handoff
+- ProductionWaterfront complete:212 frames,1920x1080/30FPS,7.0667s;9 sampled frames visually inspected. Audio correlation effectively1.0 to approved rough. Final render shader errors cleared after renaming reserved GLSL variable. Diff check passed.
+- Landscape/materials/shadows/reflections and installation details refined; approved camera path, fixed tube heights, no visitors, central-column LED and paper-line exit preserved. Output promo/out/waterfront-detailed-pass.mp4; evidence promo/evidence/waterfront-production-render.json and waterfront-production-review.jpg. Implementation53a5f13.
+- Organizer review pending; next Round1 production. Remaining assembly/sound/closing and spoken.com correction retained. No deployment or manual playback claim.

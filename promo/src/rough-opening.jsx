@@ -9,7 +9,7 @@ import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mj
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-export async function setup(canvas,science=false){
+export async function setup(canvas,science=false,annotationCanvas=null){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,.08,6000);
  const environment=createOpeningEnvironment(scene);scene.fog=new THREE.FogExp2('#aec5ce',.006);
@@ -47,6 +47,7 @@ export async function setup(canvas,science=false){
  const halos=[];for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),glow.clone(),signal);halos.push(h)}
  const trailGeo=new THREE.BufferGeometry();trailGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(60*3),3));
  const trail=new THREE.Line(trailGeo,new THREE.LineBasicMaterial({color:'#87e4e1',transparent:true,opacity:.7}));scene.add(trail);trail.visible=false;
+ const annotation=annotationCanvas?.getContext('2d');
  const underwater=new THREE.Color('#073b4d'),air=new THREE.Color('#aec5ce');
  function draw(f){
   const local=f/30;const t=local+(science?13.5:0);
@@ -73,6 +74,24 @@ export async function setup(canvas,science=false){
   bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
   splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=p>0&&p<1;m.position.set(LAUNCH_GLIDER_X,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});
   renderer.render(scene,camera);
+  if(annotation){
+   annotation.clearRect(0,0,1920,1080);
+   // Leaders track model anchors in screen space while the camera moves.
+   const callout=(anchor,label,end,start,endTime)=>{
+    const show=ramp(f,start,start+12)*(1-ramp(f,endTime,endTime+13));if(show<=0)return;
+    const point=new THREE.Vector3(...anchor).project(camera);if(point.z>1)return;
+    const x=(point.x+1)*960,y=(1-point.y)*540,elbow=[end[0]+(end[0]<960?290:-55),end[1]];
+    const progress=ramp(f,start+3,start+22);
+    annotation.save();annotation.globalAlpha=show;annotation.strokeStyle='#87e4e1';annotation.fillStyle='#8ff4ef';annotation.lineWidth=1.5;
+    const segments=[[x,y],elbow,end],lengths=[Math.hypot(elbow[0]-x,elbow[1]-y),Math.hypot(end[0]-elbow[0],end[1]-elbow[1])];let remaining=(lengths[0]+lengths[1])*progress;
+    annotation.beginPath();annotation.moveTo(x,y);for(let j=0;j<2;j++){const a=segments[j],b=segments[j+1],p=Math.min(1,remaining/Math.max(.001,lengths[j]));annotation.lineTo(a[0]+(b[0]-a[0])*p,a[1]+(b[1]-a[1])*p);remaining-=lengths[j];if(remaining<=0)break}annotation.stroke();
+    annotation.beginPath();annotation.arc(x,y,8,0,Math.PI*2);annotation.fill();
+    for(let i=0;i<2;i++){const phase=(local*1.3+i/2)%1;annotation.globalAlpha=show*(1-phase)*.55;annotation.beginPath();annotation.arc(x,y,15+phase*26,0,Math.PI*2);annotation.stroke()}
+    annotation.globalAlpha=show*ramp(f,start+15,start+25);annotation.font='500 32px "Google Sans", sans-serif';annotation.textAlign='left';annotation.fillText(label,end[0],end[1]-17);annotation.restore();
+   };
+   callout([.65,-.35,.3],'Water-quality buoy',[130,480],91,191);
+   callout([-.12,-1.5,.22],'Sensors',[1420,720],111,201);
+  }
  }
  return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};
 }

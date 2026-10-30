@@ -1,0 +1,15 @@
+{
+  "decoded_frames": 273,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 9.1,
+  "audio_correlation_to_approved_rough": 1.0,
+  "callouts": [
+    "Water-quality buoy",
+    "Sensors"
+  ],
+  "transition_dot_unchanged": true
+}

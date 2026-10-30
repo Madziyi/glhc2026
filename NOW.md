@@ -1,13 +1,13 @@
-# Active Initiative - GLHC-004 Round1 rough
+# Active Initiative - GLHC-004 Round1 light-only revision
 
-Status: organizer accepted continuous waterfront rough and requested next section. RoughRoundOne rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated; final production/ending deferred.
+Status: organizer revision rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Final production/ending deferred.
 
-Scope: original Ashley31.1667-44.3333s,395frames. Warm paper-line handoff becomes self-drawing light/sound/screen idea page; physical December3 desk calendar; JUST AN IDEA stamp supports no-experience/no-working-prototype narration; one pencil becomes three on solo/team line. Idea page shrinks into submission envelope, aqua seal leads toward Round2. No extra explanatory paragraphs, full-film assembly, website or ending changes.
+Scope/decisions: only larger light sculpture sketch, drawing at0.25x rate over most of clip. Remove sound/screen drawings and all visible pencils. Stamp reads Just submit your idea. Left of sketch: Idea Submissions / Open / Nov5th. Above December3 calendar: Idea Submissions / Deadline. Paper/envelope handoff retained; narration unchanged31.1667-44.3333s. Dates organizer-supplied; no year/cutoff invented.
 
-Changed: RoughRoundOne composition, reused exported sketch primitives, central-column screen drawing, render script and review evidence. Earlier sketch study retained. Calendar has no invented year/cutoff. Concept drawings are examples, not required entries. No visitors introduced in waterfront scene.
+Changed: isolated RoughRoundOne composition and render script. Other compositions/website/ending untouched. Existing sketch primitives reused.
 
-Verification:395/395 render/decode1920x1080/30FPS,13.1667s. Six final export moments inspected. Narration source-slice correlation0.999961 after42.6875ms codec alignment. Sketch spacing and page/envelope trajectory refined after initial render; team pencils timed later to spoken cue. Diff check passes. Evidence promo/evidence/round1-rough-review.jpg and round1-rough-verification.json. No manual listening/browser playback/deployment claim.
+Verification:395/395 rendered/decoded1920x1080/30FPS,13.1667s. Six representative final moments visually inspected for drawing progression, labels and envelope. Audio waveform correlation1.0 to previous Round1 export. Diff check passed. Evidence promo/evidence/round1-light-review.jpg and round1-light-verification.json. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/round1-sketch-rough.mp4. Science extension22.6-24.1s remains later assembly work; final continuous transitions/polish deferred. Latest CTA raeonhacks.ca; supplied ending unchanged.
+Review artifact: promo/out/round1-light-sketch-rough.mp4. Previous export historical. Assembly science extension22.6-24.1s and final transitions/polish remain deferred; latest CTA raeonhacks.ca.
 
-Next action: organizer reviews Round1 before Round2 rough.
+Next action: organizer reviews simplified Round1 before Round2 rough.

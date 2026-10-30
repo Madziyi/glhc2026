@@ -1,0 +1,16 @@
+{
+  "decoded_frames": 395,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 13.166666666666666,
+  "audio_correlation_to_previous": 0.9999999999999999,
+  "review_frames": 6,
+  "sketch_playback_rate": 0.25,
+  "visible_sketches": [
+    "light sculpture"
+  ],
+  "visible_pencils": 0
+}

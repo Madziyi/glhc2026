@@ -1,13 +1,13 @@
-# Active Initiative - GLHC-004 Round2 build/showcase rough
+# Active Initiative - GLHC-004 closing rough
 
-Status: organizer accepted simplified Round1 and requested next section. RoughRoundTwo rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated; final production/ending deferred.
+Status: organizer accepted Round2 and requested next section; closing rough rendered/verified on codex/promo-prototype. During build organizer corrected promo destination to raeonhacks.com, superseding .ca. Main8b4e7d9 remains integrated. Final voiceover/polish pending.
 
-Scope: Ashley44.3333-58.9s,437frames. Prior envelope fans into exactly ten proposal envelopes with10 marker. One representative light sketch receives funding/equipment/expert-support symbols; paper dissolves into waterfront as individual tubes assemble. Fixed built tubes pulse green/yellow for testing/showcase. CASH PRIZES marker on winner beat, clean scenic installation on tourist-display narration. Example design, no invented funding amount/location, no visitors. CTA ending unchanged.
+Scope: unchanged source58.9-68.6s,291frames. Continuous camera from Round2 final waterfront pulls back, aqua dot/rings lead into existing Great Lakes silhouette, event name and raeonhacks.com end card. No visitors or extra captions. Earlier ending deferral superseded for this requested rough visual; supplied recording remains unchanged and says .ca, requiring final spoken-domain correction.
 
-Changed: isolated RoughRoundTwo composition; optional roundTwo mode in shared installation scene for assembly/orbit, other designs hidden in this composition only; render script and evidence. Previous compositions retain defaults. No website/deployment/full-film changes.
+Changed: RoughClosing composition, opt-in closing camera departure in shared scene, render script and review evidence. Earlier compositions retain defaults. No website/deployment/full-film assembly edits.
 
-Verification:437/437 rendered/decoded1920x1080/30FPS,14.5667s. Nine final moments visually inspected including ten envelopes, three support symbols, assembly, prize marker and public setting. Source audio correlation0.987576 after42.6875ms codec-delay compensation. Diff check passed. Evidence promo/evidence/round2-rough-review.jpg and round2-rough-verification.json. No manual listening/browser playback/deployment claim.
+Verification:291/291 rendered/decoded1920x1080/30FPS,9.7s. Six final frames inspected including waterfront continuity, silhouette transition and .com website. Source audio correlation0.985081 after42.6875ms AAC delay compensation; source unchanged. Diff check passed. Evidence promo/evidence/closing-review.jpg and closing-verification.json. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/round2-build-rough.mp4. Final transition/material/camera polish deferred. Science22.6-24.1s extension remains assembly task; latest CTA raeonhacks.ca; ending to revise later.
+Review artifact: promo/out/closing-rough.mp4. Rough end-card/dot motion remains subject to review; final materials/transitions/camera polish pending. Science22.6-24.1s extension remains assembly work.
 
-Next action: organizer reviews Round2 rough before discussing deferred ending.
+Next action: organizer reviews closing visual; correct final spoken website to raeonhacks.com before full-film assembly.

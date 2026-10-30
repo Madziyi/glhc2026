@@ -87,3 +87,5 @@ Latest hero/prize direction (2026-10-23): use CASH Prizes, with no specific doll
 CTA wording (2026-10-23): both header and ending links display “Attend the info session”, retaining the centrally supplied Luma URL and secure new-tab behavior. Do not invent dates or session details; internal registration classes/data attributes remain for configuration compatibility. Current follow-up `codex/info-session-cta` is based on main595f8c0 after PR#4 merged.
 
 Submission dates (organizer-supplied2026-10-23): hero displays “Idea Submissions OPEN: Nov 5th.” and “Idea Submissions CLOSE: Dec 3rd.” on separate lines beneath the description. No year, timezone or cutoff time was supplied; do not infer them. Dates and description share one responsive content group to preserve hero layout.
+
+Promo film CTA correction (organizer2026-10-30): use raeonhacks.com, superseding prior .ca direction. Supplied reference narration remains unchanged and still says .ca; correct that spoken domain in final audio. This does not change website registration destinations.

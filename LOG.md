@@ -370,3 +370,10 @@
 - Shared installation scene adds opt-in roundTwo assembly/orbit mode; earlier composition defaults preserved. No website/deployment/full-film assembly changes.
 - Verification:437/437 render/decode1920x1080/30FPS,14.5667s; nine final export moments inspected including10 selection, support, assembly, prize and waterfront. Source-slice correlation0.987576 after42.6875ms AAC delay. Diff check passed. Evidence round2-rough-review.jpg/round2-rough-verification.json. No manual listening/browser playback/deployment claim.
 - Output round2-build-rough.mp4. Final polish/science extension remain later assembly work. Next: organizer reviews Round2 before deferred ending discussion. Commit: published promo branch handoff.
+
+
+### 2026-10-30 - Closing rough and corrected .com CTA
+- Organizer accepted Round2 and requested next section. Added RoughClosing291frames/9.7s using unchanged source58.9s onward: waterfront departure, aqua dot/rings into existing lake silhouette, event name and readable website hold. Opt-in closing camera preserves preceding final pose; other compositions unchanged.
+- Organizer corrected website during render to raeonhacks.com. Corrected displayed URL and rerendered; .com supersedes .ca for promo. Original recording unchanged and still says .ca; final voiceover correction explicitly pending. No website registration/deployment changes.
+- Verification:291/291 render/decode1920x1080/30FPS; six final export moments visually inspected including correct.com end card. Audio source-slice correlation0.985081 after42.6875ms AAC delay. Diff check passed. Evidence closing-review.jpg/closing-verification.json. No manual listening/browser playback/deployment claim.
+- Output closing-rough.mp4. Science extension and final full-film transitions/polish remain assembly work. Next: organizer reviews closing and supplies/corrects final spoken.com. Commit: published promo branch handoff.

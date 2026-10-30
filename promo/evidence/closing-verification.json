@@ -1,0 +1,15 @@
+{
+  "decoded_frames": 291,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 9.7,
+  "source_audio_start_seconds": 58.9,
+  "audio_correlation_to_source": 0.9850807216423196,
+  "codec_delay_seconds": 0.0426875,
+  "review_frames": 6,
+  "displayed_domain": "raeonhacks.com",
+  "original_audio_domain_pending_correction": true
+}

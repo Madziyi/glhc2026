@@ -1,14 +1,15 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
-- `[Round2 rough rendered/verified; review pending]` -ten selected proposals, funding/equipment/support symbols, sketch-to-built light installation, testing/showcase, cash prizes and tourist-display beat. Ashley44.3333-58.9s; ending deferred.
+- `[closing rough rendered/verified; review pending]` -current Ashley58.9-68.6s, waterfront pullback, aqua dot/Great Lakes motif, event name and raeonhacks.com end card. Original audio retained; final spoken .ca must be corrected to .com.
+- `[Round2 rough accepted; final polish pending]` -ten selected proposals, funding/equipment/support symbols, sketch-to-built light installation, testing/showcase, cash prizes and tourist-display beat. Ashley44.3333-58.9s; ending deferred.
 - `[Round1 simplified rough accepted; final polish pending]` -paper-line handoff, slower light-only sketch, Nov5th opening label at left, Idea Submissions Deadline above Dec3 calendar, Just submit your idea stamp, no visible pencils, submission envelope. Ashley31.1667-44.3333s.
 - `[continuous waterfront rough accepted; final polish pending]` -one continuous move through light/sound/LED installations; smooth terrace25% narrower, brick foreground walkway25% wider; partial path then green seating strip then paved terrace/lake, stationary green/yellow LED tubes and central-column display stand; no visitors, starts on can experience24.10s. Studio rough retained. Science extension22.6-24.1s needed at assembly.
 - `[section3 creative rough rendered; review pending]` -8.5667s Ashley-timed light sculpture, sound bowl and BE CREATIVE LED, matching aqua pulse, paper/sketch handoff to Round1.
 - `[rough science accepted; final polish pending]` -9.1s surface descent, original sensor cage reveal, two tracked buoy/sensor callouts and unchanged third transition pulse, source narration13.5-22.6s.
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
 - `[rough first scene accepted; final polish pending]` -13.5s glider deployed from distant boat, underwater weave, camera surfacing far from buoy then flying in above water for title; sensor reveal reserved for science section, with supplied Ashley narration. High-quality build only after organizer agrees. Ending deferred.
-- `[revised narrative]` - student/prizes hook, lake science, creative light/sound/display examples, how-it-works with sketch, CTA at raeonhacks.ca. Source recording68.60s. Earlier prototype numbering/order superseded.
+- `[revised narrative]` - student/prizes hook, lake science, creative light/sound/display examples, how-it-works with sketch, CTA at raeonhacks.com. Source recording68.60s. Earlier prototype numbering/order superseded.
 - `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and LED display with animated BE CREATIVE lettering, replacing earlier lake artwork and shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
 - `[prototype accepted]` - Section2 A BE CREATIVE direction; final camera/material/animation polish still pending.
 - `[rendered and verified; review pending]` - Section3 self-drawing invitation, concept drawings, supplied group photo and YOUR IDEA page.10s1080p30, silent.

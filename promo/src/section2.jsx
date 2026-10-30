@@ -8,7 +8,7 @@ import {waterfrontMotion} from './waterfront-motion.mjs';
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
 
-export function setupInstallations(canvas,creative=false,waterfront=false,roundTwo=false){
+export function setupInstallations(canvas,creative=false,waterfront=false,roundTwo=false,closing=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});
  renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
@@ -127,6 +127,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
    const motion=waterfrontMotion(localFrame-45);
    camera.position.set(...motion.camera);camera.lookAt(...motion.target);
    if(roundTwo){const frame=localFrame-45,p=ramp(frame,170,436);camera.position.set(6.5-p*3,3.8-p*.4,10.5-p*1.4);camera.lookAt(0,1.15,-9.5);particles.forEach(o=>o.visible=false);pulseRings.forEach(o=>o.visible=false);}
+   if(closing){const depart=ramp(localFrame-45-437,0,135);camera.position.set(3.5,3.4+depart*3.6,9.1+depart*11);camera.lookAt(0,1.15-depart,-9.5-depart*18);}
    shore.draw(localFrame/30);
   }
   renderer.render(scene,camera);

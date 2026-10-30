@@ -1,13 +1,13 @@
-# Active Initiative - GLHC-004 continuous waterfront pan
+# Active Initiative - GLHC-004 Round1 rough
 
-Status: organizer follow-up built/rendered on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Final production/ending deferred.
+Status: organizer accepted continuous waterfront rough and requested next section. RoughRoundOne rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated; final production/ending deferred.
 
-Scope/decisions: smooth sculpture terrace depth12 ->9 (25% narrower), no joints/lines. Foreground pedestrian walkway depth4 ->5 (25% wider), staggered brick pattern only there. Green seating strip between path/terrace. One continuous lateral camera and aqua-dot movement through same physical scene: hold lights, ease across to sound, ease across to LED; no camera cuts. Stationary green/yellow tubes, sound bowl and central-column screen unchanged. No visitors.
+Scope: original Ashley31.1667-44.3333s,395frames. Warm paper-line handoff becomes self-drawing light/sound/screen idea page; physical December3 desk calendar; JUST AN IDEA stamp supports no-experience/no-working-prototype narration; one pencil becomes three on solo/team line. Idea page shrinks into submission envelope, aqua seal leads toward Round2. No extra explanatory paragraphs, full-film assembly, website or ending changes.
 
-Changed: waterfront-motion.mjs pure continuous path, shared renderer camera/dot and continuous animation clock; revised landscape widths/joints, output script. Existing sceneFrame mapping now controls installation choreography only, not camera cuts. Installations remain48 units apart; camera travels96 units with eased pans on narration timing. Faster travel is rough blocking within7.07s clip.
+Changed: RoughRoundOne composition, reused exported sketch primitives, central-column screen drawing, render script and review evidence. Earlier sketch study retained. Calendar has no invented year/cutoff. Concept drawings are examples, not required entries. No visitors introduced in waterfront scene.
 
-Verification:212/212 frames rendered/decoded1920x1080/30FPS,7.0667s; nine export moments inspected including both pans and brick foreground. Narration waveform correlation1.0 to previous waterfront export.212 sampled motion frames move monotonically; epsilon checks at all four pan boundaries confirm continuity. Maximum centre travel4.068 units/frame during short pan. Evidence waterfront-pan-review.jpg, waterfront-pan-verification.json, waterfront-pan-motion.json. Diff check passed. No manual listening/browser playback/deployment claim.
+Verification:395/395 render/decode1920x1080/30FPS,13.1667s. Six final export moments inspected. Narration source-slice correlation0.999961 after42.6875ms codec alignment. Sketch spacing and page/envelope trajectory refined after initial render; team pencils timed later to spoken cue. Diff check passes. Evidence promo/evidence/round1-rough-review.jpg and round1-rough-verification.json. No manual listening/browser playback/deployment claim.
 
-Review artifact: promo/out/section3-waterfront-pan.mp4. Prior exports remain historical. Science extension22.6-24.1s remains later assembly work. Source24.1-31.1667s unchanged; latest CTA raeonhacks.ca and ending deferred.
+Review artifact: promo/out/round1-sketch-rough.mp4. Science extension22.6-24.1s remains later assembly work; final continuous transitions/polish deferred. Latest CTA raeonhacks.ca; supplied ending unchanged.
 
-Next action: organizer reviews continuous camera travel and surface layout before Round1/final polish.
+Next action: organizer reviews Round1 before Round2 rough.

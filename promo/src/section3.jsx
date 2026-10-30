@@ -6,13 +6,13 @@ const paper='#f1eee2',ink='#183c47',yellow='#dfbd42';
 const smooth=Easing.bezier(.45,0,.2,1);
 const travel=(f,values)=>interpolate(f,[0,22,65,110,155,200,235,288,299],values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
 function Stroke({d,f,at=0,duration=25,color=ink,width=4,opacity=1,...rest}){const p=ramp(f,at,at+duration);return <path d={d} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" pathLength="1" strokeDasharray="1" strokeDashoffset={1-p} opacity={opacity} {...rest}/>}
-function LightSketch({f}){return <g>
+export function LightSketch({f}){return <g>
  <Stroke f={f} at={22} duration={20} d="M500 710Q750 610 1000 710Q780 835 500 710Z"/>
  <Stroke f={f} at={27} d="M500 710L502 735Q780 860 1000 732L1000 710" opacity={.35}/>
  {Array.from({length:11},(_,i)=>{const x=550+i*39,y=700+Math.sin(i*.58)*25,h=110+(Math.sin(i*.7)+1)*115;return <g key={i}><Stroke f={f} at={31+i*3} duration={17} d={`M${x} ${y}L${x-2} ${y-h}L${x+8} ${y-h-3}L${x+9} ${y}Z`} width={3}/><Stroke f={f} at={56+i*2} duration={25} d={`M${x+3} ${y-5}L${x+2} ${y-h+5}`} color={yellow} width={5}/></g>})}
  <Stroke f={f} at={58} d="M530 755Q720 815 977 750" opacity={.25} width={2}/>
  </g>}
-function SoundSketch({f}){return <g>
+export function SoundSketch({f}){return <g>
  <Stroke f={f} at={76} duration={20} d="M1120 600C1120 500 1530 500 1530 600C1530 700 1120 700 1120 600Z"/>
  <Stroke f={f} at={81} duration={20} d="M1120 600L1160 748Q1320 815 1490 748L1530 600"/>
  <Stroke f={f} at={85} d="M1160 748L1175 775Q1320 835 1475 775L1490 748" opacity={.5}/>

@@ -20,3 +20,5 @@ const camera=[curve(ct,[-63.1,-63.5,-63,-55,-49,-46,-43,-31,-18,-6,-5.5]),curve(
 const target=[curve(ct,[-67,-67,-66,-58,-53,-50,-33,-8,0,0,0]),curve(ct,[1,.1,-1.5,-2.1,-1.7,-.6,.7,.9,.8,.7,.7]),curve(ct,[0,0,1.2,2.2,.7,1,0,0,0,0,0])];
 const glider=[curve([0,3.3,4.4,6.2,7.8,9.5,13.5],[-67,-67,-65,-58,-53,-49,-43]),curve([0,2.3,3.3,5.4,7.8,10.5,13.5],[2.25,.2,-.75,-2.3,-2.5,-2.2,-2.5]),curve([0,3.3,5.8,8.3,10.8,13.5],[0,0,1.7,.6,1.6,5])];
 export function productionOpeningPath(t){return {camera:camera.map(fn=>fn(t)),target:target.map(fn=>fn(t)),glider:glider.map(fn=>fn(t))};}
+
+export {curve as shapePreservingCurve};

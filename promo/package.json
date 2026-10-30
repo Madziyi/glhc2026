@@ -19,7 +19,8 @@
     "render:science-assembly": "remotion render src/index.jsx ScienceAssembly out/science-assembly.mp4 --codec=h264 --gl=angle",
     "render:glider-review": "remotion render src/index.jsx GliderReview out/glider-detailed-review.mp4 --codec=h264 --crf=16 --gl=angle",
     "render:production-opening": "remotion render src/index.jsx ProductionOpening out/opening-water-detailed-pass.mp4 --codec=h264 --crf=16 --gl=angle",
-    "render:boat-review": "remotion render src/index.jsx BoatReview out/boat-detailed-review.mp4 --codec=h264 --crf=16 --gl=angle"
+    "render:boat-review": "remotion render src/index.jsx BoatReview out/boat-detailed-review.mp4 --codec=h264 --crf=16 --gl=angle",
+    "render:production-science": "remotion render src/index.jsx ProductionScience out/science-detailed-pass.mp4 --codec=h264 --crf=16 --gl=angle"
   },
   "dependencies": {
     "@remotion/cli": "4.0.387",

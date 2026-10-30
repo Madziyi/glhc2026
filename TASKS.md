@@ -1,7 +1,8 @@
 # GLHC 2026 Task Board
 
 ## Active - GLHC-004 revised motion storytelling
-- `[production stage3: water/deployment rendered/verified; review pending]` -live planar reflections, denser surface near boat/buoy, localized entry disturbance, restrained bubbles/spray, underwater absorption/caustics/particles and waterline transition. Models/path/narration preserved.
+- `[production stage4: science/sensors rendered/verified; review pending]` -continuous descent/orbit with production water and buoy/sensor lighting; safe anchored callouts, matching thin pulse trail and centred dot bridge. Ashley13.5-24.1s.
+- `[production stage3: opening water/deployment accepted]` -live planar reflections, denser surface near boat/buoy, localized entry disturbance, restrained bubbles/spray, underwater absorption/caustics/particles and waterline transition. Models/path/narration preserved.
 - `[production stage2: detailed launch boat accepted]` -lofted hull, wheelhouse/windows/interior, deck details/rails/fenders, hydraulic crane/winch, connected lifting rig, propellers/rudders. 12s model review and13.5s opening integration; accepted glider/path/captions preserved. Water/deployment visual pass implemented; sound/full-film polish pending.
 - `[production stage1: detailed glider accepted; first opening integration verified]` -reference-based yellow hull/charcoal nose, centre wing saddle, foil wings, rear fin/probes, hardware/materials/lettering; 12s model-review and13.5s opening with continuous gliding, small background fish, CASH PRIZES then GET FEATURED AT TOURIST SPOTS. Boat/water visual production implemented; later-section/sound polish pending.
 - `[full rough assembled/verified; organizer review pending]` -68.6s latest opening/science/waterfront/Round1/Round2/closing; one continuous original narration; science extended through24.1s. Final spoken.com correction pending organizer.

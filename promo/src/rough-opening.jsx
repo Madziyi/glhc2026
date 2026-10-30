@@ -7,6 +7,10 @@ import {createOpeningEnvironment} from './opening-environment';
 import {ramp} from './opening';
 import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mjs';
 import {productionOpeningPath} from './production-opening-path.mjs';
+import {productionSciencePath} from './production-science-path.mjs';
+import {Line2} from 'three/addons/lines/Line2.js';
+import {LineGeometry} from 'three/addons/lines/LineGeometry.js';
+import {LineMaterial} from 'three/addons/lines/LineMaterial.js';
 import {createProductionGlider} from './production-glider.js';
 import {createOpeningFish} from './opening-fish.js';
 import {createProductionBoat} from './production-boat.js';
@@ -51,17 +55,21 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
  const finGeo=new THREE.BufferGeometry();finGeo.setAttribute('position',new THREE.Float32BufferAttribute([0,.05,-.9,0,.6,-1.5,0,.05,-1.65],3));finGeo.computeVertexNormals();mesh(finGeo,yellow,glider);rod([0,.4,-1.45],[0,.95,-1.48],.014,black,glider);
  }
  const fish=production?createOpeningFish(scene):null;
- const deployment=production?createDeploymentEffects(scene,renderer,environment,glider,boat):null;
+
  const loader=new GLTFLoader();loader.setMeshoptDecoder(MeshoptDecoder);const gltf=await loader.loadAsync(staticFile('models/glhc002-buoy.glb'));const buoy=gltf.scene;scene.add(buoy);
  buoy.traverse(o=>{if(o.isMesh){o.material.side=THREE.DoubleSide;if(o.material.name==='Powder-coated charcoal frame'){o.material.color.set('#8fa6ae');o.material.metalness=.65;o.material.roughness=.3}}});
+ const deployment=production?createDeploymentEffects(scene,renderer,environment,glider,boat,{extraRoots:[buoy],particleCenter:science?0:-54,emission:!science}):null;
  const bubbles=[];for(let i=0;i<28;i++){const b=mesh(new THREE.SphereGeometry(.035+(i%4)*.012,8,8),new THREE.MeshBasicMaterial({color:'#b7f1ef',transparent:true,opacity:.24}),scene);bubbles.push(b)}
  const splash=[];for(let i=0;i<3;i++){const m=mesh(new THREE.TorusGeometry(.45,.012,5,64),new THREE.MeshBasicMaterial({color:'#c5e8e3',transparent:true,opacity:.2}),scene);m.rotation.x=Math.PI/2;splash.push(m)}
  const signal=new THREE.Group();scene.add(signal);signal.visible=false;
  const glow=new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:1});
  const core=mesh(new THREE.SphereGeometry(.075,20,16),glow,signal);
  const halos=[];for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),glow.clone(),signal);halos.push(h)}
- const trailGeo=new THREE.BufferGeometry();trailGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(60*3),3));
- const trail=new THREE.Line(trailGeo,new THREE.LineBasicMaterial({color:'#87e4e1',transparent:true,opacity:.7}));scene.add(trail);trail.visible=false;
+ let trailGeo,trail;
+ if(production){trailGeo=new LineGeometry();trailGeo.setPositions(new Float32Array(180));trail=new Line2(trailGeo,new LineMaterial({color:'#87e4e1',linewidth:1.5,transparent:true,opacity:.7,resolution:new THREE.Vector2(1920,1080)}));}
+ else{trailGeo=new THREE.BufferGeometry();trailGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(180),3));trail=new THREE.Line(trailGeo,new THREE.LineBasicMaterial({color:'#87e4e1',transparent:true,opacity:.7}));}
+ scene.add(trail);trail.visible=false;
+ if(production){const c=document.createElement('canvas');c.width=c.height=128;const cx=c.getContext('2d'),g=cx.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(143,244,239,.6)');g.addColorStop(.2,'rgba(110,231,225,.2)');g.addColorStop(1,'rgba(110,231,225,0)');cx.fillStyle=g;cx.fillRect(0,0,128,128);const texture=new THREE.CanvasTexture(c);const aura=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,opacity:.6,depthWrite:false,blending:THREE.AdditiveBlending}));aura.scale.set(.65,.65,1);signal.add(aura);}
  const annotation=annotationCanvas?.getContext('2d');
  const underwater=new THREE.Color('#073b4d'),air=new THREE.Color('#aec5ce');
  function draw(f){
@@ -92,11 +100,15 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
    const times=[0,1.65,3.8,5.65,6.7,8,9.1];
    camera.position.set(at(local,times,[-5.5,-4,-2.8,.9,1.9,3.5,5]),at(local,times,[2.8,1.7,-1.4,-2,-1.9,-1.8,-1.8]),at(local,times,[7.5,5.4,3.4,3.1,3.4,4,4]));
    camera.lookAt(at(local,times,[0,0,0,0,.5,2.4,5]),at(local,times,[.7,.15,-1.5,-1.7,-1.6,-1.5,-1.5]),0);
-   const pulsePosition=(v)=>new THREE.Vector3(at(v,[5.5,6.3,7.3,9.1],[0,.2,2.3,6]),at(v,[5.5,6.3,7.3,9.1],[-1.7,-1.7,-1.4,-1.5]),at(v,[5.5,6.3,7.3,9.1],[0,.2,.4,0]));
+   if(production){const view=productionSciencePath(local);camera.position.set(...view.camera);camera.lookAt(...view.target);}
+   const pulsePosition=(v)=>production?new THREE.Vector3(...productionSciencePath(v).pulse):new THREE.Vector3(at(v,[5.5,6.3,7.3,9.1],[0,.2,2.3,6]),at(v,[5.5,6.3,7.3,9.1],[-1.7,-1.7,-1.4,-1.5]),at(v,[5.5,6.3,7.3,9.1],[0,.2,.4,0]));
    signal.visible=local>=5.5;signal.position.copy(pulsePosition(local));
    core.scale.setScalar(1+Math.sin(local*8)*.13);
    halos.forEach((h,i)=>{const phase=(local*1.3+i/3)%1;h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.6;h.lookAt(camera.position)});
-   trail.visible=local>=6.3;const points=trailGeo.attributes.position;for(let i=0;i<60;i++){const pt=pulsePosition(Math.max(5.5,local-i*.018));points.setXYZ(i,pt.x,pt.y,pt.z)}points.needsUpdate=true;trailGeo.computeBoundingSphere();
+   trail.visible=local>=6.3;const values=new Float32Array(180);for(let i=0;i<60;i++){const pt=pulsePosition(Math.max(5.5,local-i*.018));values.set(pt.toArray(),i*3)}
+   if(production)trailGeo.setPositions(values);else{trailGeo.attributes.position.array.set(values);trailGeo.attributes.position.needsUpdate=true;}
+   trailGeo.computeBoundingSphere();
+
   }
   const waterLevel=production?productionWaterHeight(camera.position.x,camera.position.z,t):0;
   const under=1-THREE.MathUtils.smoothstep(camera.position.y-waterLevel,production?-.12:-.25,production ? .14 : .2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
@@ -117,7 +129,7 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
     annotation.beginPath();annotation.moveTo(x,y);for(let j=0;j<2;j++){const a=segments[j],b=segments[j+1],p=Math.min(1,remaining/Math.max(.001,lengths[j]));annotation.lineTo(a[0]+(b[0]-a[0])*p,a[1]+(b[1]-a[1])*p);remaining-=lengths[j];if(remaining<=0)break}annotation.stroke();
     annotation.beginPath();annotation.arc(x,y,8,0,Math.PI*2);annotation.fill();
     for(let i=0;i<2;i++){const phase=(local*1.3+i/2)%1;annotation.globalAlpha=show*(1-phase)*.55;annotation.beginPath();annotation.arc(x,y,15+phase*26,0,Math.PI*2);annotation.stroke()}
-    annotation.globalAlpha=show*ramp(f,start+15,start+25);annotation.font='500 32px "Google Sans", sans-serif';annotation.textAlign='left';annotation.fillText(label,end[0],end[1]-17);annotation.restore();
+    annotation.globalAlpha=show*ramp(f,start+15,start+25);annotation.font=`500 ${production?34:32}px "Google Sans", sans-serif`;annotation.textAlign='left';annotation.fillText(label,end[0],end[1]-17);annotation.restore();
    };
    callout([.65,-.35,.3],'Water-quality buoy',[130,480],91,191);
    callout([-.12,-1.5,.22],'Sensors',[1420,720],111,201);

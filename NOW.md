@@ -1,15 +1,15 @@
-# Active Initiative - GLHC-004 opening water/deployment production pass
+# Active Initiative - GLHC-004 production science/sensors
 
-Status: organizer approved boat/glider and authorized water/deployment refinement. Final visual pass rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Full-film production/sound pending.
+Status: organizer accepted opening water/deployment and requested next section. ProductionScience rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Full-film production/sound pending.
 
-Changed: production-only320x320 dense launch-to-buoy water field at72% prior displacement.1280x720 planar reflection of actual scene, filtered/distorted and smoothly faded at waterline. Local elongated entry disturbance;30 small short-lived bubbles,22 restrained spray droplets,150 faint particles. Depth attenuation/animated caustics preserve prior material shaders. Old rough bubble plume/torus rings disabled in production only. Wave-matched camera submersion/background depth colour/subpixel blur; near plane .08->.015 prevents close-water clipping band.
+Scope: same318-frame13.5-24.1s narration. Exact opening-end camera/target and absolute environment clock. Smooth continuous descent/orbit, wider sensor framing, refined production water/lighting/absorption/caustics on reviewed buoy GLB. Fine particles at buoy, no launch emissions. Two anchored callouts keep Water-quality buoy / Sensors wording,34px type and matching1.5px leaders. Third pulse gets soft glow and1.5px screen-width trail, follows toward centre-dot/navy bridge to waterfront. No invented telemetry, geometry redesign or extra captions.
 
-Preserved: approved detailed boat/glider geometry, connected launch rig, route/timing/captions/fish/fixed buoy and exact science end pose. No website/source R6 water, later-scene or original full-rough edits. No sound/music/voiceover changes.
+Changed: production-science-path.mjs, opt-in production mode for science, shared effects support extra targets/particle centre/no emission, Line2 trail/aura. Reviewed buoy asset unchanged. Rough/default scenes and original complete rough retain prior exports; no website/deployment/full-film edits.
 
-Verification: final405/405 rendered/decoded1920x1080/30FPS,13.5s;12 final moments inspected including both waterline crossings, reflections/entry and underwater tracking. Full-resolution surface/waterline/underwater images inspected. Narration waveform correlation1.0 to previous opening.405 geometric samples finite;172 underwater/transition frames exclude sensor box, zero intersections. Wave-relative crossings3.0333s/8.7s. Diff check passed. Evidence water-deployment-geometry.json/water-deployment-render.json/water-deployment-review.jpg. No manual listening/browser playback/deployment claim.
+Verification:318/318 render/decode1920x1080/30FPS,10.6s;9 final moments inspected. Narration correlation1.0 to approved assembled science. Opening end/science start camera-target exact; measured adjacent-frame pixel difference0.859742 (0-255 scale). All buoy/sensor anchor frames within48px safe margins after widening camera; zero failures. Pulse endpoint equals final camera target. Diff check passed. Evidence science-production-path.json/science-production-render.json/science-production-review.jpg. No manual listening/browser playback/deployment claim.
 
-Artifacts: promo/out/opening-water-detailed-pass.mp4, water-reflection-detail.png, water-underwater-detail.png, waterline-final-detail.png. Notes promo/WATER-DEPLOYMENT.md. Previous passes/full rough retained.
+Artifacts: promo/out/science-detailed-pass.mp4, science-sensors-detail.png. Notes promo/SCIENCE-DEVELOPMENT.md. Pulse is a visual metaphor, not asserted scientific telemetry.
 
-Known boundary: stylized/procedural film water, not fluid simulation; final sound design/music, later-section production consistency and final spoken.com correction remain. Current promo destination raeonhacks.com.
+Remaining production: waterfront/rounds/closing consistency, final assembly, music/SFX and spoken.com correction. Current promo destination raeonhacks.com.
 
-Next action: organizer reviews refined opening before extending production treatment to the remaining sections.
+Next action: organizer reviews production science; then bring waterfront to same finish with centred dot handoff.

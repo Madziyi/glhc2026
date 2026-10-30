@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import {Reflector} from 'three/addons/objects/Reflector.js';
 
-export function createDeploymentEffects(scene,renderer,environment,glider,boat){
+export function createDeploymentEffects(scene,renderer,environment,glider,boat,{extraRoots=[],particleCenter=-54,emission=true}={}){
  const clock={value:0};
- for(const root of [glider,boat])root.traverse(o=>{
+ for(const root of [glider,boat,...extraRoots])root.traverse(o=>{
   if(!o.isMesh)return;
   for(const mat of Array.isArray(o.material)?o.material:[o.material]){
    if(!(mat.isMeshStandardMaterial||mat.isMeshPhysicalMaterial)||mat.userData.waterPatched)return;
@@ -30,11 +30,11 @@ export function createDeploymentEffects(scene,renderer,environment,glider,boat){
  environment.water.material.uniforms.uReflectionMatrix.value=reflector.material.uniforms.textureMatrix.value;
  const bubbleMat=new THREE.MeshPhysicalMaterial({color:'#b7e0df',metalness:0,roughness:.12,transparent:true,opacity:.18,clearcoat:1,depthWrite:false});
  const bubbles=[];
- for(let i=0;i<30;i++){const r=.008+(i%7)*.003;const m=new THREE.Mesh(new THREE.SphereGeometry(r,10,8),bubbleMat);scene.add(m);bubbles.push(m)}
+ for(let i=0;i<(emission?30:0);i++){const r=.008+(i%7)*.003;const m=new THREE.Mesh(new THREE.SphereGeometry(r,10,8),bubbleMat);scene.add(m);bubbles.push(m)}
  const spray=[];
- for(let i=0;i<22;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.009+(i%3)*.004,8,6),new THREE.MeshBasicMaterial({color:'#c5e3dd',transparent:true,opacity:0,depthWrite:false}));scene.add(m);spray.push(m)}
+ for(let i=0;i<(emission?22:0);i++){const m=new THREE.Mesh(new THREE.SphereGeometry(.009+(i%3)*.004,8,6),new THREE.MeshBasicMaterial({color:'#c5e3dd',transparent:true,opacity:0,depthWrite:false}));scene.add(m);spray.push(m)}
  const dustGeo=new THREE.BufferGeometry(),dustPositions=[];
- for(let i=0;i<150;i++)dustPositions.push(-72+((Math.sin(i*12.7)*.5+.5)*36),-5+((Math.cos(i*7.1)*.5+.5)*5),-9+((Math.sin(i*3.7)*.5+.5)*18));
+ for(let i=0;i<150;i++)dustPositions.push(particleCenter-18+((Math.sin(i*12.7)*.5+.5)*36),-5+((Math.cos(i*7.1)*.5+.5)*5),-9+((Math.sin(i*3.7)*.5+.5)*18));
  dustGeo.setAttribute('position',new THREE.Float32BufferAttribute(dustPositions,3));
  const dust=new THREE.Points(dustGeo,new THREE.PointsMaterial({color:'#93b9be',size:.014,transparent:true,opacity:.15,depthWrite:false}));scene.add(dust);
  return {draw(t,camera,under){

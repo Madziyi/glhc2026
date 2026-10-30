@@ -1,0 +1,14 @@
+{
+  "decoded_frames": 318,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 10.6,
+  "audio_correlation_to_approved_assembly": 1.0,
+  "source_audio_start_seconds": 13.5,
+  "source_audio_end_seconds": 24.1,
+  "review_frames": 9,
+  "opening_join_mean_pixel_difference": 0.8597419945987654
+}

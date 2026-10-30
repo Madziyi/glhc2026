@@ -9,7 +9,8 @@
     "render:section2:a": "remotion render src/index.jsx Section2Concept out/section2-a-be-creative.mp4 --codec=h264 --gl=angle",
     "render:section2:b": "remotion render src/index.jsx Section2Photos out/section2-b-photographs.mp4 --codec=h264",
     "render:section3": "remotion render src/index.jsx Section3Sketch out/section3-self-drawing.mp4 --codec=h264",
-    "render:rough-opening": "remotion render src/index.jsx RoughOpening out/opening-rough-distant-buoy.mp4 --codec=h264 --gl=angle"
+    "render:rough-opening": "remotion render src/index.jsx RoughOpening out/opening-rough-distant-buoy.mp4 --codec=h264 --gl=angle",
+    "render:rough-science": "remotion render src/index.jsx RoughScience out/science-rough-ashley.mp4 --codec=h264 --gl=angle"
   },
   "dependencies": {
     "@remotion/cli": "4.0.387",

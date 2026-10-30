@@ -9,7 +9,7 @@ import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mj
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-async function setup(canvas){
+export async function setup(canvas,science=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,.08,6000);
  const environment=createOpeningEnvironment(scene);scene.fog=new THREE.FogExp2('#aec5ce',.006);
@@ -41,9 +41,15 @@ async function setup(canvas){
  buoy.traverse(o=>{if(o.isMesh){o.material.side=THREE.DoubleSide;if(o.material.name==='Powder-coated charcoal frame'){o.material.color.set('#8fa6ae');o.material.metalness=.65;o.material.roughness=.3}}});
  const bubbles=[];for(let i=0;i<28;i++){const b=mesh(new THREE.SphereGeometry(.035+(i%4)*.012,8,8),new THREE.MeshBasicMaterial({color:'#b7f1ef',transparent:true,opacity:.24}),scene);bubbles.push(b)}
  const splash=[];for(let i=0;i<3;i++){const m=mesh(new THREE.TorusGeometry(.45,.012,5,64),new THREE.MeshBasicMaterial({color:'#c5e8e3',transparent:true,opacity:.2}),scene);m.rotation.x=Math.PI/2;splash.push(m)}
+ const signal=new THREE.Group();scene.add(signal);signal.visible=false;
+ const glow=new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:1});
+ const core=mesh(new THREE.SphereGeometry(.075,20,16),glow,signal);
+ const halos=[];for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),glow.clone(),signal);halos.push(h)}
+ const trailGeo=new THREE.BufferGeometry();trailGeo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(60*3),3));
+ const trail=new THREE.Line(trailGeo,new THREE.LineBasicMaterial({color:'#87e4e1',transparent:true,opacity:.7}));scene.add(trail);trail.visible=false;
  const underwater=new THREE.Color('#073b4d'),air=new THREE.Color('#aec5ce');
  function draw(f){
-  const t=f/30;
+  const local=f/30;const t=local+(science?13.5:0);
   const path=openingPath(t);const [x,y,z]=path.glider;
   const ahead=openingPath(t+.035).glider,behind=openingPath(Math.max(0,t-.035)).glider;
   const release=ramp(f,99,132);const heading=Math.atan2(ahead[0]-behind[0],ahead[2]-behind[2]);
@@ -53,6 +59,16 @@ async function setup(canvas){
   // The buoy stays fixed. Only the camera leaves the underwater path and rises.
   buoy.position.set(0,0,0);buoy.rotation.set(0,0,0);
   camera.position.set(...path.camera);camera.lookAt(...path.target);
+  if(science){
+   const times=[0,1.65,3.8,5.65,6.7,8,9.1];
+   camera.position.set(at(local,times,[-5.5,-4,-2.8,.9,1.9,3.5,5]),at(local,times,[2.8,1.7,-1.4,-2,-1.9,-1.8,-1.8]),at(local,times,[7.5,5.4,3.4,3.1,3.4,4,4]));
+   camera.lookAt(at(local,times,[0,0,0,0,.5,2.4,5]),at(local,times,[.7,.15,-1.5,-1.7,-1.6,-1.5,-1.5]),0);
+   const pulsePosition=(v)=>new THREE.Vector3(at(v,[5.5,6.3,7.3,9.1],[0,.2,2.3,6]),at(v,[5.5,6.3,7.3,9.1],[-1.7,-1.7,-1.4,-1.5]),at(v,[5.5,6.3,7.3,9.1],[0,.2,.4,0]));
+   signal.visible=local>=5.5;signal.position.copy(pulsePosition(local));
+   core.scale.setScalar(1+Math.sin(local*8)*.13);
+   halos.forEach((h,i)=>{const phase=(local*1.3+i/3)%1;h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.6;h.lookAt(camera.position)});
+   trail.visible=local>=6.3;const points=trailGeo.attributes.position;for(let i=0;i<60;i++){const pt=pulsePosition(Math.max(5.5,local-i*.018));points.setXYZ(i,pt.x,pt.y,pt.z)}points.needsUpdate=true;trailGeo.computeBoundingSphere();
+  }
   const under=1-THREE.MathUtils.smoothstep(camera.position.y,-.25,.2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
   bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
   splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=p>0&&p<1;m.position.set(LAUNCH_GLIDER_X,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});

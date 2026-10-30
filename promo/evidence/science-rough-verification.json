@@ -1,0 +1,13 @@
+{
+  "decoded_frames": 273,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "source_audio_start_seconds": 13.5,
+  "duration_seconds": 9.1,
+  "audio_correlation_to_source_slice": 0.9873293134704515,
+  "codec_delay_seconds": 0.0426875,
+  "decoded_audio_seconds": 9.152
+}

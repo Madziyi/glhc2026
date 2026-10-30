@@ -1,0 +1,13 @@
+{
+  "decoded_frames": 405,
+  "duration_seconds": 13.5,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "audio_correlation_to_previous_opening": 1.0,
+  "audio_seconds": 13.5466875,
+  "underwater_sensor_visibility_check": "opening-flight-path.json",
+  "buoy_transform_fixed": true
+}

@@ -28,3 +28,10 @@ Buoy GLB/finish copied byte-for-byte from reviewed repository public/models/. En
 Place supplied source MP3 at public/audio/ashley-reference.mp3 inside promo, then run npm run render:rough-opening. Local output out/opening-rough-ashley.mp4. Audio intentionally excluded from Git; supplied local original is needed to rebuild.
 
 Automatic timing helper: transcribe-reference.py, with local faster-whisper base.en available in .local-python/. Transcription is a production convenience, not a website dependency.
+
+
+## Revised rough spatial blocking
+
+Organizer requests launch much farther from buoy and no sensor reveal in the opening. Boat shifted from14 to70 scene units from buoy; glider remains43+ units from origin and weaves laterally/vertically underwater. Camera follows while looking away from the buoy, then surfaces around8.73s at45.76 units away and flies toward its surface view. Buoy transform fixed at origin; sensors reserved for next science section. Underwater camera frustum checked against a conservative sensor-region bounding box for every frame; zero intersections. This verifies screen exclusion without deleting/hiding sensor geometry.
+
+Revised output: out/opening-rough-distant-buoy.mp4. Narration/13.5s duration unchanged. Pure frame path: src/rough-opening-path.mjs. Geometric verification: node verify-opening-path.mjs, with evidence/opening-flight-path.json. Original nearby-buoy export remains historical.

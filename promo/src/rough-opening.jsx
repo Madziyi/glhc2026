@@ -5,10 +5,10 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {createOpeningEnvironment} from './opening-environment';
 import {ramp} from './opening';
+import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mjs';
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-const keys=[0,2.2,4,6.5,9.9,10.7,12.8,13.5];
 async function setup(canvas){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,.08,6000);
@@ -21,7 +21,7 @@ async function setup(canvas){
  const box=(w,h,d,mat,pos,parent)=>{const m=mesh(new THREE.BoxGeometry(w,h,d),mat,parent);m.position.set(...pos);return m};
  const rod=(a,b,r,mat,parent)=>{const av=new THREE.Vector3(...a),bv=new THREE.Vector3(...b);const m=mesh(new THREE.CylinderGeometry(r,r,av.distanceTo(bv),10),mat,parent);m.position.copy(av).add(bv).multiplyScalar(.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),bv.sub(av).normalize());return m};
  // Rough boat/blocking model: proportions and camera action are review targets.
- const boat=new THREE.Group();boat.position.set(-14,.55,-.2);scene.add(boat);
+ const boat=new THREE.Group();boat.position.set(LAUNCH_BOAT_X,.55,-.2);scene.add(boat);
  const hullShape=new THREE.Shape();hullShape.moveTo(-1.9,-4.3);hullShape.lineTo(1.9,-4.3);hullShape.lineTo(2,2.7);hullShape.quadraticCurveTo(1.7,4.4,0,5.5);hullShape.quadraticCurveTo(-1.7,4.4,-2,2.7);hullShape.closePath();
  const hull=mesh(new THREE.ExtrudeGeometry(hullShape,{depth:1,bevelEnabled:true,bevelSize:.15,bevelThickness:.15,bevelSegments:2,steps:1}),white,boat);hull.rotation.x=-Math.PI/2;hull.position.y=-.8;
  box(3.7,.18,7.1,navy,[0,.28,-.6],boat);box(2.9,1.8,2.9,white,[0,1.25,1.6],boat);box(2.5,.72,2.93,material('#1f536b',.35,.2),[0,1.65,1.6],boat);box(3.2,.16,3.2,white,[0,2.22,1.6],boat);
@@ -44,17 +44,18 @@ async function setup(canvas){
  const underwater=new THREE.Color('#073b4d'),air=new THREE.Color('#aec5ce');
  function draw(f){
   const t=f/30;
-  const x=at(t,[0,3.3,4.3,8.8,11.8,13.5],[-11,-11,-9.8,-3.1,-2.8,-2.8]);
-  const y=at(t,[0,2.3,3.3,5,9,11.8],[2.25,.2,-.75,-1.8,-1.7,-1.9]);const z=at(t,[0,4,8.8,11.8,13.5],[0,0,.7,5.5,7.5]);
-  glider.position.set(x,y,z);glider.rotation.y=at(t,[0,3.3,4.5,8.8,11.8],[0,0,1.25,.5,0]);glider.rotation.x=at(t,[0,3,5,9,12],[0,.12,.08,-.05,0]);glider.rotation.z=Math.sin(t*.8)*.035;
+  const path=openingPath(t);const [x,y,z]=path.glider;
+  const ahead=openingPath(t+.035).glider,behind=openingPath(Math.max(0,t-.035)).glider;
+  const release=ramp(f,99,132);const heading=Math.atan2(ahead[0]-behind[0],ahead[2]-behind[2]);
+  glider.position.set(x,y,z);glider.rotation.y=heading*release;glider.rotation.x=at(t,[0,3,5,7.8,10],[0,.12,.08,-.08,0]);glider.rotation.z=Math.sin(t*1.2)*.075*release;
   boat.position.y=.55+Math.sin(t*1.1)*.04;boat.rotation.z=Math.sin(t*.8)*.007;
-  cablePoints.set([-11,4.7,-.3,-11,t<3.5?y+.35:at(t,[3.5,5],[y+.35,4.2]),0]);cableGeo.attributes.position.needsUpdate=true;cableGeo.computeBoundingSphere();cable.visible=t<5;
-  buoy.position.y=Math.sin(t*.7)*.035;buoy.rotation.z=Math.sin(t*.6)*.01;
-  camera.position.set(at(t,keys,[-7.1,-7.5,-7.5,-4.4,3.3,5.1,5.5,5.5]),at(t,keys,[3.2,1.2,-1.1,-1.6,-.7,2.5,2.8,2.8]),at(t,keys,[6.8,5.7,5.1,6.2,6.6,7.3,7.6,7.6]));
-  camera.lookAt(at(t,keys,[-11,-11,-10,-6,0,-.6,-.6,-.6]),at(t,keys,[1,.1,-1.5,-1.6,-.7,.6,.65,.65]),at(t,keys,[0,0,0,.7,0,0,0,0]));
+  cablePoints.set([LAUNCH_GLIDER_X,4.7,-.3,LAUNCH_GLIDER_X,t<3.5?y+.35:at(t,[3.5,5],[y+.35,4.2]),0]);cableGeo.attributes.position.needsUpdate=true;cableGeo.computeBoundingSphere();cable.visible=t<5;
+  // The buoy stays fixed. Only the camera leaves the underwater path and rises.
+  buoy.position.set(0,0,0);buoy.rotation.set(0,0,0);
+  camera.position.set(...path.camera);camera.lookAt(...path.target);
   const under=1-THREE.MathUtils.smoothstep(camera.position.y,-.25,.2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
-  bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=t>2.3&&t<6.7;b.position.set(-11+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
-  splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=p>0&&p<1;m.position.set(-11,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});
+  bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
+  splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=p>0&&p<1;m.position.set(LAUNCH_GLIDER_X,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});
   renderer.render(scene,camera);
  }
  return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};

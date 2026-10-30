@@ -2,7 +2,7 @@
 
 ## Active - GLHC-004 revised motion storytelling
 - `[superseded style]` - first15s/75s drafts remain historical; organizer rejected the repeated heading/illustration/caption approach.
-- `[rough first scene rendered/verified; review pending]` -13.5s glider deployed from boat, underwater approach to existing buoy and event title, with supplied Ashley narration. High-quality build only after organizer agrees. Ending deferred.
+- `[rough first scene rendered/verified; review pending]` -13.5s glider deployed from distant boat, underwater weave, camera surfacing far from buoy then flying in above water for title; sensor reveal reserved for science section, with supplied Ashley narration. High-quality build only after organizer agrees. Ending deferred.
 - `[revised narrative]` - student/prizes hook, lake science, creative light/sound/display examples, how-it-works with sketch, CTA at raeonhacks.ca. Source recording68.60s. Earlier prototype numbering/order superseded.
 - `[A selected; revision rendered and verified]` - Section2 A light sculpture, water/sound station and LED display with animated BE CREATIVE lettering, replacing earlier lake artwork and shells.12s1080p30, no persistent text. B retained as historical alternative. See promo/SECTION2-STUDIES.md.
 - `[prototype accepted]` - Section2 A BE CREATIVE direction; final camera/material/animation polish still pending.

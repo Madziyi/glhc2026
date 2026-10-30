@@ -1,0 +1,17 @@
+{
+  "meshes": 187,
+  "triangles": 60895,
+  "invalid_coordinates": 0,
+  "bounds_size": [
+    5.235195482476426,
+    5.497604112398723,
+    10.748672787547111
+  ],
+  "hook_world": [
+    -67,
+    4.7,
+    -0.30000000000000004
+  ],
+  "hook_matches_approved_launch": true,
+  "units": "film staging units; not engineering dimensions"
+}

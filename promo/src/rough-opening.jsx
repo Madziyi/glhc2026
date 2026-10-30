@@ -9,6 +9,7 @@ import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mj
 import {productionOpeningPath} from './production-opening-path.mjs';
 import {createProductionGlider} from './production-glider.js';
 import {createOpeningFish} from './opening-fish.js';
+import {createProductionBoat} from './production-boat.js';
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
@@ -23,24 +24,19 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
  const mesh=(geo,mat,parent)=>{const m=new THREE.Mesh(geo,mat);parent.add(m);return m};
  const box=(w,h,d,mat,pos,parent)=>{const m=mesh(new THREE.BoxGeometry(w,h,d),mat,parent);m.position.set(...pos);return m};
  const rod=(a,b,r,mat,parent)=>{const av=new THREE.Vector3(...a),bv=new THREE.Vector3(...b);const m=mesh(new THREE.CylinderGeometry(r,r,av.distanceTo(bv),10),mat,parent);m.position.copy(av).add(bv).multiplyScalar(.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),bv.sub(av).normalize());return m};
+ let boat,boatHook;
+ if(production){const built=createProductionBoat();boat=built.root;boatHook=built.hookPoint;boat.position.set(LAUNCH_BOAT_X,.55,-.2);scene.add(boat);}else{
  // Rough boat/blocking model: proportions and camera action are review targets.
- const boat=new THREE.Group();boat.position.set(LAUNCH_BOAT_X,.55,-.2);scene.add(boat);
+ boat=new THREE.Group();boat.position.set(LAUNCH_BOAT_X,.55,-.2);scene.add(boat);
  const hullShape=new THREE.Shape();hullShape.moveTo(-1.9,-4.3);hullShape.lineTo(1.9,-4.3);hullShape.lineTo(2,2.7);hullShape.quadraticCurveTo(1.7,4.4,0,5.5);hullShape.quadraticCurveTo(-1.7,4.4,-2,2.7);hullShape.closePath();
  const hull=mesh(new THREE.ExtrudeGeometry(hullShape,{depth:1,bevelEnabled:true,bevelSize:.15,bevelThickness:.15,bevelSegments:2,steps:1}),white,boat);hull.rotation.x=-Math.PI/2;hull.position.y=-.8;
- if(production){
-  const hullPaint=white.clone();hullPaint.onBeforeCompile=shader=>{
-   shader.vertexShader='varying float vBoatHeight;\n'+shader.vertexShader;
-   shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvBoatHeight=(modelMatrix*vec4(transformed,1.)).y;');
-   shader.fragmentShader='varying float vBoatHeight;\n'+shader.fragmentShader;
-   shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=mix(vec3(.025,.055,.07),diffuseColor.rgb,smoothstep(-.04,.33,vBoatHeight));');
-  };hull.material=hullPaint;
- }
 
  box(3.7,.18,7.1,navy,[0,.28,-.6],boat);box(2.9,1.8,2.9,white,[0,1.25,1.6],boat);box(2.5,.72,2.93,material('#1f536b',.35,.2),[0,1.65,1.6],boat);box(3.2,.16,3.2,white,[0,2.22,1.6],boat);
  for(const x of [-1.8,1.8]){rod([x,.5,-4],[x,1.35,-4],.045,steel,boat);rod([x,.5,-1.7],[x,1.35,-1.7],.045,steel,boat);rod([x,1.35,-4],[x,1.35,-1.7],.04,steel,boat)}
  rod([0,2.3,1.5],[0,4.1,1.5],.035,steel,boat);box(.75,.08,.08,white,[0,3.6,1.5],boat);
  rod([1.3,.5,-2.5],[1.3,3.9,-2.5],.15,orange,boat);rod([1.3,3.9,-2.5],[3,4.15,-.1],.13,orange,boat);
- const cablePoints=new Float32Array(6);const cableGeo=new THREE.BufferGeometry();cableGeo.setAttribute('position',new THREE.BufferAttribute(cablePoints,3));const cable=new THREE.Line(cableGeo,new THREE.LineBasicMaterial({color:'#25323a'}));scene.add(cable);
+ }
+ const cablePoints=new Float32Array(production?18:6);const cableGeo=new THREE.BufferGeometry();cableGeo.setAttribute('position',new THREE.BufferAttribute(cablePoints,3));const cable=production?new THREE.LineSegments(cableGeo,new THREE.LineBasicMaterial({color:'#4b5b62'})):new THREE.Line(cableGeo,new THREE.LineBasicMaterial({color:'#25323a'}));scene.add(cable);
  let glider;
  if(production){glider=createProductionGlider();scene.add(glider);}else{
  // Concept glider: streamlined yellow body, dark nose, swept wings, rear fin.
@@ -78,6 +74,14 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
   }
   boat.position.y=.55+Math.sin(t*1.1)*.04;boat.rotation.z=Math.sin(t*.8)*.007;
   cablePoints.set([LAUNCH_GLIDER_X,4.7,-.3,LAUNCH_GLIDER_X,t<3.5?y+.35:at(t,[3.5,5],[y+.35,4.2]),0]);cableGeo.attributes.position.needsUpdate=true;cableGeo.computeBoundingSphere();cable.visible=t<5;
+  if(production){
+   boat.updateMatrixWorld(true);glider.updateMatrixWorld(true);
+   const top=boatHook.getWorldPosition(new THREE.Vector3()),hub=new THREE.Vector3(x,t<3.4?y+.58:at(t,[3.4,5],[y+.58,4.18]),z-.10);
+   const front=glider.localToWorld(new THREE.Vector3(0,.18,.48)),back=glider.localToWorld(new THREE.Vector3(0,.18,-.62));
+   if(t>=3.4){front.copy(hub);back.copy(hub)}
+   cablePoints.set([...top,...hub,...hub,...front,...hub,...back]);cableGeo.attributes.position.needsUpdate=true;cableGeo.computeBoundingSphere();
+  }
+
   // The buoy stays fixed. Only the camera leaves the underwater path and rises.
   buoy.position.set(0,0,0);buoy.rotation.set(0,0,0);
   camera.position.set(...path.camera);camera.lookAt(...path.target);

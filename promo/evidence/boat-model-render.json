@@ -1,0 +1,11 @@
+{
+  "decoded_frames": 360,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 12,
+  "review_views": 6,
+  "silent_model_review": true
+}

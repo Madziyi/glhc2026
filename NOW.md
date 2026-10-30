@@ -9,3 +9,9 @@ Verification: full212-frame render/decode,7.0667s,9 sampled frames visually insp
 Artifact: promo/out/waterfront-detailed-pass.mp4. Earlier full rough/export files retained. Website and deployed state unchanged. Final-film assembly, remaining rounds/closing finish, music/SFX and spoken.com correction remain. Destination raeonhacks.com.
 
 Next action: organizer reviews waterfront production pass; then refine Round1 sketch/submission section.
+
+Active revision: organizer requests gentler camera travel with closer displays, twice-size dot/trail and a smaller LED message board on slim silver post/square plate reference. Preserve narration and landscape.
+
+
+### Waterfront revision - 2026-10-30
+Production spacing48->20 units, transition intervals48 frames; peak camera travel reduced80.82%. Doubled dot/trail diameter and extent, brighter coherent trajectory. Smaller112x64 LED lamp-grid board with BE CREATIVE, slim silver post and thin square base. Narration preserved. Verified212-frame1920x1080/30FPS decode;9 moments and full-size LED inspected; audio correlation effectively1.0. Evidence promo/evidence/waterfront-revision.json and waterfront-revision-review.jpg; artifact promo/out/waterfront-revised-pass.mp4. Rough motion unchanged, no deployment/manual playback claim. Organizer review next.

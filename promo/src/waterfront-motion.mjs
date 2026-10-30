@@ -5,3 +5,10 @@ export function waterfrontMotion(frame){
  const drift=ease(frame/211);
  return {centre,camera:[centre+6.5-drift*1.8,3.8-drift*.2,10.5-drift*.5],target:[centre,1.15,-9.5]};
 }
+
+// Production revision: shorter travel spread across longer intervals.
+export function productionWaterfrontMotion(frame){
+ const centre=20*ease((frame-25)/48)+20*ease((frame-74)/48);
+ const drift=ease(frame/211);
+ return {centre,camera:[centre+6.5-drift*1.8,3.8-drift*.2,10.5-drift*.5],target:[centre,1.15,-9.5]};
+}

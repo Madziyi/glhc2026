@@ -65,3 +65,7 @@ static browser exact-text/no-clipping checks pass. PR#6 update.
 - ProductionWaterfront complete:212 frames,1920x1080/30FPS,7.0667s;9 sampled frames visually inspected. Audio correlation effectively1.0 to approved rough. Final render shader errors cleared after renaming reserved GLSL variable. Diff check passed.
 - Landscape/materials/shadows/reflections and installation details refined; approved camera path, fixed tube heights, no visitors, central-column LED and paper-line exit preserved. Output promo/out/waterfront-detailed-pass.mp4; evidence promo/evidence/waterfront-production-render.json and waterfront-production-review.jpg. Implementation53a5f13.
 - Organizer review pending; next Round1 production. Remaining assembly/sound/closing and spoken.com correction retained. No deployment or manual playback claim.
+
+
+### Waterfront revision - 2026-10-30
+Production spacing48->20 units, transition intervals48 frames; peak camera travel reduced80.82%. Doubled dot/trail diameter and extent, brighter coherent trajectory. Smaller112x64 LED lamp-grid board with BE CREATIVE, slim silver post and thin square base. Narration preserved. Verified212-frame1920x1080/30FPS decode;9 moments and full-size LED inspected; audio correlation effectively1.0. Evidence promo/evidence/waterfront-revision.json and waterfront-revision-review.jpg; artifact promo/out/waterfront-revised-pass.mp4. Rough motion unchanged, no deployment/manual playback claim. Organizer review next.

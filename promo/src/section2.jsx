@@ -5,12 +5,13 @@ import {ramp} from './opening';
 import {createWaterfront} from './waterfront-environment';
 import {createProductionWaterfront} from './production-waterfront-environment.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
-import {waterfrontMotion} from './waterfront-motion.mjs';
+import {waterfrontMotion,productionWaterfrontMotion} from './waterfront-motion.mjs';
 
 const mix=(a,b,t)=>a+(b-a)*t;
 const cameraX=f=>ramp(f,82,124,0,9)+ramp(f,198,242,0,9);
 
 export function setupInstallations(canvas,creative=false,waterfront=false,roundTwo=false,closing=false,production=false){
+ const motionAt=production?productionWaterfrontMotion:waterfrontMotion;
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});
  renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
@@ -98,23 +99,33 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
   vec2 pixel=fract(uv*vec2(360.,202.));float grid=smoothstep(.04,.13,pixel.x)*smoothstep(.04,.13,pixel.y);
   col*=.86+.14*grid;gl_FragColor=vec4(col,1.);
  }`});
+ if(production){displayMaterial.fragmentShader=`
+ precision highp float;varying vec2 vUv;uniform float uTime;uniform sampler2D uMask;
+ void main(){vec2 cells=vec2(112.,64.);vec2 cell=floor(vUv*cells);vec2 centre=(cell+.5)/cells;
+ float letter=texture2D(uMask,centre).r;vec2 p=fract(vUv*cells)-.5;
+ float bulb=1.-smoothstep(.23,.40,length(p));float halo=exp(-dot(p,p)*10.);
+ vec3 lamp=mix(vec3(.12,.85,.77),vec3(1.,.68,.16),.7+.15*sin(centre.x*5.-uTime));
+ vec3 col=vec3(.007,.012,.014)+vec3(.023,.031,.032)*bulb;
+ col+=letter*lamp*(bulb*.93+halo*.15);gl_FragColor=vec4(col,1.);}`;displayMaterial.needsUpdate=true;}
  const chassis=mesh(production?new RoundedBoxGeometry(6.05,3.55,.23,3,.065):new THREE.BoxGeometry(6.05,3.55,.23),metal);chassis.position.set(18,2.35,-.3);
  const display=mesh(new THREE.PlaneGeometry(5.82,3.28),displayMaterial);display.position.set(18,2.35,-.17);
  if(waterfront){
-  chassis.position.y=3.5;display.position.y=3.5;
-  const column=mesh(new THREE.CylinderGeometry(.25,.32,1.8,32),metal);column.position.set(18,.98,-.3);
-  const collar=mesh(new THREE.CylinderGeometry(.26,.26,.45,32),metal);collar.position.set(18,1.9,-.3);
-  const foot=mesh(production?new RoundedBoxGeometry(2.7,.16,1.7,3,.055):new THREE.BoxGeometry(2.7,.16,1.7),metal);foot.position.set(18,.17,-.15);
+  chassis.position.y=production?3.0:3.5;display.position.y=production?3.0:3.5;
+  if(production){chassis.scale.set(.64,.64,.8);display.scale.set(.64,.64,1);}
+
+  const column=mesh(new THREE.CylinderGeometry(production?.065:.25,production?.065:.32,production?2.15:1.8,32),production?silver:metal);column.position.set(18,production?1.15:.98,-.3);
+  const collar=mesh(new THREE.CylinderGeometry(.26,.26,.45,32),metal);collar.position.set(18,1.9,-.3);if(production){collar.visible=false;}
+  const foot=mesh(production?new RoundedBoxGeometry(2.7,.16,1.7,3,.055):new THREE.BoxGeometry(2.7,.16,1.7),production?silver:metal);foot.position.set(18,production?.10:.17,-.15);if(production)foot.scale.set(.65,.3,1);
  }else [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
  const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);stations[2].add(screenGlow);
- if(waterfront){stations.forEach((g,i)=>g.position.set(i*48-i*9,0,-9.5));}
+ if(waterfront){stations.forEach((g,i)=>g.position.set(i*(production?20:48)-i*9,0,-9.5));}
  if(roundTwo){stations[1].visible=false;stations[2].visible=false;}
  activeStation=scene;
  const shore=waterfront?(production?createProductionWaterfront(scene,ground):createWaterfront(scene,ground)):null;
  if(production){renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-17,right:17,top:17,bottom:-17,near:.1,far:60});key.shadow.normalBias=.025;scene.add(key.target);key.color.set("#fff0d5");}
  if(waterfront){camera.far=6000;camera.updateProjectionMatrix();renderer.toneMappingExposure=.85;key.intensity=2.4;rim.intensity=.8;}
  const particles=[];
- for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?.075:.025,8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
+ for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?(production?.15:.075):(production?.05:.025),8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
  const pulseRings=[];
  if(creative){particles[0].material.color.set('#8ff4ef');for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:.4}));pulseRings.push(h)}}
  function draw(f,localFrame=f){
@@ -125,11 +136,11 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
   rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;if(roundTwo){const built=ramp(localFrame-45,177+i*2.2,210+i*2.2);rod.position.y=height/2+.2+(1-built)*3;rod.visible=built>0;}return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*(production?.3:.8)});
   paintText(production?(localFrame-45<125?220:localFrame-45<150?230+(localFrame-170)*16/25:246+(localFrame-195)*1.6):f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
-  particles.forEach((p,i)=>{const lead=waterfront?waterfrontMotion(localFrame-45).centre:creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*.055;p.position.set(px,1.4+Math.sin(px*1.1+t)*.6,Math.cos(px*.7+t)*.7-(waterfront?9.5:0));if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*.7;p.visible=localFrame<204}});
-  pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});
+  particles.forEach((p,i)=>{const lead=waterfront?motionAt(localFrame-45).centre:creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*(production?.11:.055);p.position.set(px,1.4+Math.sin((production?t*.5:px*1.1+t))*.6,Math.cos(production?t*.4:px*.7+t)*.7-(waterfront?9.5:0));if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*(production?1:.7);p.visible=localFrame<204}});
+  pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar((production?2:1)*(1+phase*3));h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});
   if(creative&&!waterfront){const build=ramp(localFrame,7,58);rods.forEach(({rod})=>{rod.scale.y*=.05+.95*build});light.intensity=28*(.25+.75*build)}
   if(waterfront){
-   const motion=waterfrontMotion(localFrame-45);
+   const motion=motionAt(localFrame-45);
    camera.position.set(...motion.camera);camera.lookAt(...motion.target);
    if(roundTwo){const frame=localFrame-45,p=ramp(frame,170,436);camera.position.set(6.5-p*3,3.8-p*.4,10.5-p*1.4);camera.lookAt(0,1.15,-9.5);particles.forEach(o=>o.visible=false);pulseRings.forEach(o=>o.visible=false);}
    if(closing){const depart=ramp(localFrame-45-437,0,135);camera.position.set(3.5,3.4+depart*3.6,9.1+depart*11);camera.lookAt(0,1.15-depart,-9.5-depart*18);}

@@ -1,0 +1,25 @@
+{
+  "frames": 212,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "audioCorrelation": 0.9999999999999999,
+  "stationSpacing": 20,
+  "previousSpacing": 48,
+  "peakTravelPerFrame": 0.7803462464132451,
+  "previousPeak": 4.068425529801118,
+  "dotAndTrailDiameterMultiplier": 2,
+  "reviewFrames": [
+    0,
+    30,
+    55,
+    75,
+    95,
+    120,
+    155,
+    190,
+    211
+  ]
+}

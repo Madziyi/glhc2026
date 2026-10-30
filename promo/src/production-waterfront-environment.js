@@ -17,7 +17,7 @@ function terrain(color,scale=4){
  };m.customProgramCacheKey=()=>`waterfront-terrain-${scale}`;return m;
 }
 export function createProductionWaterfront(scene,ground){
- const environment=createOpeningEnvironment(scene,{production:true,waterCenterX:48});environment.water.position.y=-.75;
+ const environment=createOpeningEnvironment(scene,{production:true,waterCenterX:20});environment.water.position.y=-.75;
  scene.environment=environment.environment;scene.environmentIntensity=.7;scene.fog=new THREE.FogExp2('#9fbdc4',.0017);
  const grass=terrain('#657349',6),concrete=terrain('#b5b6a9',32),sand=terrain('#c1ae87',18);
  const wood=terrain('#76593d',14),metal=new THREE.MeshStandardMaterial({color:'#263a3d',metalness:.7,roughness:.4});
@@ -36,7 +36,7 @@ export function createProductionWaterfront(scene,ground){
  const bladeMaterial=new THREE.MeshStandardMaterial({color:'#677b4c',roughness:.85,side:THREE.DoubleSide});
  const planted=new THREE.InstancedMesh(grassGeometry,bladeMaterial,900);planted.castShadow=true;planted.receiveShadow=true;
  const dummy=new THREE.Object3D();let blade=0;
- for(const centre of [0,48,96])for(const offset of [-5.5,5.5]){
+ for(const centre of [0,20,40])for(const offset of [-5.5,5.5]){
   const x=centre+offset,z=offset<0?-.7:1.1;
   for(let i=0;i<6;i++)box(2.4,.08,.105,wood,x,.48,z-.3+i*.12,'Bench seat slat');
   for(let i=0;i<4;i++)box(2.4,.12,.08,wood,x,.72+i*.15,z+.32,'Bench back slat');
@@ -49,7 +49,7 @@ export function createProductionWaterfront(scene,ground){
  }
  scene.add(planted);
  const trees=[];
- for(const [i,x] of [-13,35,83,110].entries()){
+ for(const [i,x] of [-13,13,33,54].entries()){
   const tree=new THREE.Group();tree.position.set(x,0,2);scene.add(tree);trees.push(tree);
   const bark=terrain('#5b4a37',9);const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.10,.18,3.9,14),bark);trunk.position.y=1.85;trunk.castShadow=true;tree.add(trunk);
   const leaves=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(.24,1),new THREE.MeshStandardMaterial({color:'#46694a',roughness:.9}),320);leaves.castShadow=true;leaves.receiveShadow=true;

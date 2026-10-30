@@ -2,11 +2,12 @@ import React,{useLayoutEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Audio,staticFile,useCurrentFrame,delayRender,continueRender,cancelRender} from 'remotion';
 import {setup} from './rough-opening';
 import {ramp} from './opening';
-export function RoughScience(){
- const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null),annotations=useRef(null);const [handle]=useState(()=>delayRender('rough science sensor reveal'));
- useLayoutEffect(()=>{let disposed=false;setup(canvas.current,true,annotations.current).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
- useLayoutEffect(()=>{world.current?.draw(f)},[f]);
- const title=1-ramp(f,0,20),out=ramp(f,243,272);
+export function RoughScience({assembled=false}){
+ const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null),annotations=useRef(null);
+ const sceneFrame=assembled&&f>201?201+(f-201)*72/117:f;const [handle]=useState(()=>delayRender('rough science sensor reveal'));
+ useLayoutEffect(()=>{let disposed=false;setup(canvas.current,true,annotations.current).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(sceneFrame);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
+ useLayoutEffect(()=>{world.current?.draw(sceneFrame)},[f]);
+ const title=1-ramp(f,0,20),out=assembled?ramp(f,303,317):ramp(f,243,272);
  return <AbsoluteFill style={{background:'#03131f',overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
  <Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={405}/>

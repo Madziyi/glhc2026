@@ -15,7 +15,8 @@
     "render:waterfront": "remotion render src/index.jsx RoughWaterfront out/section3-waterfront-pan.mp4 --codec=h264 --gl=angle",
     "render:round1": "remotion render src/index.jsx RoughRoundOne out/round1-light-sketch-rough.mp4 --codec=h264 --gl=angle",
     "render:round2": "remotion render src/index.jsx RoughRoundTwo out/round2-build-rough.mp4 --codec=h264 --gl=angle",
-    "render:closing": "remotion render src/index.jsx RoughClosing out/closing-rough.mp4 --codec=h264 --gl=angle"
+    "render:closing": "remotion render src/index.jsx RoughClosing out/closing-rough.mp4 --codec=h264 --gl=angle",
+    "render:science-assembly": "remotion render src/index.jsx ScienceAssembly out/science-assembly.mp4 --codec=h264 --gl=angle"
   },
   "dependencies": {
     "@remotion/cli": "4.0.387",

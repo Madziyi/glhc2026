@@ -1,13 +1,11 @@
-# Active Initiative - GLHC-004 closing rough
+# Active Initiative - GLHC-004 complete rough assembly
 
-Status: organizer accepted Round2 and requested next section; closing rough rendered/verified on codex/promo-prototype. During build organizer corrected promo destination to raeonhacks.com, superseding .ca. Main8b4e7d9 remains integrated. Final voiceover/polish pending.
+Status: organizer requested latest rough passes stitched together and will correct final spoken domain. Full68.6s preview assembled on codex/promo-prototype; final science fade refinement and full verification complete; organizer flow review pending. Main8b4e7d9 remains integrated.
 
-Scope: unchanged source58.9-68.6s,291frames. Continuous camera from Round2 final waterfront pulls back, aqua dot/rings lead into existing Great Lakes silhouette, event name and raeonhacks.com end card. No visitors or extra captions. Earlier ending deferral superseded for this requested rough visual; supplied recording remains unchanged and says .ca, requiring final spoken-domain correction.
+Scope: latest distant launch opening, science/callouts, continuous waterfront pan, slower light-only Round1, Round2 and .com closing. One continuous original voiceover replaces sliced clip audio. ScienceAssembly318frames extends science13.5-24.1s with slower final pulse and later fade, filling prior1.5s gap; waterfront starts can experience24.1s. Other approved clip timings unchanged. No final polish/music/website/deployment changes.
 
-Changed: RoughClosing composition, opt-in closing camera departure in shared scene, render script and review evidence. Earlier compositions retain defaults. No website/deployment/full-film assembly edits.
+Implementation: rough-assembly.json exact2058-frame manifest, assemble-rough.py, verify-assembly.py, ROUGH-ASSEMBLY.md and opt-in assembled science variant. Prior science composition retained by default. Output promo/out/glhc-rough-full.mp4. Source audio local/ignored and unchanged; .ca spoken reference still pending organizer.com correction, end card correctly.com.
 
-Verification:291/291 rendered/decoded1920x1080/30FPS,9.7s. Six final frames inspected including waterfront continuity, silhouette transition and .com website. Source audio correlation0.985081 after42.6875ms AAC delay compensation; source unchanged. Diff check passed. Evidence promo/evidence/closing-review.jpg and closing-verification.json. No manual listening/browser playback/deployment claim.
+Verification: final assembly2058/2058 decode1920x1080/30FPS,68.6s;18 scene first/middle/last frame comparisons within5 mean pixel values, source audio correlation0.999998 with zero measured offset.12 contact moments inspected. Late science fade refined after initial review; full decode/audio/scene comparison rerun passed. Evidence assembled-rough-review.jpg/assembled-rough-verification.json.
 
-Review artifact: promo/out/closing-rough.mp4. Rough end-card/dot motion remains subject to review; final materials/transitions/camera polish pending. Science22.6-24.1s extension remains assembly work.
-
-Next action: organizer reviews closing visual; correct final spoken website to raeonhacks.com before full-film assembly.
+Next action: organizer watches complete rough and identifies flow/timing changes before high-quality production.

@@ -1,15 +1,15 @@
-# Active Initiative - GLHC-004 detailed launch boat
+# Active Initiative - GLHC-004 opening water/deployment production pass
 
-Status: organizer accepted detailed glider and requested realistic launch boat. Detailed research workboat and opening integration rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Full-film production finish pending.
+Status: organizer approved boat/glider and authorized water/deployment refinement. Final visual pass rendered/verified on codex/promo-prototype; review pending. Main8b4e7d9 remains integrated. Full-film production/sound pending.
 
-Model: original compact research-workboat visualization,187 meshes/60895 triangles, no actual vessel/manufacturer/dimensional claim. Lofted deep-V/flared hull and closed transom, boot stripe/antifouling, non-slip working deck, wheelhouse with framed glazing/helm/seat/instruments, roof/mast/radar/antennas/lamps, rails with launch opening, hatches/cleats/fenders/rope/lifebuoy/locker/work bench, crane pedestal/booms/hydraulics/hoses/pivots/winch/pulley, twin shafts/propellers/rudders. Generic arrangement, no supplied named boat reference.
+Changed: production-only320x320 dense launch-to-buoy water field at72% prior displacement.1280x720 planar reflection of actual scene, filtered/distorted and smoothly faded at waterline. Local elongated entry disturbance;30 small short-lived bubbles,22 restrained spray droplets,150 faint particles. Depth attenuation/animated caustics preserve prior material shaders. Old rough bubble plume/torus rings disabled in production only. Wave-matched camera submersion/background depth colour/subpixel blur; near plane .08->.015 prevents close-water clipping band.
 
-Integration: production-only createProductionBoat; crane hook feeds cable world point each frame with boat bob/roll. Two bridle lines support glider before release; cable retracts after release. Hook at rest[-67,4.7,-.3] matches approved launch exactly. Glider, smooth camera/path, fish/captions, distant fixed buoy/sensor exclusion and narration unchanged. Original rough/full rough preserved by default.
+Preserved: approved detailed boat/glider geometry, connected launch rig, route/timing/captions/fish/fixed buoy and exact science end pose. No website/source R6 water, later-scene or original full-rough edits. No sound/music/voiceover changes.
 
-Verification: model finite coordinates/required parts/hook match checked. BoatReview360/360 decode1920x1080/30FPS,12s; six views inspected. Production opening405/405 decode13.5s; nine final moments inspected including lowering/release and non-obstruction; narration correlation1.0 to previous opening. Diff check passed. Evidence boat-model-geometry.json/boat-model-render.json/boat-model-review.jpg and boat-opening-render.json/boat-opening-review.jpg. No manual listening/browser playback/deployment claim.
+Verification: final405/405 rendered/decoded1920x1080/30FPS,13.5s;12 final moments inspected including both waterline crossings, reflections/entry and underwater tracking. Full-resolution surface/waterline/underwater images inspected. Narration waveform correlation1.0 to previous opening.405 geometric samples finite;172 underwater/transition frames exclude sensor box, zero intersections. Wave-relative crossings3.0333s/8.7s. Diff check passed. Evidence water-deployment-geometry.json/water-deployment-render.json/water-deployment-review.jpg. No manual listening/browser playback/deployment claim.
 
-Artifacts: promo/out/boat-detailed-review.mp4, boat-detailed-hero.png, opening-boat-detailed-pass.mp4, boat-launch-detail.png. Notes promo/BOAT-DEVELOPMENT.md. No new packages, website or later-scene/full-film edits.
+Artifacts: promo/out/opening-water-detailed-pass.mp4, water-reflection-detail.png, water-underwater-detail.png, waterline-final-detail.png. Notes promo/WATER-DEPLOYMENT.md. Previous passes/full rough retained.
 
-Remaining production: water/lighting/surface interaction/deployment effects, sound design and full-film transitions/material polish. Final spoken.com correction pending organizer; displayed domain raeonhacks.com.
+Known boundary: stylized/procedural film water, not fluid simulation; final sound design/music, later-section production consistency and final spoken.com correction remain. Current promo destination raeonhacks.com.
 
-Next action: organizer reviews detailed boat/opening; continue water and deployment production refinement.
+Next action: organizer reviews refined opening before extending production treatment to the remaining sections.

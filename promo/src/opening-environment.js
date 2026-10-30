@@ -1,21 +1,22 @@
 import * as THREE from 'three';
 import {waveGLSL} from '../../src/scripts/glhc002/waves.mjs';
 
-// Reuses the reviewed website's procedural water/sky for an isolated film study.
-export function createOpeningEnvironment(scene){
+// Reviewed defaults are preserved; opt-in film mode adds denser surface/reflection inputs.
+export function createOpeningEnvironment(scene,{production=false}={}){
 function createWater() {
   // A continuous grid concentrates resolution at the hull and expands offshore.
   // No overlapping transparent tiles, local patch seam, or extra water draw.
-  const geo = new THREE.PlaneGeometry(2, 2, 128, 128);
+  const geo = new THREE.PlaneGeometry(2, 2, production?320:128, production?320:128);
   const vertices = geo.attributes.position;
   const expand = v => Math.sign(v) * .8 * (Math.exp(Math.abs(v) * Math.log(3126)) - 1);
-  for (let i = 0; i < vertices.count; i++) vertices.setXY(i, expand(vertices.getX(i)), expand(vertices.getY(i)));
+  const filmExpand=v=>{const a=Math.abs(v);return Math.sign(v)*(a<=.7?a/.7*90:90+Math.pow((a-.7)/.3,3)*2410)};
+  for (let i = 0; i < vertices.count; i++) vertices.setXY(i, production?filmExpand(vertices.getX(i))-34:expand(vertices.getX(i)), production?filmExpand(vertices.getY(i)):expand(vertices.getY(i)));
   geo.computeBoundingSphere();
   const mat = new THREE.ShaderMaterial({
     transparent: false, depthWrite: true, side: THREE.DoubleSide,
-    uniforms: { uTime: { value: 0 }, uUnder: { value: 0 }, uWaveIntensity: { value: 1 }, uSlope: { value: new THREE.Vector2() }, uSunDirection: { value: new THREE.Vector3(-5, 9, 8).normalize() } },
+    uniforms: { uReflection:{value:null},uReflectionMatrix:{value:new THREE.Matrix4()},uReflectionStrength:{value:0},uProduction:{value:production?1:0},uTime: { value: 0 }, uUnder: { value: 0 }, uWaveIntensity: { value: 1 }, uSlope: { value: new THREE.Vector2() }, uSunDirection: { value: new THREE.Vector3(-5, 9, 8).normalize() } },
       vertexShader: `
-      uniform float uTime; uniform vec2 uSlope;
+      uniform float uTime; uniform vec2 uSlope;uniform float uProduction;uniform mat4 uReflectionMatrix;varying vec4 vReflection;
       varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
       ${waveGLSL}
       vec3 heightAndGradient(vec2 p){
@@ -35,7 +36,7 @@ function createWater() {
             rippleHeight(p+vec2(.035,0.),uTime,uSlope)-rippleHeight(p-vec2(.035,0.),uTime,uSlope),
             rippleHeight(p+vec2(0.,.035),uTime,uSlope)-rippleHeight(p-vec2(0.,.035),uTime,uSlope))/.07;
         }
-        return vec3(height,gradient);
+        return vec3(height,gradient)*mix(1.,.72,uProduction);
       }
       void main(){
         vec3 p=position;
@@ -43,7 +44,7 @@ function createWater() {
         float w=sampleWave.x, dx=sampleWave.y, dz=sampleWave.z;
         p.z+=w;
         vec4 world=modelMatrix*vec4(p,1.);
-        vWorld=world.xyz;
+        vWorld=world.xyz;vReflection=uReflectionMatrix*vec4(p,1.);
         vNormal=normalize(mat3(modelMatrix)*vec3(-dx,-dz,1.));
         vWave=w;
         vRippleFade=1.-smoothstep(30.,110.,length(p.xy));
@@ -51,7 +52,7 @@ function createWater() {
       }
     `,
     fragmentShader: `
-      uniform float uTime; uniform float uUnder; uniform float uWaveIntensity; uniform vec3 uSunDirection;
+      uniform sampler2D uReflection;uniform float uReflectionStrength;uniform float uProduction;varying vec4 vReflection;uniform float uTime; uniform float uUnder; uniform float uWaveIntensity; uniform vec3 uSunDirection;
       varying vec3 vWorld; varying vec3 vNormal; varying float vWave; varying float vRippleFade;
       void main(){
         float radius=length(vWorld.xz);
@@ -61,6 +62,11 @@ function createWater() {
         )*uWaveIntensity*vRippleFade;
         float contact=smoothstep(1.12,1.5,radius)*exp(-max(radius-1.5,0.)*.5);
         float distantNormal=1.-smoothstep(25.,130.,length(cameraPosition.xz-vWorld.xz));
+        float entryAge=uTime/1.25-2.15;
+        vec2 entryDelta=(vWorld.xz-vec2(-67.,0.))*vec2(1.,.43);
+        float entryRadius=length(entryDelta),front=max(0.,entryAge)*.75;
+        float entryEnvelope=step(0.,entryAge)*exp(-pow((entryRadius-front)/.65,2.))*exp(-max(0.,entryAge)*.9)*uProduction;
+        rippleNormal+=normalize(entryDelta+vec2(.001))*sin(entryRadius*14.-entryAge*8.)*entryEnvelope*.075;
         vec3 n=normalize(vec3(vNormal.x*distantNormal+rippleNormal.x,vNormal.y,vNormal.z*distantNormal+rippleNormal.y));
         if(!gl_FrontFacing) n=-n;
         vec3 viewDir=normalize(cameraPosition-vWorld);
@@ -85,6 +91,15 @@ function createWater() {
         vec3 underwaterHaze=vec3(.045,.17,.21);
         vec3 underside=underwaterHaze+vec3(.09,.12,.12)*fresnel+vec3(.025,.04,.035)*caustic;
         vec3 surface=mix(lakeTransmission,horizonReflection,fresnel*.76)+shimmer*.055+sunGlint*.45+contactHighlight*.08;
+        if(uReflectionStrength>0.){
+          vec2 uv=vReflection.xy/vReflection.w+n.xz*.026;
+          uv+=vec2(sin(vWorld.x*5.+vWorld.z*4.+uTime*.55),cos(vWorld.z*6.-vWorld.x*3.-uTime*.4))*.0012*distantNormal;
+          vec3 actual=texture2D(uReflection,clamp(uv,.003,.997)).rgb*.5;
+          actual+=texture2D(uReflection,clamp(uv+vec2(.0014,0.),.003,.997)).rgb*.25;
+          actual+=texture2D(uReflection,clamp(uv-vec2(.0014,0.),.003,.997)).rgb*.25;
+          surface=mix(surface,actual,uReflectionStrength*(.24+.52*fresnel));
+        }
+        surface+=vec3(.15,.19,.18)*entryEnvelope*.06;
         vec3 col=mix(surface,underside,uUnder);
         float underwaterDistance=distance(cameraPosition,vWorld);
         float horizonHaze=smoothstep(2.,26.,underwaterDistance)*uUnder*.98;
@@ -108,9 +123,9 @@ function createWater() {
 function createSky() {
   const material = new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false,
-    uniforms: { uUnder: { value: 0 }, uTime: { value: 0 } },
+    uniforms: { uProduction:{value:production?1:0},uUnder: { value: 0 }, uTime: { value: 0 } },
     vertexShader: `varying vec3 vDirection; void main(){vDirection=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-    fragmentShader: `uniform float uUnder; uniform float uTime; varying vec3 vDirection;
+    fragmentShader: `uniform float uProduction;uniform float uUnder; uniform float uTime; varying vec3 vDirection;
       float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
       float noise(vec2 p){
         vec2 cell=floor(p), f=fract(p); f=f*f*(3.-2.*f);
@@ -129,7 +144,9 @@ function createSky() {
         float glow=pow(max(dot(d,normalize(vec3(-5.,9.,8.))),0.),32.);
         float horizonLight=exp(-abs(d.y)*18.);
         air+=vec3(.25,.21,.12)*glow+vec3(.035,.025,.005)*horizonLight;
-        gl_FragColor=vec4(mix(air,vec3(.045,.17,.21),uUnder),1.);
+        vec3 depthBackground=mix(vec3(.012,.055,.09),vec3(.045,.17,.21),smoothstep(-.65,.1,d.y));
+        air=mix(air,depthBackground,(1.-smoothstep(-.04,.02,d.y))*uProduction);
+        gl_FragColor=vec4(mix(air,mix(vec3(.045,.17,.21),depthBackground,uProduction),uUnder),1.);
       }`,
   });
   const dome = new THREE.Mesh(new THREE.SphereGeometry(2800,16,8),material);

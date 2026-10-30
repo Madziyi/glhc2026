@@ -1,0 +1,21 @@
+{
+  "decoded_frames": 405,
+  "fps": 30.0,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "duration_seconds": 13.5,
+  "audio_correlation_to_previous": 1.0,
+  "review_frames": 12,
+  "reflection_target": [
+    1280,
+    720
+  ],
+  "water_grid_segments": [
+    320,
+    320
+  ],
+  "camera_near": 0.015,
+  "approved_camera_path_unchanged": true
+}

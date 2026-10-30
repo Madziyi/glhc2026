@@ -10,4 +10,4 @@ Outputs: out/boat-detailed-review.mp4 (12s silent orbit with hanging glider), ou
 
 Evidence: boat-model-geometry.json checks finite geometry/parts and crane tip[-67,4.7,-.3] at rest; boat-model-render.json/boat-model-review.jpg full decode/multi-angle inspection; boat-opening-render.json/boat-opening-review.jpg full decode/launch views/unchanged audio. No external model or texture downloads. No website/deployment or new package changes.
 
-Production work remaining: water/lighting, deployment surface interaction and sound design, final whole-film transition/material polish. Original complete rough preserved. Final spoken.com correction remains with organizer.
+Water/deployment visual production followed in WATER-DEPLOYMENT.md. Remaining work: sound design and final whole-film transition/material polish. Original complete rough preserved. Final spoken.com correction remains with organizer.

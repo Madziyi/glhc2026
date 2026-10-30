@@ -10,13 +10,15 @@ import {productionOpeningPath} from './production-opening-path.mjs';
 import {createProductionGlider} from './production-glider.js';
 import {createOpeningFish} from './opening-fish.js';
 import {createProductionBoat} from './production-boat.js';
+import {createDeploymentEffects} from './deployment-effects.js';
+import {productionWaterHeight} from './production-water-height.mjs';
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
 export async function setup(canvas,science=false,annotationCanvas=null,production=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
- const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,.08,6000);
- const environment=createOpeningEnvironment(scene);scene.fog=new THREE.FogExp2('#aec5ce',.006);
+ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,production ? .015 : .08,6000);
+ const environment=createOpeningEnvironment(scene,{production});scene.fog=new THREE.FogExp2('#aec5ce',.006);
  scene.add(new THREE.HemisphereLight('#d6f0ff','#143f48',2));const sun=new THREE.DirectionalLight('#fff1d6',3);sun.position.set(-5,9,8);scene.add(sun);
  const fill=new THREE.DirectionalLight('#6bb7d5',1.5);fill.position.set(4,-4,6);scene.add(fill);
  const material=(color,metalness=.05,roughness=.45)=>new THREE.MeshStandardMaterial({color,metalness,roughness,side:THREE.DoubleSide});
@@ -49,6 +51,7 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
  const finGeo=new THREE.BufferGeometry();finGeo.setAttribute('position',new THREE.Float32BufferAttribute([0,.05,-.9,0,.6,-1.5,0,.05,-1.65],3));finGeo.computeVertexNormals();mesh(finGeo,yellow,glider);rod([0,.4,-1.45],[0,.95,-1.48],.014,black,glider);
  }
  const fish=production?createOpeningFish(scene):null;
+ const deployment=production?createDeploymentEffects(scene,renderer,environment,glider,boat):null;
  const loader=new GLTFLoader();loader.setMeshoptDecoder(MeshoptDecoder);const gltf=await loader.loadAsync(staticFile('models/glhc002-buoy.glb'));const buoy=gltf.scene;scene.add(buoy);
  buoy.traverse(o=>{if(o.isMesh){o.material.side=THREE.DoubleSide;if(o.material.name==='Powder-coated charcoal frame'){o.material.color.set('#8fa6ae');o.material.metalness=.65;o.material.roughness=.3}}});
  const bubbles=[];for(let i=0;i<28;i++){const b=mesh(new THREE.SphereGeometry(.035+(i%4)*.012,8,8),new THREE.MeshBasicMaterial({color:'#b7f1ef',transparent:true,opacity:.24}),scene);bubbles.push(b)}
@@ -95,9 +98,11 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
    halos.forEach((h,i)=>{const phase=(local*1.3+i/3)%1;h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.6;h.lookAt(camera.position)});
    trail.visible=local>=6.3;const points=trailGeo.attributes.position;for(let i=0;i<60;i++){const pt=pulsePosition(Math.max(5.5,local-i*.018));points.setXYZ(i,pt.x,pt.y,pt.z)}points.needsUpdate=true;trailGeo.computeBoundingSphere();
   }
-  const under=1-THREE.MathUtils.smoothstep(camera.position.y,-.25,.2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
-  bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
-  splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=p>0&&p<1;m.position.set(LAUNCH_GLIDER_X,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});
+  const waterLevel=production?productionWaterHeight(camera.position.x,camera.position.z,t):0;
+  const under=1-THREE.MathUtils.smoothstep(camera.position.y-waterLevel,production?-.12:-.25,production ? .14 : .2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
+  bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=!production&&t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
+  splash.forEach((m,i)=>{const p=(t-2.1-i*.15)/1.7;m.visible=!production&&p>0&&p<1;m.position.set(LAUNCH_GLIDER_X,.03+Math.sin(t)*.025,0);m.scale.setScalar(1+Math.max(0,p)*4);m.material.opacity=Math.max(0,1-p)*.25});
+  deployment?.draw(t,camera,under);
   renderer.render(scene,camera);
   if(annotation){
    annotation.clearRect(0,0,1920,1080);
@@ -118,18 +123,23 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
    callout([-.12,-1.5,.22],'Sensors',[1420,720],111,201);
   }
  }
- return {draw,dispose:()=>{scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};
+ return {draw,dispose:()=>{deployment?.dispose();scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};
 }
 export function RoughOpening({production=false}){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('rough glider scene and reviewed buoy'));
  useLayoutEffect(()=>{let disposed=false;setup(canvas.current,false,null,production).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
  useLayoutEffect(()=>{world.current?.draw(f)},[f]);
+ const cameraPose=production?productionOpeningPath(f/30).camera:[0,1,0];
+ const cameraY=cameraPose[1]-(production?productionWaterHeight(cameraPose[0],cameraPose[2],f/30):0);
+ const crossing=production?Math.exp(-cameraY*cameraY/.0225):0;
+ const submersion=production?1-THREE.MathUtils.smoothstep(cameraY,-.25,.2):0;
  const featured=production?ramp(f,201,217)*(1-ramp(f,286,302)):0;
  const title=ramp(f,315,335);const prize=ramp(f,136,148)*(1-ramp(f,185,196));
  return <AbsoluteFill style={{background:'#0a3d50',overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
  <Audio src={staticFile('audio/ashley-reference.mp3')}/>
- <canvas ref={canvas} style={{width:1920,height:1080}}/>
+ <canvas ref={canvas} style={{width:1920,height:1080,filter:crossing>.01?`blur(${crossing*.7}px)`:'none'}}/>
+ {production&&<AbsoluteFill style={{background:'radial-gradient(ellipse at 52% 34%,transparent 25%,rgba(0,13,27,.27) 100%)',opacity:submersion}}/>}
  <AbsoluteFill style={{background:'linear-gradient(90deg,rgba(0,20,35,.35),transparent 65%)',opacity:Math.max(title,prize,featured)}}/>
  <div style={{position:'absolute',left:100,bottom:115,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:70,color:'#ffd450',opacity:prize,transform:`translateY(${(1-prize)*30}px)`}}>CASH PRIZES</div>
  {production&&<div style={{position:'absolute',left:100,bottom:115,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:62,lineHeight:1.08,color:'#f6f6ed',opacity:featured,transform:`translateY(${(1-featured)*22}px)`}}>GET FEATURED AT<br/><span style={{color:'#ffd450'}}>TOURIST SPOTS</span></div>}

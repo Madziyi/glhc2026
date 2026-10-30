@@ -314,3 +314,9 @@
 - Added pure rough-opening-path.mjs and meaningful geometric check: conservative sensor bounding box excluded from camera frustum at every underwater frame; minimum underwater camera distance46.04. Geometry remains loaded, not deleted/hidden. Water occludes sensors after surfacing.
 - Verification:405/405 render/decode,13.5s1920x1080/30FPS. Full-resolution surfaced/distant-buoy frame279 and nine export moments inspected, including transition. Decoded narration waveform matches previous opening1.0 correlation; AAC padding unchanged. Diff check passes. Evidence opening-flight-path.json, opening-distant-buoy-review.jpg and opening-distant-buoy-verification.json.
 - Local review output opening-rough-distant-buoy.mp4; prior rough retained. No new website/dependency/deployment changes, no manual audio listening/browser-playback claim. High-quality build remains after organizer approval. Next: review revised spatial blocking. Commit: published branch handoff.
+
+
+### 2026-10-29 - Rough science continuation
+- Organizer accepted distant opening as rough blocking and requested next section. Added RoughScience:273 frames/9.1s, continuous surface camera into original sensor cage, slight orbit, symbolic data pulse and studio-navy fade. Opening path unchanged; final polish/ending deferred. No fabricated readings.
+- Verification:273/273 frames rendered/decoded1920x1080/30FPS; six export moments visually inspected. Original Ashley audio slice13.5-22.6s matches at0.987 correlation after42.6875ms AAC delay compensation. Diff check passed. Evidence science-rough-review.jpg/science-rough-verification.json. No manual listening/browser playback/deployment claim.
+- Published implementation8481341 on promo branch. Initial context update encountered Windows default text decoding; completed TASKS/LOG with explicit UTF-8 in this follow-up. Next: organizer reviews descent/sensor/pulse staging before creative sequence.

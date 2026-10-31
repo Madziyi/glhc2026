@@ -15,7 +15,7 @@
     },
     {
       "scene": "science",
-      "file": "science-matched-pulse.mp4",
+      "file": "science-half-display-rings.mp4",
       "start_frame": 405,
       "frames": 318,
       "start_seconds": 13.5,
@@ -23,7 +23,7 @@
     },
     {
       "scene": "creative waterfront",
-      "file": "waterfront-matched-pulse.mp4",
+      "file": "waterfront-half-rings.mp4",
       "start_frame": 723,
       "frames": 212,
       "start_seconds": 24.1,
@@ -54,5 +54,5 @@
       "end_seconds": 68.6
     }
   ],
-  "output_file": "glhc-production-matched-pulse.mp4"
+  "output_file": "glhc-production-half-rings.mp4"
 }

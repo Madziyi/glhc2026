@@ -1,0 +1,10 @@
+{
+  "displayHaloScaleMultiplier": 0.5,
+  "coreAndTrailChanged": false,
+  "sciencePulseChanged": false,
+  "reviewFrames": [
+    15,
+    75,
+    120
+  ]
+}

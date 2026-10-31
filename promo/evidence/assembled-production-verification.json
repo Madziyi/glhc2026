@@ -35,17 +35,17 @@
     {
       "scene": "science",
       "local_frame": 317,
-      "mean_pixel_error": 1.208169849537037
+      "mean_pixel_error": 1.1337779706790123
     },
     {
       "scene": "creative waterfront",
       "local_frame": 0,
-      "mean_pixel_error": 1.118090920781893
+      "mean_pixel_error": 1.1847132201646091
     },
     {
       "scene": "creative waterfront",
       "local_frame": 106,
-      "mean_pixel_error": 1.2233306005658435
+      "mean_pixel_error": 1.2460752636316872
     },
     {
       "scene": "creative waterfront",

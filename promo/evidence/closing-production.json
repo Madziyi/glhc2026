@@ -1,0 +1,23 @@
+{
+  "frames": 291,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "audioCorrelation": 1.0,
+  "reviewFrames": [
+    0,
+    45,
+    85,
+    115,
+    150,
+    177,
+    211,
+    250,
+    290
+  ],
+  "round2ToClosingMeanPixelDifference": 0.7445904063786009,
+  "displayedDomain": "raeonhacks.com",
+  "spokenDomainCorrectionPending": true
+}

@@ -164,7 +164,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
    const motion=motionAt(localFrame-45);
    camera.position.set(...motion.camera);camera.lookAt(...motion.target);
    if(roundTwo){const frame=localFrame-45,p=ramp(frame,170,436);camera.position.set(6.5-p*3,3.8-p*.4,10.5-p*1.4);camera.lookAt(0,1.15,-9.5);particles.forEach(o=>o.visible=false);pulseRings.forEach(o=>o.visible=false);}
-   if(closing){const depart=ramp(localFrame-45-437,0,135);camera.position.set(3.5,3.4+depart*3.6,9.1+depart*11);camera.lookAt(0,1.15-depart,-9.5-depart*18);}
+   if(closing){const raw=Math.max(0,Math.min(1,(localFrame-45-437)/135));const depart=production?raw*raw*raw*(raw*(raw*6-15)+10):ramp(localFrame-45-437,0,135);camera.position.set(3.5,3.4+depart*3.6,9.1+depart*11);camera.lookAt(0,1.15-depart,-9.5-depart*18);}
    shore.draw(production?(localFrame-45)/30:localFrame/30);
    if(production){key.position.set(motion.centre-12,18,4);key.target.position.set(motion.centre,0,-9.5);key.target.updateMatrixWorld();}
   }

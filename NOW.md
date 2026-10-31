@@ -1,12 +1,9 @@
-# Active Initiative - GLHC-004 production Round1
+# Active Initiative - GLHC-004 folded proposal submission
 
-Status: complete, organizer review pending. Main8b4e7d9 fetched and confirmed ancestor; existing promo branch.
+Status: complete, organizer review pending.
 
-### 2026-10-31 - Round1 production sketch
-- Organizer accepted waterfront and requested next section. Added opt-in ProductionRoundOne395frames with19-tube perspective drawing matching the light installation, progressive fine contours/mountings, shading/hatching, construction guides and restrained green/gold accents. Paper gradient and local Google Sans refine approved layout. No pencils/other installation sketches. Preserved Just submit your idea, left Nov5th opening, right Idea Submissions Deadline/Dec3 calendar and envelope exit to Round2.
-- Verification:395/395 frames decoded1920x1080/30FPS13.1667s;9 moments plus full-resolution completed sketch visually inspected. Audio correlation0.9999999999999999 to approved Round1 rough. Diff check passed. Evidence promo/evidence/round1-production.json and round1-production-review.jpg. No manual listening/playback or deployment claim.
-- Output promo/out/round1-detailed-pass.mp4 and round1-sketch-detail.png. Rough mode/export retained. Organizer review next; then Round2 production. Website/live state unchanged; final assembly/sound/closing and spoken.com correction remain.
+Two-step fold310-352, folded packet travel352-370, insertion371-383 behind envelope front, flap closure383-392 and seal390-394. Matching calendars retained before fold. Main fetched8b4e7d9 ancestor.
 
-Active revision: replace left Nov5th text with matching November5 calendar card, retaining opening label and approved animation timing.
+Verified395-frame1920x1080/30FPS render/decode,9 folding/insertion/closure moments visually inspected; audio correlation effectively1.0 to matching-calendar pass. Final packet bounds1402.65,513.95-1597.35,636.05 are inside envelope body1370,480-1630,640. Diff check passed. Evidence promo/evidence/round1-fold.json and round1-fold-review.jpg; artifact promo/out/round1-folded-envelope.mp4. No manual listening/playback/deployment claim.
 
-Matching-calendar revision complete. Verified395-frame1920x1080/30FPS export/decode; frame300 visually inspected for matching dates/readability. Audio source/trim unchanged. Diff check passed. Evidence promo/evidence/round1-matching-calendars.jpg/json; output promo/out/round1-matching-calendars.mp4. No deployment/manual playback claim. Organizer review next.
+Next: organizer review, then Round2 production matching the closed envelope at1500,430. Remaining film/sound/spoken.com correction retained. Website/live state unchanged.

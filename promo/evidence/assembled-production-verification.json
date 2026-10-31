@@ -35,42 +35,42 @@
     {
       "scene": "science",
       "local_frame": 317,
-      "mean_pixel_error": 1.1350194508744855
+      "mean_pixel_error": 1.208169849537037
     },
     {
       "scene": "creative waterfront",
       "local_frame": 0,
-      "mean_pixel_error": 1.190277617026749
+      "mean_pixel_error": 1.118090920781893
     },
     {
       "scene": "creative waterfront",
       "local_frame": 106,
-      "mean_pixel_error": 1.158421746399177
+      "mean_pixel_error": 1.2233306005658435
     },
     {
       "scene": "creative waterfront",
       "local_frame": 211,
-      "mean_pixel_error": 0.6817745306069959
+      "mean_pixel_error": 0.6666666666666666
     },
     {
       "scene": "round one",
       "local_frame": 0,
-      "mean_pixel_error": 0.695789609053498
+      "mean_pixel_error": 0.6666666666666666
     },
     {
       "scene": "round one",
       "local_frame": 197,
-      "mean_pixel_error": 0.7523070987654321
+      "mean_pixel_error": 0.7421498842592592
     },
     {
       "scene": "round one",
       "local_frame": 394,
-      "mean_pixel_error": 0.6730291923868312
+      "mean_pixel_error": 0.6730309606481482
     },
     {
       "scene": "round two",
       "local_frame": 0,
-      "mean_pixel_error": 0.6795976401748971
+      "mean_pixel_error": 0.678511445473251
     },
     {
       "scene": "round two",

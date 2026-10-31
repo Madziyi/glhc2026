@@ -13,6 +13,6 @@ export function RoughWaterfront({production=false,frameOverride=null,silent=fals
  {!silent&&<Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={723}/>}
  <canvas ref={canvas} style={{width:1920,height:1080}}/>
 
- {f>197&&<AbsoluteFill style={{opacity:sketch,background:'#f1eee2'}}><svg viewBox="0 0 1920 1080"><path d="M-100 630 Q650 620 900 540 Q1000 440 1100 540 Q1200 620 1290 530" fill="none" stroke="#123544" strokeWidth="3" strokeDasharray="2200" strokeDashoffset={2200*(1-sketch)}/></svg></AbsoluteFill>}
+ {f>197&&<AbsoluteFill style={{opacity:sketch,background:'#f1eee2'}}></AbsoluteFill>}
  </AbsoluteFill>
 }

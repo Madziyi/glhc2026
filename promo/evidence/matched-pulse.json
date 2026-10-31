@@ -1,0 +1,18 @@
+{
+  "sceneFrames": {
+    "science-matched-pulse.mp4": 318,
+    "waterfront-matched-pulse.mp4": 212,
+    "round1-no-transition-line.mp4": 395
+  },
+  "paperHandoffMaxChannelStdDev": {
+    "waterfront-matched-pulse.mp4": 0.0,
+    "round1-no-transition-line.mp4": 0.0
+  },
+  "coreColor": "#8ff4ef",
+  "trailColor": "#87e4e1",
+  "trailWidthPixels": 1.5,
+  "halos": 3,
+  "phaseScienceOffsetSeconds": 10.6,
+  "particleChainReplaced": true,
+  "curvedPaperLineRemoved": true
+}

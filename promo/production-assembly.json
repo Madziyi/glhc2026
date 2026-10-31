@@ -15,7 +15,7 @@
     },
     {
       "scene": "science",
-      "file": "science-seamless-waterfront.mp4",
+      "file": "science-matched-pulse.mp4",
       "start_frame": 405,
       "frames": 318,
       "start_seconds": 13.5,
@@ -23,7 +23,7 @@
     },
     {
       "scene": "creative waterfront",
-      "file": "waterfront-no-dark-fade.mp4",
+      "file": "waterfront-matched-pulse.mp4",
       "start_frame": 723,
       "frames": 212,
       "start_seconds": 24.1,
@@ -31,7 +31,7 @@
     },
     {
       "scene": "round one",
-      "file": "round1-folded-envelope.mp4",
+      "file": "round1-no-transition-line.mp4",
       "start_frame": 935,
       "frames": 395,
       "start_seconds": 31.166666666666668,
@@ -54,5 +54,5 @@
       "end_seconds": 68.6
     }
   ],
-  "output_file": "glhc-production-seamless.mp4"
+  "output_file": "glhc-production-matched-pulse.mp4"
 }

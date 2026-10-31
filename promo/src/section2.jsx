@@ -4,6 +4,9 @@ import * as THREE from 'three';
 import {ramp} from './opening';
 import {createWaterfront} from './waterfront-environment';
 import {createProductionWaterfront} from './production-waterfront-environment.js';
+import {Line2} from 'three/addons/lines/Line2.js';
+import {LineGeometry} from 'three/addons/lines/LineGeometry.js';
+import {LineMaterial} from 'three/addons/lines/LineMaterial.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {waterfrontMotion,productionWaterfrontMotion} from './waterfront-motion.mjs';
 
@@ -148,6 +151,10 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
  for(let i=0;i<32;i++){const m=mesh(new THREE.SphereGeometry(i===0?(production?.15:.075):(production?.05:.025),8,8),new THREE.MeshBasicMaterial({color:i===0?'#ffdf66':'#7ce3e8',transparent:true,opacity:1-i/40}));particles.push(m)}
  const pulseRings=[];
  if(creative){particles[0].material.color.set('#8ff4ef');for(let i=0;i<3;i++){const h=mesh(new THREE.TorusGeometry(.13,.009,8,64),new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:.4}));pulseRings.push(h)}}
+ const matchedPulse=production&&waterfront&&!roundTwo?new THREE.Group():null;let matchedCore,matchedTrail,matchedTrailGeo;const matchedHalos=[];
+ if(matchedPulse){scene.add(matchedPulse);const glow=new THREE.MeshBasicMaterial({color:'#8ff4ef',transparent:true,opacity:1,depthTest:false});matchedCore=new THREE.Mesh(new THREE.SphereGeometry(.075,20,16),glow);matchedPulse.add(matchedCore);for(let i=0;i<3;i++){const h=new THREE.Mesh(new THREE.TorusGeometry(.13,.009,8,64),glow.clone());matchedPulse.add(h);matchedHalos.push(h)}
+ const c=document.createElement('canvas');c.width=c.height=128;const cx=c.getContext('2d'),g=cx.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,'rgba(143,244,239,.6)');g.addColorStop(.2,'rgba(110,231,225,.2)');g.addColorStop(1,'rgba(110,231,225,0)');cx.fillStyle=g;cx.fillRect(0,0,128,128);const texture=new THREE.CanvasTexture(c);const aura=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,opacity:.6,depthTest:false,depthWrite:false,blending:THREE.AdditiveBlending}));aura.scale.set(.65,.65,1);matchedPulse.add(aura);
+ matchedTrailGeo=new LineGeometry();matchedTrailGeo.setPositions(new Float32Array(180));matchedTrail=new Line2(matchedTrailGeo,new LineMaterial({color:'#87e4e1',linewidth:1.5,transparent:true,opacity:.7,depthTest:false,resolution:new THREE.Vector2(1920,1080)}));scene.add(matchedTrail);}
  function draw(f,localFrame=f){
   const t=waterfront?(localFrame-45)/30:f/30,x=cameraX(f);const a=.36+Math.sin(t*.2)*.23;
   const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
@@ -168,6 +175,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
    shore.draw(production?(localFrame-45)/30:localFrame/30);
    if(production){key.position.set(motion.centre-12,18,4);key.target.position.set(motion.centre,0,-9.5);key.target.updateMatrixWorld();}
   }
+  if(matchedPulse){particles.forEach(o=>o.visible=false);pulseRings.forEach(o=>o.visible=false);const time=10.6+t,fade=1-ramp(localFrame,175,204);const position=v=>new THREE.Vector3(motionAt(v*30).centre,1.4+Math.sin(v*.5)*.6,Math.cos(v*.4)*.7-9.5);matchedPulse.position.copy(position(t));const scale=camera.position.distanceTo(matchedPulse.position)/4*Math.tan(camera.fov*Math.PI/360)/Math.tan(48*Math.PI/360);matchedPulse.scale.setScalar(scale);matchedCore.scale.setScalar(1+Math.sin(time*8)*.13);matchedPulse.visible=fade>0;matchedCore.material.opacity=fade;matchedHalos.forEach((h,i)=>{const phase=((time*1.3+i/3)%1+1)%1;h.scale.setScalar(1+phase*3);h.material.opacity=(1-phase)*.6*fade;h.lookAt(camera.position)});const points=new Float32Array(180);for(let i=0;i<60;i++){const v=t-i*.018,pt=position(v);pt.x-=i*.025;points.set(pt.toArray(),i*3)}matchedTrailGeo.setPositions(points);matchedTrailGeo.computeBoundingSphere();matchedTrail.visible=fade>0;matchedTrail.material.opacity=.7*fade;}
   if(production){renderer.render(scene,camera);renderer.shadowMap.autoUpdate=false;shore.reflect(renderer,camera);}
   renderer.render(scene,camera);if(production)renderer.shadowMap.autoUpdate=true;
  }

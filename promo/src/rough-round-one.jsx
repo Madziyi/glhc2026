@@ -16,7 +16,7 @@ export function RoughRoundOne({production=false}){
  <Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={935}/>
  <svg width="1920" height="1080" viewBox="0 0 1920 1080">
  <defs><radialGradient id="sheet-light"><stop stopColor="#fffef7"/><stop offset="1" stopColor="#f5f1e5"/></radialGradient><filter id="paper-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="8" dy="14" stdDeviation="15" floodColor="#243c45" floodOpacity=".13"/></filter><pattern id="round-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke={ink} strokeWidth=".5" opacity=".07" fill="none"/></pattern></defs>
- <path d="M-100 630 Q650 620 900 540 Q1000 440 1100 540 Q1200 620 1290 530" fill="none" stroke="#123544" strokeWidth="3" opacity={1-ramp(f,8,30)}/>
+ <path d="M-100 630 Q650 620 900 540 Q1000 440 1100 540 Q1200 620 1290 530" fill="none" stroke="#123544" strokeWidth="3" opacity={production?0:1-ramp(f,8,30)}/>
  {production?<><defs><g id="proposal-art">
  <rect x="340" y="180" width="1180" height="740" rx="5" fill={production?"url(#sheet-light)":"#fffcf1"} filter="url(#paper-shadow)"/>
  <rect x="340" y="180" width="1180" height="740" fill="url(#round-grid)"/>

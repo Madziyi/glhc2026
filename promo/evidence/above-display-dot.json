@@ -1,0 +1,14 @@
+{
+  "dotWorldHeight": 5.5,
+  "verticalDriftAmplitude": 0.15,
+  "retainedRingScale": 0.5,
+  "reviewFrames": [
+    0,
+    30,
+    60,
+    75,
+    105,
+    120
+  ],
+  "sciencePulseChanged": false
+}

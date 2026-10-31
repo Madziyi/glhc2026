@@ -1,9 +1,9 @@
-# Active Initiative - GLHC-004 half-size display pulse rings
+# Active Initiative - GLHC-004 dot above displays
 
 Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-Display radial rings scaled0.5 only; core/aura/trail/science pulse retained. Incoming waterfront preview and display rerendered, full film reassembled.
+Raised display pulse/trail trajectory to5.5 world units with0.15 drift so it floats above all installations. Half-size rings and existing pulse style retained. Incoming preview and full cut updated; science dot unchanged.
 
-Verified full2058-frame1920x1080/30FPS68.6s export/decode and source-frame comparisons. Three before/after display moments visually inspected, confirming half-size rings with unchanged dot/trail. Continuous narration correlation0.99999846, zero lag. Diff check passed. Evidence promo/evidence/half-rings.json, half-rings-review.jpg and assembled-production-verification.json. Output promo/out/glhc-production-half-rings.mp4. No manual listening/playback/deployment claim.
+Verified full2058-frame1920x1080/30FPS68.6s decode and source-frame comparisons. Six display moments visually inspected: dot/rings clear the light sculpture, speakers and LED board. Continuous narration correlation0.99999846, zero lag; diff check passed. Evidence promo/evidence/above-display-dot.json and above-display-dot-review.jpg plus assembled-production-verification.json. Artifact promo/out/glhc-production-above-display-dot.mp4. No manual playback/listening/deployment claim.
 
-Next: organizer full-cut review. Remaining spoken.ca->.com correction and music/SFX retained. Website/live unchanged.
+Next: organizer reviews revised full cut. Spoken.ca->.com correction/music/SFX retained. Website/live unchanged.

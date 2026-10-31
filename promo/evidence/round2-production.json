@@ -1,0 +1,22 @@
+{
+  "frames": 437,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "seconds": 14.566666666666666,
+  "audioCorrelation": 1.0,
+  "reviewFrames": [
+    0,
+    40,
+    75,
+    110,
+    175,
+    210,
+    275,
+    325,
+    436
+  ],
+  "round1LastToRound2FirstMeanPixelDifference": 0.02133712705761317
+}

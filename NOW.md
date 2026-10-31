@@ -1,9 +1,9 @@
-# Active Initiative - GLHC-004 folded proposal submission
+# Active Initiative - GLHC-004 production Round2
 
-Status: complete, organizer review pending.
+Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-Two-step fold310-352, folded packet travel352-370, insertion371-383 behind envelope front, flap closure383-392 and seal390-394. Matching calendars retained before fold. Main fetched8b4e7d9 ancestor.
+Closed-envelope handoff, TOP10 selection,19-tube production sketch, funding/equipment/support energy flow, detailed production waterfront construction and CASH PRIZES. Timing/choreography preserved, no visitors or invented amounts. End caps hidden until tubes settle. Rough exports retained.
 
-Verified395-frame1920x1080/30FPS render/decode,9 folding/insertion/closure moments visually inspected; audio correlation effectively1.0 to matching-calendar pass. Final packet bounds1402.65,513.95-1597.35,636.05 are inside envelope body1370,480-1630,640. Diff check passed. Evidence promo/evidence/round1-fold.json and round1-fold-review.jpg; artifact promo/out/round1-folded-envelope.mp4. No manual listening/playback/deployment claim.
+Verified437-frame1920x1080/30FPS render/decode14.5667s;9 sampled moments visually inspected; narration correlation1.0 to approved rough. Previous Round1 end/current start mean RGB pixel difference0.021337 on0-255 scale. Diff check passed. Evidence promo/evidence/round2-production.json and round2-production-review.jpg; output promo/out/round2-production-final.mp4. No manual listening/playback or deployment claim.
 
-Next: organizer review, then Round2 production matching the closed envelope at1500,430. Remaining film/sound/spoken.com correction retained. Website/live state unchanged.
+Next: organizer review then production closing matching final waterfront camera. Final assembly/music/SFX and spoken.com correction remain. Website/live infrastructure unchanged.

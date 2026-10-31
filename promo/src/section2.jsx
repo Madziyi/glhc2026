@@ -41,7 +41,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
    void main(){float cycle=mod(uTime,2.);float travel=fract(uTime*.65-uIndex*.035);float band=exp(-pow((vUv.y-travel)/.22,2.));vec3 green=vec3(.08,.95,.22),yellow=vec3(1.,.8,.04);vec3 light=mix(green,yellow,smoothstep(.85,1.15,cycle)*(1.-smoothstep(1.8,2.,cycle)));vec3 shell=vec3(.30,.43,.40);gl_FragColor=vec4(mix(shell,light,band*.95)+light*band*.25,1.);}`
   }):mat;
   const rod=mesh(new THREE.CylinderGeometry(.045,.045,height,production?32:12),tubeMaterial,group);rod.position.y=height/2+.2;rods.push({rod,mat:tubeMaterial,height});
-  if(production){for(const y of [.22,height+.19]){const cap=mesh(new THREE.CylinderGeometry(.061,.061,.065,24),silver,group);cap.position.y=y}for(const a of [0,2.1,4.2]){const bolt=mesh(new THREE.CylinderGeometry(.022,.022,.035,6),silver,group);bolt.position.set(Math.cos(a)*.12,.032,Math.sin(a)*.12)}}
+  if(production){rod.userData.caps=[];for(const y of [.22,height+.19]){const cap=mesh(new THREE.CylinderGeometry(.061,.061,.065,24),silver,group);cap.position.y=y;rod.userData.caps.push(cap)}for(const a of [0,2.1,4.2]){const bolt=mesh(new THREE.CylinderGeometry(.022,.022,.035,6),silver,group);bolt.position.set(Math.cos(a)*.12,.032,Math.sin(a)*.12)}}
  }
  const light=new THREE.PointLight('#65f7ee',28,10,2);light.position.set(0,2,0);stations[0].add(light);
  // The sound station is a bowl of water over a speaker; rings are a visual metaphor.
@@ -153,7 +153,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
   const zoom=ramp(f,265,334,0,1);const screenFocus=ramp(f,210,255);
   camera.position.set(x+Math.sin(a)*8.7*(1-zoom*.35),4.3-zoom*1.0,Math.cos(a)*8.7-zoom*2.5);
   camera.lookAt(x,1.2+screenFocus*.85,0);
-  rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;if(roundTwo){const built=ramp(localFrame-45,177+i*2.2,210+i*2.2);rod.position.y=height/2+.2+(1-built)*3;rod.visible=built>0;}return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
+  rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;if(roundTwo){const built=ramp(localFrame-45,177+i*2.2,210+i*2.2);rod.position.y=height/2+.2+(1-built)*3;rod.visible=built>0;(rod.userData.caps||[]).forEach(cap=>cap.visible=built>.98);}return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*(production?.3:.8)});
   speakerWaves.forEach(({wave,i,j})=>{const phase=(t*1.05+j/3+i*.075)%1;wave.position.set(0,.53,.38+phase*1.8);wave.scale.setScalar(.7+phase*2.5);wave.material.opacity=Math.sin(phase*Math.PI)*.60;});
   paintText(production?(localFrame-45<125?220:localFrame-45<150?230+(localFrame-170)*16/25:246+(localFrame-195)*1.6):f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;

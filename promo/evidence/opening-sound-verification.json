@@ -1,0 +1,34 @@
+{
+  "A-bright-electronic": {
+    "sampleRate": 48000,
+    "audioSeconds": 15.6,
+    "videoFrames": 468,
+    "integratedLUFS": -15.99,
+    "truePeakDbTP": -2.5,
+    "loudnessRangeLU": 2.2,
+    "pictureMeanErrors": [
+      0.4959876543209877,
+      0.10288097993827161,
+      0.7051170267489711,
+      0.6962389081790124
+    ]
+  },
+  "B-cinematic-electronic": {
+    "sampleRate": 48000,
+    "audioSeconds": 15.6,
+    "videoFrames": 468,
+    "integratedLUFS": -16.0,
+    "truePeakDbTP": -2.62,
+    "loudnessRangeLU": 2.2,
+    "pictureMeanErrors": [
+      0.4959876543209877,
+      0.10288097993827161,
+      0.7051170267489711,
+      0.6962389081790124
+    ]
+  },
+  "titleImpactSeconds": 11.18,
+  "generatedServiceUsed": false,
+  "thirdPartySamplesUsed": false,
+  "manualListeningPerformed": false
+}

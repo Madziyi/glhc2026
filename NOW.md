@@ -1,9 +1,11 @@
-# Active Initiative - GLHC-004 dot above displays
+# Active Initiative - GLHC-004 opening sound direction
 
-Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
+Status: two opening sound prototypes complete; organizer audition/selection pending. Main8b4e7d9 fetched ancestor.
 
-Raised display pulse/trail trajectory to5.5 world units with0.15 drift so it floats above all installations. Half-size rings and existing pulse style retained. Incoming preview and full cut updated; science dot unchanged.
+A120BPM bright electronic; B108BPM cinematic electronic. Original procedural synth and noise-based physical-effect sketches, not external generated music/recordings. Lake/launch/splash/underwater/surface layers, music breath on This is, title drop11.18s on Great. Full approved film remains unchanged. Source picture glhc-production-above-display-dot.mp4. Notes promo/SOUND-DESIGN.md.
 
-Verified full2058-frame1920x1080/30FPS68.6s decode and source-frame comparisons. Six display moments visually inspected: dot/rings clear the light sculpture, speakers and LED board. Continuous narration correlation0.99999846, zero lag; diff check passed. Evidence promo/evidence/above-display-dot.json and above-display-dot-review.jpg plus assembled-production-verification.json. Artifact promo/out/glhc-production-above-display-dot.mp4. No manual playback/listening/deployment claim.
+Verified both468-frame1920x1080/30FPS15.6s previews and48kHz24-bit audio. Integrated loudness A-15.99LUFS/B-16.00LUFS, true peaks-2.50/-2.62dBTP. Four picture samples per variant match approved source (worst mean RGB error0.7052/255). Title accent scheduled11.18s. Diff check passed. Evidence promo/evidence/opening-sound-verification.json and opening-sound-cues.json. No manual listening/perceptual QA claim; organizer audition required.
 
-Next: organizer reviews revised full cut. Spoken.ca->.com correction/music/SFX retained. Website/live unchanged.
+Artifacts: promo/out/opening-sound-A-bright-electronic.mp4 and opening-sound-B-cinematic-electronic.mp4; editable stems/mixes in promo/out/sound-prototypes. Rebuild build-opening-sound.py; verification verify-opening-sound.py.
+
+Next: organizer chooses A/B/combination before full-film sound pass. Runway music/SFX integration suggested but unconnected, no service credits used. Existing spoken.ca->.com correction remains. Website/live infrastructure unchanged.

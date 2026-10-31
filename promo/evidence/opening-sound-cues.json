@@ -1,0 +1,27 @@
+{
+  "duration": 15.6,
+  "sample_rate": 48000,
+  "source": "Original procedural synth and noise-based effects; not generated service music or field recordings",
+  "title_this_is": 10.54,
+  "title_great_lakes_impact": 11.18,
+  "splash": 2.25,
+  "submerge": [
+    2.85,
+    3.25
+  ],
+  "surface": 8.58,
+  "build": [
+    8.9,
+    10.48
+  ],
+  "breath": [
+    10.48,
+    11.18
+  ],
+  "variants": {
+    "A": "120BPM brighter electronic",
+    "B": "108BPM cinematic electronic"
+  },
+  "loudness_target_lufs": -16,
+  "true_peak_ceiling_dbtp": -1.5
+}

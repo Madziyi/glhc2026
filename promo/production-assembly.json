@@ -1,0 +1,57 @@
+{
+  "fps": 30,
+  "total_frames": 2058,
+  "duration_seconds": 68.6,
+  "voiceover": "public/audio/ashley-reference.mp3",
+  "displayed_domain": "raeonhacks.com",
+  "scenes": [
+    {
+      "scene": "opening",
+      "file": "opening-water-detailed-pass.mp4",
+      "start_frame": 0,
+      "frames": 405,
+      "start_seconds": 0.0,
+      "end_seconds": 13.5
+    },
+    {
+      "scene": "science",
+      "file": "science-detailed-pass.mp4",
+      "start_frame": 405,
+      "frames": 318,
+      "start_seconds": 13.5,
+      "end_seconds": 24.1
+    },
+    {
+      "scene": "creative waterfront",
+      "file": "waterfront-speakers-final.mp4",
+      "start_frame": 723,
+      "frames": 212,
+      "start_seconds": 24.1,
+      "end_seconds": 31.166666666666668
+    },
+    {
+      "scene": "round one",
+      "file": "round1-folded-envelope.mp4",
+      "start_frame": 935,
+      "frames": 395,
+      "start_seconds": 31.166666666666668,
+      "end_seconds": 44.333333333333336
+    },
+    {
+      "scene": "round two",
+      "file": "round2-clear-tools.mp4",
+      "start_frame": 1330,
+      "frames": 437,
+      "start_seconds": 44.333333333333336,
+      "end_seconds": 58.9
+    },
+    {
+      "scene": "closing",
+      "file": "closing-production-final.mp4",
+      "start_frame": 1767,
+      "frames": 291,
+      "start_seconds": 58.9,
+      "end_seconds": 68.6
+    }
+  ]
+}

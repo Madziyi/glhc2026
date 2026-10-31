@@ -1,9 +1,9 @@
-# Active Initiative - GLHC-004 production closing
+# Active Initiative - GLHC-004 full production assembly
 
-Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
+Status: complete, organizer full-cut review pending. Main8b4e7d9 fetched ancestor.
 
-Opt-in production waterfront departure with smooth quintic easing, larger glowing dot/trail, navy gradient/lake silhouette, staggered title and raeonhacks.com. Narration291-frame timing preserved; no added copy. Rough closing retained.
+Assembled latest approved six production exports using promo/production-assembly.json and assemble-production.py. Includes detailed glider/boat/water/science, five speakers on bronze hexagon, LED without round plinth, matching calendars/folded sealed envelope, clear tools/no prize badge, finished closing. Original continuous voiceover used.
 
-Verified291-frame1920x1080/30FPS render/decode9.7s;9 sampled moments visually inspected. Audio correlation1.0 to approved closing rough. Round2 end/closing start mean RGB difference0.74459 on0-255 scale (one environment-clock frame). Quintic departure has zero endpoint velocity/acceleration. Diff check passed. Evidence promo/evidence/closing-production.json and closing-production-review.jpg. Output promo/out/closing-production-final.mp4. No manual playback/listening/deployment claim.
+Verified2058/2058 frames1920x1080/30FPS68.6s,18 source-frame samples match approved exports (worst mean RGB error1.1485/255),12 full-cut moments visually inspected. Continuous source narration correlation0.99999846 with zero measured lag. Diff check passed. Evidence promo/evidence/assembled-production-verification.json and assembled-production-review.jpg. Output promo/out/glhc-production-full.mp4. No manual listening/playback or deployment claim.
 
-Next: organizer reviews closing; then stitch approved production sections and inspect whole-film continuity. Remaining music/SFX and spoken.ca->.com correction retained. Website/live infrastructure unchanged.
+Next: organizer reviews full cut. Remaining final spoken.ca->.com correction and music/SFX, if desired. No website/live changes; prior rough export retained.

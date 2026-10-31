@@ -1,0 +1,105 @@
+{
+  "decoded_frames": 2058,
+  "duration_seconds": 68.6,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "scene_samples": [
+    {
+      "scene": "opening",
+      "local_frame": 0,
+      "mean_pixel_error": 0.8381679205246914
+    },
+    {
+      "scene": "opening",
+      "local_frame": 202,
+      "mean_pixel_error": 0.5946760866769547
+    },
+    {
+      "scene": "opening",
+      "local_frame": 404,
+      "mean_pixel_error": 0.9512741126543209
+    },
+    {
+      "scene": "science",
+      "local_frame": 0,
+      "mean_pixel_error": 1.1321497235082305
+    },
+    {
+      "scene": "science",
+      "local_frame": 159,
+      "mean_pixel_error": 0.7610477752057613
+    },
+    {
+      "scene": "science",
+      "local_frame": 317,
+      "mean_pixel_error": 0.33805764531893007
+    },
+    {
+      "scene": "creative waterfront",
+      "local_frame": 0,
+      "mean_pixel_error": 0.3428497942386831
+    },
+    {
+      "scene": "creative waterfront",
+      "local_frame": 106,
+      "mean_pixel_error": 1.1485492219650206
+    },
+    {
+      "scene": "creative waterfront",
+      "local_frame": 211,
+      "mean_pixel_error": 0.6817745306069959
+    },
+    {
+      "scene": "round one",
+      "local_frame": 0,
+      "mean_pixel_error": 0.695789609053498
+    },
+    {
+      "scene": "round one",
+      "local_frame": 197,
+      "mean_pixel_error": 0.7523070987654321
+    },
+    {
+      "scene": "round one",
+      "local_frame": 394,
+      "mean_pixel_error": 0.6730291923868312
+    },
+    {
+      "scene": "round two",
+      "local_frame": 0,
+      "mean_pixel_error": 0.6795976401748971
+    },
+    {
+      "scene": "round two",
+      "local_frame": 218,
+      "mean_pixel_error": 1.1086940586419753
+    },
+    {
+      "scene": "round two",
+      "local_frame": 436,
+      "mean_pixel_error": 0.8910130529835391
+    },
+    {
+      "scene": "closing",
+      "local_frame": 0,
+      "mean_pixel_error": 1.0783875064300412
+    },
+    {
+      "scene": "closing",
+      "local_frame": 145,
+      "mean_pixel_error": 0.7662421231995885
+    },
+    {
+      "scene": "closing",
+      "local_frame": 290,
+      "mean_pixel_error": 0.7425644611625515
+    }
+  ],
+  "continuous_audio_correlation_to_source": 0.9999984615444556,
+  "codec_delay_seconds": 0.0,
+  "displayed_domain": "raeonhacks.com",
+  "reference_spoken_domain_pending_correction": true
+}

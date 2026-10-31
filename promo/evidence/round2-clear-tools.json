@@ -1,0 +1,18 @@
+{
+  "frames": 437,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "audioCorrelation": 1.0,
+  "reviewFrames": [
+    110,
+    130,
+    160,
+    315,
+    335,
+    436
+  ],
+  "cashBadgeRemoved": true
+}

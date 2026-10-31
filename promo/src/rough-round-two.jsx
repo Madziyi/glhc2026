@@ -8,13 +8,16 @@ const ink='#183c47',paper='#f1eee2',gold='#dfbd42';
 function Envelope({x,y,scale=1,opacity=1,sealed=false}){return <g opacity={opacity} transform={`translate(${x} ${y}) scale(${scale})`}><path d={sealed?"M-130 50H130V210H-130Z":"M-130 50L0-45L130 50V210H-130Z"} fill={sealed?"#c4bca6":"#d4cfb9"}/><path d="M-130 50L0 140L130 50V210H-130Z" fill="#e7dfc7" stroke={ink} strokeWidth="2"/><path d="M-130 210L0 115L130 210" fill="none" stroke={ink} strokeWidth="2"/>{sealed&&<path d="M-130 50L0 145L130 50Z" fill="#ded5bc" stroke="#8d9387" strokeWidth="1.3"/>}<circle cy="142" r="15" fill="#69bfb9"/></g>}
 function Resource({index,f}){const a=ramp(f,64+index*19,78+index*19),converge=ramp(f,136,173),x=[450,960,1470][index];return <g opacity={a*(1-ramp(f,165,182))} transform={`translate(${x+(960-x)*converge} ${790-converge*220}) scale(${1-converge*.65})`}>
  <circle r="105" fill="#fffcf1" stroke="#9aaea7" strokeWidth="2"/>
- {index===0?<g fill={gold} stroke={ink} strokeWidth="3">{[0,1,2].map(i=><g key={i} transform={`translate(${i*22-25} ${-i*18+25})`}><path d="M-45-14V10C-45 32 45 32 45 10V-14Z"/><ellipse cy="-14" rx="45" ry="20"/></g>)}</g>:index===1?<g fill="none" stroke={ink} strokeWidth="9" strokeLinecap="round"><path d="M-48 45L38-42M22-56L55-23M-56-36L42 55"/><path d="M-62-40Q-68-68-43-66L-35-48L-18-63Q4-40-21-25" fill={gold}/></g>:<g fill="none" stroke={ink} strokeWidth="4"><path d="M-62-55H48Q65-55 65-38V10Q65 28 45 28H-8L-38 58V28H-62Z"/><path d="M-31-13L-8 10L33-29" stroke="#67aaa5" strokeWidth="8"/></g>}
+ {index===0?<g fill={gold} stroke={ink} strokeWidth="3">{[0,1,2].map(i=><g key={i} transform={`translate(${i*22-25} ${-i*18+25})`}><path d="M-45-14V10C-45 32 45 32 45 10V-14Z"/><ellipse cy="-14" rx="45" ry="20"/></g>)}</g>:index===1?<g stroke={ink} strokeWidth="4" strokeLinejoin="round">
+ <g transform="translate(-23 0) rotate(18)"><path d="M-18-66L-12-41L7-32L24-47L20-68C48-49 43-20 19-10L11 53Q10 67-4 68Q-19 67-18 52L-11-13C-40-26-39-51-18-66Z" fill="#bdcbc8"/><circle cx="-3" cy="52" r="5" fill="#fffcf1" strokeWidth="3"/></g>
+ <g transform="translate(43 0) rotate(-15)"><path d="M-6-62L-9-46L-5-38V13H5V-38L9-46L6-62Z" fill="#b8c8c7"/><rect x="-16" y="9" width="32" height="57" rx="11" fill={gold}/><path d="M-5 22V52M5 22V52" fill="none" strokeWidth="3"/></g>
+ </g>:<g fill="none" stroke={ink} strokeWidth="4"><path d="M-62-55H48Q65-55 65-38V10Q65 28 45 28H-8L-38 58V28H-62Z"/><path d="M-31-13L-8 10L33-29" stroke="#67aaa5" strokeWidth="8"/></g>}
  </g>}
 export function RoughRoundTwo({production=false}){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('Round2 building and showcase'));
  useLayoutEffect(()=>{world.current=setupInstallations(canvas.current,true,true,true,false,production);world.current.draw(Math.min(123,f*.28),f+45);continueRender(handle);return()=>world.current?.dispose()},[]);
  useLayoutEffect(()=>{world.current?.draw(Math.min(123,f*.28),f+45)},[f]);
- const fan=ramp(f,7,38),select=ramp(f,46,65),paperOut=ramp(f,154,191),cash=ramp(f,303,321)*(1-ramp(f,343,361));
+ const fan=ramp(f,7,38),select=ramp(f,46,65),paperOut=ramp(f,154,191);
  return <AbsoluteFill style={{background:paper,overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
  <Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={1330}/>
@@ -35,10 +38,7 @@ export function RoughRoundTwo({production=false}){
  {production&&[0,1,2].map(i=>{const p=ramp(f,116+i*9,155+i*5),q=1-p,x=q*q*[450,960,1470][i]+2*q*p*960+p*p*960,y=q*q*680+2*q*p*650+p*p*510;return <g key={i} opacity={ramp(f,116+i*9,122+i*9)*(1-ramp(f,158,178))}><circle cx={x} cy={y} r="12" fill="#83c9bd" opacity=".18"/><circle cx={x} cy={y} r="4" fill="#5bafa5"/></g>})}
 
  </g>
- <g opacity={cash} transform={`translate(280 ${790+(1-cash)*100}) rotate(-6)`}>
- <path d="M-80-30L-115 100L0 60L115 100L80-30Z" fill={ink}/><circle r="112" fill={gold}/><circle r="91" fill="none" stroke="#fff2b1" strokeWidth="4"/>
- <text y="-8" textAnchor="middle" fontFamily={production?"Google Sans,Arial,sans-serif":"Arial"} fontSize="29" fontWeight="700" fill={ink}>CASH</text><text y="35" textAnchor="middle" fontFamily={production?"Google Sans,Arial,sans-serif":"Arial"} fontSize="29" fontWeight="700" fill={ink}>PRIZES</text>
- </g>
+
  </svg>
  </AbsoluteFill>
 }

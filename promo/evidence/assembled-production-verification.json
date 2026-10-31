@@ -20,32 +20,32 @@
     {
       "scene": "opening",
       "local_frame": 404,
-      "mean_pixel_error": 0.9512741126543209
+      "mean_pixel_error": 0.9473029192386831
     },
     {
       "scene": "science",
       "local_frame": 0,
-      "mean_pixel_error": 1.1321497235082305
+      "mean_pixel_error": 1.1351760223765432
     },
     {
       "scene": "science",
       "local_frame": 159,
-      "mean_pixel_error": 0.7610477752057613
+      "mean_pixel_error": 0.7626028806584362
     },
     {
       "scene": "science",
       "local_frame": 317,
-      "mean_pixel_error": 0.33805764531893007
+      "mean_pixel_error": 1.1350194508744855
     },
     {
       "scene": "creative waterfront",
       "local_frame": 0,
-      "mean_pixel_error": 0.3428497942386831
+      "mean_pixel_error": 1.190277617026749
     },
     {
       "scene": "creative waterfront",
       "local_frame": 106,
-      "mean_pixel_error": 1.1485492219650206
+      "mean_pixel_error": 1.158421746399177
     },
     {
       "scene": "creative waterfront",

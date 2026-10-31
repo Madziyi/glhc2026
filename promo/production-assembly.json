@@ -7,7 +7,7 @@
   "scenes": [
     {
       "scene": "opening",
-      "file": "opening-water-detailed-pass.mp4",
+      "file": "opening-clean-buoy.mp4",
       "start_frame": 0,
       "frames": 405,
       "start_seconds": 0.0,
@@ -15,7 +15,7 @@
     },
     {
       "scene": "science",
-      "file": "science-detailed-pass.mp4",
+      "file": "science-seamless-waterfront.mp4",
       "start_frame": 405,
       "frames": 318,
       "start_seconds": 13.5,
@@ -23,7 +23,7 @@
     },
     {
       "scene": "creative waterfront",
-      "file": "waterfront-speakers-final.mp4",
+      "file": "waterfront-no-dark-fade.mp4",
       "start_frame": 723,
       "frames": 212,
       "start_seconds": 24.1,
@@ -53,5 +53,6 @@
       "start_seconds": 58.9,
       "end_seconds": 68.6
     }
-  ]
+  ],
+  "output_file": "glhc-production-seamless.mp4"
 }

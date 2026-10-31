@@ -6,7 +6,7 @@ from PIL import Image,ImageDraw
 from scipy.signal import correlate,correlation_lags
 root=Path(__file__).resolve().parent
 plan=json.loads((root/'production-assembly.json').read_text())
-video=root/'out/glhc-production-full.mp4'
+video=root/'out'/plan.get('output_file','glhc-production-full.mp4')
 capture=cv2.VideoCapture(str(video));decoded=0
 while capture.read()[0]:decoded+=1
 assert decoded==plan['total_frames'],decoded

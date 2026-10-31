@@ -1,9 +1,9 @@
-# Active Initiative - GLHC-004 full production assembly
+# Active Initiative - GLHC-004 buoy detail and seamless waterfront transition
 
-Status: complete, organizer full-cut review pending. Main8b4e7d9 fetched ancestor.
+Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-Assembled latest approved six production exports using promo/production-assembly.json and assemble-production.py. Includes detailed glider/boat/water/science, five speakers on bronze hexagon, LED without round plinth, matching calendars/folded sealed envelope, clear tools/no prize badge, finished closing. Original continuous voiceover used.
+Film-only removal of short dark angled fitting above sensors. Replaced navy bridge with smoothstep direct dissolve into incoming waterfront across science280-317, then contiguous waterfront local0. Other approved scenes/timing retained. Notes promo/BUOY-TRANSITION.md.
 
-Verified2058/2058 frames1920x1080/30FPS68.6s,18 source-frame samples match approved exports (worst mean RGB error1.1485/255),12 full-cut moments visually inspected. Continuous source narration correlation0.99999846 with zero measured lag. Diff check passed. Evidence promo/evidence/assembled-production-verification.json and assembled-production-review.jpg. Output promo/out/glhc-production-full.mp4. No manual listening/playback or deployment claim.
+Verified affected405/318/212-frame renders and full2058-frame1920x1080/30FPS68.6s decode. Nine transition moments and12 assembled moments visually inspected.64 stub triangles removed; shared GLB unchanged. Direct scene join mean RGB difference1.13756/255, transition luminance36.918..159.931 without dark overlay. Full source-frame samples pass; continuous narration correlation0.99999846, zero measured lag. Diff check passed. Evidence buoy-seamless-transition.json, buoy-waterfront-transition-review.jpg and assembled-production-verification.json/review.jpg. Artifact promo/out/glhc-production-seamless.mp4. No manual playback/listening/deployment claim.
 
-Next: organizer reviews full cut. Remaining final spoken.ca->.com correction and music/SFX, if desired. No website/live changes; prior rough export retained.
+Next: organizer reviews revised full cut. Remaining spoken.ca->.com correction/music/SFX retained. Website/live infrastructure unchanged; previous full cut retained.

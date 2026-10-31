@@ -1,0 +1,18 @@
+{
+  "sceneFrames": {
+    "opening-clean-buoy.mp4": 405,
+    "science-seamless-waterfront.mp4": 318,
+    "waterfront-no-dark-fade.mp4": 212
+  },
+  "transitionScienceFrames": [
+    280,
+    317
+  ],
+  "dissolveSeconds": 1.2666666666666666,
+  "darkOverlayRemoved": true,
+  "transitionMeanLuminanceMin": 36.91808352623457,
+  "transitionMeanLuminanceMax": 159.93077546296297,
+  "joinMeanPixelDifference": 1.1375594778806584,
+  "isolatedFittingTrianglesRemoved": 64,
+  "sourceGlbModified": false
+}

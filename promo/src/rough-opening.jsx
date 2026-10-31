@@ -58,6 +58,8 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
 
  const loader=new GLTFLoader();loader.setMeshoptDecoder(MeshoptDecoder);const gltf=await loader.loadAsync(staticFile('models/glhc002-buoy.glb'));const buoy=gltf.scene;scene.add(buoy);
  buoy.traverse(o=>{if(o.isMesh){o.material.side=THREE.DoubleSide;if(o.material.name==='Powder-coated charcoal frame'){o.material.color.set('#8fa6ae');o.material.metalness=.65;o.material.roughness=.3}}});
+ // Film-only removal of the short angled cable stub above the sensor mount.
+ if(production){const fittings=buoy.getObjectByName('Marine_fasteners_and_fittings');if(fittings){const g=fittings.geometry,p=g.attributes.position,index=g.index.array,keep=[];const inStub=i=>p.getX(i)>-.10&&p.getX(i)<.02&&p.getY(i)>-.96&&p.getY(i)<-.76&&Math.abs(p.getZ(i))<.10;for(let i=0;i<index.length;i+=3){if(![index[i],index[i+1],index[i+2]].every(inStub))keep.push(index[i],index[i+1],index[i+2]);}g.setIndex(keep);g.computeBoundingSphere();}}
  const deployment=production?createDeploymentEffects(scene,renderer,environment,glider,boat,{extraRoots:[buoy],particleCenter:science?0:-54,emission:!science}):null;
  const bubbles=[];for(let i=0;i<28;i++){const b=mesh(new THREE.SphereGeometry(.035+(i%4)*.012,8,8),new THREE.MeshBasicMaterial({color:'#b7f1ef',transparent:true,opacity:.24}),scene);bubbles.push(b)}
  const splash=[];for(let i=0;i<3;i++){const m=mesh(new THREE.TorusGeometry(.45,.012,5,64),new THREE.MeshBasicMaterial({color:'#c5e8e3',transparent:true,opacity:.2}),scene);m.rotation.x=Math.PI/2;splash.push(m)}

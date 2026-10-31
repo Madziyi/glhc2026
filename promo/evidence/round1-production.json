@@ -1,0 +1,23 @@
+{
+  "frames": 395,
+  "fps": 30,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "seconds": 13.166666666666666,
+  "audioCorrelation": 0.9999999999999999,
+  "reviewFrames": [
+    0,
+    45,
+    90,
+    140,
+    195,
+    240,
+    300,
+    360,
+    394
+  ],
+  "sketchTubes": 19,
+  "sourceAudioStartFrame": 935
+}

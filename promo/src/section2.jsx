@@ -26,7 +26,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
  const ground=new THREE.Mesh(new THREE.PlaneGeometry(180,100),new THREE.MeshStandardMaterial({color:'#061e2b',metalness:.45,roughness:.28}));ground.rotation.x=-Math.PI/2;ground.position.y=-.12;scene.add(ground);
  const stations=[new THREE.Group(),new THREE.Group(),new THREE.Group()];stations.forEach(g=>scene.add(g));let activeStation=stations[0];
  const mesh=(geo,mat,parent=activeStation)=>{const m=new THREE.Mesh(geo,mat);m.castShadow=production;m.receiveShadow=production;parent.add(m);return m};
- const platform=x=>{const m=mesh(new THREE.CylinderGeometry(3.25,3.5,.15,96),metal);m.position.set(x,0,0)};
+ const platform=x=>{if(production&&x===18)return;const bronze=production&&x===9;const m=mesh(new THREE.CylinderGeometry(3.25,3.5,.15,bronze?6:96),bronze?new THREE.MeshStandardMaterial({color:'#a2693e',metalness:.72,roughness:.36}):metal);m.position.set(x,0,0);if(bronze)m.rotation.y=Math.PI/6};
  [0,9,18].forEach((x,i)=>{activeStation=stations[i];platform(x)});activeStation=stations[0];
  const rods=[];
  for(let i=0;i<19;i++){
@@ -53,6 +53,26 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
  for(let i=0;i<12;i++){const mat=new THREE.MeshStandardMaterial({color:'#91f7e9',emissive:'#3cbfb5',emissiveIntensity:.7,transparent:true,opacity:.7});const m=mesh(new THREE.TorusGeometry(.12+i*.13,.009,6,100),mat);m.rotation.x=Math.PI/2;m.position.set(9,.96,0);rings.push(m)}
  const cone=mesh(new THREE.CylinderGeometry(.9,1.1,.09,64),dark);cone.position.set(9,production?.65:1.0,0);
  if(production){water.material=new THREE.MeshPhysicalMaterial({color:"#1b5659",metalness:.3,roughness:.12,clearcoat:1});}
+ const speakerWaves=[];
+ if(production){
+  [speaker,bowl,water,cone,...rings].forEach(o=>o.visible=false);
+  const cabinet=new THREE.MeshStandardMaterial({color:'#20292b',metalness:.35,roughness:.55});
+  const diaphragm=new THREE.MeshStandardMaterial({color:'#101719',roughness:.8});
+  const trim=new THREE.MeshStandardMaterial({color:'#687675',metalness:.8,roughness:.3});
+  for(let i=0;i<5;i++){
+   const a=(i-2)*.57,x=9+Math.sin(a)*2.25,z=-.8+Math.cos(a)*.65;
+   const g=new THREE.Group();g.position.set(x,.10,z);g.rotation.y=a*.28;stations[1].add(g);
+   const body=mesh(new RoundedBoxGeometry(.70,1.13,.52,3,.065),cabinet,g);body.position.y=.59;
+   for(const [y,r] of [[.42,.225],[.88,.095]]){
+    const rim=mesh(new THREE.TorusGeometry(r,.026,10,48),trim,g);rim.position.set(0,y,.275);
+    const driver=mesh(new THREE.CircleGeometry(r*.92,48),diaphragm,g);driver.position.set(0,y,.28);
+    const cap=mesh(new THREE.SphereGeometry(r*.34,20,12),diaphragm,g);cap.scale.z=.35;cap.position.set(0,y,.29);
+   }
+   for(let j=0;j<3;j++){
+    const wave=mesh(new THREE.TorusGeometry(.28,.014,8,72),new THREE.MeshBasicMaterial({color:'#9cefe6',transparent:true,opacity:.6,depthWrite:false}),g);speakerWaves.push({wave,i,j});
+   }
+  }
+ }
  // Typography belongs to the physical LED screen, not an overlay on the film.
  activeStation=stations[2];
  const maskCanvas=document.createElement('canvas');maskCanvas.width=1536;maskCanvas.height=864;
@@ -118,7 +138,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
   const foot=mesh(production?new RoundedBoxGeometry(2.7,.16,1.7,3,.055):new THREE.BoxGeometry(2.7,.16,1.7),production?silver:metal);foot.position.set(18,production?.10:.17,-.15);if(production)foot.scale.set(.65,.3,1);
  }else [-2.05,2.05].forEach(dx=>{const leg=mesh(new THREE.BoxGeometry(.13,.65,.18),metal);leg.position.set(18+dx,.43,-.3);const foot=mesh(new THREE.BoxGeometry(.8,.08,1.1),metal);foot.position.set(18+dx,.12,-.2)});
  const screenGlow=new THREE.PointLight('#22d6d5',8,7,2);screenGlow.position.set(18,1.3,1.0);stations[2].add(screenGlow);
- if(waterfront){stations.forEach((g,i)=>g.position.set(i*(production?20:48)-i*9,0,-9.5));}
+ if(waterfront){stations.forEach((g,i)=>g.position.set(i*(production?20:48)-i*9,production&&i===2?-.1:0,-9.5));}
  if(roundTwo){stations[1].visible=false;stations[2].visible=false;}
  activeStation=scene;
  const shore=waterfront?(production?createProductionWaterfront(scene,ground):createWaterfront(scene,ground)):null;
@@ -135,6 +155,7 @@ export function setupInstallations(canvas,creative=false,waterfront=false,roundT
   camera.lookAt(x,1.2+screenFocus*.85,0);
   rods.forEach(({rod,mat,height},i)=>{if(waterfront){rod.scale.y=1;mat.uniforms.uTime.value=(localFrame-45)/30;if(roundTwo){const built=ramp(localFrame-45,177+i*2.2,210+i*2.2);rod.position.y=height/2+.2+(1-built)*3;rod.visible=built>0;}return}rod.scale.y=.9+Math.sin(t*2.2+i*.5)*.1;mat.emissiveIntensity=.6+Math.pow((Math.sin(t*2.8-i*.4)+1)/2,3)*3;mat.color.setHSL(.46+Math.sin(i*.4+t)*.05,.7,.65)});
   rings.forEach((ring,i)=>{const pulse=(t*.9+i/12)%1;ring.scale.setScalar(.12+pulse*1.12);ring.position.y=.97+Math.sin(i*.8+t*9)*.012;ring.material.opacity=(1-pulse)*(production?.3:.8)});
+  speakerWaves.forEach(({wave,i,j})=>{const phase=(t*1.05+j/3+i*.075)%1;wave.position.set(0,.53,.38+phase*1.8);wave.scale.setScalar(.7+phase*2.5);wave.material.opacity=Math.sin(phase*Math.PI)*.60;});
   paintText(production?(localFrame-45<125?220:localFrame-45<150?230+(localFrame-170)*16/25:246+(localFrame-195)*1.6):f);displayMaterial.uniforms.uTime.value=t;screenGlow.intensity=7+Math.sin(t*1.5)*2;
   particles.forEach((p,i)=>{const lead=waterfront?motionAt(localFrame-45).centre:creative?x+ramp(localFrame,0,45,2.3,0):x-2.5+(f%110)/110*5;const px=lead-i*(production?.11:.055);p.position.set(px,1.4+Math.sin((production?t*.5:px*1.1+t))*.6,Math.cos(production?t*.4:px*.7+t)*.7-(waterfront?9.5:0));if(creative){p.material.color.set('#87e4e1');p.material.opacity=(1-i/32)*(production?1:.7);p.visible=localFrame<204}});
   pulseRings.forEach((h,i)=>{const phase=(localFrame/30*1.3+i/3)%1;h.position.copy(particles[0].position);h.scale.setScalar((production?2:1)*(1+phase*3));h.material.opacity=(1-phase)*.5*(1-ramp(localFrame,175,204));h.lookAt(camera.position)});

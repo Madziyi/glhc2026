@@ -422,3 +422,8 @@
 
 ### Waterfront revision - 2026-10-30
 Production spacing48->20 units, transition intervals48 frames; peak camera travel reduced80.82%. Doubled dot/trail diameter and extent, brighter coherent trajectory. Smaller112x64 LED lamp-grid board with BE CREATIVE, slim silver post and thin square base. Narration preserved. Verified212-frame1920x1080/30FPS decode;9 moments and full-size LED inspected; audio correlation effectively1.0. Evidence promo/evidence/waterfront-revision.json and waterfront-revision-review.jpg; artifact promo/out/waterfront-revised-pass.mp4. Rough motion unchanged, no deployment/manual playback claim. Organizer review next.
+
+
+### 2026-10-31 - Five-speaker waterfront revision
+- Organizer requested five smaller speakers with outgoing sound waves, a bronze hexagonal platform, and removal of the round LED platform. Implemented production-only five dual-driver cabinets with staggered expanding/fading waves; bronze six-sided plinth. LED retains square silver foot directly on terrace (station lowered0.1 to ground foot). Camera, narration, light sculpture and LED lamp content unchanged; rough defaults retained.
+- Verification: final212-frame1920x1080/30FPS render/decode passed; audio correlation effectively1.0. Nine sampled frames inspected; no shader errors in final renderer. Diff check passed. Evidence promo/evidence/waterfront-speakers.json and waterfront-speakers-review.jpg. No manual listening/playback or deployment claim. Next: organizer reviews revised waterfront.

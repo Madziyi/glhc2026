@@ -1,17 +1,8 @@
-# Active Initiative - GLHC-004 production waterfront
-
-Status: organizer accepted production science and requested next section. ProductionWaterfront complete on codex/promo-prototype; organizer review pending. Main8b4e7d9 integrated before implementation.
-
-Scope: 212 frames,1920x1080/30FPS, narration24.1-31.1667s. Preserved approved continuous lateral camera path,48-unit station spacing, fixed varied-height tubes, sound bowl and central-column LED screen. No visitors. Seamless9-unit terrace,7-unit green strip/benches,5-unit brick foreground. Added detailed slatted benches, planting, paver geometry, procedural material grain, shadows, lake reflection and distant shore. Light moves green/yellow inside fixed tubes; restrained sound rings; BE CREATIVE animates within physical screen. Centred aqua/navy entry and approved paper-line ending.
-
-Verification: full212-frame render/decode,7.0667s,9 sampled frames visually inspected. Audio correlation0.9999999999999999 to approved rough. Camera path unchanged; holds feature one installation. Initial terrain shader used reserved GLSL word patch; corrected to variation, rerendered without shader errors. Diff check passed. Evidence promo/evidence/waterfront-production-render.json and waterfront-production-review.jpg. No manual playback/listening or deployment claim.
-
-Artifact: promo/out/waterfront-detailed-pass.mp4. Earlier full rough/export files retained. Website and deployed state unchanged. Final-film assembly, remaining rounds/closing finish, music/SFX and spoken.com correction remain. Destination raeonhacks.com.
-
-Next action: organizer reviews waterfront production pass; then refine Round1 sketch/submission section.
-
-Active revision: organizer requests gentler camera travel with closer displays, twice-size dot/trail and a smaller LED message board on slim silver post/square plate reference. Preserve narration and landscape.
+# Active Initiative - GLHC-004 five-speaker waterfront revision
 
 
-### Waterfront revision - 2026-10-30
-Production spacing48->20 units, transition intervals48 frames; peak camera travel reduced80.82%. Doubled dot/trail diameter and extent, brighter coherent trajectory. Smaller112x64 LED lamp-grid board with BE CREATIVE, slim silver post and thin square base. Narration preserved. Verified212-frame1920x1080/30FPS decode;9 moments and full-size LED inspected; audio correlation effectively1.0. Evidence promo/evidence/waterfront-revision.json and waterfront-revision-review.jpg; artifact promo/out/waterfront-revised-pass.mp4. Rough motion unchanged, no deployment/manual playback claim. Organizer review next.
+### 2026-10-31 - Five-speaker waterfront revision
+- Organizer requested five smaller speakers with outgoing sound waves, a bronze hexagonal platform, and removal of the round LED platform. Implemented production-only five dual-driver cabinets with staggered expanding/fading waves; bronze six-sided plinth. LED retains square silver foot directly on terrace (station lowered0.1 to ground foot). Camera, narration, light sculpture and LED lamp content unchanged; rough defaults retained.
+- Verification: final212-frame1920x1080/30FPS render/decode passed; audio correlation effectively1.0. Nine sampled frames inspected; no shader errors in final renderer. Diff check passed. Evidence promo/evidence/waterfront-speakers.json and waterfront-speakers-review.jpg. No manual listening/playback or deployment claim. Next: organizer reviews revised waterfront.
+
+Artifact: promo/out/waterfront-speakers-final.mp4. Main fetched8b4e7d9 ancestor; no live infrastructure changes. Remaining film production/assembly/sound and spoken.com correction retained.

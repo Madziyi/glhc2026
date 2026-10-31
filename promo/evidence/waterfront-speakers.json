@@ -1,0 +1,24 @@
+{
+  "frames": 212,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "audioCorrelation": 0.9999999999999999,
+  "speakers": 5,
+  "platformSides": 6,
+  "platformMaterial": "bronze",
+  "ledRoundPlatform": false,
+  "reviewFrames": [
+    0,
+    30,
+    55,
+    73,
+    78,
+    90,
+    120,
+    190,
+    211
+  ]
+}

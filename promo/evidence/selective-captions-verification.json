@@ -1,0 +1,135 @@
+{
+  "decoded_frames": 2022,
+  "caption_count": 14,
+  "unchanged_audio_packet_hash": "MD5=b6ebfdfafdf3e5e3b00e3762599ac06f",
+  "competition_reveal_caption": false,
+  "caption_bounds": [
+    {
+      "text": "HIGH SCHOOL",
+      "bounds": [
+        715,
+        872,
+        1207,
+        931
+      ]
+    },
+    {
+      "text": "UNIVERSITY STUDENTS",
+      "bounds": [
+        554,
+        872,
+        1367,
+        931
+      ]
+    },
+    {
+      "text": "ART.",
+      "bounds": [
+        876,
+        872,
+        1039,
+        929
+      ]
+    },
+    {
+      "text": "SCIENCE.",
+      "bounds": [
+        797,
+        875,
+        1119,
+        926
+      ]
+    },
+    {
+      "text": "TECH.",
+      "bounds": [
+        856,
+        875,
+        1059,
+        926
+      ]
+    },
+    {
+      "text": "LIGHT.",
+      "bounds": [
+        847,
+        872,
+        1074,
+        931
+      ]
+    },
+    {
+      "text": "SOUND.",
+      "bounds": [
+        823,
+        871,
+        1094,
+        931
+      ]
+    },
+    {
+      "text": "DIGITAL.",
+      "bounds": [
+        812,
+        871,
+        1109,
+        931
+      ]
+    },
+    {
+      "text": "JUST SUBMIT YOUR IDEA",
+      "bounds": [
+        520,
+        871,
+        1401,
+        932
+      ]
+    },
+    {
+      "text": "TOP 10 IDEAS",
+      "bounds": [
+        720,
+        871,
+        1198,
+        932
+      ]
+    },
+    {
+      "text": "FUNDING",
+      "bounds": [
+        802,
+        871,
+        1120,
+        932
+      ]
+    },
+    {
+      "text": "RESOURCES",
+      "bounds": [
+        740,
+        871,
+        1183,
+        932
+      ]
+    },
+    {
+      "text": "MENTORSHIP",
+      "bounds": [
+        728,
+        871,
+        1194,
+        932
+      ]
+    },
+    {
+      "text": "ARE YOU READY?",
+      "bounds": [
+        644,
+        871,
+        1274,
+        931
+      ]
+    }
+  ],
+  "uncaptioned_samples": 6
+}

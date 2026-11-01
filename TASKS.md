@@ -160,3 +160,5 @@ Production spacing48->20 units, transition intervals48 frames; peak camera trave
 - `[verified; organizer review pending]` GLHC-004 longer straight gold swim, fading exact-history tail and clockwise LED power entry.
 
 - `[verified; organizer review pending]` GLHC-004 extend climb/high glide and underwater dissolve through24s; retain TV cue.
+
+- `[verified; organizer review pending]` GLHC-004 selective kinetic captions:14 cues, no competition reveal, funding/resources/mentorship added; audio packet-identical.

@@ -1,0 +1,76 @@
+{
+  "source": "glhc-24s-waterfront-transition.mp4",
+  "output": "glhc-selective-captions.mp4",
+  "cues": [
+    {
+      "start": 0.42,
+      "end": 1.12,
+      "text": "HIGH SCHOOL"
+    },
+    {
+      "start": 1.12,
+      "end": 2.1,
+      "text": "UNIVERSITY STUDENTS"
+    },
+    {
+      "start": 2.38,
+      "end": 2.92,
+      "text": "ART."
+    },
+    {
+      "start": 2.92,
+      "end": 3.52,
+      "text": "SCIENCE."
+    },
+    {
+      "start": 3.52,
+      "end": 4.18,
+      "text": "TECH."
+    },
+    {
+      "start": 25.46,
+      "end": 26.23,
+      "text": "LIGHT."
+    },
+    {
+      "start": 26.5,
+      "end": 27.45,
+      "text": "SOUND."
+    },
+    {
+      "start": 27.78,
+      "end": 28.65,
+      "text": "DIGITAL."
+    },
+    {
+      "start": 32.16,
+      "end": 33.25,
+      "text": "JUST SUBMIT YOUR IDEA"
+    },
+    {
+      "start": 45.54,
+      "end": 46.5,
+      "text": "TOP 10 IDEAS"
+    },
+    {
+      "start": 46.64,
+      "end": 47.4,
+      "text": "FUNDING"
+    },
+    {
+      "start": 47.44,
+      "end": 48.3,
+      "text": "RESOURCES"
+    },
+    {
+      "start": 48.36,
+      "end": 49.3,
+      "text": "MENTORSHIP"
+    },
+    {
+      "start": 58.74,
+      "end": 60.05,
+      "text": "ARE YOU READY?"
+    }
+  ]
+}

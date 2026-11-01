@@ -97,3 +97,5 @@ Promo visual follow-up2026-11-01: extended forward gold-pulse swim with an S-sha
 Promo gold pulse refinement2026-11-01: continuous straight screen-space swim165-225, climb225-270, exact fading history tail; clockwise TV approach ends at125 and first LED letter illumination. Centred high light/sound hold retained.
 
 Promo timing follow-up2026-11-01: underwater dissolve now completes at24s, with1.6s climb and1.9667s high forward glide. Science frameOverride supports extended legacy clock through363; TV cue remains28.9667s.
+
+Promo selective-caption direction2026-11-01: use sparse white/gold kinetic keyword captions, excluding competition reveal and adding funding/resources/mentorship labels. Editable cue layer preserves master/audio. See promo/SELECTIVE-CAPTIONS.md.

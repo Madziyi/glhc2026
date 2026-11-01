@@ -1,7 +1,7 @@
-# Active Initiative - GLHC-004 transition through24s
+# Active Initiative - GLHC-004 selective kinetic captions
 
 Status: complete; organizer review pending. Main fetched ancestor.
 
-Underwater dissolve now completes exactly24s (science319 frames, waterfront begins720). Straight swim retained; climb225-285 maps1.6s, high forward glide285-363 maps1.9667s. Tail follows identical history, matching centred display join; clockwise TV power cue stays global869/28.9667s. Explicit science frameOverride avoids Remotion composition-frame clamping.
+Fourteen selected keyword captions added over verified24s-transition master. Excludes competition reveal; includes funding/resources/mentorship on spoken funding/equipment/expert-support beats. White/gold bold typography, quick upward entrance/scale settle, lower-centre safe placement. Editable cue JSON and Python ASS renderer; underlying source master preserved.
 
-Geometry checks pass;12 focused rendered moments visually inspected, including completed dissolve and seamless next frame. Artifact promo/out/glhc-24s-waterfront-transition.mp4. Verified2022-frame1920x1080/30FPS67.4s decode,18 source comparisons, narration correlation0.999998689/zero lag and diff check. Next: organizer review. No manual playback/listening/deployment claim. Narration only; website/live unchanged.
+Verified2022-frame1920x1080/30FPS67.4s decode,14 caption bounds,6 uncaptioned source comparisons, identical AAC packet hash. Fourteen rendered cue moments visually inspected; diff check passed. Artifact promo/out/glhc-selective-captions.mp4. No music/SFX/manual listening/playback/deployment claim. Next: organizer caption review. Website/live unchanged.

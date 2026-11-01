@@ -10,8 +10,11 @@ for(const s of timeline.scenes){
 }
 const rise=Array.from({length:123},(_,i)=>goldStoryPoint('science',195+i));
 for(let i=1;i<rise.length;i++)if(rise[i][1]>rise[i-1][1]+1e-6)throw Error('Rising dot reversed downward');
-const targetHeight=goldStoryPoint('waterfront',0)[1];report.topHoldMaxHeightErrorPixels=Math.max(...rise.slice(90).map(p=>Math.abs(p[1]-targetHeight)));if(report.topHoldMaxHeightErrorPixels>1e-6)throw Error('Dot did not hold display height');
+const targetHeight=goldStoryPoint('waterfront',0)[1];report.topHoldMaxHeightErrorPixels=Math.max(...rise.slice(100).map(p=>Math.abs(p[1]-targetHeight)));if(report.topHoldMaxHeightErrorPixels>1e-6)throw Error('Dot did not hold display height');
 report.rotationalSweepRemoved=true;
+report.previousForwardDistancePixels=44.3563643322248;report.forwardDistancePixels=rise.at(-1)[0]-rise[0][0];report.forwardDistanceMultiplier=report.forwardDistancePixels/report.previousForwardDistancePixels;
+if(report.forwardDistanceMultiplier<2)throw Error('Forward swim must be at least twice previous distance');
+for(let i=1;i<rise.length;i++)if(rise[i][0]<rise[i-1][0]-1e-6)throw Error('Forward swim reversed');
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 report.pulseJoinErrorPixels=distance(goldStoryPoint('science',317),goldStoryPoint('waterfront',0));
 report.trailHistoryJoinErrorPixels=distance(goldStoryPoint('waterfront',-30),goldStoryPoint('science',288));

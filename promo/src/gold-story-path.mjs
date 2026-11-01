@@ -14,7 +14,7 @@ export function goldStoryPoint(scene,frame){
  if(scene==='science'){
   if(frame<=195)return sciencePoint(frame);
   const start=sciencePoint(195),end=aboveDisplay(0),t=smooth((frame-195)/122);
-  return bezier(start,[start[0]+310,start[1]-25],[end[0]+160,end[1]],end,t);
+  return bezier(start,[start[0]-310,start[1]-25],[end[0]-160,end[1]],end,t);
  }
  if(frame<=100)return aboveDisplay(frame);
  const a=aboveDisplay(100),d=tvEntry();return bezier(a,[a[0]+55,a[1]-25],[d[0]+100,d[1]-110],d,smooth((frame-100)/25));

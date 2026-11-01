@@ -1,0 +1,18 @@
+{
+  "beds": 6,
+  "counts": {
+    "Soft low foliage": 720,
+    "Flower stems": 504,
+    "Broad green leaves": 1872,
+    "Pink coneflower and yellow daisy petals": 2160,
+    "Raised brown flower centres": 180,
+    "Lavender flower spikes": 9720
+  },
+  "palette": [
+    "pink",
+    "yellow",
+    "lavender",
+    "lighter green"
+  ],
+  "pointedGrassRemoved": true
+}

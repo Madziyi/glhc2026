@@ -91,3 +91,5 @@ Submission dates (organizer-supplied2026-10-23): hero displays “Idea Submissio
 Promo film CTA correction (organizer2026-10-30): use raeonhacks.com, superseding prior .ca direction. Supplied reference narration remains unchanged and still says .ca; correct that spoken domain in final audio. This does not change website registration destinations.
 
 Promo narration update (organizer2026-11-01): corrected Ashley MP3 is public/audio/ashley-corrected.mp3 for the revised film, including spoken.com. Music/SFX deferred. Revised film removes opening benefit-caption overlays; travelling dot/trail are gold, rise into above-display view and terminate in LED to trigger BE CREATIVE. Website copy/registration destinations remain separate. See promo/CORRECTED-NARRATION.md.
+
+Promo visual follow-up2026-11-01: clockwise gold-pulse sweep into waterfront, lighter green trees, mixed pink/yellow/purple flower beds instead of pointed grasses. Round1 film keeps the December3 deadline calendar only; organizer removed the opening-date calendar.

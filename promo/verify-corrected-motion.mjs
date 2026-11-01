@@ -8,6 +8,7 @@ for(const s of timeline.scenes){
  for(let f=0;f<s.frames;f++){const v=fn(f);if(!Number.isFinite(v)||v<previous-1e-8)throw Error(`Invalid retime ${s.name}:${f}`);maxStep=Math.max(maxStep,v-previous);previous=v;}
  report.scenes.push({name:s.name,startFrame:s.startFrame,frames:s.frames,legacyEnd:previous,maxLegacyStep:maxStep});
 }
+const arc=Array.from({length:123},(_,i)=>goldStoryPoint('science',195+i));report.clockwiseScreenSweepArea=arc.reduce((sum,p,i)=>{const q=arc[(i+1)%arc.length];return sum+p[0]*q[1]-q[0]*p[1]},0)/2;if(report.clockwiseScreenSweepArea<=0)throw Error('Expected clockwise screen sweep');
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 report.pulseJoinErrorPixels=distance(goldStoryPoint('science',317),goldStoryPoint('waterfront',0));
 report.trailHistoryJoinErrorPixels=distance(goldStoryPoint('waterfront',-30),goldStoryPoint('science',288));

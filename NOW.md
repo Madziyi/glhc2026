@@ -1,11 +1,9 @@
-# Active Initiative - GLHC-004 corrected narration and gold story pulse
+# Active Initiative - GLHC-004 clockwise pulse and flowering waterfront
 
 Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-Corrected Ashley recording is active; no music/SFX. Removed opening CASH PRIZES and tourist-feature overlays. Gold pulse/trail rises underwater into identical high display position, keeps trail history across dissolve, then enters LED to start BE CREATIVE. Travelling dot ends there. New2022-frame timeline retimes all six scenes with natural endpoint speed to narration cues; prior scenes/assets retained. Notes promo/CORRECTED-NARRATION.md.
+Gold pulse sweeps clockwise from sensor view into high display position. Lighter green trees; mixed pink/yellow/lavender flower beds replace pointed grasses throughout waterfront, Round2 and closing. Removed Idea Submissions Open/November5 calendar; December3 deadline remains. Corrected narration and TV-entry trigger retained.
 
-Verified2022/2022 frames1920x1080/30FPS67.4s;18 scene/source samples match final exports (worst mean RGB error1.1607/255). Twelve story-detail and12 full-cut moments visually inspected. Corrected audio copy byte-identical to supplied MP3; continuous audio correlation0.999998689, zero measured lag, no music/SFX. Monotonic cue maps pass; science/display core join, trail history and TV endpoint errors0px. TV arrival global869/28.9667s vs Be28.98s (within1frame). Opening captions absent; gold enters screen and lettering follows. Final .com recording used; pending spoken-domain correction resolved. Diff check passed. No manual listening/playback or deployment claim.
+Verified2022-frame1920x1080/30FPS67.4s full export/decode and18 source-frame comparisons. Nine focused motion/landscape/calendar moments and12 full-cut moments visually inspected, plus full-resolution lighter-tree view. Clockwise screen signed sweep area+51884.63px^2; high dot join/trail history/TV endpoint errors0px, TV cue remains28.9667s. Six beds contain720 low-leaf instances,1872 broad leaves,180 flower centres/2160 pink-yellow petals and9720 lavender florets; no pointed bed grasses. November5 opening calendar/label removed, December3 retained. Corrected narration correlation0.999998689 with zero lag; no music/SFX. Diff check passed. Evidence clockwise-flowers-review.jpg, flower-bed-instances.json, corrected-motion.json and corrected-narration-verification.json/review.jpg. No manual playback/listening/deployment claim.
 
-Artifact: promo/out/glhc-corrected-voiceover-gold-final.mp4. Manifest promo/corrected-assembly.json; evidence corrected-motion.json, corrected-audio-source.json, corrected-story-review.jpg, corrected-narration-verification.json/review.jpg and ashley-corrected-timing.json.
-
-Next: organizer reviews corrected full video. Music/SFX explicitly deferred. Website/shared GLB/live infrastructure unchanged.
+Artifact: promo/out/glhc-clockwise-flowers.mp4. Manifest promo/corrected-assembly.json. Next: organizer reviews updated full film. Music/SFX deferred. Website/shared GLB/live unchanged.

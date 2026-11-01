@@ -58,16 +58,7 @@ export function RoughRoundOne({production=false,revision=false}){
  <text x="115" y="183" textAnchor="middle" fontFamily={production?"Google Sans, Arial, sans-serif":"Arial"} fontSize="120" fontWeight="700" fill={ink}>3</text>
  <Draw f={f} start={70} duration={20} d="M45 202Q115 226 195 196" color={gold} width={7}/>
  </g>
- <g transform={`translate(65 ${330+ramp(f,26,47,50,0)}) rotate(-5)`} opacity={ramp(f,26,47)*(1-ramp(f,production?310:342,production?334:367))}>
- <text x="115" y="-75" textAnchor="middle" fontFamily={production?"Google Sans, Arial, sans-serif":"Arial"} fontSize="30" fill={ink}>Idea Submissions</text>
- <text x="115" y="-37" textAnchor="middle" fontFamily={production?"Google Sans, Arial, sans-serif":"Arial"} fontSize="30" fill={ink}>Open</text>
- {production&&[40,190].map(x=><g key={x}><path d={`M${x} -8V17`} stroke="#7d8c88" strokeWidth="11" strokeLinecap="round"/><path d={`M${x-2} -8V15`} stroke="#e4e9df" strokeWidth="3" strokeLinecap="round"/></g>)}
- <rect x="0" y="0" width="230" height="255" rx="12" fill="#fffdf6" filter="url(#paper-shadow)"/>
- <path d="M0 60V12Q0 0 12 0H218Q230 0 230 12V60Z" fill={ink}/>
- <text x="115" y="43" textAnchor="middle" fontFamily={production?"Google Sans, Arial, sans-serif":"Arial"} fontSize="28" fill={paper}>NOVEMBER</text>
- <text x="115" y="183" textAnchor="middle" fontFamily={production?"Google Sans, Arial, sans-serif":"Arial"} fontSize="120" fontWeight="700" fill={ink}>5</text>
- <Draw f={f} start={45} duration={20} d="M45 202Q115 226 195 196" color={gold} width={7}/>
- </g>
+
  {!production&&<> <Draw f={f} start={327} duration={40} d="M750 740Q960 660 1190 750Q1390 810 1530 540" color={gold} width={4} opacity={1-ramp(f,365,393)}/>
  <g opacity={ramp(f,348,379)} transform={`translate(${1500+ramp(f,348,389,70,0)} 430)`}>
  <path d="M-130 50L0-45L130 50V210H-130Z" fill="#d4cfb9"/>

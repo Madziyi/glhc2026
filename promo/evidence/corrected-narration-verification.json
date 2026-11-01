@@ -30,22 +30,22 @@
     {
       "scene": "science",
       "local_frame": 158,
-      "mean_pixel_error": 0.743985982510288
+      "mean_pixel_error": 0.7441026877572017
     },
     {
       "scene": "science",
       "local_frame": 315,
-      "mean_pixel_error": 1.1240785751028806
+      "mean_pixel_error": 1.1366550925925927
     },
     {
       "scene": "waterfront",
       "local_frame": 0,
-      "mean_pixel_error": 1.160722093621399
+      "mean_pixel_error": 1.1723074202674897
     },
     {
       "scene": "waterfront",
       "local_frame": 113,
-      "mean_pixel_error": 1.1477964248971193
+      "mean_pixel_error": 1.202419302983539
     },
     {
       "scene": "waterfront",
@@ -60,42 +60,42 @@
     {
       "scene": "round1",
       "local_frame": 196,
-      "mean_pixel_error": 0.7489617091049383
+      "mean_pixel_error": 0.7233825231481481
     },
     {
       "scene": "round1",
       "local_frame": 391,
-      "mean_pixel_error": 0.6732995756172839
+      "mean_pixel_error": 0.673165670010288
     },
     {
       "scene": "round2",
       "local_frame": 0,
-      "mean_pixel_error": 0.6799889081790124
+      "mean_pixel_error": 0.6802467528292181
     },
     {
       "scene": "round2",
       "local_frame": 213,
-      "mean_pixel_error": 1.0853915895061728
+      "mean_pixel_error": 1.1335345936213992
     },
     {
       "scene": "round2",
       "local_frame": 426,
-      "mean_pixel_error": 0.8172834683641975
+      "mean_pixel_error": 0.8348538773148149
     },
     {
       "scene": "closing",
       "local_frame": 0,
-      "mean_pixel_error": 1.1035701195987655
+      "mean_pixel_error": 1.1042639210390945
     },
     {
       "scene": "closing",
       "local_frame": 130,
-      "mean_pixel_error": 0.7260744598765432
+      "mean_pixel_error": 0.7241423932613169
     },
     {
       "scene": "closing",
       "local_frame": 259,
-      "mean_pixel_error": 0.7428837127057614
+      "mean_pixel_error": 0.740844425154321
     }
   ],
   "continuous_audio_correlation_to_source": 0.9999986891879038,

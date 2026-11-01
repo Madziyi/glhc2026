@@ -8,7 +8,10 @@ for(const s of timeline.scenes){
  for(let f=0;f<s.frames;f++){const v=fn(f);if(!Number.isFinite(v)||v<previous-1e-8)throw Error(`Invalid retime ${s.name}:${f}`);maxStep=Math.max(maxStep,v-previous);previous=v;}
  report.scenes.push({name:s.name,startFrame:s.startFrame,frames:s.frames,legacyEnd:previous,maxLegacyStep:maxStep});
 }
-const arc=Array.from({length:123},(_,i)=>goldStoryPoint('science',195+i));report.clockwiseScreenSweepArea=arc.reduce((sum,p,i)=>{const q=arc[(i+1)%arc.length];return sum+p[0]*q[1]-q[0]*p[1]},0)/2;if(report.clockwiseScreenSweepArea<=0)throw Error('Expected clockwise screen sweep');
+const rise=Array.from({length:123},(_,i)=>goldStoryPoint('science',195+i));
+for(let i=1;i<rise.length;i++)if(rise[i][1]>rise[i-1][1]+1e-6)throw Error('Rising dot reversed downward');
+const targetHeight=goldStoryPoint('waterfront',0)[1];report.topHoldMaxHeightErrorPixels=Math.max(...rise.slice(90).map(p=>Math.abs(p[1]-targetHeight)));if(report.topHoldMaxHeightErrorPixels>1e-6)throw Error('Dot did not hold display height');
+report.rotationalSweepRemoved=true;
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 report.pulseJoinErrorPixels=distance(goldStoryPoint('science',317),goldStoryPoint('waterfront',0));
 report.trailHistoryJoinErrorPixels=distance(goldStoryPoint('waterfront',-30),goldStoryPoint('science',288));

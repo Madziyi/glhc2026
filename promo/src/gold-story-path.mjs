@@ -13,8 +13,10 @@ export function goldStoryPoint(scene,frame){
  if(scene==='waterfront'&&frame<0)return goldStoryPoint('science',Math.max(165,318+frame));
  if(scene==='science'){
   if(frame<=195)return sciencePoint(frame);
-  const start=sciencePoint(195),end=aboveDisplay(0),t=smooth((frame-195)/122);
-  return bezier(start,[start[0]-310,start[1]-25],[end[0]-160,end[1]],end,t);
+  const start=sciencePoint(195),end=aboveDisplay(0);
+  // Extend away from the sensor, swim upward, then hold the incoming display height.
+  const outward=smooth((frame-195)/45),rise=smooth((frame-210)/75);
+  return [start[0]+(end[0]-start[0])*outward,start[1]+(end[1]-start[1])*rise];
  }
  if(frame<=100)return aboveDisplay(frame);
  const a=aboveDisplay(100),d=tvEntry();return bezier(a,[a[0]+55,a[1]-25],[d[0]+100,d[1]-110],d,smooth((frame-100)/25));

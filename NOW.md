@@ -1,9 +1,9 @@
-# Active Initiative - GLHC-004 clockwise pulse and flowering waterfront
+# Active Initiative - GLHC-004 direct rising gold dot
 
 Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-Gold pulse sweeps clockwise from sensor view into high display position. Lighter green trees; mixed pink/yellow/lavender flower beds replace pointed grasses throughout waterfront, Round2 and closing. Removed Idea Submissions Open/November5 calendar; December3 deadline remains. Corrected narration and TV-entry trigger retained.
+Supersedes clockwise arc: gold dot extends outward, swims directly upward and holds incoming display height. No rotational sweep. Trail continuity and LED entry remain. Current flowers/lighter trees/deadline-only calendar/corrected narration preserved.
 
-Verified2022-frame1920x1080/30FPS67.4s full export/decode and18 source-frame comparisons. Nine focused motion/landscape/calendar moments and12 full-cut moments visually inspected, plus full-resolution lighter-tree view. Clockwise screen signed sweep area+51884.63px^2; high dot join/trail history/TV endpoint errors0px, TV cue remains28.9667s. Six beds contain720 low-leaf instances,1872 broad leaves,180 flower centres/2160 pink-yellow petals and9720 lavender florets; no pointed bed grasses. November5 opening calendar/label removed, December3 retained. Corrected narration correlation0.999998689 with zero lag; no music/SFX. Diff check passed. Evidence clockwise-flowers-review.jpg, flower-bed-instances.json, corrected-motion.json and corrected-narration-verification.json/review.jpg. No manual playback/listening/deployment claim.
+Verified full2022-frame1920x1080/30FPS67.4s export/decode and18 source-frame comparisons. Six focused transition frames visually inspected. Rise is monotonic with no rotational sweep; high-hold height error0px, display join/trail history/TV endpoint errors0px. TV cue retained28.9667s. Corrected narration correlation0.999998689 with zero lag; no music/SFX. Diff check passed. Evidence direct-rise-review.jpg, corrected-motion.json and corrected-narration-verification.json/review.jpg. No manual playback/listening/deployment claim.
 
-Artifact: promo/out/glhc-clockwise-flowers.mp4. Manifest promo/corrected-assembly.json. Next: organizer reviews updated full film. Music/SFX deferred. Website/shared GLB/live unchanged.
+Artifact: promo/out/glhc-gold-dot-straight-rise.mp4. Manifest promo/corrected-assembly.json. Next: organizer reviews full cut. Music/SFX deferred. Website/shared GLB/live unchanged.

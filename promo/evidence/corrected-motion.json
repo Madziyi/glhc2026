@@ -43,11 +43,12 @@
       "maxLegacyStep": 1.4617851101313022
     }
   ],
-  "pulseJoinErrorPixels": 0,
+  "pulseJoinErrorPixels": 2.842170943040401e-14,
   "tvEntryErrorPixels": 0,
-  "clockwiseScreenSweepArea": 51884.630500029714,
+  "topHoldMaxHeightErrorPixels": 2.842170943040401e-14,
+  "rotationalSweepRemoved": true,
   "trailHistoryJoinErrorPixels": 0,
-  "scienceMaxPulseStepPixels": 8.917167483306025,
+  "scienceMaxPulseStepPixels": 9.247728325643834,
   "waterfrontMaxPulseStepPixels": 20.418825648242606,
   "tvEntryGlobalFrame": 869,
   "tvEntrySeconds": 28.966666666666665,

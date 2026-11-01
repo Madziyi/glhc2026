@@ -7,8 +7,8 @@ import {RoughWaterfront} from './rough-waterfront';
 import * as THREE from 'three';
 import {productionSciencePath} from './production-science-path.mjs';
 import {productionWaterHeight} from './production-water-height.mjs';
-export function RoughScience({assembled=false,production=false,revision=false}){
- const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null),annotations=useRef(null);
+export function RoughScience({assembled=false,production=false,revision=false,frameOverride=null}){
+ const currentFrame=useCurrentFrame(),f=frameOverride??currentFrame,canvas=useRef(null),world=useRef(null),annotations=useRef(null);
  const sceneFrame=assembled&&!production&&f>201?201+(f-201)*72/117:f;const [handle]=useState(()=>delayRender('rough science sensor reveal'));
  useLayoutEffect(()=>{let disposed=false;setup(canvas.current,true,annotations.current,production,revision).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(sceneFrame);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
  useLayoutEffect(()=>{world.current?.draw(sceneFrame)},[f]);
@@ -23,7 +23,7 @@ export function RoughScience({assembled=false,production=false,revision=false}){
  <div style={{position:'absolute',left:100,top:300,fontFamily:'Google Sans, sans-serif',fontWeight:700,fontSize:100,lineHeight:.98,letterSpacing:'-.055em',color:'#f6f6ed',opacity:title}}>GREAT LAKES<br/>HACKATHON<br/><span style={{color:'#ffd450',fontStyle:'italic'}}>CHALLENGE</span></div>
  <canvas ref={annotations} width={1920} height={1080} style={{position:'absolute',inset:0,width:1920,height:1080}}/>
  <AbsoluteFill style={{background:'#03131f',opacity:production?0:out}}/>
- {production&&f>=280&&<AbsoluteFill style={{opacity:(()=>{const p=Math.max(0,Math.min(1,(f-280)/37));return p*p*(3-2*p)})()}}><RoughWaterfront production silent revision={revision} hidePulse frameOverride={f-318}/></AbsoluteFill>}
+ {production&&f>=(revision?310:280)&&<AbsoluteFill style={{opacity:(()=>{const p=Math.max(0,Math.min(1,(f-(revision?310:280))/(revision?53:37)));return p*p*(3-2*p)})()}}><RoughWaterfront production silent revision={revision} hidePulse frameOverride={f-(revision?364:318)}/></AbsoluteFill>}
 
  {revision&&<GoldStoryPulse scene="science" f={f}/>}
  </AbsoluteFill>

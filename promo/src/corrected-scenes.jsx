@@ -12,5 +12,6 @@ const components=[RoughOpening,RoughScience,RoughWaterfront,RoughRoundOne,RoughR
 const maps=timeline.scenes.map(s=>narrationTimeMap(s.from,s.to));
 export function CorrectedScene({index}){
  const f=useCurrentFrame(),Component=components[index];
+ if(index===1)return <Component production revision assembled frameOverride={maps[index](f)}/>;
  return <Freeze frame={maps[index](f)}><Component production revision assembled/></Freeze>;
 }

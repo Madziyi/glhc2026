@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {shapePreservingCurve} from './production-opening-path.mjs';
 import {productionSciencePath} from './production-science-path.mjs';
 import {productionWaterfrontMotion} from './waterfront-motion.mjs';
 const smooth=x=>{const p=Math.max(0,Math.min(1,x));return p*p*p*(p*(p*6-15)+10)};
@@ -16,12 +17,13 @@ export function revisedScienceView(frame){
 export function scienceAnchor(frame,position){const p=revisedScienceView(frame);return project(position,p.camera,p.target,48)}
 export function tvEntry(){const p=productionWaterfrontMotion(125);return project([40,3,-9.67],p.camera,p.target,40)}
 function sciencePoint(frame){const p=revisedScienceView(frame);return project(p.pulse,p.camera,p.target,48)}
+const forwardSwim=shapePreservingCurve([165,225,285,363],[0,.63,.85,1]);
 export function goldStoryPoint(scene,frame){
- if(scene==='waterfront'&&frame<0)return goldStoryPoint('science',Math.max(165,318+frame));
+ if(scene==='waterfront'&&frame<0)return goldStoryPoint('science',Math.max(165,364+frame));
  if(scene==='science'){
   // One continuous path from birth: a long straight swim, then the climb.
   const anchor=sciencePoint(185),start=[anchor[0]-80,anchor[1]],end=aboveDisplay(0);
-  const forward=smooth((frame-165)/105),rise=smooth((frame-225)/45);
+  const forward=forwardSwim(frame),rise=smooth((frame-225)/60);
   return [start[0]+(end[0]-start[0])*forward,start[1]+(end[1]-start[1])*rise];
  }
  if(frame<=85)return aboveDisplay(frame);

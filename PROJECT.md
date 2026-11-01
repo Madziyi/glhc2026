@@ -95,3 +95,5 @@ Promo narration update (organizer2026-11-01): corrected Ashley MP3 is public/aud
 Promo visual follow-up2026-11-01: extended forward gold-pulse swim with an S-shaped climb, levelling off before the waterfront reveal and staying centred above the light/sound displays, lighter green trees, mixed pink/yellow/purple flower beds instead of pointed grasses. Round1 film keeps the December3 deadline calendar only; organizer removed the opening-date calendar.
 
 Promo gold pulse refinement2026-11-01: continuous straight screen-space swim165-225, climb225-270, exact fading history tail; clockwise TV approach ends at125 and first LED letter illumination. Centred high light/sound hold retained.
+
+Promo timing follow-up2026-11-01: underwater dissolve now completes at24s, with1.6s climb and1.9667s high forward glide. Science frameOverride supports extended legacy clock through363; TV cue remains28.9667s.

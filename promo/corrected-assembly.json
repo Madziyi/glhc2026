@@ -4,7 +4,7 @@
   "duration_seconds": 67.4,
   "voiceover": "public/audio/ashley-corrected.mp3",
   "displayed_domain": "raeonhacks.com",
-  "output_file": "glhc-straight-swim-tv-power.mp4",
+  "output_file": "glhc-24s-waterfront-transition.mp4",
   "scenes": [
     {
       "scene": "opening",
@@ -16,18 +16,18 @@
     },
     {
       "scene": "science",
-      "file": "straight-swim-science.mp4",
+      "file": "long-curve-science.mp4",
       "start_frame": 401,
-      "frames": 316,
+      "frames": 319,
       "start_seconds": 13.366666666666667,
-      "end_seconds": 23.9
+      "end_seconds": 24
     },
     {
       "scene": "waterfront",
-      "file": "tv-power-waterfront.mp4",
-      "start_frame": 717,
-      "frames": 226,
-      "start_seconds": 23.9,
+      "file": "24s-waterfront.mp4",
+      "start_frame": 720,
+      "frames": 223,
+      "start_seconds": 24,
       "end_seconds": 31.433333333333334
     },
     {

@@ -10,14 +10,14 @@
     {
       "name": "science",
       "startFrame": 401,
-      "frames": 316,
-      "legacyEnd": 317,
-      "maxLegacyStep": 1.10775292558057
+      "frames": 319,
+      "legacyEnd": 363,
+      "maxLegacyStep": 1.3617005097764263
     },
     {
       "name": "waterfront",
-      "startFrame": 717,
-      "frames": 226,
+      "startFrame": 720,
+      "frames": 223,
       "legacyEnd": 211,
       "maxLegacyStep": 1.8303814450687241
     },
@@ -51,15 +51,18 @@
   "sensorCalloutsStayInFrame": true,
   "straightSwimFrames": 60,
   "straightSwimHeightErrorPixels": 0,
-  "straightSwimDistancePixels": 282.03366163755743,
+  "straightSwimDistancePixels": 281.0888594898089,
   "clockwiseTvApproach": true,
   "previousForwardDistancePixels": 44.3563643322248,
-  "forwardDistancePixels": 423.4775361183846,
-  "forwardDistanceMultiplier": 9.547165158681166,
+  "forwardDistancePixels": 384.07603826086495,
+  "forwardDistanceMultiplier": 8.658871033346495,
   "trailHistoryJoinErrorPixels": 0,
-  "scienceMaxPulseStepPixels": 15.72385042614156,
+  "scienceMaxPulseStepPixels": 11.579861917498256,
   "waterfrontMaxPulseStepPixels": 15.14743303913563,
   "tvEntryGlobalFrame": 869,
   "tvEntrySeconds": 28.966666666666665,
-  "correctedBeCueSeconds": 28.98
+  "correctedBeCueSeconds": 28.98,
+  "climbSeconds": 1.5999999999999943,
+  "highGlideSeconds": 1.9666666666666721,
+  "transitionCompleteSeconds": 24
 }

@@ -4,9 +4,9 @@ const gold='#ffd450';
 export function GoldStoryPulse({scene,f}){
  if(scene==='science'&&f<165)return null;
  if(scene==='waterfront'&&f>141)return null;
- const point=goldStoryPoint(scene,f),time=(scene==='science'?f/30:10.6+f/30),hit=scene==='waterfront'?Math.max(0,Math.min(1,(f-TV_ENTRY_FRAME)/13)):0;
+ const point=goldStoryPoint(scene,f),time=(scene==='science'?f/30:364/30+f/30),hit=scene==='waterfront'?Math.max(0,Math.min(1,(f-TV_ENTRY_FRAME)/13)):0;
  const fade=scene==='waterfront'?1-Math.max(0,Math.min(1,(f-125)/4)):1;
- const ringScale=scene==='waterfront'?.5:1-.5*Math.max(0,Math.min(1,(f-280)/37));
+ const ringScale=scene==='waterfront'?.5:1-.5*Math.max(0,Math.min(1,(f-310)/53));
  const trail=Array.from({length:60},(_,i)=>goldStoryPoint(scene,Math.max(scene==='science'?165:-153,f-i*.9)));
  return <svg width="1920" height="1080" style={{position:'absolute',inset:0,pointerEvents:'none'}}>
  <defs><radialGradient id={`gold-aura-${scene}`}><stop stopColor={gold} stopOpacity=".45"/><stop offset=".3" stopColor={gold} stopOpacity=".12"/><stop offset="1" stopColor={gold} stopOpacity="0"/></radialGradient></defs>

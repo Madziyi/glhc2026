@@ -4,7 +4,7 @@
   "duration_seconds": 67.4,
   "voiceover": "public/audio/ashley-corrected.mp3",
   "displayed_domain": "raeonhacks.com",
-  "output_file": "glhc-long-forward-s-swim.mp4",
+  "output_file": "glhc-centred-high-dot.mp4",
   "scenes": [
     {
       "scene": "opening",
@@ -16,7 +16,7 @@
     },
     {
       "scene": "science",
-      "file": "long-s-swim-science.mp4",
+      "file": "centred-high-science.mp4",
       "start_frame": 401,
       "frames": 316,
       "start_seconds": 13.366666666666667,
@@ -24,7 +24,7 @@
     },
     {
       "scene": "waterfront",
-      "file": "long-s-swim-waterfront.mp4",
+      "file": "centred-high-waterfront.mp4",
       "start_frame": 717,
       "frames": 226,
       "start_seconds": 23.9,

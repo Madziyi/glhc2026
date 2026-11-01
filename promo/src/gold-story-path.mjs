@@ -6,17 +6,23 @@ function project(position,camera,target,fov){
  const c=new THREE.PerspectiveCamera(fov,1920/1080,.015,6000);c.position.set(...camera);c.lookAt(...target);c.updateMatrixWorld();const p=new THREE.Vector3(...position).project(c);return [(p.x+1)*960,(1-p.y)*540];
 }
 function bezier(a,b,c,d,t){const q=1-t;return a.map((_,i)=>q*q*q*a[i]+3*q*q*t*b[i]+3*q*t*t*c[i]+t*t*t*d[i])}
-export const DISPLAY_LEAD_PIXELS=320;
-export function aboveDisplay(frame){const p=productionWaterfrontMotion(frame);const point=project([p.centre,5.5+Math.sin(frame/60)*.15,Math.cos(frame/75)*.7-9.5],p.camera,p.target,40);return [point[0]+DISPLAY_LEAD_PIXELS,point[1]]}
+const initialWaterfront=productionWaterfrontMotion(0);
+const displayHeight=project([0,5.5,-8.8],initialWaterfront.camera,initialWaterfront.target,40)[1];
+export function aboveDisplay(_frame){return [960,displayHeight]}
+export function revisedScienceView(frame){
+ const pose=productionSciencePath(frame/30),pan=1.1*smooth((frame-145)/40)*(1-smooth((frame-195)/122));
+ return {...pose,target:[pose.target[0]+pan,pose.target[1],pose.target[2]]};
+}
+export function scienceAnchor(frame,position){const p=revisedScienceView(frame);return project(position,p.camera,p.target,48)}
 export function tvEntry(){const p=productionWaterfrontMotion(125);return project([40,3,-9.67],p.camera,p.target,40)}
-function sciencePoint(frame){const p=productionSciencePath(frame/30);return project(p.pulse,p.camera,p.target,48)}
+function sciencePoint(frame){const p=revisedScienceView(frame);return project(p.pulse,p.camera,p.target,48)}
 export function goldStoryPoint(scene,frame){
  if(scene==='waterfront'&&frame<0)return goldStoryPoint('science',Math.max(165,318+frame));
  if(scene==='science'){
-  if(frame<=195)return sciencePoint(frame);
-  const start=sciencePoint(195),end=aboveDisplay(0);
+  if(frame<=185)return sciencePoint(frame);
+  const start=sciencePoint(185),end=aboveDisplay(0);
   // Long forward swim with a flat start, sigmoid climb and level finish.
-  const forward=smooth((frame-195)/100),rise=smooth(forward);
+  const forward=smooth((frame-185)/85),rise=smooth(forward);
   return [start[0]+(end[0]-start[0])*forward,start[1]+(end[1]-start[1])*rise];
  }
  if(frame<=85)return aboveDisplay(frame);

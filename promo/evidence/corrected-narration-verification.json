@@ -30,22 +30,22 @@
     {
       "scene": "science",
       "local_frame": 158,
-      "mean_pixel_error": 0.743985982510288
+      "mean_pixel_error": 0.7766681134259259
     },
     {
       "scene": "science",
       "local_frame": 315,
-      "mean_pixel_error": 1.1288594714506173
+      "mean_pixel_error": 1.1508686985596708
     },
     {
       "scene": "waterfront",
       "local_frame": 0,
-      "mean_pixel_error": 1.1761334555041152
+      "mean_pixel_error": 1.1153152327674898
     },
     {
       "scene": "waterfront",
       "local_frame": 113,
-      "mean_pixel_error": 1.1347125771604938
+      "mean_pixel_error": 1.1899307163065844
     },
     {
       "scene": "waterfront",

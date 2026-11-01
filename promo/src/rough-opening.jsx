@@ -7,6 +7,7 @@ import {createOpeningEnvironment} from './opening-environment';
 import {ramp} from './opening';
 import {openingPath,LAUNCH_BOAT_X,LAUNCH_GLIDER_X} from './rough-opening-path.mjs';
 import {productionOpeningPath} from './production-opening-path.mjs';
+import {revisedScienceView} from './gold-story-path.mjs';
 import {productionSciencePath} from './production-science-path.mjs';
 import {Line2} from 'three/addons/lines/Line2.js';
 import {LineGeometry} from 'three/addons/lines/LineGeometry.js';
@@ -102,7 +103,7 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
    const times=[0,1.65,3.8,5.65,6.7,8,9.1];
    camera.position.set(at(local,times,[-5.5,-4,-2.8,.9,1.9,3.5,5]),at(local,times,[2.8,1.7,-1.4,-2,-1.9,-1.8,-1.8]),at(local,times,[7.5,5.4,3.4,3.1,3.4,4,4]));
    camera.lookAt(at(local,times,[0,0,0,0,.5,2.4,5]),at(local,times,[.7,.15,-1.5,-1.7,-1.6,-1.5,-1.5]),0);
-   if(production){const view=productionSciencePath(local);camera.position.set(...view.camera);camera.lookAt(...view.target);}
+   if(production){const view=revision?revisedScienceView(f):productionSciencePath(local);camera.position.set(...view.camera);camera.lookAt(...view.target);}
    const pulsePosition=(v)=>production?new THREE.Vector3(...productionSciencePath(v).pulse):new THREE.Vector3(at(v,[5.5,6.3,7.3,9.1],[0,.2,2.3,6]),at(v,[5.5,6.3,7.3,9.1],[-1.7,-1.7,-1.4,-1.5]),at(v,[5.5,6.3,7.3,9.1],[0,.2,.4,0]));
    signal.visible=local>=5.5;signal.position.copy(pulsePosition(local));
    core.scale.setScalar(1+Math.sin(local*8)*.13);

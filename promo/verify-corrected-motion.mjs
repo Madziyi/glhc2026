@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {narrationTimeMap} from './src/narration-time-map.mjs';
-import {goldStoryPoint,tvEntry,TV_ENTRY_FRAME} from './src/gold-story-path.mjs';
+import {goldStoryPoint,tvEntry,TV_ENTRY_FRAME,scienceAnchor} from './src/gold-story-path.mjs';
 const timeline=JSON.parse(fs.readFileSync(new URL('./src/corrected-timeline.json',import.meta.url)));
 const report={scenes:[],pulseJoinErrorPixels:0,tvEntryErrorPixels:0};
 for(const s of timeline.scenes){
@@ -8,9 +8,15 @@ for(const s of timeline.scenes){
  for(let f=0;f<s.frames;f++){const v=fn(f);if(!Number.isFinite(v)||v<previous-1e-8)throw Error(`Invalid retime ${s.name}:${f}`);maxStep=Math.max(maxStep,v-previous);previous=v;}
  report.scenes.push({name:s.name,startFrame:s.startFrame,frames:s.frames,legacyEnd:previous,maxLegacyStep:maxStep});
 }
-const rise=Array.from({length:123},(_,i)=>goldStoryPoint('science',195+i));
+const rise=Array.from({length:133},(_,i)=>goldStoryPoint('science',185+i));
 for(let i=1;i<rise.length;i++)if(rise[i][1]>rise[i-1][1]+1e-6)throw Error('Rising dot reversed downward');
-const targetHeight=goldStoryPoint('waterfront',0)[1];report.topHoldMaxHeightErrorPixels=Math.max(...rise.slice(100).map(p=>Math.abs(p[1]-targetHeight)));if(report.topHoldMaxHeightErrorPixels>1e-6)throw Error('Dot did not hold display height');
+const targetHeight=goldStoryPoint('waterfront',0)[1];report.topHoldMaxHeightErrorPixels=Math.max(...rise.slice(85).map(p=>Math.abs(p[1]-targetHeight)));if(report.topHoldMaxHeightErrorPixels>1e-6)throw Error('Dot did not hold display height');
+report.riseCompleteBeforeDisplay=true;
+for(let frame=270;frame<318;frame++)if(Math.abs(goldStoryPoint('science',frame)[1]-targetHeight)>1e-6)throw Error('Rise not finished before display reveal');
+report.maxDisplayCentreErrorPixels=Math.max(...Array.from({length:86},(_,f)=>Math.abs(goldStoryPoint('waterfront',f)[0]-960)));
+if(report.maxDisplayCentreErrorPixels>1e-6)throw Error('Display dot off centre');
+for(const [point,a,b]of [[[.65,-.35,.3],91,191],[[-.12,-1.5,.22],111,201]])for(let f=a;f<=b;f++){const p=scienceAnchor(f,point);if(p[0]<48||p[0]>1872||p[1]<48||p[1]>1032)throw Error(`Callout out of frame ${f}:${p}`);}
+report.sensorCalloutsStayInFrame=true;
 report.rotationalSweepRemoved=true;
 report.previousForwardDistancePixels=44.3563643322248;report.forwardDistancePixels=rise.at(-1)[0]-rise[0][0];report.forwardDistanceMultiplier=report.forwardDistancePixels/report.previousForwardDistancePixels;
 if(report.forwardDistanceMultiplier<2)throw Error('Forward swim must be at least twice previous distance');

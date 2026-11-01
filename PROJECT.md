@@ -89,3 +89,5 @@ CTA wording (2026-10-23): both header and ending links display “Attend the inf
 Submission dates (organizer-supplied2026-10-23): hero displays “Idea Submissions OPEN: Nov 5th.” and “Idea Submissions CLOSE: Dec 3rd.” on separate lines beneath the description. No year, timezone or cutoff time was supplied; do not infer them. Dates and description share one responsive content group to preserve hero layout.
 
 Promo film CTA correction (organizer2026-10-30): use raeonhacks.com, superseding prior .ca direction. Supplied reference narration remains unchanged and still says .ca; correct that spoken domain in final audio. This does not change website registration destinations.
+
+Promo narration update (organizer2026-11-01): corrected Ashley MP3 is public/audio/ashley-corrected.mp3 for the revised film, including spoken.com. Music/SFX deferred. Revised film removes opening benefit-caption overlays; travelling dot/trail are gold, rise into above-display view and terminate in LED to trigger BE CREATIVE. Website copy/registration destinations remain separate. See promo/CORRECTED-NARRATION.md.

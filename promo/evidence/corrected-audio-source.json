@@ -1,0 +1,8 @@
+{
+  "sourceFilename": "ElevenLabs_2026-11-01T05_54_00_Ashley_pvc_sp100_s50_sb75_v4.mp3",
+  "workspaceCopy": "public/audio/ashley-corrected.mp3",
+  "sha256": "0653f102d9400fcd561fabe1694dc007039e87840261726be28defa4f0f66425",
+  "byteIdentical": true,
+  "musicAndEffectsIncluded": false,
+  "transcriptionMethod": "local faster-whisper base.en automatic word timings; not manual listening"
+}

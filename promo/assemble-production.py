@@ -1,9 +1,9 @@
 """Stitch reviewed scene exports, replacing their sliced audio with the original full recording."""
-import json,subprocess
+import json,subprocess,sys
 from pathlib import Path
 import imageio_ffmpeg
 root=Path(__file__).resolve().parent
-plan=json.loads((root/'production-assembly.json').read_text())
+plan=json.loads((root/(sys.argv[1] if len(sys.argv)>1 else 'production-assembly.json')).read_text())
 command=[imageio_ffmpeg.get_ffmpeg_exe(),'-y','-v','warning']
 filters=[]
 for i,scene in enumerate(plan['scenes']):

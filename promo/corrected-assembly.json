@@ -1,0 +1,60 @@
+{
+  "fps": 30,
+  "total_frames": 2022,
+  "duration_seconds": 67.4,
+  "voiceover": "public/audio/ashley-corrected.mp3",
+  "displayed_domain": "raeonhacks.com",
+  "output_file": "glhc-corrected-voiceover-gold-final.mp4",
+  "scenes": [
+    {
+      "scene": "opening",
+      "file": "synced-gold-opening.mp4",
+      "start_frame": 0,
+      "frames": 401,
+      "start_seconds": 0.0,
+      "end_seconds": 13.366666666666667
+    },
+    {
+      "scene": "science",
+      "file": "synced-gold-science.mp4",
+      "start_frame": 401,
+      "frames": 316,
+      "start_seconds": 13.366666666666667,
+      "end_seconds": 23.9
+    },
+    {
+      "scene": "waterfront",
+      "file": "synced-gold-waterfront.mp4",
+      "start_frame": 717,
+      "frames": 226,
+      "start_seconds": 23.9,
+      "end_seconds": 31.433333333333334
+    },
+    {
+      "scene": "round1",
+      "file": "synced-gold-round1.mp4",
+      "start_frame": 943,
+      "frames": 392,
+      "start_seconds": 31.433333333333334,
+      "end_seconds": 44.5
+    },
+    {
+      "scene": "round2",
+      "file": "synced-gold-round2.mp4",
+      "start_frame": 1335,
+      "frames": 427,
+      "start_seconds": 44.5,
+      "end_seconds": 58.733333333333334
+    },
+    {
+      "scene": "closing",
+      "file": "synced-gold-closing.mp4",
+      "start_frame": 1762,
+      "frames": 260,
+      "start_seconds": 58.733333333333334,
+      "end_seconds": 67.4
+    }
+  ],
+  "reference_spoken_domain_pending_correction": false,
+  "evidence_prefix": "corrected-narration"
+}

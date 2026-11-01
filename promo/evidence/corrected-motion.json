@@ -1,0 +1,54 @@
+{
+  "scenes": [
+    {
+      "name": "opening",
+      "startFrame": 0,
+      "frames": 401,
+      "legacyEnd": 404,
+      "maxLegacyStep": 1.039752205037587
+    },
+    {
+      "name": "science",
+      "startFrame": 401,
+      "frames": 316,
+      "legacyEnd": 317,
+      "maxLegacyStep": 1.10775292558057
+    },
+    {
+      "name": "waterfront",
+      "startFrame": 717,
+      "frames": 226,
+      "legacyEnd": 211,
+      "maxLegacyStep": 1.8303814450687241
+    },
+    {
+      "name": "round1",
+      "startFrame": 943,
+      "frames": 392,
+      "legacyEnd": 394,
+      "maxLegacyStep": 1.7108719554809682
+    },
+    {
+      "name": "round2",
+      "startFrame": 1335,
+      "frames": 427,
+      "legacyEnd": 436,
+      "maxLegacyStep": 1.2651975085334044
+    },
+    {
+      "name": "closing",
+      "startFrame": 1762,
+      "frames": 260,
+      "legacyEnd": 290,
+      "maxLegacyStep": 1.4617851101313022
+    }
+  ],
+  "pulseJoinErrorPixels": 0,
+  "tvEntryErrorPixels": 0,
+  "trailHistoryJoinErrorPixels": 0,
+  "scienceMaxPulseStepPixels": 8.273742914348384,
+  "waterfrontMaxPulseStepPixels": 20.418825648242606,
+  "tvEntryGlobalFrame": 869,
+  "tvEntrySeconds": 28.966666666666665,
+  "correctedBeCueSeconds": 28.98
+}

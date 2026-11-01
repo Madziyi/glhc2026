@@ -13,14 +13,14 @@ function Resource({index,f}){const a=ramp(f,64+index*19,78+index*19),converge=ra
  <g transform="translate(43 0) rotate(-15)"><path d="M-6-62L-9-46L-5-38V13H5V-38L9-46L6-62Z" fill="#b8c8c7"/><rect x="-16" y="9" width="32" height="57" rx="11" fill={gold}/><path d="M-5 22V52M5 22V52" fill="none" strokeWidth="3"/></g>
  </g>:<g fill="none" stroke={ink} strokeWidth="4"><path d="M-62-55H48Q65-55 65-38V10Q65 28 45 28H-8L-38 58V28H-62Z"/><path d="M-31-13L-8 10L33-29" stroke="#67aaa5" strokeWidth="8"/></g>}
  </g>}
-export function RoughRoundTwo({production=false}){
+export function RoughRoundTwo({production=false,revision=false}){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('Round2 building and showcase'));
  useLayoutEffect(()=>{world.current=setupInstallations(canvas.current,true,true,true,false,production);world.current.draw(Math.min(123,f*.28),f+45);continueRender(handle);return()=>world.current?.dispose()},[]);
  useLayoutEffect(()=>{world.current?.draw(Math.min(123,f*.28),f+45)},[f]);
  const fan=ramp(f,7,38),select=ramp(f,46,65),paperOut=ramp(f,154,191);
  return <AbsoluteFill style={{background:paper,overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
- <Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={1330}/>
+ {!revision&&<Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={1330}/>}
  <canvas ref={canvas} style={{width:1920,height:1080}}/>
  <AbsoluteFill style={{background:paper,opacity:1-paperOut}}/>
  <svg width="1920" height="1080" style={{position:'absolute',inset:0}} viewBox="0 0 1920 1080">

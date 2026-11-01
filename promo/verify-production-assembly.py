@@ -1,11 +1,12 @@
 """Decode the complete production cut, inspect scene boundaries and compare continuous narration."""
-import json,subprocess
+import json,subprocess,sys
 from pathlib import Path
 import cv2,numpy as np,imageio_ffmpeg
 from PIL import Image,ImageDraw
 from scipy.signal import correlate,correlation_lags
 root=Path(__file__).resolve().parent
-plan=json.loads((root/'production-assembly.json').read_text())
+plan=json.loads((root/(sys.argv[1] if len(sys.argv)>1 else 'production-assembly.json')).read_text())
+prefix=plan.get('evidence_prefix','assembled-production')
 video=root/'out'/plan.get('output_file','glhc-production-full.mp4')
 capture=cv2.VideoCapture(str(video));decoded=0
 while capture.read()[0]:decoded+=1
@@ -26,11 +27,11 @@ for i,t in enumerate(times):
     capture.set(cv2.CAP_PROP_POS_MSEC,t*1000);ok,frame=capture.read();assert ok
     image=Image.fromarray(cv2.cvtColor(frame,cv2.COLOR_BGR2RGB));image.thumbnail((480,270));x=i%3*480;y=i//3*300
     sheet.paste(image,(x,y));draw.text((x+12,y+278),f'{t}s',fill='white')
-sheet.save(root/'evidence/assembled-production-review.jpg')
+sheet.save(root/f'evidence/{prefix}-review.jpg')
 ffmpeg=imageio_ffmpeg.get_ffmpeg_exe()
 def pcm(path):return np.frombuffer(subprocess.check_output([ffmpeg,'-v','error','-i',str(path),'-f','f32le','-ac','1','-ar','16000','-']),dtype=np.float32)
 a=pcm(root/plan['voiceover']);b=pcm(video);cross=correlate(b,a,method='fft');lag=int(correlation_lags(len(b),len(a))[np.argmax(cross)])
 aa=a[max(0,-lag):];bb=b[max(0,lag):];length=min(len(aa),len(bb));score=float(np.corrcoef(aa[:length],bb[:length])[0,1]);assert score>.97,score
-result=dict(decoded_frames=decoded,duration_seconds=decoded/30,fps=30,dimensions=[1920,1080],scene_samples=errors,continuous_audio_correlation_to_source=score,codec_delay_seconds=lag/16000,displayed_domain='raeonhacks.com',reference_spoken_domain_pending_correction=True)
-(root/'evidence/assembled-production-verification.json').write_text(json.dumps(result,indent=2))
+result=dict(decoded_frames=decoded,duration_seconds=decoded/30,fps=30,dimensions=[1920,1080],scene_samples=errors,continuous_audio_correlation_to_source=score,codec_delay_seconds=lag/16000,displayed_domain='raeonhacks.com',reference_spoken_domain_pending_correction=plan.get("reference_spoken_domain_pending_correction",True))
+(root/f'evidence/{prefix}-verification.json').write_text(json.dumps(result,indent=2))
 print(json.dumps({k:v for k,v in result.items() if k!='scene_samples'}))

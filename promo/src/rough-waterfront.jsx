@@ -1,18 +1,20 @@
 import React,{useLayoutEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Audio,staticFile,useCurrentFrame,delayRender,continueRender,interpolate,Easing} from 'remotion';
+import {GoldStoryPulse} from './gold-story-pulse';
 import {setupInstallations} from './section2';
 import {ramp} from './opening';
 // Three scenic shots, mapped to the existing installation choreography.
 const sceneFrame=f=>f<61?interpolate(f,[0,60],[0,123]):f<103?interpolate(f,[61,102],[124,241]):interpolate(f,[103,211],[242,359]);
-export function RoughWaterfront({production=false,frameOverride=null,silent=false}){
+export function RoughWaterfront({production=false,frameOverride=null,silent=false,revision=false,hidePulse=false}){
  const timelineFrame=useCurrentFrame(),f=frameOverride??timelineFrame,canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('three waterfront moments'));
- useLayoutEffect(()=>{world.current=setupInstallations(canvas.current,true,true,false,false,production);world.current.draw(sceneFrame(f),f+45);continueRender(handle);return()=>world.current?.dispose()},[]);
+ useLayoutEffect(()=>{world.current=setupInstallations(canvas.current,true,true,false,false,production,revision);world.current.draw(sceneFrame(f),f+45);continueRender(handle);return()=>world.current?.dispose()},[]);
  useLayoutEffect(()=>{world.current?.draw(sceneFrame(f),f+45)},[f]);
  const sketch=ramp(f,198,211);
  return <AbsoluteFill style={{background:'#a5c4cc',overflow:'hidden'}}>
- {!silent&&<Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={723}/>}
+ {!silent&&!revision&&<Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={723}/>}
  <canvas ref={canvas} style={{width:1920,height:1080}}/>
 
+ {revision&&!hidePulse&&<GoldStoryPulse scene="waterfront" f={f}/>}
  {f>197&&<AbsoluteFill style={{opacity:sketch,background:'#f1eee2'}}></AbsoluteFill>}
  </AbsoluteFill>
 }

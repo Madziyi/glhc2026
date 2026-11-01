@@ -1,11 +1,11 @@
-# Active Initiative - GLHC-004 opening sound direction
+# Active Initiative - GLHC-004 corrected narration and gold story pulse
 
-Status: two opening sound prototypes complete; organizer audition/selection pending. Main8b4e7d9 fetched ancestor.
+Status: complete, organizer review pending. Main8b4e7d9 fetched ancestor.
 
-A120BPM bright electronic; B108BPM cinematic electronic. Original procedural synth and noise-based physical-effect sketches, not external generated music/recordings. Lake/launch/splash/underwater/surface layers, music breath on This is, title drop11.18s on Great. Full approved film remains unchanged. Source picture glhc-production-above-display-dot.mp4. Notes promo/SOUND-DESIGN.md.
+Corrected Ashley recording is active; no music/SFX. Removed opening CASH PRIZES and tourist-feature overlays. Gold pulse/trail rises underwater into identical high display position, keeps trail history across dissolve, then enters LED to start BE CREATIVE. Travelling dot ends there. New2022-frame timeline retimes all six scenes with natural endpoint speed to narration cues; prior scenes/assets retained. Notes promo/CORRECTED-NARRATION.md.
 
-Verified both468-frame1920x1080/30FPS15.6s previews and48kHz24-bit audio. Integrated loudness A-15.99LUFS/B-16.00LUFS, true peaks-2.50/-2.62dBTP. Four picture samples per variant match approved source (worst mean RGB error0.7052/255). Title accent scheduled11.18s. Diff check passed. Evidence promo/evidence/opening-sound-verification.json and opening-sound-cues.json. No manual listening/perceptual QA claim; organizer audition required.
+Verified2022/2022 frames1920x1080/30FPS67.4s;18 scene/source samples match final exports (worst mean RGB error1.1607/255). Twelve story-detail and12 full-cut moments visually inspected. Corrected audio copy byte-identical to supplied MP3; continuous audio correlation0.999998689, zero measured lag, no music/SFX. Monotonic cue maps pass; science/display core join, trail history and TV endpoint errors0px. TV arrival global869/28.9667s vs Be28.98s (within1frame). Opening captions absent; gold enters screen and lettering follows. Final .com recording used; pending spoken-domain correction resolved. Diff check passed. No manual listening/playback or deployment claim.
 
-Artifacts: promo/out/opening-sound-A-bright-electronic.mp4 and opening-sound-B-cinematic-electronic.mp4; editable stems/mixes in promo/out/sound-prototypes. Rebuild build-opening-sound.py; verification verify-opening-sound.py.
+Artifact: promo/out/glhc-corrected-voiceover-gold-final.mp4. Manifest promo/corrected-assembly.json; evidence corrected-motion.json, corrected-audio-source.json, corrected-story-review.jpg, corrected-narration-verification.json/review.jpg and ashley-corrected-timing.json.
 
-Next: organizer chooses A/B/combination before full-film sound pass. Runway music/SFX integration suggested but unconnected, no service credits used. Existing spoken.ca->.com correction remains. Website/live infrastructure unchanged.
+Next: organizer reviews corrected full video. Music/SFX explicitly deferred. Website/shared GLB/live infrastructure unchanged.

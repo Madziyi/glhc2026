@@ -19,7 +19,7 @@ import {productionWaterHeight} from './production-water-height.mjs';
 
 const smooth=Easing.bezier(.4,0,.3,1);
 const at=(t,keys,values)=>interpolate(t,keys,values,{easing:smooth,extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-export async function setup(canvas,science=false,annotationCanvas=null,production=false){
+export async function setup(canvas,science=false,annotationCanvas=null,production=false,revision=false){
  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,preserveDrawingBuffer:true});renderer.setSize(1920,1080);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1920/1080,production ? .015 : .08,6000);
  const environment=createOpeningEnvironment(scene,{production});scene.fog=new THREE.FogExp2('#aec5ce',.006);
@@ -112,6 +112,7 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
    trailGeo.computeBoundingSphere();
 
   }
+  if(revision){signal.visible=false;trail.visible=false;}
   const waterLevel=production?productionWaterHeight(camera.position.x,camera.position.z,t):0;
   const under=1-THREE.MathUtils.smoothstep(camera.position.y-waterLevel,production?-.12:-.25,production ? .14 : .2);scene.fog.color.copy(air).lerp(underwater,under);scene.fog.density=.006+under*.035;environment.sky.material.uniforms.uUnder.value=under;environment.sky.material.uniforms.uTime.value=t;environment.water.material.uniforms.uTime.value=t*1.25;environment.water.material.uniforms.uUnder.value=under;
   bubbles.forEach((b,i)=>{const p=(t*.6+i/28)%1;b.visible=!production&&t>2.3&&t<6.7;b.position.set(LAUNCH_GLIDER_X+Math.sin(i*2.1)*.45,-1.7+p*2.2,Math.cos(i*1.4)*.4)});
@@ -139,19 +140,19 @@ export async function setup(canvas,science=false,annotationCanvas=null,productio
  }
  return {draw,dispose:()=>{deployment?.dispose();scene.traverse(o=>{o.geometry?.dispose();if(o.material){const list=Array.isArray(o.material)?o.material:[o.material];list.forEach(m=>m.dispose())}});environment.environment.dispose();renderer.dispose()}};
 }
-export function RoughOpening({production=false}){
+export function RoughOpening({production=false,revision=false}){
  const f=useCurrentFrame(),canvas=useRef(null),world=useRef(null);const [handle]=useState(()=>delayRender('rough glider scene and reviewed buoy'));
- useLayoutEffect(()=>{let disposed=false;setup(canvas.current,false,null,production).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
+ useLayoutEffect(()=>{let disposed=false;setup(canvas.current,false,null,production,revision).then(w=>{if(disposed){w.dispose();return}world.current=w;w.draw(f);continueRender(handle)}).catch(cancelRender);return()=>{disposed=true;world.current?.dispose()}},[]);
  useLayoutEffect(()=>{world.current?.draw(f)},[f]);
  const cameraPose=production?productionOpeningPath(f/30).camera:[0,1,0];
  const cameraY=cameraPose[1]-(production?productionWaterHeight(cameraPose[0],cameraPose[2],f/30):0);
  const crossing=production?Math.exp(-cameraY*cameraY/.0225):0;
  const submersion=production?1-THREE.MathUtils.smoothstep(cameraY,-.25,.2):0;
- const featured=production?ramp(f,201,217)*(1-ramp(f,286,302)):0;
- const title=ramp(f,315,335);const prize=ramp(f,136,148)*(1-ramp(f,185,196));
+ const featured=production&&!revision?ramp(f,201,217)*(1-ramp(f,286,302)):0;
+ const title=ramp(f,315,335);const prize=revision?0:ramp(f,136,148)*(1-ramp(f,185,196));
  return <AbsoluteFill style={{background:'#0a3d50',overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
- <Audio src={staticFile('audio/ashley-reference.mp3')}/>
+ {!revision&&<Audio src={staticFile('audio/ashley-reference.mp3')}/>}
  <canvas ref={canvas} style={{width:1920,height:1080,filter:crossing>.01?`blur(${crossing*.7}px)`:'none'}}/>
  {production&&<AbsoluteFill style={{background:'radial-gradient(ellipse at 52% 34%,transparent 25%,rgba(0,13,27,.27) 100%)',opacity:submersion}}/>}
  <AbsoluteFill style={{background:'linear-gradient(90deg,rgba(0,20,35,.35),transparent 65%)',opacity:Math.max(title,prize,featured)}}/>

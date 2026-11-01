@@ -6,14 +6,14 @@ import {FoldedProposal,SubmissionEnvelope} from './paper-submission';
 import {ProductionLightSketch} from './production-light-sketch';
 const paper='#f1eee2',ink='#183c47',gold='#dfbd42';
 function Draw({d,f,start=0,duration=30,color=ink,width=4,...rest}){return <path d={d} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round" pathLength="1" strokeDasharray="1" strokeDashoffset={1-ramp(f,start,start+duration)} {...rest}/>}
-export function RoughRoundOne({production=false}){
+export function RoughRoundOne({production=false,revision=false}){
  const f=useCurrentFrame();
  const enter=ramp(f,0,22),submit=ramp(f,342,385);
  const pageX=submit*540,pageY=submit*-60,pageScale=1-submit*.67;
  const sketchTime=20+Math.max(0,f-12)*.25;
  return <AbsoluteFill style={{background:paper,overflow:'hidden'}}>
  <style>{`@font-face{font-family:'Google Sans';src:url('${staticFile('google-sans-latin.woff2')}') format('woff2');font-weight:100 900}`}</style>
- <Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={935}/>
+ {!revision&&<Audio src={staticFile('audio/ashley-reference.mp3')} trimBefore={935}/>}
  <svg width="1920" height="1080" viewBox="0 0 1920 1080">
  <defs><radialGradient id="sheet-light"><stop stopColor="#fffef7"/><stop offset="1" stopColor="#f5f1e5"/></radialGradient><filter id="paper-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="8" dy="14" stdDeviation="15" floodColor="#243c45" floodOpacity=".13"/></filter><pattern id="round-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke={ink} strokeWidth=".5" opacity=".07" fill="none"/></pattern></defs>
  <path d="M-100 630 Q650 620 900 540 Q1000 440 1100 540 Q1200 620 1290 530" fill="none" stroke="#123544" strokeWidth="3" opacity={production?0:1-ramp(f,8,30)}/>

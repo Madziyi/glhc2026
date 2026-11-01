@@ -19,13 +19,12 @@ function sciencePoint(frame){const p=revisedScienceView(frame);return project(p.
 export function goldStoryPoint(scene,frame){
  if(scene==='waterfront'&&frame<0)return goldStoryPoint('science',Math.max(165,318+frame));
  if(scene==='science'){
-  if(frame<=185)return sciencePoint(frame);
-  const start=sciencePoint(185),end=aboveDisplay(0);
-  // Long forward swim with a flat start, sigmoid climb and level finish.
-  const forward=smooth((frame-185)/85),rise=smooth(forward);
+  // One continuous path from birth: a long straight swim, then the climb.
+  const anchor=sciencePoint(185),start=[anchor[0]-80,anchor[1]],end=aboveDisplay(0);
+  const forward=smooth((frame-165)/105),rise=smooth((frame-225)/45);
   return [start[0]+(end[0]-start[0])*forward,start[1]+(end[1]-start[1])*rise];
  }
  if(frame<=85)return aboveDisplay(frame);
- const a=aboveDisplay(85),d=tvEntry();return bezier(a,[a[0],a[1]+60],[d[0],d[1]-90],d,smooth((frame-85)/40));
+ const a=aboveDisplay(85),d=tvEntry();return bezier(a,[a[0]+210,a[1]],[d[0]+210,d[1]],d,smooth((frame-85)/40));
 }
 export const TV_ENTRY_FRAME=125;

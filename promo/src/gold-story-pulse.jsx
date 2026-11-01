@@ -11,7 +11,7 @@ export function GoldStoryPulse({scene,f}){
  return <svg width="1920" height="1080" style={{position:'absolute',inset:0,pointerEvents:'none'}}>
  <defs><radialGradient id={`gold-aura-${scene}`}><stop stopColor={gold} stopOpacity=".45"/><stop offset=".3" stopColor={gold} stopOpacity=".12"/><stop offset="1" stopColor={gold} stopOpacity="0"/></radialGradient></defs>
  <g opacity={fade}>
- <polyline points={trail.map(p=>p.join(',')).join(' ')} stroke={gold} strokeWidth="1.5" opacity=".75" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+ {trail.slice(1).map((p,i)=><line key={i} x1={trail[i][0]} y1={trail[i][1]} x2={p[0]} y2={p[1]} stroke={gold} strokeWidth="1.5" opacity={.75*(1-i/59)} strokeLinecap="round"/>)}
  <circle cx={point[0]} cy={point[1]} r="55" fill={`url(#gold-aura-${scene})`}/>
  <circle cx={point[0]} cy={point[1]} r={(scene==='science'?14:14)*(1+Math.sin(time*8)*.13)} fill={gold}/>
  {[0,1,2].map(i=>{const phase=((time*1.3+i/3)%1+1)%1;return <circle key={i} cx={point[0]} cy={point[1]} r={ringScale*(20+phase*50)} fill="none" stroke={gold} strokeWidth="1.5" opacity={(1-phase)*.6}/>})}

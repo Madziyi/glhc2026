@@ -17,7 +17,13 @@ report.maxDisplayCentreErrorPixels=Math.max(...Array.from({length:86},(_,f)=>Mat
 if(report.maxDisplayCentreErrorPixels>1e-6)throw Error('Display dot off centre');
 for(const [point,a,b]of [[[.65,-.35,.3],91,191],[[-.12,-1.5,.22],111,201]])for(let f=a;f<=b;f++){const p=scienceAnchor(f,point);if(p[0]<48||p[0]>1872||p[1]<48||p[1]>1032)throw Error(`Callout out of frame ${f}:${p}`);}
 report.sensorCalloutsStayInFrame=true;
-report.rotationalSweepRemoved=true;
+report.straightSwimFrames=60;
+const straight=Array.from({length:61},(_,f)=>goldStoryPoint('science',165+f));
+report.straightSwimHeightErrorPixels=Math.max(...straight.map(p=>Math.abs(p[1]-straight[0][1])));
+if(report.straightSwimHeightErrorPixels>1e-6)throw Error('Straight swim bends');
+report.straightSwimDistancePixels=straight.at(-1)[0]-straight[0][0];
+report.clockwiseTvApproach=goldStoryPoint('waterfront',100)[0]>960;
+if(!report.clockwiseTvApproach)throw Error('TV approach must turn clockwise');
 report.previousForwardDistancePixels=44.3563643322248;report.forwardDistancePixels=rise.at(-1)[0]-rise[0][0];report.forwardDistanceMultiplier=report.forwardDistancePixels/report.previousForwardDistancePixels;
 if(report.forwardDistanceMultiplier<2)throw Error('Forward swim must be at least twice previous distance');
 for(let i=1;i<rise.length;i++)if(rise[i][0]<rise[i-1][0]-1e-6)throw Error('Forward swim reversed');

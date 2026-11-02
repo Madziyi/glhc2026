@@ -99,3 +99,5 @@ Promo gold pulse refinement2026-11-01: continuous straight screen-space swim165-
 Promo timing follow-up2026-11-01: underwater dissolve now completes at24s, with1.6s climb and1.9667s high forward glide. Science frameOverride supports extended legacy clock through363; TV cue remains28.9667s.
 
 Promo selective-caption direction2026-11-01: use sparse white/gold kinetic keyword captions, excluding competition reveal and adding funding/resources/mentorship labels. Editable cue layer preserves master/audio. See promo/SELECTIVE-CAPTIONS.md.
+
+Portrait promo2026-11-01: separate1080x1920 editorial adaptation uses tracked3D footage and vertically restacked proposal/deadline, two-column10 proposals, support rows and portrait end card. Caption cues shared; clean24s-transition master/audio/timing retained. See promo/PORTRAIT.md for resampling boundary.

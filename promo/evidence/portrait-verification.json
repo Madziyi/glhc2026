@@ -1,0 +1,96 @@
+{
+  "decoded_frames": 2022,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "fps": 30,
+  "duration_seconds": 67.4,
+  "audio_packet_hash": "MD5=b6ebfdfafdf3e5e3b00e3762599ac06f",
+  "reframed_samples": [
+    {
+      "seconds": 0.7,
+      "mean_pixel_error": 1.674891010802469
+    },
+    {
+      "seconds": 2.5,
+      "mean_pixel_error": 1.6093045910493826
+    },
+    {
+      "seconds": 5.5,
+      "mean_pixel_error": 1.131510898919753
+    },
+    {
+      "seconds": 8,
+      "mean_pixel_error": 1.0038565779320987
+    },
+    {
+      "seconds": 11.5,
+      "mean_pixel_error": 1.4930656828703703
+    },
+    {
+      "seconds": 16,
+      "mean_pixel_error": 1.4036715534979425
+    },
+    {
+      "seconds": 19,
+      "mean_pixel_error": 1.4566550925925925
+    },
+    {
+      "seconds": 22.8,
+      "mean_pixel_error": 1.0510358796296295
+    },
+    {
+      "seconds": 24.5,
+      "mean_pixel_error": 1.7304044495884774
+    },
+    {
+      "seconds": 26.8,
+      "mean_pixel_error": 1.7338027263374485
+    },
+    {
+      "seconds": 29.8,
+      "mean_pixel_error": 1.563944508744856
+    },
+    {
+      "seconds": 34,
+      "mean_pixel_error": 1.4077162101337448
+    },
+    {
+      "seconds": 40,
+      "mean_pixel_error": 1.4685419881687243
+    },
+    {
+      "seconds": 43,
+      "mean_pixel_error": 1.2503829089506173
+    },
+    {
+      "seconds": 45.8,
+      "mean_pixel_error": 1.5077276234567902
+    },
+    {
+      "seconds": 48,
+      "mean_pixel_error": 1.4892898019547325
+    },
+    {
+      "seconds": 53,
+      "mean_pixel_error": 1.6738337512860082
+    },
+    {
+      "seconds": 59.3,
+      "mean_pixel_error": 1.8067798353909466
+    },
+    {
+      "seconds": 65.5,
+      "mean_pixel_error": 1.0558545524691358
+    },
+    {
+      "seconds": 67,
+      "mean_pixel_error": 1.0557309349279835
+    }
+  ],
+  "caption_cues": 14,
+  "underwater_transition_end_seconds": 24,
+  "tv_cue_seconds": 28.966666666666665,
+  "method": "scene-aware subject tracking and portrait paper/resource/end-card recomposition"
+}

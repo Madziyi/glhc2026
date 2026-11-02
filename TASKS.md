@@ -162,3 +162,5 @@ Production spacing48->20 units, transition intervals48 frames; peak camera trave
 - `[verified; organizer review pending]` GLHC-004 extend climb/high glide and underwater dissolve through24s; retain TV cue.
 
 - `[verified; organizer review pending]` GLHC-004 selective kinetic captions:14 cues, no competition reveal, funding/resources/mentorship added; audio packet-identical.
+
+- `[verified; organizer review pending]` GLHC-0041080x1920 portrait editorial adaptation with tracking, stacked proposal/deadline/resources, two-column top10 and reflowed keyword captions.

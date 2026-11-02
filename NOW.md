@@ -1,7 +1,7 @@
-# Active Initiative - GLHC-004 selective kinetic captions
+# Active Initiative - GLHC-004 portrait adaptation
 
 Status: complete; organizer review pending. Main fetched ancestor.
 
-Fourteen selected keyword captions added over verified24s-transition master. Excludes competition reveal; includes funding/resources/mentorship on spoken funding/equipment/expert-support beats. White/gold bold typography, quick upward entrance/scale settle, lower-centre safe placement. Editable cue JSON and Python ASS renderer; underlying source master preserved.
+Separate9:16 editorial adaptation of approved clean24s-transition master. Scene-specific3D subject tracking, portrait proposal/deadline layout, two-column10 proposals, stacked support rows, portrait event/map/URL end card and shared selective caption cues. Fullbleed3D resamples landscape footage; not native portrait3D rerender. Original master preserved.
 
-Verified2022-frame1920x1080/30FPS67.4s decode,14 caption bounds,6 uncaptioned source comparisons, identical AAC packet hash. Fourteen rendered cue moments visually inspected; diff check passed. Artifact promo/out/glhc-selective-captions.mp4. No music/SFX/manual listening/playback/deployment claim. Next: organizer caption review. Website/live unchanged.
+Twenty preview moments visually inspected.67.4s/2022-frame30FPS timing and corrected narration remain; no music/SFX. Verified2022 decoded frames1080x1920/30FPS67.4s,20 reconstructed-frame comparisons and identical AAC packet MD5b6ebfdfafdf3e5e3b00e3762599ac06f. Twenty final rendered moments visually inspected; diff check passed. Artifact promo/out/glhc-portrait-9x16.mp4. Next: organizer portrait review. No device playback/listening/upload claim. Website/live unchanged.

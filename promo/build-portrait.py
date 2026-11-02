@@ -6,10 +6,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parent
 SOURCE=ROOT/'out/glhc-24s-waterfront-transition.mp4'
-OUTPUT=ROOT/'out/glhc-portrait-9x16.mp4'
+OUTPUT=ROOT/'out/glhc-portrait-9x16-no-captions.mp4'
 W,H=1080,1920
 PAPER=(241,238,226); INK=(24,60,71); GOLD=(255,212,80)
-CUES=json.loads((ROOT/'caption-cues.json').read_text())['cues']
+CUES=[]  # Organizer requested no keyword captions in the portrait version.
 def ease(v):
     p=max(0,min(1,v));return p*p*(3-2*p)
 def font(n):return ImageFont.truetype('C:/Windows/Fonts/arialbd.ttf',n)
@@ -85,17 +85,6 @@ def frame(a,t):
         alpha=ease((t-10.5)/.65)*(1-ease((t-13.7)/.4))
         overlay=Image.new('RGB',(W,H),(5,38,56));text(overlay,['GREAT LAKES','HACKATHON'],260,97);text(overlay,['CHALLENGE'],485,97,GOLD)
         mask=Image.new('L',(W,H),0);ImageDraw.Draw(mask).rectangle((0,175,W,650),fill=int(245*alpha));im.paste(overlay,(0,0),mask)
-    # Keyword captions are reflowed and kept clear of common social app controls.
-    for c in CUES:
-        if c['start']<=t<c['end']:
-            words=c['text'].split();lines=[c['text']]
-            if len(c['text'])>18:
-                n=(len(words)+1)//2;lines=[' '.join(words[:n]),' '.join(words[n:])]
-            y=(1460 if not(31.43<t<50.6) else 330)+int(28*(1-ease((t-c['start'])/.14)))
-            overlay=im.copy();d=ImageDraw.Draw(overlay)
-            d.rounded_rectangle((65,y-30,1015,y+len(lines)*105+15),radius=20,fill=(5,30,43))
-            im=Image.blend(im,overlay,.78)
-            text(im,lines,y,78,GOLD if len(lines)==1 else 'white')
     return im
 
 def main():

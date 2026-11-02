@@ -7,3 +7,5 @@ Source is the clean approved24s-transition master; selective caption cues are re
 Editorial adaptation uses scene-specific horizontal tracking over original3D footage, rather than a single fixed centre crop. Round1 proposal/deadline are restacked; Round2 ten envelopes become two columns and support icons become three rows. New portrait end card retains event name, map and raeonhacks.com. Keyword captions are reflowed inside80px side margins with upward entrance and backed for legibility. Existing narration cue times and24s underwater handoff retained.
 
 This is an editorial reframe of1920x1080 footage, with resampling for full-bleed3D shots; it is not a native portrait3D rerender. Original landscape master is retained. Review representative portrait moments, especially close buoy framing and paper-folding beats, before publication. No platform upload or device playback verified.
+
+Organizer follow-up: keyword captions removed entirely from current portrait export glhc-portrait-9x16-no-captions.mp4. Scene labels, titles, deadline, support labels and URL remain. Verification also checks every former caption cue against the uncaptioned compositor.

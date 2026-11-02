@@ -10,35 +10,35 @@
   "reframed_samples": [
     {
       "seconds": 0.7,
-      "mean_pixel_error": 1.674891010802469
+      "mean_pixel_error": 1.6365303497942387
     },
     {
       "seconds": 2.5,
-      "mean_pixel_error": 1.6093045910493826
+      "mean_pixel_error": 1.5950673546810699
     },
     {
       "seconds": 5.5,
-      "mean_pixel_error": 1.131510898919753
+      "mean_pixel_error": 1.131378118569959
     },
     {
       "seconds": 8,
-      "mean_pixel_error": 1.0038565779320987
+      "mean_pixel_error": 1.0032368827160494
     },
     {
       "seconds": 11.5,
-      "mean_pixel_error": 1.4930656828703703
+      "mean_pixel_error": 1.4887345679012345
     },
     {
       "seconds": 16,
-      "mean_pixel_error": 1.4036715534979425
+      "mean_pixel_error": 1.4216417502572016
     },
     {
       "seconds": 19,
-      "mean_pixel_error": 1.4566550925925925
+      "mean_pixel_error": 1.456914866255144
     },
     {
       "seconds": 22.8,
-      "mean_pixel_error": 1.0510358796296295
+      "mean_pixel_error": 1.0483254565329219
     },
     {
       "seconds": 24.5,
@@ -46,15 +46,15 @@
     },
     {
       "seconds": 26.8,
-      "mean_pixel_error": 1.7338027263374485
+      "mean_pixel_error": 1.7247707690329217
     },
     {
       "seconds": 29.8,
-      "mean_pixel_error": 1.563944508744856
+      "mean_pixel_error": 1.562914737654321
     },
     {
       "seconds": 34,
-      "mean_pixel_error": 1.4077162101337448
+      "mean_pixel_error": 1.4072151491769547
     },
     {
       "seconds": 40,
@@ -66,11 +66,11 @@
     },
     {
       "seconds": 45.8,
-      "mean_pixel_error": 1.5077276234567902
+      "mean_pixel_error": 1.4089531893004115
     },
     {
       "seconds": 48,
-      "mean_pixel_error": 1.4892898019547325
+      "mean_pixel_error": 1.4041544495884775
     },
     {
       "seconds": 53,
@@ -78,7 +78,7 @@
     },
     {
       "seconds": 59.3,
-      "mean_pixel_error": 1.8067798353909466
+      "mean_pixel_error": 1.7593820730452674
     },
     {
       "seconds": 65.5,
@@ -89,7 +89,23 @@
       "mean_pixel_error": 1.0557309349279835
     }
   ],
-  "caption_cues": 14,
+  "caption_cues": 0,
+  "removed_caption_samples": [
+    "HIGH SCHOOL",
+    "UNIVERSITY STUDENTS",
+    "ART.",
+    "SCIENCE.",
+    "TECH.",
+    "LIGHT.",
+    "SOUND.",
+    "DIGITAL.",
+    "JUST SUBMIT YOUR IDEA",
+    "TOP 10 IDEAS",
+    "FUNDING",
+    "RESOURCES",
+    "MENTORSHIP",
+    "ARE YOU READY?"
+  ],
   "underwater_transition_end_seconds": 24,
   "tv_cue_seconds": 28.966666666666665,
   "method": "scene-aware subject tracking and portrait paper/resource/end-card recomposition"

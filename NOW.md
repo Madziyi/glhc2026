@@ -1,7 +1,7 @@
-# Active Initiative - GLHC-004 portrait without captions
+# Active Initiative - GLHC-004 landscape Top Ideas narration
 
 Status: complete; organizer review pending. Main fetched ancestor.
 
-Removed14 keyword caption cues from9:16 compositor. Scene text/titles/deadline/support labels/end card, subject framing, narration and timing retained. Captioned portrait/landscape exports preserved separately.
+Returned to1920x1080 original16:9, no keyword captions. New November3 Ashley MP3 copied separately and transcribed locally; Round2 badge TOP IDEAS, other designs retained. Recording67.709375s;2032-frame/67.7333s output gently retimes existing visuals at sparse narration anchors. TV entry29.0667s vs Be29.06s; waterfront handoff24.2s. Whole new narration mapped once, no music/SFX. Prior exports retained.
 
-Verified2022 decoded frames1080x1920/30FPS67.4s,20 editorial frame comparisons and14 former-caption moment comparisons against clean compositor. Twenty final rendered moments visually inspected. Zero keyword cues; AAC packet MD5b6ebfdfafdf3e5e3b00e3762599ac06f identical. Diff check passed. Artifact promo/out/glhc-portrait-9x16-no-captions.mp4. Next: organizer review. No playback/listening/upload/deployment claim. Website/live unchanged.
+Round2 badge render visually inspected. Artifact promo/out/glhc-landscape-top-ideas.mp4. Verified2032 decoded frames1920x1080/30FPS67.7333s, new narration correlation0.999998561/zero lag;12 final moments and badge visually inspected; diff check passed. Next: organizer review. No manual listening/playback/deployment claim. Website/live unchanged.

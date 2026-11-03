@@ -27,7 +27,7 @@ export function RoughRoundTwo({production=false,revision=false}){
  <defs><filter id="round2-soft-shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="3" dy="7" stdDeviation="8" floodColor="#183c47" floodOpacity=".12"/></filter></defs>
  <g opacity={1-paperOut}>
  {Array.from({length:10},(_,i)=>{const tx=370+(i%5)*295,ty=210+Math.floor(i/5)*230;return <Envelope sealed={production} key={i} x={1500+(tx-1500)*fan} y={430+(ty-430)*fan} scale={1-fan*.46} opacity={i===0?1:fan}/>})}
- <g opacity={ramp(f,28,43)*(1-select)}><circle cx="960" cy="135" r="87" fill={ink}/>{production&&<text x="960" y="101" textAnchor="middle" fontFamily="Google Sans,Arial" fontSize="22" letterSpacing="3" fill={paper}>TOP</text>}<text x="960" y={production?"175":"160"} textAnchor="middle" fontFamily={production?"Google Sans,Arial,sans-serif":"Arial,sans-serif"} fontSize="64" fontWeight="700" fill={paper}>10</text></g>
+ <g opacity={ramp(f,28,43)*(1-select)}><circle cx="960" cy="135" r="87" fill={ink}/>{production&&<text x="960" y="101" textAnchor="middle" fontFamily="Google Sans,Arial" fontSize="22" letterSpacing="3" fill={paper}>TOP</text>}<text x="960" y={production?"175":"160"} textAnchor="middle" fontFamily={production?"Google Sans,Arial,sans-serif":"Arial,sans-serif"} fontSize={production?"37":"64"} fontWeight="700" fill={paper}>{production?"IDEAS":"10"}</text></g>
  <rect x="0" y="0" width="1920" height="1080" fill={paper} opacity={select}/>
  <g opacity={select} transform={`translate(960 410) scale(${.38+ramp(f,48,78,0,.24)}) translate(-750 -550)`}>
  <rect filter={production?"url(#round2-soft-shadow)":undefined} x="320" y="170" width="860" height="720" rx="8" fill="#fffdf5" stroke="#cad2c2" strokeWidth="3"/>

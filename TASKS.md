@@ -166,3 +166,5 @@ Production spacing48->20 units, transition intervals48 frames; peak camera trave
 - `[verified; organizer review pending]` GLHC-0041080x1920 portrait editorial adaptation with tracking, stacked proposal/deadline/resources, two-column top10 and reflowed keyword captions.
 
 - `[verified; organizer review pending]` GLHC-004 remove keyword captions from portrait edit; retain scene text and audio.
+
+- `[verified; organizer review pending]` GLHC-004 original16:9 with November3 Ashley narration and TOP IDEAS badge; no keyword captions.

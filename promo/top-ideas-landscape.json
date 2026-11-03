@@ -1,0 +1,50 @@
+{
+  "source": "glhc-24s-waterfront-transition.mp4",
+  "voiceover": "public/audio/ashley-top-ideas.mp3",
+  "output": "glhc-landscape-top-ideas.mp4",
+  "fps": 30,
+  "frames": 2032,
+  "duration_seconds": 67.73333333333333,
+  "anchors": [
+    [
+      0,
+      0
+    ],
+    [
+      10.5,
+      10.56
+    ],
+    [
+      13.3666666667,
+      13.5666666667
+    ],
+    [
+      24,
+      24.2
+    ],
+    [
+      28.966666666666665,
+      29.066666666666666
+    ],
+    [
+      31.433333333333334,
+      31.566666666666666
+    ],
+    [
+      44.5,
+      44.8
+    ],
+    [
+      58.733333333333334,
+      58.96666666666667
+    ],
+    [
+      67.4,
+      67.73333333333333
+    ]
+  ],
+  "source_audio_sha256": "9a97b9fb246ca4c4473ff963424a105ed927f3b686435c30b69ea27afd822962",
+  "caption_overlays": false,
+  "badge": "TOP IDEAS",
+  "round2_source": "top-ideas-round2.mp4"
+}

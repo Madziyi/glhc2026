@@ -1,0 +1,51 @@
+{
+  "old_duration": 67.396,
+  "new_duration": 67.709375,
+  "windows": [
+    {
+      "old_time": 1,
+      "new_time": 0.986875,
+      "correlation": 0.2680138914399049
+    },
+    {
+      "old_time": 10,
+      "new_time": 10.16,
+      "correlation": 0.22671922476256184
+    },
+    {
+      "old_time": 20,
+      "new_time": 20.164625,
+      "correlation": 0.2581672334139017
+    },
+    {
+      "old_time": 30,
+      "new_time": 30.15575,
+      "correlation": 0.22999562623016265
+    },
+    {
+      "old_time": 40,
+      "new_time": 40.269125,
+      "correlation": 0.12670356943335256
+    },
+    {
+      "old_time": 46,
+      "new_time": 43.972375,
+      "correlation": 0.09378941467647878
+    },
+    {
+      "old_time": 50,
+      "new_time": 50.1565,
+      "correlation": 0.4610693847540543
+    },
+    {
+      "old_time": 58,
+      "new_time": 58.24525,
+      "correlation": 0.20988096371899903
+    },
+    {
+      "old_time": 64,
+      "new_time": 63.89575,
+      "correlation": 0.12428402630309486
+    }
+  ]
+}

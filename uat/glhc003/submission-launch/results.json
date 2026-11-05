@@ -1,0 +1,80 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "layout": {
+      "hero": 568,
+      "overflow": false,
+      "actionsBottom": 484,
+      "cueTop": 515.625
+    },
+    "size": {
+      "width": 302,
+      "scrollWidth": 302,
+      "height": 550,
+      "scrollHeight": 1441
+    },
+    "downloadHash": "8debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850",
+    "errors": []
+  },
+  {
+    "width": 393,
+    "height": 852,
+    "layout": {
+      "hero": 852,
+      "overflow": false,
+      "actionsBottom": 756,
+      "cueTop": 799.625
+    },
+    "size": {
+      "width": 375,
+      "scrollWidth": 375,
+      "height": 834,
+      "scrollHeight": 1206
+    },
+    "downloadHash": "8debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "layout": {
+      "hero": 900,
+      "overflow": false,
+      "actionsBottom": 751.703125,
+      "cueTop": 836.09375
+    },
+    "size": {
+      "width": 618,
+      "scrollWidth": 618,
+      "height": 778,
+      "scrollHeight": 1037
+    },
+    "downloadHash": "8debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850",
+    "errors": []
+  },
+  {
+    "width": 568,
+    "height": 320,
+    "layout": {
+      "hero": 320,
+      "overflow": false,
+      "actionsBottom": 265.6875,
+      "cueTop": 282.078125
+    },
+    "size": {
+      "width": 542,
+      "scrollWidth": 542,
+      "height": 286,
+      "scrollHeight": 992
+    },
+    "downloadHash": "8debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850",
+    "errors": []
+  },
+  {
+    "normalMotion": "modal opens without section jump despite unavailable 3D; timer crosses launch automatically"
+  },
+  {
+    "noJavaScript": "instructions, download/email links and session choices available"
+  }
+]

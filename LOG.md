@@ -258,3 +258,30 @@
 - Task: append on5Nov. Status: done. Live countdown ends at5:30pm ET on5Nov.; timestamp/expiry unchanged. Compact-phone line type adapted to retain hero fit.
 - Verification:3 countdown tests, production build/diff pass; four-width static27-hour example layout checks pass (`date-suffix-results.json`). Earlier screenshots predate suffix. No merge/deployment.
 - Next action: organizer reviews updated PR#7. Commit: this published handoff.
+
+### 2026-11-05 — Submission launch preparation
+- Task: launch message and idea submission instructions. Status: implemented, locally verified, organizer review pending.
+- Sync: PR#7 merged as8420ade; fast-forwarded then branched codex/submission-launch. Preserved unrelated promo/untracked work.
+- Changed: at Nov5 5:30pm Eastern countdown becomes “Submit an idea today! No build required.” First hero CTA becomes Submit an Idea; accessible native dialog/download/fill/email with non-JS fallback, clear no-technical-knowledge invitation and advisor support for selected ideas. To Edward.Millar@uwindsor.ca, CC info@raeonhacks.com confirmed by organizer. Original DOCX hosted unchanged after organizer explicitly superseded request to edit CC; organizer will update file later. Section-scroll excludes submission trigger; session chooser and remaining story retained.
+- Verification:20 tests pass, Astro0/0/0, production build/diff pass. Four widths320/393/1440/568 with portrait/landscape verify timer text, hero fit/no overflow, dialog focus cycle/Escape/close/backdrop/return, email/CC, downloaded exact hash, session chooser and section4 navigation. Normal motion/blocked scene/timer crossing plus no-JS instructions pass; mobile screenshots visually reviewed. Evidence uat/glhc003/submission-launch/. Bootstrap6.12/2.26kB, scene619.82/160.69 unchanged. Existing Vite chunk warning and physical-device limits remain.
+- Live state: no merge/deployment; no email sent. Known issue: organizer-supplied DOCX retains older .ca CC, intentionally awaiting organizer update. Next action: organizer reviews PR and updates file before merge/deploy. Commit: published handoff.
+
+### 2026-11-05 - Updated proposal attachment
+- Task: replace download with organizer-updated file. Status: done, PR#8 updated. Synced origin/main8420ade; launch initiative retained.
+- Changed: supplied DOCX copied unchanged; UAT script hash updated. Opening instruction CC now .com; final instruction still .ca, reported to organizer and preserved as supplied.
+- Verification: production build/diff pass; HTTP200 local download identical to updated attachment,39,243 bytes, SHA2561a524116245462ca805bf46ac74401fb586b039fc9ea8f4a1f3a7d9df6922ad3. Evidence updated-template-results.json. Earlier results/screenshots remain historical. No application code/layout change, deployment or email sent.
+- Next action: organizer reviews PR#8. Commit: published handoff.
+
+### 2026-11-05 - Final complete proposal attachment
+- The previous update was interrupted before commit/push/PR metadata publication. Organizer then supplied the complete corrected file; this version supersedes that intermediate attachment.
+- Both To/CC instructions match website addresses. Hosted byte-for-byte unchanged,39,312 bytes,SHA2568debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850. Updated repeatable UAT expected hash.
+- Verification: production build/diff pass; local HTTP200 download exactly matches final organizer attachment. Evidence updated-template-results.json. No layout/application change; prior full UI UAT remains applicable, earlier binary hashes historical. No merge/deployment/email sent.
+- Status: done; publish review handoff to PR#8. Next action: organizer review.
+
+### 2026-11-05 - Presentation and lake-movement submission guidance
+- Task: add organizer presentation before DOCX download and clarify eligible ideas. Status: done, PR#8 follow-up. Active launch initiative retained; synced main8420ade, preserved unrelated files.
+- Changed: shared modal/no-JS instructions include exact supplied SharePoint URL with secure new-tab semantics. Emphasize water-quality data OR lake movement, temperature/current examples and Arduino-controlled wave-pattern sculpture. Retain idea-only/no-technical-knowledge invitation and advisor support.
+- Verification: production build/diff pass; four-size production-preview UAT at320x568,393x852,1440x900,568x320 confirms exact URL/attributes/order before download, expanded copy, no horizontal overflow, modal keyboard/close behavior and unchanged download hash. Narrow screenshot visually reviewed. Updated evidence in uat/glhc003/submission-launch/. Existing Vite warning remains.
+- Live state: presentation could not be retrieved by web tool, so content/public sharing access not claimed. No merge/deployment/email. Next action: organizer reviews updated PR#8. Commit: published handoff.
+
+2026-11-05 PR#9 handoff: removed art from the requested submission-examples sentence in modal and no-JS fallback. Production build, exact built-HTML copy checks (both instances) and diff check passed locally on identical component content. Git pushes failed with remote commit_refs errors; GitHub API successfully created codex/submission-launch-v2 from the last published launch commit and applied the same one-word edit. PR#9 now contains the complete launch changes and latest wording. Original local commit5792c66 remains preserved; PR#8 left unchanged. No merge/deployment performed. Next action: organizer reviews https://github.com/Madziyi/glhc2026/pull/9.

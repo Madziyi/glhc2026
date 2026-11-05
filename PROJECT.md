@@ -92,3 +92,16 @@ Submission countdown (confirmed2026-11-04): opening is November5,2026 at5:30pm E
 
 Countdown date suffix: append “on 5 Nov.” after the5:30pm ET target in the live
 line; target instant/OPEN transition remain unchanged. Compact layout verified.
+
+Submission launch (2026-11-05): at the fixed 5:30pm Eastern opening instant,
+the countdown becomes “Submit an idea today! No build required.” First hero
+button now reads Submit an Idea and opens accessible template/fill/email
+instructions. To Edward.Millar@uwindsor.ca; CC info@raeonhacks.com. Anyone can
+submit without technical knowledge; advisors support selected ideas. Shared
+instructions also appear without JS/dialog support. Downloaded DOCX is unchanged
+at organizer request; its .ca CC is awaiting the organizer's later file update.
+The website's .com CC is explicitly confirmed. Do not silently edit the template.
+
+Final template follow-up (2026-11-05): organizer supplied complete replacement DOCX, hosted unchanged on PR#8. Both submission instructions now use Edward.Millar@uwindsor.ca and CC info@raeonhacks.com, matching the modal. Template-address issue resolved. Build and exact HTTP download checks pass; evidence uat/glhc003/submission-launch/updated-template-results.json. Prior template references/hashes are historical. Next action: organizer reviews PR#8. No merge/deployment performed.
+
+Submission guidance follow-up (2026-11-05): before the DOCX download, both modal and no-JS instructions include the organizer-supplied SharePoint presentation link (secure new tab) and explain that ideas may communicate water-quality data OR showcase lake movement. Examples include temperature/current-speed conditions and an Arduino-controlled sculpture reflecting wave patterns. Idea-only submissions require no technical knowledge or working build. Presentation content/public sharing could not be verified through web access; do not claim it was inspected.

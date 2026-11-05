@@ -28,6 +28,6 @@ test('two centrally configured session destinations appear in both modal and no-
   assert.match(html, /University of Windsor/);
   assert.match(html, /Attend virtual info session/);
   assert.equal((html.match(/rel="noopener noreferrer"/g) || []).length, 4);
-  assert.match(css, /\.has-info-session-dialog \.info-session-fallback\{display:none\}/);
+  assert.match(css, /\.has-info-session-dialog #info-session-options\{display:none\}/);
   assert.match(behavior, /if \(dialog && typeof dialog\.showModal === 'function'/);
 });

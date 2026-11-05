@@ -44,3 +44,16 @@ Opening countdown `[implemented and locally verified; organizer review pending]`
 
 Countdown date suffix `[implemented and verified]`: “on 5 Nov.” appended; three
 countdown tests/build and four-width fit checks passed. PR#7 update.
+
+Submission launch `[implemented and locally verified; review pending]`: fixed
+opening switches to supplied no-build message; Submit an Idea opens download/
+fill/email modal, no-technical-experience invitation and advisor support. Exact
+original DOCX hosted, .com CC confirmed for website. Organizer will update the
+older .ca address inside DOCX later. Four-size/browser/no-JS/normal-motion UAT,
+20 tests, Astro check and build pass. No deployment performed.
+
+Final template follow-up (2026-11-05): organizer supplied complete replacement DOCX, hosted unchanged on PR#8. Both submission instructions now use Edward.Millar@uwindsor.ca and CC info@raeonhacks.com, matching the modal. Template-address issue resolved. Build and exact HTTP download checks pass; evidence uat/glhc003/submission-launch/updated-template-results.json. Prior template references/hashes are historical. Next action: organizer reviews PR#8. No merge/deployment performed.
+
+Submission guidance follow-up (2026-11-05): before the DOCX download, both modal and no-JS instructions include the organizer-supplied SharePoint presentation link (secure new tab) and explain that ideas may communicate water-quality data OR showcase lake movement. Examples include temperature/current-speed conditions and an Arduino-controlled sculpture reflecting wave patterns. Idea-only submissions require no technical knowledge or working build. Presentation content/public sharing could not be verified through web access; do not claim it was inspected.
+
+2026-11-05 PR#9 handoff: removed art from the requested submission-examples sentence in modal and no-JS fallback. Production build, exact built-HTML copy checks (both instances) and diff check passed locally on identical component content. Git pushes failed with remote commit_refs errors; GitHub API successfully created codex/submission-launch-v2 from the last published launch commit and applied the same one-word edit. PR#9 now contains the complete launch changes and latest wording. Original local commit5792c66 remains preserved; PR#8 left unchanged. No merge/deployment performed. Next action: organizer reviews https://github.com/Madziyi/glhc2026/pull/9.

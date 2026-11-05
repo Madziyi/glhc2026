@@ -1,6 +1,6 @@
 # GLHC 2026 Task Board
 
-## Active — GLHC-003
+## Active — GLHC-003 submission opening countdown
 - GLHC-003A `[implemented]` — people-first hero, attached CASH Prizes starburst, tourist-attractions photo annotation and no-experience/public-display copy, immediate registration and progressive moving lake.
 - GLHC-003B `[implemented]` — approved R6 scene integrated into a surface camera orbit returning before continuous descent; parked sensors, exact two paragraphs and one horizontal transition with settled reading holds.
 - GLHC-003C `[implemented and locally verified; organizer review pending]` — combined section4 with supplied two-round copy and responsive inspiration collage; deep-water buoy-free ending; all registration links use configured Luma destination. Four-section labels, corrected section4 jump and about47% shorter science reveal verified at five viewports plus no-JS/reduced motion (`uat/glhc003/challenge-rounds/`).
@@ -39,3 +39,5 @@ static browser exact-text/no-clipping checks pass. PR#6 update.
 - [x] Both info-session CTAs now open one modal with two organizer-supplied Luma links; no-JavaScript fallback provides both options.
 - [x] Native dialog, Escape/backdrop/close controls, focus return, narrow layouts and reduced-motion CSS implemented.
 - [ ] Physical browser/production build UAT not performed by this connector-only edit; verify in deployment before announcing.
+
+Opening countdown `[implemented and locally verified; organizer review pending]`: confirmed Nov5,2026 at5:30pm Eastern; fixed public timestamp, live H:MM:SS, expiry OPEN, no-JS schedule. Keep current info-session chooser and closing date.

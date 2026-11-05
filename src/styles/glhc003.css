@@ -90,6 +90,7 @@ html.intro-active{overflow:hidden}
 .hero-photo__callout>span{display:block;white-space:nowrap}
 
 .hero-details{grid-area:description;min-width:0}.hero-dates{margin:.65rem 0 0;font-size:clamp(.8rem,1.2vw,.95rem);font-weight:600;line-height:1.45;color:var(--mint)}.hero-dates>span{display:block}
+#submission-opening{font-variant-numeric:tabular-nums}
 @media(max-width:600px){.hero-details{order:3}.hero-photo{width:min(calc(100% - 1rem),380px,calc((100svh - 530px)*1.329))}.hero-dates{font-size:.8rem;margin-top:.5rem}}
 @media(max-width:600px) and (max-height:600px) and (orientation:portrait){.invitation{row-gap:8px;padding-top:74px;padding-bottom:84px}.hero-dates{font-size:.6875rem;margin-top:6px;line-height:1.4}}
 @media(max-height:550px) and (orientation:landscape){.hero-photo{width:min(100%,calc((100svh - 220px)*1.329))}.hero-dates{font-size:.6875rem;line-height:1.35;margin-top:6px}}

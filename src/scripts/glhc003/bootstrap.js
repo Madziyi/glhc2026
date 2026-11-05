@@ -1,5 +1,7 @@
 import { initSectionScroll } from './section-scroll.js';
+import { initSubmissionCountdown } from './submission-countdown.mjs';
 
+initSubmissionCountdown();
 initSectionScroll();
 const root = document.documentElement;
 const toggle = document.querySelector('#reduce-motion');

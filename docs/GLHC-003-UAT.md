@@ -454,3 +454,33 @@ main692dcfe (PR#5 merged). No merge or deployment performed.
 2026-10-23 casing follow-up: date labels now use OPEN and CLOSE. Build/diff pass;
 320/393/1440px no-JS browser text/fit checks pass (`capitalization-results.json`).
 Earlier screenshots retain prior casing; content, layout and behavior unchanged.
+
+## Live submission opening countdown — 2026-11-04
+
+Organizer explicitly confirmed November5,2026 at5:30pm Eastern. Public config now
+contains2026-11-05T17:30:00-05:00 (22:30UTC). Opening line displays H:MM:SS until
+submissions open at5:30pm ET, updating once per second from wall-clock time, not a
+decrementing counter. It catches up on visibility/pageshow, avoids negative time,
+supports hours over24, and changes to Idea Submissions are OPEN at the instant.
+The timer stops when opened; pagehide clears pending work. No per-second live
+region announcement added. Tabular digits limit number-width shifts. No-JS keeps
+the readable Nov5 opening date/time, and Dec3 closing line is unchanged.
+
+Started from main8b4e7d9, preserving its in-person/virtual chooser and the separate
+committed promo branch. No promo/media changes. The countdown initializes before
+scene loading and works independently of WebGL. No event cutoff time for closing
+was invented; only the confirmed opening target is encoded.
+
+Verification:20 tests pass (including fixed Eastern instant, sample5:39:23,
+over24h formatting, final fractional second, exact zero/post-zero and catch-up),
+Astro0 errors/warnings/hints, production build/diff pass. Bootstrap5.12/2.03kB gzip,
+scene619.82/160.69 unchanged; existing Vite warning remains.
+Script/evidence: `uat/glhc003/submission-countdown.mjs`, `submission-countdown/`.
+320x568,393x852,768x1024,1440x900,568x320 across Eastern/Los Angeles/UTC/Tokyo
+browser zones pass live ticking, fixed ISO target, unchanged closing line, full
+hero fit/no overflow, clock-jump resume and OPEN transition. Mobile chooser still
+opens and retains both exact destination URLs; no form submitted. Actual no-JS
+schedule passes. Screenshots use a simulated5:39:23 example clock, not the real
+remaining time at capture; mobile/narrow screenshots visually reviewed. Capture-
+only4FPS software-renderer checks do not verify physical-device performance.
+No merge or production deployment performed/verified.

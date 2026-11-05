@@ -1,7 +1,7 @@
-# Active Initiative — GLHC Info Session Chooser
+# Active Initiative — GLHC Submission Opening Countdown
 
-**Status:** Implemented directly on `main`; browser and production build verification pending.
-**Branch:** `codex/submission-dates`, based on GitHub main `692dcfe` (PR#5 merged).
+**Status:** Countdown implemented and locally verified; organizer review pending.
+**Branch:** `codex/submission-countdown`, based on GitHub main `8b4e7d9` (info-session chooser).
 
 ## Current experience
 Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
@@ -29,7 +29,7 @@ Both current registration CTAs (header/ending) use central `https://luma.com/pz0
 PR#2 and PR#3 source merges are verified; this hero callout/prize follow-up is unmerged. No production deployment performed or verified. Physical iOS/Android, representative mobile-network10-second readiness and sustained60FPS remain unverified. Screenshot/final-video capture uses a test-only4FPS cadence cap on SwiftShader; initial unmodified-loop local timings are separately recorded and are not device acceptance. Publication rights remain a launch check. Untracked source ZIP/original collage and desktop-surface.jpg are preserved.
 
 ## One next action
-Organizer reviews the combined two-round challenge and shorter science transition in the new follow-up PR, then requests revisions or approves merge.
+Organizer reviews the live opening countdown and its confirmed Eastern target in the follow-up PR.
 
 Latest surface editorial refinement: researcher photo is doubled in size and
 placed lower-right using section-owned normal flow. It enters that position as
@@ -156,3 +156,10 @@ Date-label follow-up: OPEN and CLOSE are now uppercase. Production build/diff
 check and three-width static browser exact-text/no-clipping checks passed;
 `uat/glhc003/submission-dates/capitalization-results.json`. Earlier screenshots
 predate this casing-only edit.
+
+Active organizer follow-up (2026-11-04): submission opening countdown. Confirmed
+November5,2026 at5:30pm Eastern. Replace opening date with H:MM:SS updating every
+second, then OPEN at zero. Keep closing date and current in-person/virtual chooser.
+Use fixed timestamp/clock recomputation, static no-JS schedule and responsive fit.
+
+Countdown verification:20 tests, Astro0/0/0, build/diff pass. Five viewport cases in Eastern/Los Angeles/UTC/Tokyo zones confirm ticking, fixed target, catch-up, OPEN transition and full hero fit; no-JS schedule and existing chooser destinations pass. Screenshots use a simulated example clock. Evidence: `uat/glhc003/submission-countdown/`. Bootstrap5.12/2.03kB gzip; scene619.82/160.69 unchanged. No merge/deployment.

@@ -34,7 +34,7 @@ for (const [width,height] of [[320,568],[393,852],[1440,900],[568,320]]) {
   const [download]=await Promise.all([page.waitForEvent('download'),dialog.locator('.submission-download').click()]);
   assert.equal(download.suggestedFilename(),'Great_Lakes_Hackathon_Idea_Proposal_Template.docx');
   const bytes=await fs.readFile(await download.path());const hash=createHash('sha256').update(bytes).digest('hex');
-  assert.equal(hash,'c42abccce84043d6777d0d7663fb32155f712bef7bf099578dce96438fe8ee87');
+  assert.equal(hash,'8debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850');
   await page.keyboard.press('Escape');assert.equal(await dialog.evaluate(e=>e.open),false);
   assert.equal(await page.evaluate(()=>document.activeElement?.hasAttribute('data-submission-trigger')),true);
   await page.locator('[data-submission-trigger]').click();await dialog.locator('[data-submission-close]').click();

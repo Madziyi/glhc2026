@@ -51,3 +51,5 @@ fill/email modal, no-technical-experience invitation and advisor support. Exact
 original DOCX hosted, .com CC confirmed for website. Organizer will update the
 older .ca address inside DOCX later. Four-size/browser/no-JS/normal-motion UAT,
 20 tests, Astro check and build pass. No deployment performed.
+
+Final template follow-up (2026-11-05): organizer supplied complete replacement DOCX, hosted unchanged on PR#8. Both submission instructions now use Edward.Millar@uwindsor.ca and CC info@raeonhacks.com, matching the modal. Template-address issue resolved. Build and exact HTTP download checks pass; evidence uat/glhc003/submission-launch/updated-template-results.json. Prior template references/hashes are historical. Next action: organizer reviews PR#8. No merge/deployment performed.

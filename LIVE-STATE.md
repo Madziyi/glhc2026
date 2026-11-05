@@ -27,3 +27,7 @@ Local production preview for this pass: http://127.0.0.1:4335. Modal website To/
 verified as Edward.Millar@uwindsor.ca / info@raeonhacks.com; no email sent or
 production deployment/version verified. DOCX still contains .ca at explicit
 organizer request and will be updated by organizer later.
+
+2026-11-05 updated attachment: replacement proposal DOCX is 39,243 bytes; SHA256 1a524116245462ca805bf46ac74401fb586b039fc9ea8f4a1f3a7d9df6922ad3. Exact bytes hosted in local built preview; no production deployment verified. Earlier template hash is historical.
+
+Final replacement attachment supersedes intermediate file above:39,312 bytes,SHA2568debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850. Both CC instructions are now .com. Local built-preview HTTP download verified; no public deployment verified.

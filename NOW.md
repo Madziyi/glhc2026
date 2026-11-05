@@ -163,3 +163,7 @@ second, then OPEN at zero. Keep closing date and current in-person/virtual choos
 Use fixed timestamp/clock recomputation, static no-JS schedule and responsive fit.
 
 Countdown verification:20 tests, Astro0/0/0, build/diff pass. Five viewport cases in Eastern/Los Angeles/UTC/Tokyo zones confirm ticking, fixed target, catch-up, OPEN transition and full hero fit; no-JS schedule and existing chooser destinations pass. Screenshots use a simulated example clock. Evidence: `uat/glhc003/submission-countdown/`. Bootstrap5.12/2.03kB gzip; scene619.82/160.69 unchanged. No merge/deployment.
+
+Countdown wording now ends “at 5:30 pm ET on 5 Nov.” Compact-phone number-line
+size adjusted to preserve full hero fit. Three countdown tests/build/diff pass;
+four-width static example layout checks pass (`date-suffix-results.json`).

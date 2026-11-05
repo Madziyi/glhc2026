@@ -41,3 +41,6 @@ static browser exact-text/no-clipping checks pass. PR#6 update.
 - [ ] Physical browser/production build UAT not performed by this connector-only edit; verify in deployment before announcing.
 
 Opening countdown `[implemented and locally verified; organizer review pending]`: confirmed Nov5,2026 at5:30pm Eastern; fixed public timestamp, live H:MM:SS, expiry OPEN, no-JS schedule. Keep current info-session chooser and closing date.
+
+Countdown date suffix `[implemented and verified]`: “on 5 Nov.” appended; three
+countdown tests/build and four-width fit checks passed. PR#7 update.

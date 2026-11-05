@@ -89,3 +89,6 @@ CTA wording (2026-10-23): both header and ending links display “Attend the inf
 Submission dates (organizer-supplied2026-10-23): hero displays “Idea Submissions OPEN: Nov 5th.” and “Idea Submissions CLOSE: Dec 3rd.” on separate lines beneath the description. No year, timezone or cutoff time was supplied; do not infer them. Dates and description share one responsive content group to preserve hero layout.
 
 Submission countdown (confirmed2026-11-04): opening is November5,2026 at5:30pm Eastern, fixed instant2026-11-05T17:30:00-05:00 in public site config. Hero opening line displays H:MM:SS until submissions open at5:30pm ET, recomputed from wall time each second and on visibility/pageshow; at zero it reads Idea Submissions are OPEN. Closing date remains Dec3, and no-JS retains the readable opening date/time. Do not base the target on visitor local timezone or reset it on refresh.
+
+Countdown date suffix: append “on 5 Nov.” after the5:30pm ET target in the live
+line; target instant/OPEN transition remain unchanged. Compact layout verified.

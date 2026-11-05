@@ -484,3 +484,9 @@ schedule passes. Screenshots use a simulated5:39:23 example clock, not the real
 remaining time at capture; mobile/narrow screenshots visually reviewed. Capture-
 only4FPS software-renderer checks do not verify physical-device performance.
 No merge or production deployment performed/verified.
+
+2026-11-04 suffix follow-up: countdown now ends “at 5:30 pm ET on 5 Nov.”
+Target/expiry unchanged. Three countdown tests/build/diff pass. Static27-hour
+example fit checks at320x568,393x852,1440x900,568x320 pass; compact-phone type
+adjustment avoids wrapping that would extend the hero. Evidence:
+`submission-countdown/date-suffix-results.json`. Earlier screenshots lack suffix.

@@ -253,3 +253,8 @@
 - Changed: public fixed opening timestamp; lightweight H:MM:SS recomputed each second and on resume, then OPEN at zero, no negatives or timezone dependence. No-JS static date/time, unchanged closing date and tabular digits. Initializes before3D.
 - Verification:20 tests, Astro0/0/0, build/diff pass. Five viewport cases across4zones, ticking/clock-jump/expiry/full hero fit/no overflow/page errors; no-JS schedule; chooser opens with exact two URLs. Example-clock screenshots reviewed. Evidence/script: `uat/glhc003/submission-countdown/`, `submission-countdown.mjs`. Bootstrap5.12/2.03kB; scene619.82/160.69 unchanged; existing Vite/device limits remain.
 - Live state: no merge/deployment. Next action: organizer reviews countdown PR. Commit: this published handoff.
+
+### 2026-11-04 — Countdown date suffix
+- Task: append on5Nov. Status: done. Live countdown ends at5:30pm ET on5Nov.; timestamp/expiry unchanged. Compact-phone line type adapted to retain hero fit.
+- Verification:3 countdown tests, production build/diff pass; four-width static27-hour example layout checks pass (`date-suffix-results.json`). Earlier screenshots predate suffix. No merge/deployment.
+- Next action: organizer reviews updated PR#7. Commit: this published handoff.

@@ -5,7 +5,7 @@ export function openingText(targetMs, nowMs = Date.now()) {
   const hours = Math.floor(seconds / 3600);
   const minutes = String(Math.floor(seconds / 60) % 60).padStart(2, '0');
   const remainder = String(seconds % 60).padStart(2, '0');
-  return `${hours}:${minutes}:${remainder} until submissions open at 5:30 pm ET.`;
+  return `${hours}:${minutes}:${remainder} until submissions open at 5:30 pm ET on 5 Nov.`;
 }
 
 export function initSubmissionCountdown() {

@@ -13,9 +13,9 @@ test('submission opening is the confirmed Nov 5 2026 5:30 pm Eastern instant', (
 });
 
 test('countdown pads minutes/seconds, supports over 24h and never opens early', () => {
-  assert.equal(openingText(target,target-(5*3600+39*60+23)*1000), '5:39:23 until submissions open at 5:30 pm ET.');
-  assert.equal(openingText(target,target-27*3600*1000), '27:00:00 until submissions open at 5:30 pm ET.');
-  assert.equal(openingText(target,target-1), '0:00:01 until submissions open at 5:30 pm ET.');
+  assert.equal(openingText(target,target-(5*3600+39*60+23)*1000), '5:39:23 until submissions open at 5:30 pm ET on 5 Nov.');
+  assert.equal(openingText(target,target-27*3600*1000), '27:00:00 until submissions open at 5:30 pm ET on 5 Nov.');
+  assert.equal(openingText(target,target-1), '0:00:01 until submissions open at 5:30 pm ET on 5 Nov.');
 });
 
 test('clock resumes from current wall time, reaches OPEN and never counts negative', () => {

@@ -1,0 +1,34 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "hero": 568,
+    "overflow": false,
+    "actions": 484,
+    "cue": 515.625
+  },
+  {
+    "width": 393,
+    "height": 852,
+    "hero": 852,
+    "overflow": false,
+    "actions": 756,
+    "cue": 799.625
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "hero": 900,
+    "overflow": false,
+    "actions": 751.703125,
+    "cue": 836.09375
+  },
+  {
+    "width": 568,
+    "height": 320,
+    "hero": 320,
+    "overflow": false,
+    "actions": 272.1875,
+    "cue": 282.078125
+  }
+]

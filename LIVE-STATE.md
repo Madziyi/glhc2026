@@ -16,3 +16,5 @@ See `docs/GLHC-003-UAT.md` for local production evidence and limitations.
 2026-10-23 source sync: PR#4 merge595f8c04686db042f63615e89f69b6e4bb046c21 observed on GitHub main; info-session CTA label follow-up is on `codex/info-session-cta`. No production version/deployment or new external destination verified by this pass.
 
 2026-10-23 source sync: PR#5 merge692dcfecc1c3eb498887121623f12f049455f91a observed on GitHub main; submission-date hero follow-up is on `codex/submission-dates`. No production deployment/version or external event schedule verified by this pass; displayed dates are directly organizer-supplied.
+
+2026-11-04 source sync: main8b4e7d9417d22af195b9c5c1716a806d00f25b22 includes the in-person/virtual info-session chooser. Countdown follow-up starts on codex/submission-countdown. Separate committed promo work remains on codex/promo-prototype; no reset/force push performed. Opening instant is directly organizer-confirmed2026-11-05T17:30:00-05:00; no production deployment/version verified by this pass.

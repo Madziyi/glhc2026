@@ -246,3 +246,15 @@
 - Implemented shared native dialog, Escape/backdrop/close behavior, return-focus, accessible headings, matching GLHC dark navy/yellow styling, and both options as secure new-tab Luma links. With JS disabled or no dialog support, CTA anchors go to a visible choice section.
 - Updated centralized public configuration and added a source contract test. GitHub-only static verification was performed; no local browser UAT or full Astro build is claimed.
 - No hosting configuration or production deployment was modified.
+
+### 2026-11-04 — Submission opening countdown
+- Task: replace static OPEN line with live countdown. Status: done, organizer review pending. Organizer confirmed Nov5,2026 at5:30pm Eastern.
+- Sync: started codex/submission-countdown from main8b4e7d9, retaining current session chooser and preserving separate committed promo branch/untracked inputs. No media edits.
+- Changed: public fixed opening timestamp; lightweight H:MM:SS recomputed each second and on resume, then OPEN at zero, no negatives or timezone dependence. No-JS static date/time, unchanged closing date and tabular digits. Initializes before3D.
+- Verification:20 tests, Astro0/0/0, build/diff pass. Five viewport cases across4zones, ticking/clock-jump/expiry/full hero fit/no overflow/page errors; no-JS schedule; chooser opens with exact two URLs. Example-clock screenshots reviewed. Evidence/script: `uat/glhc003/submission-countdown/`, `submission-countdown.mjs`. Bootstrap5.12/2.03kB; scene619.82/160.69 unchanged; existing Vite/device limits remain.
+- Live state: no merge/deployment. Next action: organizer reviews countdown PR. Commit: this published handoff.
+
+### 2026-11-04 — Countdown date suffix
+- Task: append on5Nov. Status: done. Live countdown ends at5:30pm ET on5Nov.; timestamp/expiry unchanged. Compact-phone line type adapted to retain hero fit.
+- Verification:3 countdown tests, production build/diff pass; four-width static27-hour example layout checks pass (`date-suffix-results.json`). Earlier screenshots predate suffix. No merge/deployment.
+- Next action: organizer reviews updated PR#7. Commit: this published handoff.

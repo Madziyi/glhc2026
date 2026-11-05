@@ -1,0 +1,96 @@
+[
+  {
+    "name": "small",
+    "width": 320,
+    "height": 568,
+    "timezoneId": "America/New_York",
+    "initial": "5:39:17 until submissions open at 5:30 pm ET.",
+    "ticking": "5:39:15 until submissions open at 5:30 pm ET.",
+    "layout": {
+      "heroHeight": 568,
+      "actionsBottom": 484,
+      "cueTop": 494.015625,
+      "overflow": false,
+      "close": "Idea Submissions CLOSE: Dec 3rd.",
+      "iso": "2026-11-05T17:30:00-05:00"
+    },
+    "opened": "Idea Submissions are OPEN.",
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "width": 393,
+    "height": 852,
+    "timezoneId": "America/Los_Angeles",
+    "initial": "5:39:16 until submissions open at 5:30 pm ET.",
+    "ticking": "5:39:15 until submissions open at 5:30 pm ET.",
+    "layout": {
+      "heroHeight": 852,
+      "actionsBottom": 756,
+      "cueTop": 778.015625,
+      "overflow": false,
+      "close": "Idea Submissions CLOSE: Dec 3rd.",
+      "iso": "2026-11-05T17:30:00-05:00"
+    },
+    "opened": "Idea Submissions are OPEN.",
+    "errors": []
+  },
+  {
+    "name": "tablet",
+    "width": 768,
+    "height": 1024,
+    "timezoneId": "UTC",
+    "initial": "5:39:17 until submissions open at 5:30 pm ET.",
+    "ticking": "5:39:15 until submissions open at 5:30 pm ET.",
+    "layout": {
+      "heroHeight": 1024,
+      "actionsBottom": 758.109375,
+      "cueTop": 948.09375,
+      "overflow": false,
+      "close": "Idea Submissions CLOSE: Dec 3rd.",
+      "iso": "2026-11-05T17:30:00-05:00"
+    },
+    "opened": "Idea Submissions are OPEN.",
+    "errors": []
+  },
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 900,
+    "timezoneId": "Asia/Tokyo",
+    "initial": "5:39:16 until submissions open at 5:30 pm ET.",
+    "ticking": "5:39:15 until submissions open at 5:30 pm ET.",
+    "layout": {
+      "heroHeight": 900,
+      "actionsBottom": 751.703125,
+      "cueTop": 824.09375,
+      "overflow": false,
+      "close": "Idea Submissions CLOSE: Dec 3rd.",
+      "iso": "2026-11-05T17:30:00-05:00"
+    },
+    "opened": "Idea Submissions are OPEN.",
+    "errors": []
+  },
+  {
+    "name": "landscape",
+    "width": 568,
+    "height": 320,
+    "timezoneId": "America/New_York",
+    "initial": "5:39:16 until submissions open at 5:30 pm ET.",
+    "ticking": "5:39:15 until submissions open at 5:30 pm ET.",
+    "layout": {
+      "heroHeight": 320,
+      "actionsBottom": 265.6875,
+      "cueTop": 276.46875,
+      "overflow": false,
+      "close": "Idea Submissions CLOSE: Dec 3rd.",
+      "iso": "2026-11-05T17:30:00-05:00"
+    },
+    "opened": "Idea Submissions are OPEN.",
+    "errors": []
+  },
+  {
+    "name": "no-js",
+    "fallback": "Idea Submissions OPEN: Nov 5th at 5:30 pm ET."
+  }
+]

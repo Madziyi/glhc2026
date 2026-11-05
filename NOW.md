@@ -1,7 +1,7 @@
 # Active Initiative — GLHC Submission Launch
 
 **Status:** Implemented and locally verified; ready for organizer review.
-**Branch:** `codex/submission-launch`, based on GitHub main `8420ade` (PR#7 merged).
+**Branch:** `codex/submission-launch-v2`, based on GitHub main `8420ade` (PR#7 merged).
 
 ## Current launch scope
 At the fixed November 5, 2026 5:30 pm Eastern instant, show “Submit an idea today! No build required.” Replace the first hero button with Submit an Idea, opening accessible download/fill/email instructions. Recipient Edward.Millar@uwindsor.ca (from supplied template), CC info@raeonhacks.com (organizer-confirmed). Anyone can submit without technical knowledge; selected entrants receive advisor support. Host the latest organizer-supplied DOCX unchanged; both CC references are now corrected. Preserve countdown before opening, closing date, session chooser, scene and remaining navigation. Verify boundary timing, modal keyboard/mobile behavior, download integrity and no-JS fallback before publishing a review handoff. No merge/deployment authorized by this preparation request.
@@ -190,3 +190,5 @@ Final template follow-up (2026-11-05): organizer supplied complete replacement D
 Submission guidance follow-up (2026-11-05): before the DOCX download, both modal and no-JS instructions include the organizer-supplied SharePoint presentation link (secure new tab) and explain that ideas may communicate water-quality data OR showcase lake movement. Examples include temperature/current-speed conditions and an Arduino-controlled sculpture reflecting wave patterns. Idea-only submissions require no technical knowledge or working build. Presentation content/public sharing could not be verified through web access; do not claim it was inspected.
 
 Presentation guidance verification: build/diff and four-size production-preview UAT pass; exact link/order/security attributes, revised water/lake-movement copy and modal fit/focus/download checked. Evidence refreshed in uat/glhc003/submission-launch/. No deployment performed.
+
+2026-11-05 PR#9 handoff: removed art from the requested submission-examples sentence in modal and no-JS fallback. Production build, exact built-HTML copy checks (both instances) and diff check passed locally on identical component content. Git pushes failed with remote commit_refs errors; GitHub API successfully created codex/submission-launch-v2 from the last published launch commit and applied the same one-word edit. PR#9 now contains the complete launch changes and latest wording. Original local commit5792c66 remains preserved; PR#8 left unchanged. No merge/deployment performed. Next action: organizer reviews https://github.com/Madziyi/glhc2026/pull/9.

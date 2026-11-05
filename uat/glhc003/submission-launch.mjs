@@ -25,6 +25,13 @@ for (const [width,height] of [[320,568],[393,852],[1440,900],[568,320]]) {
   const dialog=page.locator('#submission-dialog');await dialog.waitFor({state:'visible'});
   assert.equal(await page.evaluate(()=>document.activeElement?.hasAttribute('data-submission-close')),true);
   assert.match(await dialog.textContent(),/Anyone can submit an idea/); assert.match(await dialog.textContent(),/advisors will help/);
+  assert.match(await dialog.textContent(),/water-quality data or showcases the lake’s movement/);
+  assert.match(await dialog.textContent(),/Arduino-controlled sculpture/);
+  const presentation=dialog.locator('.submission-presentation');
+  assert.equal(await presentation.getAttribute('href'),'https://uwin365-my.sharepoint.com/:p:/g/personal/emillar_uwindsor_ca/IQAzX_urt7O9RqKgOIeiReEoAf4FSE2Hv06cPuRKDc5yLCw?e=QK0Xrq');
+  assert.equal(await presentation.getAttribute('target'),'_blank');
+  assert.equal(await presentation.getAttribute('rel'),'noopener noreferrer');
+  assert.equal(await dialog.evaluate(e=>!!(e.querySelector('.submission-presentation').compareDocumentPosition(e.querySelector('.submission-download'))&Node.DOCUMENT_POSITION_FOLLOWING)),true);
   const email=new URL(await dialog.locator('.submission-email').getAttribute('href'));
   assert.equal(email.pathname,'Edward.Millar@uwindsor.ca');assert.equal(email.searchParams.get('cc'),'info@raeonhacks.com');
   const size=await dialog.evaluate(e=>({width:e.clientWidth,scrollWidth:e.scrollWidth,height:e.clientHeight,scrollHeight:e.scrollHeight}));

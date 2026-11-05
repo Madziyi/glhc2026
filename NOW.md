@@ -186,3 +186,7 @@ Next action: organizer reviews launch PR, updates the template, then authorizes
 merge/deployment. No production deployment or external email sent.
 
 Final template follow-up (2026-11-05): organizer supplied complete replacement DOCX, hosted unchanged on PR#8. Both submission instructions now use Edward.Millar@uwindsor.ca and CC info@raeonhacks.com, matching the modal. Template-address issue resolved. Build and exact HTTP download checks pass; evidence uat/glhc003/submission-launch/updated-template-results.json. Prior template references/hashes are historical. Next action: organizer reviews PR#8. No merge/deployment performed.
+
+Submission guidance follow-up (2026-11-05): before the DOCX download, both modal and no-JS instructions include the organizer-supplied SharePoint presentation link (secure new tab) and explain that ideas may communicate water-quality data OR showcase lake movement. Examples include temperature/current-speed conditions and an Arduino-controlled sculpture reflecting wave patterns. Idea-only submissions require no technical knowledge or working build. Presentation content/public sharing could not be verified through web access; do not claim it was inspected.
+
+Presentation guidance verification: build/diff and four-size production-preview UAT pass; exact link/order/security attributes, revised water/lake-movement copy and modal fit/focus/download checked. Evidence refreshed in uat/glhc003/submission-launch/. No deployment performed.

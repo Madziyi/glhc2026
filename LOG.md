@@ -277,3 +277,9 @@
 - Both To/CC instructions match website addresses. Hosted byte-for-byte unchanged,39,312 bytes,SHA2568debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850. Updated repeatable UAT expected hash.
 - Verification: production build/diff pass; local HTTP200 download exactly matches final organizer attachment. Evidence updated-template-results.json. No layout/application change; prior full UI UAT remains applicable, earlier binary hashes historical. No merge/deployment/email sent.
 - Status: done; publish review handoff to PR#8. Next action: organizer review.
+
+### 2026-11-05 - Presentation and lake-movement submission guidance
+- Task: add organizer presentation before DOCX download and clarify eligible ideas. Status: done, PR#8 follow-up. Active launch initiative retained; synced main8420ade, preserved unrelated files.
+- Changed: shared modal/no-JS instructions include exact supplied SharePoint URL with secure new-tab semantics. Emphasize water-quality data OR lake movement, temperature/current examples and Arduino-controlled wave-pattern sculpture. Retain idea-only/no-technical-knowledge invitation and advisor support.
+- Verification: production build/diff pass; four-size production-preview UAT at320x568,393x852,1440x900,568x320 confirms exact URL/attributes/order before download, expanded copy, no horizontal overflow, modal keyboard/close behavior and unchanged download hash. Narrow screenshot visually reviewed. Updated evidence in uat/glhc003/submission-launch/. Existing Vite warning remains.
+- Live state: presentation could not be retrieved by web tool, so content/public sharing access not claimed. No merge/deployment/email. Next action: organizer reviews updated PR#8. Commit: published handoff.

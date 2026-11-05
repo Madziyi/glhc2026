@@ -31,3 +31,5 @@ organizer request and will be updated by organizer later.
 2026-11-05 updated attachment: replacement proposal DOCX is 39,243 bytes; SHA256 1a524116245462ca805bf46ac74401fb586b039fc9ea8f4a1f3a7d9df6922ad3. Exact bytes hosted in local built preview; no production deployment verified. Earlier template hash is historical.
 
 Final replacement attachment supersedes intermediate file above:39,312 bytes,SHA2568debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850. Both CC instructions are now .com. Local built-preview HTTP download verified; no public deployment verified.
+
+2026-11-05 presentation follow-up: source adds organizer-supplied SharePoint presentation link before proposal download, with secure new-tab attributes. Automated web access could not retrieve the presentation; contents/public permissions are not verified. No production change or deployment performed.

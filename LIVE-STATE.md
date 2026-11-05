@@ -18,3 +18,12 @@ See `docs/GLHC-003-UAT.md` for local production evidence and limitations.
 2026-10-23 source sync: PR#5 merge692dcfecc1c3eb498887121623f12f049455f91a observed on GitHub main; submission-date hero follow-up is on `codex/submission-dates`. No production deployment/version or external event schedule verified by this pass; displayed dates are directly organizer-supplied.
 
 2026-11-04 source sync: main8b4e7d9417d22af195b9c5c1716a806d00f25b22 includes the in-person/virtual info-session chooser. Countdown follow-up starts on codex/submission-countdown. Separate committed promo work remains on codex/promo-prototype; no reset/force push performed. Opening instant is directly organizer-confirmed2026-11-05T17:30:00-05:00; no production deployment/version verified by this pass.
+
+2026-11-05 source sync: main8420ade (PR#7 countdown merge) fetched and fast-forwarded.
+Launch preparation is on codex/submission-launch. Public template file is copied
+unchanged from organizer attachment, SHA256
+c42abccce84043d6777d0d7663fb32155f712bef7bf099578dce96438fe8ee87.
+Local production preview for this pass: http://127.0.0.1:4335. Modal website To/CC
+verified as Edward.Millar@uwindsor.ca / info@raeonhacks.com; no email sent or
+production deployment/version verified. DOCX still contains .ca at explicit
+organizer request and will be updated by organizer later.

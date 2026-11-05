@@ -1,12 +1,15 @@
-# Active Initiative — GLHC Submission Opening Countdown
+# Active Initiative — GLHC Submission Launch
 
-**Status:** Countdown implemented and locally verified; organizer review pending.
-**Branch:** `codex/submission-countdown`, based on GitHub main `8b4e7d9` (info-session chooser).
+**Status:** Implemented and locally verified; ready for organizer review.
+**Branch:** `codex/submission-launch`, based on GitHub main `8420ade` (PR#7 merged).
+
+## Current launch scope
+At the fixed November 5, 2026 5:30 pm Eastern instant, show “Submit an idea today! No build required.” Replace the first hero button with Submit an Idea, opening accessible download/fill/email instructions. Recipient Edward.Millar@uwindsor.ca (from supplied template), CC info@raeonhacks.com (organizer-confirmed). Anyone can submit without technical knowledge; selected entrants receive advisor support. Host the supplied DOCX unchanged: organizer will update its older CC address later. Preserve countdown before opening, closing date, session chooser, scene and remaining navigation. Verify boundary timing, modal keyboard/mobile behavior, download integrity and no-JS fallback before publishing a review handoff. No merge/deployment authorized by this preparation request.
 
 ## Current experience
 Root homepage contains the invitation/photo, four numbered story sections and unnumbered buoy-free registration. Sections1–3 cover surface, crossing and parked science; section4 has just the label “4/4: How it works”, followed by “Round 1 - Submit Your Idea” / “Open To Everyone” and “Round 2 - Bring Your Idea to Life” / “Build & Showcase”. No large repeated challenge heading or extra How It Works kicker remains. Mobile order is Round One → inspiration collage → Round Two. Hero challenge link targets section4 (`#challenge`). The science reveal now requires about47% less vertical scrolling, retaining parked camera, reading holds and reverse behavior.
 
-Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “What’s this about?” targets `#surface` (1/4); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Attend the info session, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
+Latest organizer hero reference keeps “Great Lakes Hackathon Challenge” with yellow italic Challenge, solo/team paragraph, rounded photograph and two yellow pill links. “Submit an Idea” opens proposal instructions (native-anchor fallback); “What’s the challenge?” now targets `#challenge` (4/4). Both links and the cue retain3.2-second cancellable easing. Static/reduced motion uses immediate native anchors; no-JS links work. Header Attend the info session, spinning prize with upright text, yellow scroll cue, existing fonts and high-resolution photo remain.
 
 Body and controls use locally hosted Google Sans (35,968-byte variable Latin WOFF2, weights 400–700, preload/swap and included OFL). Headings keep their separate editorial face. Motion preference is accessible in the footer and automatic OS reduced motion remains honored.
 
@@ -167,3 +170,17 @@ Countdown verification:20 tests, Astro0/0/0, build/diff pass. Five viewport case
 Countdown wording now ends “at 5:30 pm ET on 5 Nov.” Compact-phone number-line
 size adjusted to preserve full hero fit. Three countdown tests/build/diff pass;
 four-width static example layout checks pass (`date-suffix-results.json`).
+
+
+Launch verification (2026-11-05): 20/20 tests, Astro 0 errors/warnings/hints,
+production build and diff check passed. Four viewport browser checks (320x568,
+393x852,1440x900,568x320) confirm launch text, hero fit, modal/focus cycle,
+Escape/close/backdrop/focus return, exact email/CC, downloaded DOCX hash,
+unchanged session chooser and section4 navigation. Normal motion/failed-3D
+independence and automatic timer crossing, plus no-JS instructions verified.
+Evidence: uat/glhc003/submission-launch/. Modal screenshots visually reviewed.
+Bootstrap 6.12/2.26 kB gzip; scene unchanged 619.82/160.69. Existing Vite warning
+and physical-device verification limits remain. Template is byte-for-byte as
+supplied; organizer explicitly retained its older .ca CC for later correction.
+Next action: organizer reviews launch PR, updates the template, then authorizes
+merge/deployment. No production deployment or external email sent.

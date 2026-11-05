@@ -1,7 +1,7 @@
 /** Recompute against a fixed instant, so suspended tabs never lose time. */
 export function openingText(targetMs, nowMs = Date.now()) {
   const seconds = Math.max(0, Math.ceil((targetMs - nowMs) / 1000));
-  if (seconds === 0) return 'Idea Submissions are OPEN.';
+  if (seconds === 0) return 'Submit an idea today! No build required.';
   const hours = Math.floor(seconds / 3600);
   const minutes = String(Math.floor(seconds / 60) % 60).padStart(2, '0');
   const remainder = String(seconds % 60).padStart(2, '0');

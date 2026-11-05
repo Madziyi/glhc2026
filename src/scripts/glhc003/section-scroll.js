@@ -15,7 +15,7 @@ export function initSectionScroll() {
   document.querySelector('#reduce-motion')?.addEventListener('change', cancel);
   matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', cancel);
 
-  for (const link of document.querySelectorAll('.hero-actions a, .invitation .scroll-cue')) {
+  for (const link of document.querySelectorAll('.hero-actions a:not([data-submission-trigger]), .invitation .scroll-cue')) {
     link.addEventListener('click', event => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       // Preserve normal immediate anchors for all static/reduced-motion paths.

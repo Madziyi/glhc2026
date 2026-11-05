@@ -44,3 +44,10 @@ Opening countdown `[implemented and locally verified; organizer review pending]`
 
 Countdown date suffix `[implemented and verified]`: “on 5 Nov.” appended; three
 countdown tests/build and four-width fit checks passed. PR#7 update.
+
+Submission launch `[implemented and locally verified; review pending]`: fixed
+opening switches to supplied no-build message; Submit an Idea opens download/
+fill/email modal, no-technical-experience invitation and advisor support. Exact
+original DOCX hosted, .com CC confirmed for website. Organizer will update the
+older .ca address inside DOCX later. Four-size/browser/no-JS/normal-motion UAT,
+20 tests, Astro check and build pass. No deployment performed.

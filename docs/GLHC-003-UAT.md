@@ -490,3 +490,19 @@ Target/expiry unchanged. Three countdown tests/build/diff pass. Static27-hour
 example fit checks at320x568,393x852,1440x900,568x320 pass; compact-phone type
 adjustment avoids wrapping that would extend the hero. Evidence:
 `submission-countdown/date-suffix-results.json`. Earlier screenshots lack suffix.
+
+## 2026-11-05 submission launch
+20/20 tests; Astro0 errors/warnings/hints; build/diff pass. Production-preview
+browser script uat/glhc003/submission-launch.mjs; evidence in matching folder.
+Four viewport sizes320x568,393x852,1440x900,568x320 use reduced motion and simulated
+opening time in Los Angeles timezone: countdown before opening, supplied launch
+message at/after target, hero fits and no overflow. Modal keyboard focus cycle,
+Escape/close/backdrop/return, website email/CC, binary download integrity,
+existing session chooser and section4 navigation pass. Additional normal-motion
+case blocks only the scene module, confirms submission modal avoids animated
+fallback navigation and timer crosses opening automatically without refresh.
+No-JS case exposes complete instructions, download/email links and session
+choices. Two mobile screenshots visually reviewed. Screenshots simulate launch
+clock; no physical-device/performance or production deployment claim. Original
+DOCX is unchanged at organizer request; website CC.com differs from retained
+DOCX.ca awaiting organizer file update. No email sent.

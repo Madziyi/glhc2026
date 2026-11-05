@@ -258,3 +258,10 @@
 - Task: append on5Nov. Status: done. Live countdown ends at5:30pm ET on5Nov.; timestamp/expiry unchanged. Compact-phone line type adapted to retain hero fit.
 - Verification:3 countdown tests, production build/diff pass; four-width static27-hour example layout checks pass (`date-suffix-results.json`). Earlier screenshots predate suffix. No merge/deployment.
 - Next action: organizer reviews updated PR#7. Commit: this published handoff.
+
+### 2026-11-05 — Submission launch preparation
+- Task: launch message and idea submission instructions. Status: implemented, locally verified, organizer review pending.
+- Sync: PR#7 merged as8420ade; fast-forwarded then branched codex/submission-launch. Preserved unrelated promo/untracked work.
+- Changed: at Nov5 5:30pm Eastern countdown becomes “Submit an idea today! No build required.” First hero CTA becomes Submit an Idea; accessible native dialog/download/fill/email with non-JS fallback, clear no-technical-knowledge invitation and advisor support for selected ideas. To Edward.Millar@uwindsor.ca, CC info@raeonhacks.com confirmed by organizer. Original DOCX hosted unchanged after organizer explicitly superseded request to edit CC; organizer will update file later. Section-scroll excludes submission trigger; session chooser and remaining story retained.
+- Verification:20 tests pass, Astro0/0/0, production build/diff pass. Four widths320/393/1440/568 with portrait/landscape verify timer text, hero fit/no overflow, dialog focus cycle/Escape/close/backdrop/return, email/CC, downloaded exact hash, session chooser and section4 navigation. Normal motion/blocked scene/timer crossing plus no-JS instructions pass; mobile screenshots visually reviewed. Evidence uat/glhc003/submission-launch/. Bootstrap6.12/2.26kB, scene619.82/160.69 unchanged. Existing Vite chunk warning and physical-device limits remain.
+- Live state: no merge/deployment; no email sent. Known issue: organizer-supplied DOCX retains older .ca CC, intentionally awaiting organizer update. Next action: organizer reviews PR and updates file before merge/deploy. Commit: published handoff.

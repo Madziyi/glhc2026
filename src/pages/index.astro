@@ -1,5 +1,6 @@
 ---
 import '../styles/glhc003.css';
+import SubmissionInstructions from '../components/SubmissionInstructions.astro';
 import config from '../../public/site-config.js?raw';
 const registrationUrl = config.match(/lumaUrl:\s*'([^']+)'/)?.[1];
 const virtualRegistrationUrl = config.match(/virtualLumaUrl:\s*'([^']+)'/)?.[1];
@@ -69,7 +70,7 @@ if (!virtualRegistrationUrl || !virtualRegistrationUrl.startsWith('https://luma.
         <div class="hero-copy"><h1 id="invitation-title">Great Lakes<br />Hackathon <em>Challenge</em></h1></div>
         <figure class="hero-photo"><div class="hero-photo__frame"><img src="/assets/team-lab.webp" width="1276" height="960" alt="A group of students and researchers gathered around scientific equipment in a research laboratory." fetchpriority="high" decoding="async" /><span class="prize-burst"><span><strong>CASH</strong>Prizes</span></span><span class="hero-photo__callout"><span>YOUR IDEA COULD BE FEATURED</span><span>AT TOURIST ATTRACTIONS ↗</span></span></div><figcaption class="sr-only">CASH Prizes for top projects.</figcaption></figure>
         <div class="hero-details"><p class="hero-description">Join solo or as a team and bring Great Lakes data to life through lights, sound, interactive dashboards, or something entirely new. We want to see your ideas!</p><p class="hero-dates"><span id="submission-opening" data-opens-at={submissionOpensAt}>Idea Submissions OPEN: Nov 5th at 5:30 pm ET.</span><span>Idea Submissions CLOSE: Dec 3rd.</span></p></div>
-        <nav class="hero-actions" aria-label="Explore the event"><a class="button hero-jump" href="#surface">What’s this about?</a><a class="button hero-jump" href="#challenge">What’s the challenge?</a></nav>
+        <nav class="hero-actions" aria-label="Explore the event"><a class="button hero-jump" data-submission-trigger href="#submission-options">Submit an Idea</a><a class="button hero-jump" href="#challenge">What’s the challenge?</a></nav>
         <a class="scroll-cue" href="#surface">SCROLL FOR A COOL BREAKDOWN<img src="/assets/scroll_down.svg" alt="" width="48" height="48" aria-hidden="true" /><span class="scroll-cue-static" aria-hidden="true">↓</span></a>
       </section>
       <section class="surface chapter" id="surface" aria-labelledby="surface-title" tabindex="-1">
@@ -104,7 +105,16 @@ if (!virtualRegistrationUrl || !virtualRegistrationUrl.startsWith('https://luma.
         <p class="info-session-dialog__note">Registration opens on Luma in a new tab.</p>
       </div>
     </dialog>
+    <section class="info-session-fallback submission-fallback" id="submission-options" aria-labelledby="submission-fallback-title"><h2 id="submission-fallback-title">Submit an Idea</h2><SubmissionInstructions /></section>
+    <dialog id="submission-dialog" class="info-session-dialog submission-dialog" aria-labelledby="submission-title">
+      <div class="info-session-dialog__inner">
+        <button class="info-session-dialog__close" data-submission-close type="button" aria-label="Close submission instructions"><span aria-hidden="true">×</span></button>
+        <p class="eyebrow">YOUR IDEA STARTS HERE</p>
+        <h2 id="submission-title">Submit an Idea</h2>
+        <SubmissionInstructions />
+      </div>
+    </dialog>
     <footer class="site-footer"><a href="#invitation">Great Lakes Hackathon Challenge</a><span>Real data. Shared curiosity. New possibilities.</span><label class="motion-toggle"><input id="reduce-motion" type="checkbox" /><span>Less motion</span></label><a href="#invitation">Back to the surface ↑</a></footer>
-    <script>import '../scripts/glhc003/bootstrap.js'; import '../scripts/glhc003/info-session.js';</script>
+    <script>import '../scripts/glhc003/bootstrap.js'; import '../scripts/glhc003/info-session.js'; import '../scripts/glhc003/submission-dialog.js';</script>
   </body>
 </html>

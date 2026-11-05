@@ -92,3 +92,12 @@ Submission countdown (confirmed2026-11-04): opening is November5,2026 at5:30pm E
 
 Countdown date suffix: append “on 5 Nov.” after the5:30pm ET target in the live
 line; target instant/OPEN transition remain unchanged. Compact layout verified.
+
+Submission launch (2026-11-05): at the fixed 5:30pm Eastern opening instant,
+the countdown becomes “Submit an idea today! No build required.” First hero
+button now reads Submit an Idea and opens accessible template/fill/email
+instructions. To Edward.Millar@uwindsor.ca; CC info@raeonhacks.com. Anyone can
+submit without technical knowledge; advisors support selected ideas. Shared
+instructions also appear without JS/dialog support. Downloaded DOCX is unchanged
+at organizer request; its .ca CC is awaiting the organizer's later file update.
+The website's .com CC is explicitly confirmed. Do not silently edit the template.

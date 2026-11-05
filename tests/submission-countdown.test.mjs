@@ -21,6 +21,6 @@ test('countdown pads minutes/seconds, supports over 24h and never opens early', 
 test('clock resumes from current wall time, reaches OPEN and never counts negative', () => {
   assert.match(openingText(target,target-2000), /^0:00:02 /);
   assert.match(openingText(target,target-1000), /^0:00:01 /);
-  assert.equal(openingText(target,target), 'Idea Submissions are OPEN.');
-  assert.equal(openingText(target,target+86400000), 'Idea Submissions are OPEN.');
+  assert.equal(openingText(target,target), 'Submit an idea today! No build required.');
+  assert.equal(openingText(target,target+86400000), 'Submit an idea today! No build required.');
 });

@@ -1,0 +1,67 @@
+import { createRequire } from 'node:module';
+import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
+const require = createRequire(import.meta.url);
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE);
+const browser = await chromium.launch({headless:true, executablePath:process.env.CHROMIUM_PATH});
+const base = 'http://127.0.0.1:4335', target = Date.parse('2026-11-05T17:30:00-05:00');
+const dir = 'uat/glhc003/submission-launch';
+await fs.mkdir(dir,{recursive:true});
+const results = [];
+for (const [width,height] of [[320,568],[393,852],[1440,900],[568,320]]) {
+  const context = await browser.newContext({viewport:{width,height},timezoneId:'America/Los_Angeles',reducedMotion:'reduce',acceptDownloads:true});
+  const page = await context.newPage(), errors=[];
+  page.on('pageerror', e=>errors.push(String(e)));
+  await page.addInitScript(({target})=>{const realNow=Date.now.bind(Date);window.clockOffset=target-60000-realNow();Date.now=()=>realNow()+window.clockOffset;},{target});
+  await page.goto(base);
+  await page.waitForFunction(()=>document.querySelector('#intro-preloader').hidden);
+  assert.match(await page.locator('#submission-opening').textContent(),/^0:00:/);
+  await page.evaluate(target=>{window.clockOffset+=target-Date.now();window.dispatchEvent(new Event('pageshow'));},target);
+  await page.waitForFunction(()=>document.querySelector('#submission-opening').textContent==='Submit an idea today! No build required.');
+  const layout=await page.evaluate(()=>({hero:document.querySelector('#invitation').getBoundingClientRect().height,overflow:document.documentElement.scrollWidth>innerWidth,actionsBottom:document.querySelector('.hero-actions').getBoundingClientRect().bottom,cueTop:document.querySelector('.scroll-cue').getBoundingClientRect().top}));
+  assert.equal(layout.overflow,false); assert.ok(layout.hero<=height+1);assert.ok(layout.actionsBottom<layout.cueTop);
+  await page.locator('[data-submission-trigger]').click();
+  const dialog=page.locator('#submission-dialog');await dialog.waitFor({state:'visible'});
+  assert.equal(await page.evaluate(()=>document.activeElement?.hasAttribute('data-submission-close')),true);
+  assert.match(await dialog.textContent(),/Anyone can submit an idea/); assert.match(await dialog.textContent(),/advisors will help/);
+  const email=new URL(await dialog.locator('.submission-email').getAttribute('href'));
+  assert.equal(email.pathname,'Edward.Millar@uwindsor.ca');assert.equal(email.searchParams.get('cc'),'info@raeonhacks.com');
+  const size=await dialog.evaluate(e=>({width:e.clientWidth,scrollWidth:e.scrollWidth,height:e.clientHeight,scrollHeight:e.scrollHeight}));
+  assert.ok(size.scrollWidth<=size.width+1);
+  for(let i=0;i<8;i++){await page.keyboard.press('Tab');assert.equal(await dialog.evaluate(e=>e.contains(document.activeElement)),true);}
+  await dialog.evaluate(e=>e.scrollTop=0); await page.screenshot({path:`${dir}/${width}-modal.png`});
+  const [download]=await Promise.all([page.waitForEvent('download'),dialog.locator('.submission-download').click()]);
+  assert.equal(download.suggestedFilename(),'Great_Lakes_Hackathon_Idea_Proposal_Template.docx');
+  const bytes=await fs.readFile(await download.path());const hash=createHash('sha256').update(bytes).digest('hex');
+  assert.equal(hash,'c42abccce84043d6777d0d7663fb32155f712bef7bf099578dce96438fe8ee87');
+  await page.keyboard.press('Escape');assert.equal(await dialog.evaluate(e=>e.open),false);
+  assert.equal(await page.evaluate(()=>document.activeElement?.hasAttribute('data-submission-trigger')),true);
+  await page.locator('[data-submission-trigger]').click();await dialog.locator('[data-submission-close]').click();
+  await page.locator('[data-submission-trigger]').click();await page.mouse.click(1,1);assert.equal(await dialog.evaluate(e=>e.open),false);
+  assert.equal(await page.locator('.submission-fallback').isVisible(),false);
+  await page.locator('.header-register').click();assert.equal(await page.locator('#info-session-dialog').evaluate(e=>e.open),true);await page.keyboard.press('Escape');
+  await page.locator('.hero-actions a[href="#challenge"]').click();assert.equal(new URL(page.url()).hash,'#challenge');
+  assert.equal(errors.length,0);results.push({width,height,layout,size,downloadHash:hash,errors});
+  await context.close();console.log(`${width}x${height} passed`);
+}
+// Normal-motion mode must open the dialog without the section-scroll handler
+// navigating to the fallback; launch timer must switch without a resume event.
+const animated=await browser.newContext({viewport:{width:393,height:852}}),animatedPage=await animated.newPage();
+await animatedPage.route('**/scene.*.js', route=>route.abort()); // Submission UI survives a failed 3D load.
+await animatedPage.addInitScript(({target})=>{const real=Date.now.bind(Date);window.clockOffset=target-60000-real();Date.now=()=>real()+window.clockOffset;},{target});
+await animatedPage.goto(base);await animatedPage.waitForFunction(()=>document.querySelector('#intro-preloader').hidden);
+await animatedPage.locator('[data-submission-trigger]').click();
+assert.equal(await animatedPage.locator('#submission-dialog').evaluate(e=>e.open),true);
+await animatedPage.waitForTimeout(3500);assert.equal(new URL(animatedPage.url()).hash,'');
+await animatedPage.keyboard.press('Escape');
+await animatedPage.evaluate(target=>{window.clockOffset+=target-500-Date.now();},target);
+await animatedPage.waitForFunction(()=>document.querySelector('#submission-opening').textContent==='Submit an idea today! No build required.',{timeout:3000});
+results.push({normalMotion:'modal opens without section jump despite unavailable 3D; timer crosses launch automatically'});await animated.close();
+const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:568}}),page=await context.newPage();
+await page.goto(base);await page.locator('[data-submission-trigger]').click();
+assert.equal(new URL(page.url()).hash,'#submission-options');assert.equal(await page.locator('.submission-fallback').isVisible(),true);
+assert.equal(await page.locator('#info-session-options').isVisible(),true);
+assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+results.push({noJavaScript:'instructions, download/email links and session choices available'});
+await context.close();await browser.close();await fs.writeFile(`${dir}/results.json`,JSON.stringify(results,null,2));

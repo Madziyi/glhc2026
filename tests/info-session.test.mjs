@@ -8,8 +8,9 @@ const config = read('../public/site-config.js');
 const css = read('../src/styles/glhc003.css');
 const behavior = read('../src/scripts/glhc003/info-session.js');
 
-test('both site info-session CTAs open a shared accessible dialog', () => {
-  assert.equal((html.match(/data-info-session-trigger/g) || []).length, 2);
+test('info session remains available through the footer link', () => {
+  assert.equal((html.match(/data-info-session-trigger/g) || []).length, 1);
+  assert.match(html, /data-info-session-trigger href="#info-session-options">Info session options/);
   assert.match(html, /<dialog id="info-session-dialog"[^>]*aria-labelledby="info-session-title"[^>]*aria-describedby="info-session-description"/);
   assert.match(html, /data-info-session-close/);
   assert.match(behavior, /dialog\.showModal\(\)/);
@@ -30,4 +31,17 @@ test('two centrally configured session destinations appear in both modal and no-
   assert.equal((html.match(/rel="noopener noreferrer"/g) || []).length, 4);
   assert.match(css, /\.has-info-session-dialog #info-session-options\{display:none\}/);
   assert.match(behavior, /if \(dialog && typeof dialog\.showModal === 'function'/);
+});
+
+test('header and final CTA open the existing shared submission dialog', () => {
+  const submission = read('../src/scripts/glhc003/submission-dialog.js');
+  assert.equal((html.match(/data-submission-trigger/g) || []).length, 3);
+  assert.equal((html.match(/>Submit An Idea <span aria-hidden="true">↗<\/span><\/a>/g) || []).length, 2);
+  assert.match(html, /id="submission-dialog"/);
+  assert.match(html, /id="submission-options"/);
+  assert.match(submission, /querySelectorAll\('\[data-submission-trigger\]'\)/);
+  assert.match(submission, /for \(const trigger of triggers\)/);
+  assert.match(submission, /dialog\.showModal\(\)/);
+  assert.match(submission, /opener\?\.isConnected/);
+  assert.doesNotMatch(html, /Attend the info session/);
 });

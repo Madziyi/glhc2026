@@ -285,3 +285,9 @@
 - Live state: presentation could not be retrieved by web tool, so content/public sharing access not claimed. No merge/deployment/email. Next action: organizer reviews updated PR#8. Commit: published handoff.
 
 2026-11-05 PR#9 handoff: removed art from the requested submission-examples sentence in modal and no-JS fallback. Production build, exact built-HTML copy checks (both instances) and diff check passed locally on identical component content. Git pushes failed with remote commit_refs errors; GitHub API successfully created codex/submission-launch-v2 from the last published launch commit and applied the same one-word edit. PR#9 now contains the complete launch changes and latest wording. Original local commit5792c66 remains preserved; PR#8 left unchanged. No merge/deployment performed. Next action: organizer reviews https://github.com/Madziyi/glhc2026/pull/9.
+
+### 2026-11-06 — Sitewide Submit An Idea CTAs
+- Changed the header and final "Attend the info session" buttons to "Submit An Idea", both targeting the existing submission dialog and #submission-options static fallback.
+- Submission dialog enhancement now binds all three triggers (hero, header, final), preserves native Escape/backdrop/close, and returns focus to the opening trigger.
+- Kept access to the in-person/virtual info-session chooser via a small "Info session options" footer link; no Luma URLs were changed. Updated contract tests.
+- Verification: GitHub source-level validation only; no local Astro build or browser UAT performed. No explicit production deployment.

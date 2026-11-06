@@ -33,3 +33,5 @@ organizer request and will be updated by organizer later.
 Final replacement attachment supersedes intermediate file above:39,312 bytes,SHA2568debde5c40602d83d5041df0c77cfad304d7b09f5ebaebb822b52052e70e2850. Both CC instructions are now .com. Local built-preview HTTP download verified; no public deployment verified.
 
 2026-11-05 presentation follow-up: source adds organizer-supplied SharePoint presentation link before proposal download, with secure new-tab attributes. Automated web access could not retrieve the presentation; contents/public permissions are not verified. No production change or deployment performed.
+
+2026-11-06 source sync: origin/main9436d30 includes merged PR#9. Submission CTA follow-up starts from that source on codex/submission-ctas. Local preview4337 verifies shared submission modal; no hosting/deployment/public version verified.

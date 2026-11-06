@@ -285,3 +285,9 @@
 - Live state: presentation could not be retrieved by web tool, so content/public sharing access not claimed. No merge/deployment/email. Next action: organizer reviews updated PR#8. Commit: published handoff.
 
 2026-11-05 PR#9 handoff: removed art from the requested submission-examples sentence in modal and no-JS fallback. Production build, exact built-HTML copy checks (both instances) and diff check passed locally on identical component content. Git pushes failed with remote commit_refs errors; GitHub API successfully created codex/submission-launch-v2 from the last published launch commit and applied the same one-word edit. PR#9 now contains the complete launch changes and latest wording. Original local commit5792c66 remains preserved; PR#8 left unchanged. No merge/deployment performed. Next action: organizer reviews https://github.com/Madziyi/glhc2026/pull/9.
+
+### 2026-11-06 - Submit An Idea CTAs
+- Status: done, organizer review pending. Synced main9436d30 (PR#9 merged) and branched codex/submission-ctas. Preserved unrelated files.
+- Changed: header/ending labels now Submit An Idea and target existing submission modal; all three triggers initialized with per-opener focus return. Updated ending helper copy, hidden unused session fallback; retained existing session config/markup. No-JS links reach shared submission instructions.
+- Verification:20 tests, production build/diff pass;320x568/1440x900 browser checks verify all three modal triggers, Escape/focus restoration, close-button behavior, labels, no overflow, hidden old fallback and no-JS submission target. Mobile screenshot reviewed. Evidence uat/glhc003/submission-ctas/. Existing Vite chunk warning remains.
+- Live state: no production deployment/merge/email. Next action: organizer reviews follow-up PR. Commit: published handoff.

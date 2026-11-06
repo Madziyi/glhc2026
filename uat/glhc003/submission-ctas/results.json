@@ -1,0 +1,19 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "threeTriggersOpenSharedModal": true,
+    "focusReturnsToEachOpener": true,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "threeTriggersOpenSharedModal": true,
+    "focusReturnsToEachOpener": true,
+    "errors": []
+  },
+  {
+    "noJS": "all three links target visible submission instructions"
+  }
+]

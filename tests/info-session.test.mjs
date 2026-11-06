@@ -7,9 +7,14 @@ const html = read('../src/pages/index.astro');
 const config = read('../public/site-config.js');
 const css = read('../src/styles/glhc003.css');
 const behavior = read('../src/scripts/glhc003/info-session.js');
+const submissionBehavior = read('../src/scripts/glhc003/submission-dialog.js');
 
-test('both site info-session CTAs open a shared accessible dialog', () => {
-  assert.equal((html.match(/data-info-session-trigger/g) || []).length, 2);
+test('all three submission CTAs target the shared accessible submission dialog', () => {
+  assert.equal((html.match(/data-submission-trigger/g) || []).length, 3);
+  assert.equal((html.match(/data-info-session-trigger/g) || []).length, 0);
+  assert.match(html, /<dialog id="submission-dialog"[^>]*aria-labelledby="submission-title"/);
+  assert.match(submissionBehavior, /opener = trigger/);
+  assert.match(submissionBehavior, /opener\.focus\(\{ preventScroll: true \}\)/);
   assert.match(html, /<dialog id="info-session-dialog"[^>]*aria-labelledby="info-session-title"[^>]*aria-describedby="info-session-description"/);
   assert.match(html, /data-info-session-close/);
   assert.match(behavior, /dialog\.showModal\(\)/);
@@ -18,7 +23,7 @@ test('both site info-session CTAs open a shared accessible dialog', () => {
   assert.match(behavior, /event\.target === dialog/);
 });
 
-test('two centrally configured session destinations appear in both modal and no-JS fallback', () => {
+test('retained session destinations and configuration remain unchanged', () => {
   assert.match(config, /lumaUrl: 'https:\/\/luma\.com\/pz0iw2m7'/);
   assert.match(config, /virtualLumaUrl: 'https:\/\/luma\.com\/zrbvt2az'/);
   assert.match(html, /id="info-session-options"/);

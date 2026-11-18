@@ -1,3 +1,12 @@
+# Active Initiative — November 26 Info Session Calendar Links
+
+**Status:** Added to `main` via GitHub; source checks passed, full local build/browser UAT not performed in this pass.
+**Event:** November 26, 2026 at 5:30 PM Eastern, 2nd Floor, Joyce Entrepreneurship Centre, University of Windsor.
+**Current change:** Header button renamed to “Attend the Info Session.” Under the map link, Add to Calendar shows Google Calendar and a compatible .ics download. The one-hour 5:30–6:30 PM calendar hold is editable; actual end time is not confirmed. ICS provides a one-day and one-hour reminder.
+**Next action:** Run desktop/mobile browser UAT, import the ICS on representative devices, and check production deployment.
+
+---
+
 # Active Initiative — November 26 In-Person Info Session
 
 **Status:** Implemented through GitHub on `main`; full local build/browser UAT not run in this pass.

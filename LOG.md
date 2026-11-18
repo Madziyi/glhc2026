@@ -296,3 +296,8 @@
 - Added secondary "Info Session" header button and reusable event details in native dialog + no-JavaScript fallback. Information: Thu Nov 26, 2026, 5:30 PM ET, 2nd Floor Joyce Entrepreneurship Centre (beside Engineering Building), 2455 Wyandotte St W. Location backed by University of Windsor public information. External Google Maps button uses HTTPS, new tab and noopener noreferrer.
 - Native modal supports close/backdrop/Escape, opener-focus restoration; responsive button shortens to "Info Session" on phones. Existing Submit An Idea CTAs, submission modal, and prior session choices are untouched.
 - Verification: source contracts plus JavaScript mock-dialog interaction; full Astro build, physical/browser UAT, and production deployment not performed in this GitHub-only update.
+
+### 2026-11-18 — Info Session calendar chooser
+- Renamed the existing event header CTA "Attend the Info Session". Added native Add to Calendar disclosure below Google Maps in the shared November session detail component, preserving no-JS fallback.
+- Google Calendar URL prefills name, location, description and a 5:30–6:30 PM Eastern hold; an .ics file supports compatible Apple/Outlook/other calendars with DISPLAY reminders one day and one hour before. Explicitly notes end time is not confirmed; no account modification or automatic calendar insert.
+- Mobile header font/padding refined for the full label; existing submission buttons remain unchanged. Source contract validation completed; full Astro build, mobile/desktop browser and real-calendar app import not run.

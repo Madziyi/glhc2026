@@ -1,5 +1,6 @@
 ---
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=Joyce%20Entrepreneurship%20Centre%2C%202455%20Wyandotte%20Street%20West%2C%20Windsor%2C%20Ontario%2C%20Canada';
+const googleCalendarUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Great%20Lakes%20Hackathon%20Challenge%20-%20Info%20Session&dates=20261126T223000Z%2F20261126T233000Z&details=Great%20Lakes%20Hackathon%20in-person%20info%20session%2C%20Thursday%20November%2026%20at%205%3A30%20PM%20Eastern.%20Joyce%20Entrepreneurship%20Centre%2C%202nd%20Floor%2C%20next%20to%20the%20University%20of%20Windsor%20Engineering%20Building.%20One-hour%20calendar%20hold%3B%20actual%20end%20time%20not%20confirmed.%20More%3A%20https%3A%2F%2Fraeonhacks.com%2F&location=Joyce%20Entrepreneurship%20Centre%2C%202nd%20Floor%2C%202455%20Wyandotte%20Street%20West%2C%20Windsor%2C%20Ontario%2C%20Canada&trp=false';
 ---
 <div class="event-details">
   <p class="event-details__date"><time datetime="2026-11-26T17:30:00-05:00">Thursday, November 26, 2026 · 5:30 PM ET</time></p>
@@ -10,4 +11,12 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=Joyce%20Entrepre
     <span>2455 Wyandotte Street West, Windsor, ON</span>
   </p>
   <a class="button event-details__map" href={mapUrl} target="_blank" rel="noopener noreferrer" aria-label="Open Joyce Entrepreneurship Centre in Google Maps (opens in a new tab)">Open in Google Maps <span aria-hidden="true">↗</span></a>
+  <details class="event-details__calendar">
+    <summary class="button event-details__calendar-toggle">Add to Calendar <span aria-hidden="true">+</span></summary>
+    <div class="event-details__calendar-options">
+      <a href={googleCalendarUrl} target="_blank" rel="noopener noreferrer">Google Calendar <span aria-hidden="true">↗</span></a>
+      <a href="/downloads/Great_Lakes_Hackathon_Info_Session_Nov_26_2026.ics" download="Great_Lakes_Hackathon_Info_Session_Nov_26_2026.ics">Apple, Outlook &amp; other calendars (.ics) <span aria-hidden="true">↓</span></a>
+    </div>
+    <p class="event-details__calendar-note">Calendar entries reserve one hour from 5:30 PM. The actual end time is not confirmed. The .ics file includes reminders one day and one hour before.</p>
+  </details>
 </div>

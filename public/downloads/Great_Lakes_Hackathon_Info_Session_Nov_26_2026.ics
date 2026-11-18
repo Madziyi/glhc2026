@@ -1,0 +1,30 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Great Lakes Hackathon Challenge//Info Session//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:glhc-info-session-20261126-1730@raeonhacks.com
+DTSTAMP:20261118T160000Z
+DTSTART:20261126T223000Z
+DTEND:20261126T233000Z
+SUMMARY:Great Lakes Hackathon Challenge - Info Session
+LOCATION:Joyce Entrepreneurship Centre\, 2nd Floor\, 2455 Wyandotte Street 
+ West\, Windsor\, Ontario\, Canada
+DESCRIPTION:Great Lakes Hackathon in-person info session at University of W
+ indsor. 2nd Floor Joyce Entrepreneurship Centre (next to Engineering Build
+ ing). One-hour calendar hold starting at 5:30 PM Eastern; actual end time 
+ not confirmed. See https://raeonhacks.com/.
+URL:https://raeonhacks.com/
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Great Lakes Hackathon info session tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT1H
+DESCRIPTION:Great Lakes Hackathon info session in one hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR

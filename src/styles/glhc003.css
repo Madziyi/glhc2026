@@ -140,3 +140,26 @@ html.intro-active{overflow:hidden}
 .info-session-dialog a:focus-visible,.info-session-dialog button:focus-visible,.info-session-fallback a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 @media(max-width:480px){.info-session-dialog{width:calc(100% - 1rem);max-height:calc(100dvh - 1rem);border-radius:17px}.info-session-dialog__inner{padding:1.5rem 1rem}.info-session-dialog h2{margin-right:1.75rem}.info-session-dialog__close{top:.75rem;right:.75rem}.info-session-choice{padding:1rem 3rem 1rem 1rem;min-height:99px}.info-session-choice__arrow{right:1rem}}
 @media(prefers-reduced-motion:reduce){.info-session-choice{transition:none}.info-session-choice:hover{transform:none}}
+
+/* Nov 26 in-person event — existing site buttons/dialog style, with a compact mobile header. */
+.site-header nav{gap:.75rem}
+.site-header .header-register{gap:.6rem;white-space:nowrap}
+.header-event{background:#06364add;color:#f6f6ed;border:1px solid #b9e3d59c}
+.header-event:hover{background:#0b4659;color:#fff}
+.header-event__date{font-weight:500}
+.has-event-dialog #november-info-session{display:none}
+.event-details{max-width:510px;margin:1rem auto 0;text-align:left}
+.event-details__date{font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;line-height:1.4;color:var(--yellow);margin:0 0 1.35rem}
+.event-details__venue{display:flex;flex-direction:column;gap:.35rem;color:#d0e4e0;font-size:1rem;line-height:1.5}
+.event-details__venue strong{font-size:1.2rem;color:#f6f6ed}
+.event-details__map{margin-top:1.25rem;min-height:48px}
+.event-fallback .event-details{text-align:center}
+.event-fallback .event-details__venue{align-items:center}
+.event-dialog a:focus-visible,.event-fallback a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media(max-width:600px){
+  .site-header nav{gap:.45rem}
+  .site-header .header-register{gap:.35rem;min-height:42px;padding:.55rem .65rem;font-size:.69rem}
+  .header-event__date{display:none}
+  .event-details__date{font-size:1.05rem}
+  .event-details__venue{font-size:.93rem}
+}

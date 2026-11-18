@@ -291,3 +291,8 @@
 - Submission dialog enhancement now binds all three triggers (hero, header, final), preserves native Escape/backdrop/close, and returns focus to the opening trigger.
 - Kept access to the in-person/virtual info-session chooser via a small "Info session options" footer link; no Luma URLs were changed. Updated contract tests.
 - Verification: GitHub source-level validation only; no local Astro build or browser UAT performed. No explicit production deployment.
+
+### 2026-11-18 — November 26 info session CTA
+- Added secondary "Info Session" header button and reusable event details in native dialog + no-JavaScript fallback. Information: Thu Nov 26, 2026, 5:30 PM ET, 2nd Floor Joyce Entrepreneurship Centre (beside Engineering Building), 2455 Wyandotte St W. Location backed by University of Windsor public information. External Google Maps button uses HTTPS, new tab and noopener noreferrer.
+- Native modal supports close/backdrop/Escape, opener-focus restoration; responsive button shortens to "Info Session" on phones. Existing Submit An Idea CTAs, submission modal, and prior session choices are untouched.
+- Verification: source contracts plus JavaScript mock-dialog interaction; full Astro build, physical/browser UAT, and production deployment not performed in this GitHub-only update.

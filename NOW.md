@@ -1,3 +1,11 @@
+# Active Initiative — November 26 In-Person Info Session
+
+**Status:** Implemented through GitHub on `main`; full local build/browser UAT not run in this pass.
+**Goal:** Keep all Submit An Idea calls to action. Add a responsive Info Session header button that opens an accessible dialog with Thu Nov 26, 2026 5:30 PM Eastern at the second floor of Joyce Entrepreneurship Centre (next to Engineering Building, University of Windsor). Add a Google Maps location button, plus visible no-JS fallback.
+**Next action:** Verify mobile/desktop browser rendering and deployment of the newest main commit.
+
+---
+
 # Active Initiative — GLHC Submission Launch
 
 **Status:** Implemented and locally verified; ready for organizer review.
